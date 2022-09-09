@@ -1,0 +1,28 @@
+# Python files
+*.py[cod]
+__pycache__
+# Local env
+.env
+.venv
+.linuxvenv
+env/
+venv/
+
+# Hidden codes
+.idea
+.vscode
+.bzr
+.bzrignore
+.DS_Store
+.coverage
+
+# Testing and deployment
+htmlcov
+invoke.yaml
+odoo.conf
+studio
+
+# Odoo.sh modules
+website_animate
+theme_common
+theme_graphene
