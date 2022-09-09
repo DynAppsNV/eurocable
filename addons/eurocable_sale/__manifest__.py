@@ -13,5 +13,6 @@
         'security/ir.model.access.csv',
         'wizard/sales_wizard_views.xml',
         'views/sales_views.xml',
+        'views/partner_views.xml',
     ],
 }
