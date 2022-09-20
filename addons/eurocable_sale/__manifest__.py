@@ -14,5 +14,6 @@
         'wizard/sales_wizard_views.xml',
         'views/sales_views.xml',
         'views/partner_views.xml',
+        'report/sale_report_template.xml'
     ],
 }
