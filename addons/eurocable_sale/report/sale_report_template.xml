@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_order_inherit_discount"
+              inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div/div[@id='total']/div/table/t[1]" position="after">
+            <tr class="border-black" style="">
+                <td>
+                    <strong>Total Price</strong>
+                </td>
+                <td class="text-right">
+                    <span t-field="doc.total_prices"/>
+                </td>
+            </tr>
+            <tr class="border-black" style="">
+                <td>
+                    <strong>Total Disc</strong>
+                </td>
+                <td class="text-right">
+                    <span t-field="doc.total_discount"/>
+                </td>
+            </tr>
+        </xpath>
+    </template>
+</odoo>
