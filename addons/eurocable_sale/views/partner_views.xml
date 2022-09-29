@@ -11,4 +11,48 @@
         </field>
     </record>
 
+    <record id="res_partner_kanban_view_inherit" model="ir.ui.view">
+        <field name="name">res.partner.kanban</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.res_partner_kanban_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//li[@t-if='record.parent_id.raw_value and record.function.raw_value']" position="after">
+                <li t-if="record.street.raw_value">
+                    <t t-if="record.street.raw_value">
+                        <field name="street"/>
+                    </t>
+                </li>
+            </xpath>
+            <xpath expr="//t[@t-if='record.city.raw_value']" position="before">
+                <t t-if="record.zip.raw_value">
+                    <field name="zip"/>
+                    <t t-if="record.city.raw_value">,</t>
+                </t>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_partner_tree_inherit" model="ir.ui.view">
+        <field name="name">res.partner.tree</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <field name="city" position="before">
+                <field name="street" optional="show"/>
+                <field name="zip" optional="show"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_res_partner_filter_inherit" model="ir.ui.view">
+        <field name="name">res.partner.search</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="vat"/>
+            </field>
+        </field>
+    </record>
+
 </odoo>
