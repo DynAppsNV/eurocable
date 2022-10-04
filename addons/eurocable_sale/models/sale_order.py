@@ -32,7 +32,7 @@ class SaleOrder(models.Model):
 
     def action_confirm(self):
         show_warning = self._context.get('show_warning', False)
-        if not self.partner_id.vat and not show_warning:
+        if not self.partner_id.vat and not show_warning and not self.partner_id.is_not_vat:
             return {
                 'name': 'Warning',
                 'type': 'ir.actions.act_window',
