@@ -7,7 +7,7 @@
     'category': 'Sale',
     'license': 'LGPL-3',
     'depends': [
-        'sale', 'smile_audit'
+        'sale', 'smile_audit', 'contacts'
     ],
     'data': [
         'security/ir.model.access.csv',
