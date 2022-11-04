@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-05 11:04+0000\n"
-"PO-Revision-Date: 2022-10-05 11:04+0000\n"
+"POT-Creation-Date: 2022-11-03 09:46+0000\n"
+"PO-Revision-Date: 2022-11-03 09:46+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -25,83 +25,25 @@ msgstr ""
 "            <span class=\"bold\">Période : </span>"
 
 #. module: eurocable_account
-#: code:addons/eurocable_account/models/account_partner_ledger_clients.py:0
-#: code:addons/eurocable_account/models/account_partner_ledger_suppliers.py:0
-#, python-format
-msgid "Account"
-msgstr ""
+#: model_terms:ir.ui.view,arch_db:eurocable_account.eurocable_filter_info_template
+msgid "Account :"
+msgstr "Compte : "
+
+#. module: eurocable_account
+#: model_terms:ir.ui.view,arch_db:eurocable_account.view_move_form_inherit
+msgid "BOOK"
+msgstr "COMPTABILISER"
 
 #. module: eurocable_account
 #: code:addons/eurocable_account/models/account_partner_ledger_clients.py:0
-#: code:addons/eurocable_account/models/account_partner_ledger_suppliers.py:0
 #, python-format
-msgid "Amount Currency"
+msgid "Clients"
 msgstr ""
-
-#. module: eurocable_account
-#: code:addons/eurocable_account/models/account_partner_ledger_clients.py:0
-#: code:addons/eurocable_account/models/account_partner_ledger_suppliers.py:0
-#, python-format
-msgid "Balance"
-msgstr ""
-
-#. module: eurocable_account
-#: code:addons/eurocable_account/models/account_partner_ledger_clients.py:0
-#: code:addons/eurocable_account/models/account_partner_ledger_suppliers.py:0
-#, python-format
-msgid "Credit"
-msgstr ""
-
-#. module: eurocable_account
-#: code:addons/eurocable_account/models/account_partner_ledger_clients.py:0
-#: code:addons/eurocable_account/models/account_partner_ledger_suppliers.py:0
-#, python-format
-msgid "Debit"
-msgstr ""
-
-#. module: eurocable_account
-#: code:addons/eurocable_account/models/account_partner_ledger_clients.py:0
-#: code:addons/eurocable_account/models/account_partner_ledger_suppliers.py:0
-#, python-format
-msgid "Due Date"
-msgstr ""
-
-#. module: eurocable_account
-#: code:addons/eurocable_account/models/account_partner_ledger_clients.py:0
-#: code:addons/eurocable_account/models/account_partner_ledger_suppliers.py:0
-#, python-format
-msgid "Initial Balance"
-msgstr ""
-
-#. module: eurocable_account
-#: code:addons/eurocable_account/models/account_partner_ledger_clients.py:0
-#: code:addons/eurocable_account/models/account_partner_ledger_suppliers.py:0
-#, python-format
-msgid "JRNL"
-msgstr ""
-
-#. module: eurocable_account
-#: code:addons/eurocable_account/models/account_partner_ledger_clients.py:0
-#: code:addons/eurocable_account/models/account_partner_ledger_suppliers.py:0
-#, python-format
-msgid "Load more... (%s remaining)"
-msgstr ""
-
-#. module: eurocable_account
-#: code:addons/eurocable_account/models/account_partner_ledger_clients.py:0
-#: code:addons/eurocable_account/models/account_partner_ledger_suppliers.py:0
-#, python-format
-msgid "Matching Number"
-msgstr ""
-
-#. module: eurocable_account
-#: model:ir.ui.menu,name:eurocable_account.menu_action_account_report_partner_ledger_client
-msgid "Partner Ledger Clients"
-msgstr "Livre des tiers clients"
 
 #. module: eurocable_account
 #: code:addons/eurocable_account/models/account_partner_ledger_clients.py:0
 #: model:ir.actions.client,name:eurocable_account.action_account_report_partner_ledger_client
+#: model:ir.ui.menu,name:eurocable_account.menu_action_account_report_partner_ledger_client
 #, python-format
 msgid "Partner Ledger Clients"
 msgstr "Livre des tiers clients"
@@ -127,43 +69,41 @@ msgid "Suppliers"
 msgstr "Fournisseurs"
 
 #. module: eurocable_account
-#: code:addons/eurocable_account/models/account_partner_ledger_clients.py:0
+#: model_terms:ir.ui.view,arch_db:eurocable_account.invoice_form_inherit_account_intrastat_inh
+msgid "Transaction code"
+msgstr "Code de transaction"
+
+#. module: eurocable_account
+#: code:addons/eurocable_account/models/account_intrastat_clients.py:0
+#: code:addons/eurocable_account/models/account_intrastat_suppliers.py:0
+#: model:ir.model.fields,field_description:eurocable_account.field_account_move_line__weight
 #, python-format
-msgid "Clients"
-msgstr "Clients"
+msgid "Weight"
+msgstr "Poids"
 
 #. module: eurocable_account
-#: code:addons/eurocable_account/models/account_partner_ledger_clients.py:0
-#: code:addons/eurocable_account/models/account_partner_ledger_suppliers.py:0
-#, python-format
-msgid "Ref"
-msgstr ""
+#: model:ir.model,name:eurocable_account.model_account_intrast_clients
+msgid "account.intrast.clients"
+msgstr "Rapport intrastat clients"
 
 #. module: eurocable_account
-#: code:addons/eurocable_account/models/account_partner_ledger_clients.py:0
-#: code:addons/eurocable_account/models/account_partner_ledger_suppliers.py:0
-#, python-format
-msgid "Total"
-msgstr ""
+#: model:ir.model,name:eurocable_account.model_account_intrast_suppliers
+msgid "account.intrast.suppliers"
+msgstr "Rapport intrastat fournisseurs"
 
 #. module: eurocable_account
-#: code:addons/eurocable_account/models/account_partner_ledger_clients.py:0
-#: code:addons/eurocable_account/models/account_partner_ledger_suppliers.py:0
-#, python-format
-msgid "Unknown Partner"
-msgstr ""
+#: model:ir.actions.client,name:eurocable_account.action_account_report_intrastat_suppliers
+#: model:ir.ui.menu,name:eurocable_account.menu_action_account_report_intrast_suppliers
+msgid "Intrastat report suppliers"
+msgstr "Rapport intrastat fournisseurs"
 
 #. module: eurocable_account
-#: model_terms:ir.ui.view,arch_db:eurocable_account.eurocable_filter_info_template
-msgid "Account :"
-msgstr "Compte : "
+#: model:ir.actions.client,name:eurocable_account.action_account_report_intrastat_inherits
+#: model:ir.ui.menu,name:eurocable_account.menu_action_account_report_intrast_inherit
+msgid "Intratstat report clients"
+msgstr "Rapport intrastat clients"
 
 #. module: eurocable_account
-#: model_terms:ir.ui.view,arch_db:eurocable_account.view_move_form_inherit
-msgid "BOOK"
-msgstr "COMPTABILISER"
-
-#. module: account
-#: model_terms:ir.ui.view,arch_db:account.view_move_form
-msgid "Set as Checked"
-msgstr "ENREGISTRER COMME VÉRIFIÉE"
+#: model:ir.model.fields,field_description:eurocable_account.field_account_move_line__intrastat_id
+msgid "Commodity code"
+msgstr "Code de la marchandise"
