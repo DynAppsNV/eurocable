@@ -9,7 +9,7 @@ class AccountMove(models.Model):
 
     intrastat_id = fields.Many2one('account.intrastat.code',
                                    store=True, string="Commodity code")
-    weight = fields.Float(store=True)
+    weight = fields.Float(store=True, default=0.0, )
     co_commd = fields.Char(related='product_id.intrastat_id.code', store=True)
     uom_id = fields.Many2one('uom.uom')
     uom_category_id = fields.Many2one('uom.category')
@@ -22,10 +22,11 @@ class AccountMove(models.Model):
     def compute_intrastat_code(self):
         intrastat_transaction_id = self.env['account.intrastat.code'].search([('code', '=', 11)]).id
         for rec in self:
+            rec.intrastat_transaction_id = intrastat_transaction_id
             if rec.product_id:
                 rec.intrastat_id = rec.product_id.intrastat_id
                 rec.weight = rec.product_id.weight
                 rec.uom_id = rec.product_id.uom_id
                 rec.uom_category_id = rec.uom_id.category_id
                 rec.factor = rec.uom_id.factor
-                rec.intrastat_transaction_id = intrastat_transaction_id
+

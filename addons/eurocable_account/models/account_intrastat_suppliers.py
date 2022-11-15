@@ -1,8 +1,8 @@
 # Copyright 2022 Eezee-IT (<http://www.eezee-it.com>)
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
 
-from odoo import models, api, _lt, _
-
+from odoo import models, api, _
+import math
 
 class IntrastatReports(models.Model):
     _inherit = 'account.intrastat.report'
@@ -118,6 +118,11 @@ class IntrastatReports(models.Model):
         del (intrastat_report_line['columns'][4:9])
         del (intrastat_report_line['columns'][4])
         intrastat_report_line['columns'].insert(4, {'name': vals['intrastat']})
+        prod_weight = list(intrastat_report_line['columns'][5].values())[0]
+        if prod_weight:
+            intrastat_report_line['columns'][5] = {'name': math.ceil(float(prod_weight))}
+        else:
+            intrastat_report_line['columns'][5] = {'name': ''}
         return intrastat_report_line
 
     @api.model
@@ -136,4 +141,3 @@ class IntrastatReports(models.Model):
     def _get_filter_journals(self):
         #only show sale/purchase journals
         return self.env['account.journal'].search([('company_id', 'in', self.env.companies.ids or [self.env.company.id]), ('type', '=', 'purchase')], order="company_id, name")
-
