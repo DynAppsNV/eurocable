@@ -9,7 +9,7 @@
     'depends': [
         'account',
         'account_reports',
-        'account_intrastat'
+        'account_intrastat',
     ],
     'data': [
         "views/account_move_line_view.xml",

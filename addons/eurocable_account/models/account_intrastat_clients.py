@@ -1,8 +1,8 @@
 # Copyright 2022 Eezee-IT (<http://www.eezee-it.com>)
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
 
-from odoo import models, api, _lt, _
-
+from odoo import models, api, _
+from math import ceil
 
 class IntrastatReports(models.Model):
     _inherit = 'account.intrastat.report'
@@ -23,11 +23,11 @@ class IntrastatReports(models.Model):
             ]
         columns += [
             {'name': _('Commodity Code')},
-            {'name': _('Origin Country')},
-            {'name': _('Partner VAT')},
             {'name': _('Weight')},
             {'name': _('Quantity')},
             {'name': _('Value'), 'class': 'number'},
+            {'name': _('Origin Country')},
+            {'name': _('Partner VAT')},
         ]
         return columns
 
@@ -123,6 +123,23 @@ class IntrastatReports(models.Model):
         intrastat_report_line['columns'].insert(4, {'name': vals['intrastat']})
         del (intrastat_report_line['columns'][7])
         del (intrastat_report_line['columns'][7])
+
+        """recover data """
+        origin_country = list(intrastat_report_line['columns'][5].values())[0]
+        vat = list(intrastat_report_line['columns'][6].values())[0]
+        prod_weight = list(intrastat_report_line['columns'][7].values())[0]
+        qty = list(intrastat_report_line['columns'][8].values())[0]
+        value = list(intrastat_report_line['columns'][9].values())[0]
+
+        """Change position"""
+        if prod_weight:
+            intrastat_report_line['columns'][5] = {'name': ceil(prod_weight)}
+        else:
+            intrastat_report_line['columns'][5] = {'name': ''}
+        intrastat_report_line['columns'][6] = {'name': qty}
+        intrastat_report_line['columns'][7] = {'name': value}
+        intrastat_report_line['columns'][8] = {'name': origin_country}
+        intrastat_report_line['columns'][9] = {'name': vat}
         return intrastat_report_line
 
     @api.model
@@ -137,10 +154,6 @@ class IntrastatReports(models.Model):
             if vals['supplementary_units'] is None:
                 vals['supplementary_units'] = vals['line_quantity']
         return query_results
-
-    # filter_intrastat_type = [
-    #     {'name': _lt('Dispatch'), 'selected': False, 'id': 'dispatch'},
-    # ]
 
     def _get_filter_journals(self):
         #only show sale/purchase journals
