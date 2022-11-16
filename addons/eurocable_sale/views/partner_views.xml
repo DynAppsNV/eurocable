@@ -25,6 +25,24 @@
         </field>
     </record>
 
+    <record id="view_partner_form_inherit" model="ir.ui.view">
+        <field name="name">res.partner.zip_id.2</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <field name="zip_id" position="replace"/>
+            <field name="zip" position="before">
+                <field
+                    name="zip_id"
+                    options="{'create_name_field': 'city', 'no_open': True, 'no_create': True}"
+                    placeholder="Location completion"
+                    class="oe_edit_only"
+                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"
+                />
+            </field>
+        </field>
+    </record>
+
     <record id="res_partner_kanban_view_inherit" model="ir.ui.view">
         <field name="name">res.partner.kanban</field>
         <field name="model">res.partner</field>
