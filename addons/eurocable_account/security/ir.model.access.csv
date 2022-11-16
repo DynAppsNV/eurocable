@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_model_account_intrast_clients_readonly,account.intrast.clients,model_account_intrast_clients,account.group_account_readonly,1,0,0,0
+access_model_account_intrast_clients_invoice,account.intrast.clients,model_account_intrast_clients,account.group_account_invoice,1,0,0,0
+access_account_intrast_suppliers_readonly,account.intrast.suppliers,model_account_intrast_suppliers,account.group_account_readonly,1,0,0,0
+access_account_intrast_suppliers_invoice,account.intrast.suppliers,model_account_intrast_suppliers,account.group_account_invoice,1,0,0,0

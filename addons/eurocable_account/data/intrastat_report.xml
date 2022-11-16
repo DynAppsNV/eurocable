@@ -9,7 +9,8 @@
 
     <menuitem id="menu_action_account_report_intrast_inherit"
               action="action_account_report_intrastat_inherits" name="Intratstat report clients"
-              parent="account_reports.account_reports_audit_reports_menu"/>
+              parent="account_reports.account_reports_audit_reports_menu"
+              groups="account.group_account_readonly"/>
 
     <!-- Intrastat Report Suppliers -->
     <record id="action_account_report_intrastat_suppliers" model="ir.actions.client">
@@ -20,5 +21,6 @@
     </record>
     <menuitem id="menu_action_account_report_intrast_suppliers"
               action="action_account_report_intrastat_suppliers" name="Intrastat report suppliers"
-              parent="account_reports.account_reports_audit_reports_menu"/>
+              parent="account_reports.account_reports_audit_reports_menu"
+              groups="account.group_account_readonly"/>
 </odoo>
