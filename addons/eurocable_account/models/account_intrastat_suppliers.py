@@ -2,7 +2,7 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
 
 from odoo import models, api, _
-import math
+
 
 class IntrastatReports(models.Model):
     _inherit = 'account.intrastat.report'
@@ -120,7 +120,7 @@ class IntrastatReports(models.Model):
         intrastat_report_line['columns'].insert(4, {'name': vals['intrastat']})
         prod_weight = list(intrastat_report_line['columns'][5].values())[0]
         if prod_weight:
-            intrastat_report_line['columns'][5] = {'name': math.ceil(float(prod_weight))}
+            intrastat_report_line['columns'][5] = {'name': round(float(prod_weight))}
         else:
             intrastat_report_line['columns'][5] = {'name': ''}
         return intrastat_report_line
