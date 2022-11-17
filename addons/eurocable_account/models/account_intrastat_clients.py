@@ -2,6 +2,7 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
 
 from odoo import models, api, _
+from odoo.tools import float_round
 
 
 class IntrastatReports(models.Model):
@@ -133,7 +134,7 @@ class IntrastatReports(models.Model):
 
         """Change position"""
         if prod_weight:
-            intrastat_report_line['columns'][5] = {'name': round(prod_weight)}
+            intrastat_report_line['columns'][5] = {'name': int(float_round(prod_weight, precision_rounding=1))}
         else:
             intrastat_report_line['columns'][5] = {'name': ''}
         intrastat_report_line['columns'][6] = {'name': qty}

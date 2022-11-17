@@ -88,6 +88,11 @@ msgid "Commodity Code"
 msgstr "GOEDERENCODE"
 
 #. module: eurocable_account
+#: model:ir.model.fields,field_description:eurocable_account.field_account_move_line__intrastat_id
+msgid "Commodity code"
+msgstr "GOEDERENCODE"
+
+#. module: eurocable_account
 #: code:addons/eurocable_account/models/account_intrastat_clients.py:0
 #: code:addons/eurocable_account/models/account_intrastat_suppliers.py:0
 #, python-format
