@@ -9,7 +9,7 @@
                 <field name="region_code" invisible="1"/>
                 <field name="co_commd" invisible="1"/>
             </xpath>
-            <xpath expr="//field[@name='quantity']" position="after">
+            <xpath expr="//form/sheet/notebook/page[@id='invoice_tab']/field/tree/field[@name='quantity']" position="after">
                 <field name="weight"/>
                 <field name="uom_id" invisible="1"/>
                 <field name="uom_category_id"/>
