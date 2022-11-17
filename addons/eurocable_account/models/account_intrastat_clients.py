@@ -2,7 +2,7 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
 
 from odoo import models, api, _
-from math import ceil
+
 
 class IntrastatReports(models.Model):
     _inherit = 'account.intrastat.report'
@@ -133,7 +133,7 @@ class IntrastatReports(models.Model):
 
         """Change position"""
         if prod_weight:
-            intrastat_report_line['columns'][5] = {'name': ceil(prod_weight)}
+            intrastat_report_line['columns'][5] = {'name': round(prod_weight)}
         else:
             intrastat_report_line['columns'][5] = {'name': ''}
         intrastat_report_line['columns'][6] = {'name': qty}
