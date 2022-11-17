@@ -13,8 +13,8 @@
     ],
     'data': [
         "views/account_move_line_view.xml",
-        "data/views/intrastat_report.xml",
-        'data/account_financial_report_data.xml',
+        "views/intrastat_report.xml",
+        'views/account_financial_report.xml',
         'views/report_financial.xml',
         'views/account_move.xml',
     ],
