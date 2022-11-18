@@ -2,6 +2,7 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
 
 from odoo import models, api, _
+from odoo.tools import float_round
 
 
 class IntrastatReports(models.Model):
@@ -120,7 +121,7 @@ class IntrastatReports(models.Model):
         intrastat_report_line['columns'].insert(4, {'name': vals['intrastat']})
         prod_weight = list(intrastat_report_line['columns'][5].values())[0]
         if prod_weight:
-            intrastat_report_line['columns'][5] = {'name': round(float(prod_weight))}
+            intrastat_report_line['columns'][5] = {'name': int(float_round(float(prod_weight), precision_rounding=1))}
         else:
             intrastat_report_line['columns'][5] = {'name': ''}
         return intrastat_report_line
