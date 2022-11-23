@@ -42,7 +42,6 @@
             </field>
         </field>
     </record>
-
     <record id="res_partner_kanban_view_inherit" model="ir.ui.view">
         <field name="name">res.partner.kanban</field>
         <field name="model">res.partner</field>
