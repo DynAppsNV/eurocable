@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_header">
+        <div class="header">
+        </div>
+    </template>
+
+    <template id="report_footer">
+        <div class="footer">
+        </div>
+    </template>
+
+    <template id="sale_report_certification">
+        <t t-call="eurocable_sale.report_header"/>
+        <t t-call="eurocable_sale.report_footer"/>
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="order">
+                    <div class="page">
+                        <div class="aoe_structure"/>
+                        <table width="100%" style="font-size: 18px;margin-bottom:10px;">
+                            <tr>
+                                <td width="50%">
+                                    <img src="eurocable_sale/static/img/logo.png"
+                                         alt="Logo" style="max-height: 5cm; max-width: 10cm;"/>
+                                </td>
+                                <td width="50%">
+                                    <h2 style="text-align:center; color:black;">
+                                        <b>CERTIFICATE</b>
+                                    </h2>
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="table" valign="left" style="font-size: 12px;margin-bottom:10px;">
+
+                            <tr>
+                                <td style="border: 1px solid black;">
+                                    Naam en adres van de fabrikant of diens vertegenwoordiger
+                                    <br/>
+                                    Nom et adresse du fabricant ou de son mandataire
+                                    <br/>
+                                    Name and adress of manufacturer or his representative
+                                </td>
+                                <t t-foreach="docs" t-as="order">
+                                    <td style="border: 1px solid black;">
+                                        <t t-esc="docs.company_id.name"></t>
+                                        <br/>
+                                        <t t-esc="docs.company_id.street"></t>,
+                                        <t t-esc="docs.company_id.country_id.code"/>-
+                                        <t t-esc="docs.company_id.zip"></t>
+                                        <t t-esc="docs.company_id.city"></t>
+                                        <br/>
+                                        Tel <t t-esc="docs.company_id.phone"></t> /
+                                        <t t-esc="docs.company_id.email"></t>
+
+                                    </td>
+                                </t>
+
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black;">
+                                    Klant
+                                    <br/>
+                                    Client
+                                    <br/>
+                                    Customer
+                                </td>
+                                <td style="border: 1px solid black;">
+                                    <t t-esc="order.order_id.partner_id.name"></t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black;">
+                                    Klant referentie
+                                    <br/>
+                                    Reference client
+                                    <br/>
+                                    Customer reference
+                                </td>
+                                <td style="border: 1px solid black;">
+                                    <t t-esc="order.order_id.client_order_ref"></t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black;">
+                                    Document referentie
+                                    <br/>
+                                    Reference document
+                                    <br/>
+                                    Document reference
+                                </td>
+                                <td style="border: 1px solid black;">
+                                    <t t-esc="order.order_id.name"></t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black;">
+                                    Type Document
+                                    <br/>
+                                    Type de document
+                                    <br/>
+                                    Document Type
+                                </td>
+                                <td style="border: 1px solid black;">
+                                    <b>
+                                        <t t-esc="order.document_type.name"></t>
+                                    </b>
+                                    <br/>
+                                    <t t-esc="order.document_type.text"></t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black;">
+                                    Omschrijving van het materiaal
+                                    <br/>
+                                    Description du matériel
+                                    <br/>
+                                    Description of the material
+                                </td>
+                                <td style="border: 1px solid black;">
+                                    <t t-esc="order.name"></t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black;">
+                                    Eenheid
+                                    <br/>
+                                    Unité
+                                    <br/>
+                                    Unity
+                                </td>
+                                <td style="border: 1px solid black;">
+                                    <t t-esc="order.product_uom.name"></t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black;">
+                                    Opmerkingen
+                                    <br/>
+                                    Remarques
+                                    <br/>
+                                    Comments
+                                </td>
+                                <td style="border: 1px solid black;">
+                                    <t t-esc="order.certificate_notes"></t></td>
+                            </tr>
+                        </table>
+                        <t t-esc="order.order_id.company_id.name"/><br/>
+                        <img src="eurocable_sale/static/img/sign.png" style="max-height: 5cm; max-width: 5cm;"/><br/>
+                        <t t-esc="order.order_id.user_id.name"/><br/>
+                        <t t-esc="order.order_id.user_id.partner_id.function"/><br/>
+                        <p style="display: inline-block"><t t-esc="docs.company_id.city" ></t>,
+                            <t t-esc="order.order_id.date_order" t-options="{'widget': 'date'}"/></p>
+                    </div>
+                    <div style="page-break-after: always;"/>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="paperformat_certification_report" model="report.paperformat">
+        <field name="name">Order Certification</field>
+        <field name="default" eval="False"/>
+        <field name="format">Letter</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">10</field>
+        <field name="margin_bottom">30</field>
+        <field name="margin_left">10</field>
+        <field name="margin_right">10</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">10</field>
+        <field name="dpi">90</field>
+    </record>
+    <record id="report_certification" model="ir.actions.report">
+        <field name="name">Certification</field>
+        <field name="model">sale.order.line</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">eurocable_sale.sale_report_certification</field>
+        <field name="report_file">eurocable_sale.sale_report_certification</field>
+        <field name="print_report_name">'Certification for Quotation - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_sale_order_line"/>
+        <field name="paperformat_id" ref="eurocable_sale.paperformat_certification_report"/>
+        <field name="binding_type">report</field>
+        <field name="attachment"></field>
+        <field name="attachment_use" eval="True"/>
+        <field name="attachment_use">True</field>
+    </record>
+
+</odoo>

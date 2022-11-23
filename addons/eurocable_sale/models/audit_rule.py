@@ -11,9 +11,9 @@ class AuditRule(models.Model):
         model = self.sudo().model_id.model
         if old_values or new_values:
             data = self._format_data_to_log(old_values, new_values)
-            AuditLog = self.env['audit.log'].sudo()
+            auditlog_obj = self.env['audit.log'].sudo()
             for res_id in data:
-                AuditLog.create({
+                auditlog_obj.create({
                     'user_id': self._uid,
                     'model_id': self.sudo().model_id.id,
                     'res_id': res_id,

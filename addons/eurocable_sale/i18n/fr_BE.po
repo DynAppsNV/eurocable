@@ -121,3 +121,326 @@ msgstr ""
 #: model:ir.model,name:eurocable_sale.model_sales_wizard
 msgid "sales wizard"
 msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_1
+msgid ""
+"According to the CE-Machinery directive (2006/42/CE). Undersigned, Paul Sillis, manager of\n"
+"                            EUROCABLE nv and holder of the technical report, declares that the goods meet all the\n"
+"                            fundamental safety and health requirements of the EC-machine directive, rovide that they are\n"
+"                            used and maintained according to the rules of good craftsmanship."
+msgstr ""
+
+"Selon la directive des machines (2006/42/CE). Le soussigné P.SILLIS, gérant de\n"
+"                            EUROCABLE nv and holder of the technical report, declares that the goods meet all the\n"
+"                            la société EUROCABLE s.a, galement titulaire du dossier technique déclare que les marchandises fabriquées\n"
+"                            par la société EUROCABLE nv., à condition qu’elles soient employées et entretenus conformément\n."
+"                            aux “Conseils pratiques sur l’utilisation et ’entretien”. Répondent aux exigences essentielles\n"
+"                             de sécurité et santé de la CE DIRECTIVES MACHINE.\n"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_1
+msgid ""
+"CE DECLARATION OF CONFORMITY\n"
+"                            Appendix IIA / EN13414-3"
+msgstr ""
+"CE DECLARATION DE CONFORMITE\n"
+"                        <br>\n"
+"                            Annexe IIA / EN13414-3"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_1
+msgid ""
+"Surface: Galvanized\n"
+"                        <br>\n"
+"                        Tensile strength: 1960N/mm²\n"
+"                        <br>\n"
+"                        Construction: 7 x (6x36WS+iwrc)\n"
+"                        <br>\n"
+"                        Finish: endless grummet\n"
+"                        <br>\n"
+"                        Safety factor : 6,33-0,022*d\n"
+"                        <br>"
+msgstr ""
+"Draadoppervlak: Verz.\n"
+"                        <br>\n"
+"                        Treksterkte: 1960N/mm²\n"
+"                        <br>\n"
+"                        Constructie: 7 x (6x36WS+STK)\n"
+"                        <br>\n"
+"                        Afwerking: eindloze grommer\n"
+"                        <br>\n"
+"                        Veiligheidsfactor : 6,33-0,022*d\n"
+
+
+
+
+
+
+
+
+
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_2
+msgid ""
+"CE DECLARATION OF CONFORMITY\n"
+"                        <br>\n"
+"                        Appendix IIA / EN13414-3"
+msgstr ""
+"CE DECLARATION DE CONFORMITE\n"
+"                        <br>\n"
+"                            Annexe IIA / EN13414-3"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_2
+msgid ""
+"Surface: Galvanized\n"
+"                    <br>\n"
+"                    Tensile strength: 1960N/mm²\n"
+"                    <br>\n"
+"                    Construction: 7 x (6x36WS+iwrc)\n"
+"                    <br>\n"
+"                    Finish: endless grummet\n"
+"                    <br>\n"
+"\n"
+"                    Safety factor : 3:1"
+msgstr ""
+"Surface: Galvanisé\n"
+"                    <br>\n"
+"                    Résistance: 1960N/mm²\n"
+"                    <br>\n"
+"                    Construction: 7 x (6x36WS+AA)\n"
+"                    <br>\n"
+"                    Finition: grelin sans fin\n"
+"                    <br>\n"
+"\n"
+"                    Coefficient de sécurité: 3:1"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_2
+msgid ""
+"According to the CE-Machinery directive (2006/42/CE).\n"
+"                        Undersigned, Paul Sillis, manager of EUROCABLE nv and holder of the technical report,\n"
+"                        declares that the goods meet all the fundamental safety and health\n"
+"                        requirements of the EC-machine directive, rovide that they are used and maintained\n"
+"                        according to the rules of good craftsmanship."
+
+msgstr ""
+"Selon la directive des machines (2006/42/CE).\n"
+"Le soussigné P.SILLIS, gérant de la société EUROCABLE s.a, galement titulaire\n"
+"du dossier technique déclare que les marchandises fabriquées par la société EUROCABLE nv.,\n"
+"à condition qu’elles soient employées et entretenus conformément aux “Conseils pratiques\n"
+"sur l’utilisation et ’entretien”. Répondent aux exigences essentielles\n"
+ "de sécurité et santé de la CE DIRECTIVES MACHINE.\n"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_3
+#: model_terms:document.type,text:eurocable_sale.document_type_4
+#: model_terms:document.type,text:eurocable_sale.document_type_5
+#: model_terms:document.type,text:eurocable_sale.document_type_9
+msgid ""
+"CE DECLARATION OF CONFORMITY"
+msgstr ""
+"CE DECLARATION DE CONFORMITE\n"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_3
+#: model_terms:document.type,text:eurocable_sale.document_type_7
+msgid "Safety factor : 5/1
+
+msgstr ""
+"Coefficient de sécurité : 5/1"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_3
+#: model_terms:document.type,text:eurocable_sale.document_type_7
+msgid ""
+"According to the CE-Machinery directive (2006/42/CE).\n"
+"                        Undersigned, Paul Sillis, manager of EUROCABLE nv\n"
+"                        and holder of the technical report,\n"
+"                        declares that the goods meet all the fundamental\n"
+"                        safety and health requirements of the EC-machine\n"
+"                        directive, provide that they are used and maintained\n"
+"                        according to the rules of good craftsmanship."
+
+msgstr ""
+"Selon la directive des machines (2006/42/CE).\n"
+"Le soussigné P.SILLIS, gérant de la société\n"
+"EUROCABLE s.a, également titulaire du dossier\n"
+"technique déclare que les marchandises\n"
+"fabriquées par la société EUROCABLE nv.,\n"
+"à condition qu’elles soient employées\n"
+"et entretenus conformément aux\n"
+"“Conseils pratiques sur l’utilisation et l’entretien”.\n"
+"Répondent aux exigences essentielles de sécurité\n"
+"et santé de la CE DIRECTIVES MACHINE.\n"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_4
+msgid "Safety factor : 7/1"
+msgstr ""
+"Coefficient de sécurité : 7/1"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_4
+msgid ""
+"We declare under our responsibility that the mentioned product(s),\n"
+"                        with CE marking, comply with the essential requirements of machinery directive 2006/42/EC,\n"
+"                        according to annex IIA. Our QC-manager is authorized to compile the technical file.\n"
+"                        We remind you that it is forbidden that the lifting equipment, in which the above product(s)\n"
+"                        is/are used,\n"
+"                        is put into operation before it is declared to be in compliance with the machinery directive\n"
+"                        rules."
+msgstr ""
+"Selon la directive des machines (2006/42/CE).\n"
+"Le soussigné P.SILLIS, gérant de la société\n"
+"EUROCABLE s.a, également titulaire du dossier\n"
+"technique déclare que les marchandises\n"
+"fabriquées par la société EUROCABLE nv.,\n"
+"à condition qu’elles soient employées\n"
+"et entretenus conformément aux\n"
+"“Conseils pratiques sur l’utilisation et l’entretien”.\n"
+"Répondent aux exigences essentielles de sécurité\n"
+"et santé de la CE DIRECTIVES MACHINE.\n"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_5
+msgid "Safety factor : 6:1"
+msgstr ""
+"Coefficient de sécurité : 6/1"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_5
+msgid ""
+"We declare under our responsibility that the mentioned product(s),\n"
+"                        with CE marking, comply with the essential requirements of machinery directive 2006/42/EC,\n"
+"                        according to annex IIA. Our QC-manager is authorized to compile the technical file.\n"
+"                        We remind you that it is forbidden that the lifting equipment,\n"
+"                        in which the above product(s) is/are used, is put into operation before it is declared\n"
+"                        to be in compliance with the machinery directive rules."
+msgstr ""
+"Nous déclarons sous notre responsabilité que le ou les produits mentionnés(s) et portant\n"
+"le marquage CE correspondent aux exigences essentielles de la directive machine 2006/42/EC,\n"
+"selon l’annexe IIA. Notre responsable qualité est autorisé à constituer le dossier technique.\n"
+"Nous vous rappelons qu’il est formellement interdit d’utiliser l‘appareil de levage,\n"
+"avec lequel les produits mentionnés ci-dessus sont utilisés, sans avoir vérifié au préalable\n"
+"que l’appareil répond aux exigences de la directive machine.\n"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_6
+msgid ""
+"According to the CE-Machinery directive (2006/42/CE). Undersigned, Paul Sillis, manager of\n"
+"                        EUROCABLE nv and\n"
+"                        holder of the technical report, declares that the goods meet all the fundamental safety and\n"
+"                        health requirements\n"
+"                        of the EC-machine directive, rovide that they are used and maintained according to the rules of\n"
+"                        good\n"
+"                        craftsmanship."
+msgstr ""
+"Selon la directive des machines (2006/42/CE). Le soussigné P.SILLIS, gérant de la société\n"
+"EUROCABLE s.a, galement titulaire du dossier technique déclare que les marchandises\n"
+"fabriquées par la société EUROCABLE nv., à condition qu’elles soient employées et entretenus\n"
+"conformément aux “Conseils pratiques sur l’utilisation et ’entretien”.\n"
+"Répondent aux exigences essentielles de sécurité et santé de la CE DIRECTIVES MACHINE.\n"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_6
+msgid ""
+"CE DECLARATION OF CONFORMITY\n"
+"                        <br>\n"
+"                        Appendix IIA / EN13414-3\n"
+"                        <br>"
+msgstr ""
+"CE DECLARATION DE CONFORMITE\n"
+"                        <br>\n"
+"                        Annexe IIA / EN13414-3\n"
+"                        <br>"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_6
+msgid ""
+"Surface: Galvanized\n"
+"                    <br>\n"
+"                    Tensile strength: 1960N/mm²\n"
+"                    <br>\n"
+"                    Construction: 7 x (6x36WS+iwrc)\n"
+"                    <br>\n"
+"                    Finish: endless grummet\n"
+"                    <br>\n"
+"\n"
+"                    Safety factor : 5/1\n"
+"                    <br>"
+msgstr ""
+"Surface: Galvanisé\n"
+"                    <br>\n"
+"                    Résistance: 1960N/mm²\n"
+"                    <br>\n"
+"                    Construction: 7 x (6x36WS+AA)\n"
+"                    <br>\n"
+"                    Finition: grelin sans fin\n"
+"                    <br>\n"
+"\n"
+"                    Coefficient de sécurité 5:1\n"
+"                    <br>"
+
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_7
+msgid ""
+"CE DECLARATION OF CONFORMITY\n"
+"                        <br>\n"
+"                        declaration of incorporation (former IIB)"
+msgstr ""
+"CE DECLARATION DE CONFORMITE\n"
+"                        <br>\n"
+"                        déclaration d'incorporation (avant, II B)"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_8
+msgid ""
+"CE DECLARATION OF CONFORMITY\n"
+"                    <br>"
+msgstr ""
+"CE DECLARATION DE CONFORMITE"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_8
+msgid ""
+"According to the CE-Machinery directive (2006/42/CE).\n"
+"                        Undersigned, Paul Sillis, manager of EUROCABLE nv\n"
+"                        and holder of the technical report, declares that the goods meet all\n"
+"                        the fundamental safety and health requirements of the EC-machine directive,\n"
+"                        rovide that they are used and maintained according to the rules of good craftsmanship."
+msgstr ""
+"Selon la directive des machines (2006/42/CE).\n"
+"Le soussigné P.SILLIS, gérant de la société EUROCABLE s.a,\n"
+"galement titulaire du dossier technique déclare\n"
+"que les marchandises fabriquées par la société EUROCABLE nv.,\n"
+"à condition qu’elles soient employées et entretenus conformément\n"
+"aux “Conseils pratiques sur l’utilisation et ’entretien”.\n"
+"Répondent aux exigences essentielles de sécurité et santé de la CE DIRECTIVES MACHINE.\n"
+
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_9
+msgid ""
+"According to the CE-Machinery directive (2006/42/CE).\n"
+"                        Undersigned, Paul Sillis, manager of EUROCABLE nv and holder of the technical report,\n"
+"                        declares that the goods meet all the fundamental safety and health requirements\n"
+"                        of the EC-machine directive, provide that they are used and maintained\n"
+"                        according to the rules of good craftsmanship."
+msgstr ""
+"Selon la directive des machines (2006/42/CE). Le soussigné P.SILLIS,\n"
+"gérant de la société EUROCABLE s.a, également titulaire du dossier\n"
+"technique déclare que les marchandises fabriquées par la société EUROCABLE nv.,\n"
+"à condition qu’elles soient employées et entretenus conformément\n"
+"aux “Conseils pratiques sur l’utilisation et l’entretien”.\n"
+"Répondent aux exigences essentielles de sécurité et santé de la CE DIRECTIVES MACHINE.\n"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_9
+msgid "Safety factor : 4/1"
+
+msgstr ""
+"Coefficient de sécurité : 4/1"
