@@ -18,11 +18,11 @@
                 <t t-foreach="docs" t-as="order">
                     <div class="page">
                         <div class="aoe_structure"/>
-                        <table width="100%" style="font-size: 18px;margin-bottom:10px;">
+                        <table width="100%" style="font-size: 14px;margin-bottom:10px;">
                             <tr>
                                 <td width="50%">
                                     <img src="eurocable_sale/static/img/logo.png"
-                                         alt="Logo" style="max-height: 5cm; max-width: 10cm;"/>
+                                         alt="Logo" style="max-height: 2cm; max-width: 10cm;"/>
                                 </td>
                                 <td width="50%">
                                     <h2 style="text-align:center; color:black;">
@@ -31,10 +31,10 @@
                                 </td>
                             </tr>
                         </table>
-                        <table class="table" valign="left" style="font-size: 12px;margin-bottom:10px;">
 
+                        <table class="table" valign="left" style="font-size: 9px;margin-bottom:10px;">
                             <tr>
-                                <td style="border: 1px solid black;">
+                                <td width="40%" style="border: 1px solid black;">
                                     Naam en adres van de fabrikant of diens vertegenwoordiger
                                     <br/>
                                     Nom et adresse du fabricant ou de son mandataire
@@ -145,12 +145,12 @@
                                     <t t-esc="order.certificate_notes"></t></td>
                             </tr>
                         </table>
-                        <t t-esc="order.order_id.company_id.name"/><br/>
-                        <img src="eurocable_sale/static/img/sign.png" style="max-height: 5cm; max-width: 5cm;"/><br/>
-                        <t t-esc="order.order_id.user_id.name"/><br/>
-                        <t t-esc="order.order_id.user_id.partner_id.function"/><br/>
-                        <p style="display: inline-block"><t t-esc="docs.company_id.city" ></t>,
+                        <span style="font-size: 9px">
+                        <img src="eurocable_sale/static/img/sign.png" style="max-height: 4cm; max-width: 4cm;"/><br/>
+                        <t t-esc="order.order_id.user_id.name" /><br/>
+                        <p style="display: inline-block"><t t-esc="docs.company_id.city"></t>,
                             <t t-esc="order.order_id.date_order" t-options="{'widget': 'date'}"/></p>
+                        </span>
                     </div>
                     <div style="page-break-after: always;"/>
                 </t>
