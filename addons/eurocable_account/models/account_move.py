@@ -9,6 +9,7 @@ class AccountMove(models.Model):
 
     def action_post(self):
         for move in self:
-            move.to_check = True
+            if move.move_type in ['in_invoice', 'in_refund']:
+                move.to_check = True
         res = super(AccountMove, self).action_post()
         return res
