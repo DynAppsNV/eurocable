@@ -118,8 +118,11 @@ class IntrastatReports(models.Model):
 
     @api.model
     def _create_intrastat_report_line(self, options, vals):
-        intrastat_report_line = super()._create_intrastat_report_line(options, vals)
+        vals.update({
+            'value': float_round(vals['value'], precision_rounding=1)
+        })
 
+        intrastat_report_line = super()._create_intrastat_report_line(options, vals)
         del(intrastat_report_line['columns'][4:6])
         intrastat_report_line['columns'].insert(4, {'name': vals['intrastat']})
         del (intrastat_report_line['columns'][7])
@@ -160,3 +163,4 @@ class IntrastatReports(models.Model):
         #only show sale/purchase journals
         return self.env['account.journal'].search([('company_id', 'in', self.env.companies.ids or [self.env.company.id]),
                                                    ('type', '=', 'sale')], order="company_id, name")
+

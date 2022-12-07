@@ -115,6 +115,9 @@ class IntrastatReports(models.Model):
 
     @api.model
     def _create_intrastat_report_line(self, options, vals):
+        vals.update({
+            'value': float_round(vals['value'], precision_rounding=1)
+        })
         intrastat_report_line = super()._create_intrastat_report_line(options, vals)
         del (intrastat_report_line['columns'][4:9])
         del (intrastat_report_line['columns'][4])
