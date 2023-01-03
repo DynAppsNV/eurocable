@@ -14,6 +14,6 @@
 
         <menuitem id="menu_action_account_report_partner_ledger_client" name="Partner Ledger Clients" action="action_account_report_partner_ledger_client" parent="account_reports.account_reports_partners_reports_menu" groups="account.group_account_readonly"/>
         <menuitem id="menu_action_account_report_partner_ledger_suppliers" name="Partner Ledger Suppliers" action="action_account_report_partner_ledger_suppliers" parent="account_reports.account_reports_partners_reports_menu" groups="account.group_account_readonly"/>
-        <menuitem id="account_reports.menu_action_account_report_partner_ledger" groups="base.group_no_one"/>
+        <menuitem id="account_reports.menu_action_account_report_partner_ledger" name="Partner Ledger" parent="account_reports.account_reports_partners_reports_menu" groups="base.group_no_one"/>
 
 </odoo>
