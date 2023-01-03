@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sales_wizard" model="ir.ui.view">
+        <field name="name">sales.wizard.form</field>
+        <field name="model">sales.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Warning">
+                <label for="message"/>
+                <div name="message">
+                    <field name="message" class="oe_inline"/>
+                </div>
+                <footer>
+                    <button string="Apply"  name="confirm_sale_order"  type="object" class="oe_highlight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
