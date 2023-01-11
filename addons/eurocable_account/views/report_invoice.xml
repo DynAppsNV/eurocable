@@ -3,16 +3,31 @@
     <template id="account_intrastat.report_invoice_document_intrastat_2019" inherit_id="account.report_invoice_document">
         <xpath expr="//th[3]" position="before">
             <th class="text-right">HS code</th>
+            <t t-if="o.partner_id.property_account_position_id">
+                <th t-if="o.partner_id.property_account_position_id.is_weight" class="text-right">Weight</th>
+            </t>
         </xpath>
         <xpath expr="//td[3]" position="before">
             <td class="text-right">
                 <span t-field="line.intrastat_id.code"/>
             </td>
+            <t t-if="o.partner_id.property_account_position_id">
+                <td t-if="o.partner_id.property_account_position_id.is_weight" class="text-right">
+                    <span t-field="line.weight"/>
+                </td>
+            </t>
         </xpath>
-        <xpath expr="//t[@t-set='address']" position="inside">
-            <br/>
-            <h5>Deliver-to Address</h5>
-           <address t-field="o.partner_shipping_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+
+        <xpath expr="//address" position="before">
+            <t t-if="o.partner_shipping_id">
+                <t t-set="information_block">
+                    <div name="shipping_address_block">
+                        <strong>Shipping Address:</strong>
+                        <div t-field="o.partner_shipping_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+                    </div>
+                    <br/>
+                </t>
+            </t>
         </xpath>
     </template>
 </odoo>
