@@ -2,7 +2,7 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
 {
     'name': 'Eurocable Account',
-    'version': '15.0.1.0.12',
+    'version': '15.0.1.0.13',
     'author': 'Eezee-It',
     'category': 'Account',
     'license': 'LGPL-3',
