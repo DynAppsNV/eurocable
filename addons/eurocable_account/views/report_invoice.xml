@@ -18,16 +18,14 @@
             </t>
         </xpath>
 
-        <xpath expr="//address" position="before">
+        <xpath expr="//t[@t-set='address']" position="inside">
             <t t-if="o.partner_shipping_id">
-                <t t-set="information_block">
-                    <div name="shipping_address_block">
-                        <strong>Shipping Address:</strong>
-                        <div t-field="o.partner_shipping_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
-                    </div>
-                    <br/>
-                </t>
+                <br/>
+                <strong>Shipping Address:</strong>
+                <address t-field="o.partner_shipping_id"
+                         t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
             </t>
         </xpath>
     </template>
+
 </odoo>
