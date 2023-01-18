@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="report_report_picking_inherit_stock" inherit_id="stock.report_picking">
+    <template id="report_report_picking_inherit_stock" inherit_id="stock.report_picking" >
         <xpath expr="//div[@name='div_sched_date']" position="after">
             <div class="row justify-content-end" t-if="o.sudo().sale_id.client_order_ref">
                 <div class="col-auto">
@@ -8,6 +8,22 @@
                     <p t-field="o.sudo().sale_id.client_order_ref"/>
                 </div>
             </div>
+            <div class="row justify-content-end" t-if="o.date_done">
+                <div class="col-auto">
+                    <strong>Date de Livraison:</strong>
+                    <p t-field="o.date_done"/>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//th[@name='th_product']" position="replace">
+            <th name="th_description">
+                <strong>Description</strong>
+            </th>
+        </xpath>
+        <xpath expr="//t[@t-foreach='o.move_line_ids_without_package']/tr/td[1]" position="replace">
+            <td>
+                <span t-field="ml.description_picking"/>
+            </td>
         </xpath>
     </template>
 </odoo>
