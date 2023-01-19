@@ -9,7 +9,7 @@
                 <attribute name="invisible">1</attribute>
             </field>
             <field name="payment_term_id" position="after">
-                <field name="weight_total" invisible="0"/>
+                <field name="weight_total" invisible="1"/>
             </field>
             <xpath expr="//form/header" position="inside">
             <button name="print_certificate" string="Print Certificate" type="object" states="sale"/>
