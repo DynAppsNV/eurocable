@@ -1,0 +1,10 @@
+[flake8]
+# E123,E133,E226,E241,E242 are ignored by default by pep8 and flake8
+# F811 is legal in odoo 8 when we implement 2 interfaces for a method
+# [EXT-37]Ignore complexity(C901) and list comprehension error(F812)
+ignore = E123,E133,E226,E241,E242,F811,C901,F812,D100,D101,D400,D102,D403,D210,D205,D202
+max-line-length = 120
+exclude = __unported__,env,.git,env/odoo,addons-community,__init__.py,script,eezee-box,eezee_platinum,tasks.py,addons/studio_customization,addons/studio_permanent_customization
+max-complexity = 10
+
+

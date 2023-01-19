@@ -1,0 +1,30 @@
+---
+
+odoo_bin_directory: env/community
+odoo_bin_exec_name: odoo-bin
+odoo_conf: odoo.conf
+
+custom_addons: False
+
+odoo_addons_directories:
+  - env/enterprise
+  - env/community/odoo/addons
+  - env/community/addons
+  - addons-community
+  - addons-community/oca
+
+custom_addons_directories:
+  - addons
+
+odoo_languages:
+  - en_US
+  - fr_BE
+  - nl_BE
+
+
+database_name: test_{project}
+odoo_lint_disable: rst-syntax-error,missing-readme,unnecessary-utf8-coding-comment
+test_log_level : test
+test_log_handlers : odoo.modules.loading:INFO,werkzeug:CRITICAL
+with_coverage: True
+debug: False

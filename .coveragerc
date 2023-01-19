@@ -1,0 +1,24 @@
+[run]
+omit =
+        *site-packages*
+        *system_site_packages*
+        *__init__*
+        */odoo/*
+        */community/*
+        */enterprise/*
+        */python3.5/*
+        *addons-community/*
+
+[report]
+omit =
+        *site-packages*
+        *system_site_packages*
+        *__init__*
+        */odoo/*
+        */community/*
+        */enterprise/*
+        */python3.5/*
+        *addons-community/*
+        */tests/*
+skip_covered = True
+show_missing = True

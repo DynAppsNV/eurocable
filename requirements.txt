@@ -1,0 +1,4 @@
+Avalara
+cryptography==3.3.2
+pyOpenSSL==20.0.0
+stripe

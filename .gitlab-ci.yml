@@ -1,0 +1,73 @@
+# https://chezsoi.org/lucas/blog/bonnes-pratiques-gitlab-ci.html
+default:
+  cache:
+    paths:
+      - .cache/pip
+      
+variables:
+  ODOO_SRC: "/home/gitlab-runner/odoo_src"
+  ODOO_VERSION: "15.0"
+  GIT_DEPTH: 1
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+stages:
+  - lint
+  - unittest
+  - cleanup
+
+flake8:
+  tags:
+    - flake8
+  stage: lint
+  except:
+    - tags
+  script:
+    - python3 -m venv env
+    - source env/bin/activate
+    - pip3 install -q -r requirements-dev.txt
+    - cp invoke.yaml.template invoke.yaml
+    - inv lint
+  retry: 2
+  
+tests:
+  tags:
+    - eezeeit
+    - odoo
+  stage: unittest
+  except:
+    - tags
+  script:
+  # Use short commit hash as database name
+  - DBNAME=$(git rev-parse --short HEAD)
+  - git submodule init && git submodule update
+  - git --git-dir=$ODOO_SRC/odoo.git fetch origin *:*
+  - git --git-dir=$ODOO_SRC/enterprise.git fetch origin *:*
+  - python3 -m venv env
+  - source env/bin/activate
+  - python -V
+  - pip3 install --upgrade pip
+  - pip3 install -q -r requirements.txt
+  - pip3 install -q -r requirements-dev.txt
+  - inv clean --database-name=$DBNAME
+  - git clone --quiet --branch=$ODOO_VERSION $ODOO_SRC/odoo.git env/community
+  - rm -rf env/community/.git
+  - pip3 install -q -r env/community/requirements.txt
+  - git clone --quiet --branch=$ODOO_VERSION $ODOO_SRC/enterprise.git env/enterprise
+  - rm -rf env/enterprise/.git
+  - createdb --encoding=UTF8 --locale=en_US.UTF-8 --template=template0 $DBNAME
+  - cp invoke.yaml.template invoke.yaml
+  - inv unittest --build --database-name=$DBNAME
+  #- grep pc_cov htmlcov/index.html | egrep -o "[0-9]+\%" | awk '{{ print "covered " $1;}}'
+  - inv clean --database-name=$DBNAME
+  retry: 2
+
+cleanup_job:
+  tags:
+   - eezeeit
+   - odoo
+  stage: cleanup
+  script:
+  - DBNAME=$(git rev-parse --short HEAD)
+  - dropdb --if-exists $DBNAME
+  when: on_failure
+
