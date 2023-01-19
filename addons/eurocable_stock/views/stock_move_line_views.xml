@@ -7,8 +7,6 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='product_id']" position="after">
                 <field name="description_picking" optional="show"/>
-                <field name="weight" optional="show"/>
-                <field name="weight_total" optional="show"/>
             </xpath>
         </field>
     </record>

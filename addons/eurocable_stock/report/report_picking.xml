@@ -15,10 +15,10 @@
                 </div>
             </div>
 
-            <div class="row justify-content-end" t-if="o.weight_move_line_total">
+            <div class="row justify-content-end" t-if="o.weight_move_total">
                 <div class="col-auto">
                     <strong>Total Weight:</strong>
-                    <p t-field="o.weight_move_line_total"/>
+                    <p t-field="o.weight_move_total"/>
                 </div>
             </div>
         </xpath>

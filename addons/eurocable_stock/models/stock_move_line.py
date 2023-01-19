@@ -12,20 +12,6 @@ class StockMoveLine(models.Model):
         compute="_compute_total_weight",
         store=True)
 
-    @api.onchange("product_id")
-    def _onchange_weight(self):
-        if self.product_id:
-            self.weight = self.product_id.weight
-
-    @api.depends(
-        "product_id",
-        "qty_done",
-        "weight")
-    def _compute_total_weight(self):
-        for rec in self:
-            if rec.weight:
-                rec.weight_total = rec.weight * rec.qty_done
-
     @api.onchange('product_id', 'product_uom_id')
     def _onchange_product_id(self):
         res = super(StockMoveLine, self)._onchange_product_id()
