@@ -1,16 +1,10 @@
 # Copyright 2022 Eezee-IT (<http://www.eezee-it.com>)
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
-from odoo import models, fields, api
+from odoo import models, api
 
 
 class StockMoveLine(models.Model):
     _inherit = "stock.move.line"
-
-    weight = fields.Float(default=0.0)
-    weight_total = fields.Float(
-        default=0.0,
-        compute="_compute_total_weight",
-        store=True)
 
     @api.onchange('product_id', 'product_uom_id')
     def _onchange_product_id(self):

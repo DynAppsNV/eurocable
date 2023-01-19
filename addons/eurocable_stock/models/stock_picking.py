@@ -7,9 +7,9 @@ class StockPicking(models.Model):
     _inherit = "stock.picking"
 
     weight_move_total = fields.Float(
-        default=0.0,
-        compute="_compute_total_move_weight",
+        related='sale_id.weight_total',
         store=True)
+
 
     @api.depends("move_ids_without_package")
     def _compute_total_move_weight(self):

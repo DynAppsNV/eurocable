@@ -6,26 +6,6 @@ from odoo import models, fields, api
 class StockMove(models.Model):
     _inherit = "stock.move"
 
-    weight = fields.Float(default=0.0)
-    weight_total = fields.Float(
-        default=0.0,
-        compute="_compute_total_weight",
-        store=True)
-
-    @api.onchange("product_id")
-    def _onchange_weight(self):
-        if self.product_id:
-            self.weight = self.product_id.weight
-
-    @api.depends(
-        "product_id",
-        "product_uom_qty",
-        "weight")
-    def _compute_total_weight(self):
-        for rec in self:
-            if rec.weight:
-                rec.weight_total = rec.weight * rec.product_uom_qty
-
     @api.onchange('product_id', 'picking_type_id')
     def _onchange_product_id(self):
         res = super(StockMove, self)._onchange_product_id()

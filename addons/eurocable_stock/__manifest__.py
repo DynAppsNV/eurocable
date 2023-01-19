@@ -8,6 +8,7 @@
     'license': 'LGPL-3',
     'depends': [
         'stock',
+        'sale_stock',
     ],
     'data': [
         'report/report_picking.xml',
