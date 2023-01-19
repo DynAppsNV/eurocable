@@ -30,4 +30,16 @@
             </xpath>
         </field>
     </record>
+
+    <record id="view_quotation_tree_with_onboarding_inherit" model="ir.ui.view">
+        <field name="name">sale.order.view.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="client_order_ref" optional="show"/>
+            </field>
+        </field>
+    </record>
+
 </odoo>
