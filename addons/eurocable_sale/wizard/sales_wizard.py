@@ -2,14 +2,17 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
 from odoo import api, fields, models
 
+
 class SalesWizard(models.TransientModel):
     _name = 'sales.wizard'
     _description = 'sales wizard'
 
-    message = fields.Text(string="The VAT field of partner is empty",
-                          readonly=True,
-                          store=True)
     sales_id = fields.Many2one('sale.order')
+    message = fields.Text(
+        string="The VAT field of partner is empty",
+        readonly=True,
+        store=True
+    )
 
     @api.model
     def default_get(self, fields):

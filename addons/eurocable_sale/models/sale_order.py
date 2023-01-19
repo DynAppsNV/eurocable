@@ -27,9 +27,10 @@ class SaleOrder(models.Model):
         for line in self:
             line.weight_total = sum(line.order_line.mapped('weight_total'))
 
-
-
-
+    attachment_certification_ids = fields.Many2many(
+        'ir.attachment',
+        domain="[('is_certificate', '=', True)]"
+    )
 
     @api.depends("order_line")
     def _compute_total_prices(self):
