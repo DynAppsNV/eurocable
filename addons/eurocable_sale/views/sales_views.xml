@@ -9,7 +9,7 @@
                 <attribute name="invisible">1</attribute>
             </field>
             <field name="payment_term_id" position="after">
-                <field name="weight_total" invisible="1"/>
+                <field name="weight_total" invisible="0"/>
             </field>
             <xpath expr="//form/header" position="inside">
             <button name="print_certificate" string="Print Certificate" type="object" states="sale"/>
@@ -28,6 +28,7 @@
             </xpath>
             <xpath expr="//field[@name='order_line']//tree//field[@name='product_uom']" position="before">
                 <field name="weight" optional="show"/>
+                <field name="weight_total" optional="show"/>
                 <field name="document_type"/>
                 <field name="certificate_notes"/>
                 <field name="has_certificate"/>

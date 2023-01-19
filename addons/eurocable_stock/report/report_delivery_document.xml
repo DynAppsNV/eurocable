@@ -6,6 +6,10 @@
                 <strong>Date de Livraison:</strong>
                 <p t-field="o.date_done"/>
             </div>
+            <div t-if="o.weight_move_total" class="col-auto" name="div_date_done">
+                <strong>Total Weight:</strong>
+                <p t-field="o.weight_move_total"/>
+            </div>
         </xpath>
         <xpath expr="//th[@name='th_sm_product']" position="replace">
             <th name="th_description">

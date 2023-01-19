@@ -14,6 +14,13 @@
                     <p t-field="o.date_done"/>
                 </div>
             </div>
+
+            <div class="row justify-content-end" t-if="o.weight_move_line_total">
+                <div class="col-auto">
+                    <strong>Total Weight:</strong>
+                    <p t-field="o.weight_move_line_total"/>
+                </div>
+            </div>
         </xpath>
         <xpath expr="//th[@name='th_product']" position="replace">
             <th name="th_description">

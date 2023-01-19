@@ -7,9 +7,15 @@
         <field name="arch" type="xml">
             <field name="origin" position="after">
                 <field name="date_done"/>
+                <field name="weight_move_total" invisible="1"/>
+                <field name="weight_move_line_total" invisible="1"/>
             </field>
             <xpath expr="//field[@name='move_ids_without_package']/tree/field[@name='description_picking']" position="attributes">
                 <attribute name="optional">show</attribute>
+            </xpath>
+            <xpath expr="//field[@name='move_ids_without_package']/tree/field[@name='description_picking']" position="after">
+                <field name="weight" optional="show"/>
+                <field name="weight_total" optional="show"/>
             </xpath>
         </field>
     </record>
