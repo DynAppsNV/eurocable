@@ -23,7 +23,7 @@
         <xpath expr="//div[@id='informations']" position="inside">
             <div t-if="doc.commitment_date" class="col-auto col-3 mw-100 mb-2">
                 <strong>Delivery Date:</strong>
-                <p class="m-0" t-field="doc.commitment_date"/>
+                <p class="m-0" t-field="doc.commitment_date" t-options='{"widget": "date"}'/>
             </div>
             <div t-if="doc.weight_total" class="col-auto col-3 mw-100 mb-2">
                 <strong>Total Weight:</strong>
