@@ -2,6 +2,7 @@
 
 odoo_bin_directory: env/community
 odoo_bin_exec_name: odoo-bin
+odoo_bin_relative_path: /
 odoo_conf: odoo.conf
 
 custom_addons: False
@@ -10,8 +11,7 @@ odoo_addons_directories:
   - env/enterprise
   - env/community/odoo/addons
   - env/community/addons
-  - addons-community
-  - addons-community/oca
+  - addons_community
 
 custom_addons_directories:
   - addons

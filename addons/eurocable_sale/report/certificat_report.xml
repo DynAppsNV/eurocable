@@ -185,7 +185,5 @@
         <field name="binding_type">report</field>
         <field name="attachment"></field>
         <field name="attachment_use" eval="True"/>
-        <field name="attachment_use">True</field>
     </record>
-
 </odoo>

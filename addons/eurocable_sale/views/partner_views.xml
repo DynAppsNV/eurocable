@@ -4,6 +4,7 @@
         <field name="name">res.partner.view.form</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="priority">99</field>
         <field name="arch" type="xml">
             <field name="email" position="attributes">
                 <attribute name="required">1</attribute>
@@ -29,6 +30,7 @@
         <field name="name">res.partner.zip_id.2</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="priority">99</field>
         <field name="arch" type="xml">
             <field name="zip_id" position="replace"/>
             <field name="zip" position="before">

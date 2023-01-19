@@ -8,11 +8,11 @@ class StockMoveLine(models.Model):
 
     @api.onchange('product_id', 'product_uom_id')
     def _onchange_product_id(self):
-        super(StockMoveLine, self)._onchange_product_id()
-        if self.product_id:
-            if self.picking_id:
-                product = self.product_id.with_context(lang=self.picking_id.partner_id.lang or self.env.user.lang)
-                self.description_picking = product.get_product_multiline_description_sale()
+        res = super(StockMoveLine, self)._onchange_product_id()
+        if self.product_id and self.picking_id:
+            product = self.product_id.with_context(lang=self.picking_id.partner_id.lang or self.env.user.lang)
+            self.description_picking = product.get_product_multiline_description_sale()
+        return res
 
     @api.model
     def create(self, vals):
