@@ -10,9 +10,7 @@ class StockPicking(models.Model):
         related='sale_id.weight_total',
         store=True)
 
-
     @api.depends("move_ids_without_package")
     def _compute_total_move_weight(self):
         for line in self:
             line.weight_move_total = sum(line.move_ids_without_package.mapped('weight_total'))
-
