@@ -31,5 +31,3 @@ class SaleOrderLine(models.Model):
         for rec in self:
             if rec.weight:
                 rec.weight_total = rec.weight * rec.product_uom_qty
-
-
