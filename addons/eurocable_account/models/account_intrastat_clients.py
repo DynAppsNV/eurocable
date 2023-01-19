@@ -1,6 +1,5 @@
 # Copyright 2022 Eezee-IT (<http://www.eezee-it.com>)
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
-
 from odoo import models, api, _
 from odoo.tools import float_round
 
@@ -38,10 +37,11 @@ class IntrastatReports(models.Model):
         the lines with or without product"""
         invoice_types = ['out_invoice', 'out_refund']
         query, params = super(IntrastatReports, self)._build_query(date_from, date_to, journal_ids,
-                                                                       invoice_types=invoice_types, with_vat=False)
+                                                                   invoice_types=invoice_types,
+                                                                   with_vat=False)
         query['select'] = '''
             row_number() over () AS sequence,
-            CASE WHEN inv.move_type IN ('out_invoice', 'out_refund') 
+            CASE WHEN inv.move_type IN ('out_invoice', 'out_refund')
             THEN %(export_merchandise_code)s ELSE
             %(export_merchandise_code)s END AS system,
             country.code AS country_code,
@@ -160,7 +160,8 @@ class IntrastatReports(models.Model):
         return query_results
 
     def _get_filter_journals(self):
-        #only show sale/purchase journals
-        return self.env['account.journal'].search([('company_id', 'in', self.env.companies.ids or [self.env.company.id]),
-                                                   ('type', '=', 'sale')], order="company_id, name")
-
+        # only show sale/purchase journals
+        return self.env['account.journal'].search([
+            ('company_id', 'in', self.env.companies.ids or [self.env.company.id]),
+            ('type', '=', 'sale')
+            ], order="company_id, name")

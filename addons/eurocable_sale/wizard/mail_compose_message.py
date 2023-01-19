@@ -12,4 +12,4 @@ class MailComposer(models.TransientModel):
             for wizard in self:
                 attachment_ids = default_attachment_ids + wizard.attachment_ids.ids
                 wizard.attachment_ids = [(6, 0, attachment_ids)]
-        super(MailComposer, self).action_send_mail()
+        return super(MailComposer, self).action_send_mail()

@@ -1,6 +1,6 @@
 # Copyright 2022 Eezee-IT (<http://www.eezee-it.com>)
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
-from odoo import models, fields
+from odoo import models
 
 
 class AuditRule(models.Model):
@@ -22,7 +22,7 @@ class AuditRule(models.Model):
                 })
                 if model == 'product.template' or 'product.product':
                     model_id = self.env[model].browse(res_id)
-                    model_id.message_post(body="<b>" + "Les anciennes valeurs :" + "</b>" + repr(data[res_id]['old']) +
-                                               "<br/> <b>" + "Les nouvelles valeurs:" + "</b>" + repr(
-                        data[res_id]['new']))
+                    model_id.message_post(
+                        body=("<b>" + "Les anciennes valeurs :" + "</b>" + repr(data[res_id]['old']) +
+                              "<br/> <b>" + "Les nouvelles valeurs:" + "</b>" + repr(data[res_id]['new'])))
         return True
