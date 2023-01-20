@@ -4,7 +4,11 @@
         <xpath expr="//div[@name='div_origin']" position="after">
             <div t-if="o.date_done" class="col-auto" name="div_date_done">
                 <strong>Date de Livraison:</strong>
-                <p t-field="o.date_done"/>
+                <p t-field="o.date_done" t-options='{"widget": "date"}'/>
+            </div>
+            <div t-if="o.weight_move" class="col-auto" name="div_date_done">
+                <strong>Total Weight:</strong>
+                <p t-field="o.weight_move"/>
             </div>
         </xpath>
         <xpath expr="//th[@name='th_sm_product']" position="replace">
