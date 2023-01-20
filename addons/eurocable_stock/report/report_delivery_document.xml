@@ -11,6 +11,13 @@
                 <p t-field="o.weight_move"/>
             </div>
         </xpath>
+
+         <xpath expr="//div[hasclass('page')]/div[@name='signature']" position="after">
+             <br/>
+             <br/>
+             <b>Shipping policy</b><p t-field="o.move_type"/>
+        </xpath>
+
         <xpath expr="//th[@name='th_sm_product']" position="replace">
             <th name="th_description">
                 <strong>Description</strong>

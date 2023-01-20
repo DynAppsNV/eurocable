@@ -6,6 +6,9 @@ from odoo import models, fields, api
 class StockPicking(models.Model):
     _inherit = "stock.picking"
 
+    # weight_move = fields.Float(
+    #     related='sale_id.weight_total',
+    #     store=True)
+
     weight_move = fields.Float(
-        related='sale_id.weight_total',
         store=True)
