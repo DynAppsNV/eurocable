@@ -11,9 +11,10 @@
             <div class="row justify-content-end" t-if="o.date_done">
                 <div class="col-auto">
                     <strong>Date de Livraison:</strong>
-                    <p t-field="o.date_done"/>
+                    <p t-field="o.date_done" t-options='{"widget": "date"}'/>
                 </div>
             </div>
+
         </xpath>
         <xpath expr="//th[@name='th_product']" position="replace">
             <th name="th_description">
