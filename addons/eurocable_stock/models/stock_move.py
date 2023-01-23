@@ -1,10 +1,22 @@
 # Copyright 2022 Eezee-IT (<http://www.eezee-it.com>)
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
-from odoo import models, api
+from odoo import models, api, fields
 
 
 class StockMove(models.Model):
     _inherit = "stock.move"
+
+    weight = fields.Float(related='sale_line_id.weight')
+    total_weight = fields.Float(compute='_compute_total_weight')
+
+    @api.depends(
+        "product_id",
+        "quantity_done",
+        "weight")
+    def _compute_total_weight(self):
+        for rec in self:
+            if rec.weight:
+                rec.total_weight = rec.weight * rec.quantity_done
 
     @api.onchange('product_id', 'picking_type_id')
     def _onchange_product_id(self):
