@@ -12,8 +12,7 @@ class SaleOrderLine(models.Model):
     weight = fields.Float(default=0.0)
     weight_total = fields.Float(
         default=0.0,
-        compute="_compute_total_weight",
-        store=True)
+        compute="_compute_total_weight")
 
     @api.onchange("product_id")
     def product_id_change(self):
@@ -29,5 +28,6 @@ class SaleOrderLine(models.Model):
         "weight")
     def _compute_total_weight(self):
         for rec in self:
+            rec.weight_total = 0.0
             if rec.weight:
                 rec.weight_total = rec.weight * rec.product_uom_qty

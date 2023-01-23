@@ -7,7 +7,8 @@ class StockMove(models.Model):
     _inherit = "stock.move"
 
     weight = fields.Float(related='sale_line_id.weight')
-    total_weight = fields.Float(compute='_compute_total_weight')
+    total_weight = fields.Float(compute='_compute_total_weight',
+                                default=0.0)
 
     @api.depends(
         "product_id",
@@ -15,6 +16,7 @@ class StockMove(models.Model):
         "weight")
     def _compute_total_weight(self):
         for rec in self:
+            rec.total_weight = 0.0
             if rec.weight:
                 rec.total_weight = rec.weight * rec.quantity_done
 
