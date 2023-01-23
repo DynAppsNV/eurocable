@@ -6,12 +6,15 @@
                 <strong>Date de Livraison:</strong>
                 <p t-field="o.date_done" t-options='{"widget": "date"}'/>
             </div>
-            <div t-if="o.weight_move" class="col-auto" name="div_date_done">
+
+        </xpath>
+
+         <xpath expr="//div[@name='div_sched_date']" position="after">
+                 <div t-if="o.weight_move" class="col-auto" name="div_total_weight">
                 <strong>Total Weight:</strong>
                 <p t-field="o.weight_move"/>
             </div>
-        </xpath>
-
+         </xpath>
          <xpath expr="//div[hasclass('page')]/div[@name='signature']" position="after">
              <br/>
              <br/>

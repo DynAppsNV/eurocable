@@ -6,9 +6,10 @@ from odoo import models, fields, api
 class StockPicking(models.Model):
     _inherit = "stock.picking"
 
-    # weight_move = fields.Float(
-    #     related='sale_id.weight_total',
-    #     store=True)
+    weight_move = fields.Float(compute='_compute_total_weight',
+                               default=0.0)
 
-    weight_move = fields.Float(
-        store=True)
+    @api.depends("move_ids_without_package")
+    def _compute_total_weight(self):
+        for line in self:
+            line.weight_move = sum(line.move_ids_without_package.mapped('total_weight'))

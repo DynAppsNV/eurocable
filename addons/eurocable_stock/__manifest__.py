@@ -2,13 +2,13 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
 {
     'name': 'Eurocable Stock',
-    'version': '15.0.1.0.2',
+    'version': '15.0.1.0.3',
     'author': 'Eezee-It',
     'category': 'Sale',
     'license': 'LGPL-3',
     'depends': [
         'stock',
-        'sale_stock'
+        'sale_stock',
     ],
     'data': [
         'report/report_picking.xml',
