@@ -9,6 +9,7 @@
     'depends': [
         'stock',
         'sale_stock',
+        'delivery'
     ],
     'data': [
         'report/report_picking.xml',
