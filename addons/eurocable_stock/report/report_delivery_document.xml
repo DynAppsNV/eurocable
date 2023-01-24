@@ -22,9 +22,9 @@
                 <b>Shipping policy</b>
                 <p t-field="o.move_type"/>
             </div>
-            <div t-if="o.carrier_id">
-                <b>Carrier</b>
-                <p t-field="o.carrier_id"/>
+            <div t-if="o.name">
+                <b>Delivery order-</b>
+                <span t-field="o.name"/>
             </div>
         </xpath>
 
