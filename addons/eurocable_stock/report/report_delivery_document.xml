@@ -9,16 +9,23 @@
 
         </xpath>
 
-         <xpath expr="//div[@name='div_sched_date']" position="after">
-                 <div t-if="o.weight_move" class="col-auto" name="div_total_weight">
+        <xpath expr="//div[@name='div_sched_date']" position="after">
+            <div t-if="o.weight_move" class="col-auto" name="div_total_weight">
                 <strong>Total Weight:</strong>
                 <p t-field="o.weight_move"/>
             </div>
-         </xpath>
-         <xpath expr="//div[hasclass('page')]/div[@name='signature']" position="after">
-             <br/>
-             <br/>
-             <b>Shipping policy</b><p t-field="o.move_type"/>
+        </xpath>
+        <xpath expr="//div[hasclass('page')]/div[@name='signature']" position="after">
+            <br/>
+            <br/>
+            <div t-if="o.move_type">
+                <b>Shipping policy</b>
+                <p t-field="o.move_type"/>
+            </div>
+            <div t-if="o.carrier_id">
+                <b>Carrier</b>
+                <p t-field="o.carrier_id"/>
+            </div>
         </xpath>
 
         <xpath expr="//th[@name='th_sm_product']" position="replace">
@@ -46,7 +53,7 @@
             </td>
         </xpath>
     </template>
-        <template id="stock_report_delivery_has_serial_move_line_inherit_stock"
+    <template id="stock_report_delivery_has_serial_move_line_inherit_stock"
               inherit_id="stock.stock_report_delivery_aggregated_move_lines">
         <xpath expr="//td[1]" position="replace">
             <td>
