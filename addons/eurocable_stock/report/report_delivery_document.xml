@@ -27,6 +27,14 @@
                 <span t-field="o.name"/>
             </div>
         </xpath>
+        <xpath expr="//div[hasclass('page')]/h2" position="replace">
+            <h2>
+                <b>Delivery order-</b>
+                <span t-field="o.name"/>
+            </h2>
+
+        </xpath>
+
 
         <xpath expr="//th[@name='th_sm_product']" position="replace">
             <th name="th_description">
