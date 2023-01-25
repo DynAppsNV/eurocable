@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_delivery_document_inherit_stock" inherit_id="stock.report_delivery_document">
+        <xpath expr="//div[@name='div_origin']" position="after">
+            <div t-if="o.date_done" class="col-auto" name="div_date_done">
+                <strong>Date de Livraison:</strong>
+                <p t-field="o.date_done" t-options='{"widget": "date"}'/>
+            </div>
+
+        </xpath>
+
+        <xpath expr="//div[@name='div_sched_date']" position="after">
+            <div t-if="o.weight_move" class="col-auto" name="div_total_weight">
+                <strong>Total Weight:</strong>
+                <p t-field="o.weight_move"/>
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('page')]/div[@name='signature']" position="after">
+            <br/>
+            <br/>
+            <div t-if="o.move_type">
+                <b>Shipping policy</b>
+                <p t-field="o.move_type"/>
+            </div>
+            <div t-if="o.name">
+                <b>Delivery order-</b>
+                <span t-field="o.name"/>
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('page')]/h2" position="replace">
+            <h2>
+                <b>Delivery order-</b>
+                <span t-field="o.name"/>
+            </h2>
+
+        </xpath>
+
+
+        <xpath expr="//th[@name='th_sm_product']" position="replace">
+            <th name="th_description">
+                <strong>Description</strong>
+            </th>
+        </xpath>
+        <xpath expr="//table[@name='stock_move_table']/tbody/tr/td[1]" position="replace">
+            <td>
+                <span t-field="move.description_picking"/>
+            </td>
+        </xpath>
+
+        <xpath expr="//th[@name='th_sml_product']" position="replace">
+            <th name="th_description">
+                <strong>Description</strong>
+            </th>
+        </xpath>
+    </template>
+    <template id="stock_report_delivery_has_serial_move_line_inherit_stock"
+              inherit_id="stock.stock_report_delivery_has_serial_move_line">
+        <xpath expr="//td[1]" position="replace">
+            <td>
+                <span t-field="move_line.description_picking"/>
+            </td>
+        </xpath>
+    </template>
+    <template id="stock_report_delivery_has_serial_move_line_inherit_stock"
+              inherit_id="stock.stock_report_delivery_aggregated_move_lines">
+        <xpath expr="//td[1]" position="replace">
+            <td>
+                <span t-esc="aggregated_lines[line]['description']"/>
+            </td>
+        </xpath>
+    </template>
+</odoo>
