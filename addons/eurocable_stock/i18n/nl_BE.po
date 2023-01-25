@@ -86,3 +86,8 @@ msgstr "Gewicht"
 #: model:ir.model.fields,field_description:eurocable_stock.field_stock_picking__weight_move
 msgid "Weight Move"
 msgstr ""
+
+#. module: eurocable_stock
+#: model_terms:ir.ui.view,arch_db:eurocable_stock.report_report_picking_inherit_stock
+msgid "AFLEVERBON-"
+msgstr "DELIVERY NOTE"

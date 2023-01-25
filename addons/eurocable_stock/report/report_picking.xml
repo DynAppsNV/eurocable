@@ -26,5 +26,16 @@
                 <span t-field="ml.description_picking"/>
             </td>
         </xpath>
+        <xpath expr="//h1[@t-field='o.name']" position="replace">
+            <h1 class="mt0 float-left">
+                AFLEVERBON-<t t-esc="o.name" />
+            </h1>
+        </xpath>
+        <xpath expr="//t[@t-set='no_reserved_product']" position="after">
+            <div t-if="o.move_type">
+                <b>Shipping policy</b>
+                <p t-field="o.move_type"/>
+            </div>
+        </xpath>
     </template>
 </odoo>
