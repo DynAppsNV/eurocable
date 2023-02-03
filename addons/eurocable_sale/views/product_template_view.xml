@@ -11,4 +11,8 @@
            </xpath>
         </field>
     </record>
+    <record id="sale.product_template_action" model="ir.actions.act_window">
+        <field name="view_mode">tree,form,activity,kanban</field>
+        <field name="view_id" ref="product.product_template_tree_view"/>
+    </record>
 </odoo>
