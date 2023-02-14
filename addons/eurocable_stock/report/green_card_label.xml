@@ -1,47 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        <template id="greem_card_label">
-            <t t-foreach="docs" t-as="o">
-                <t t-foreach="o.move_line_ids_without_package" t-as="ml">
+        <template id="green_card_label">
+            <t t-foreach="quantity.items()" t-as="move_lines">
+                <t t-set="move_line" t-value="move_lines[0]"/>
+                <t t-foreach="range(move_lines[1][0][1])" t-as="qty">
                     <t t-translation="off">
                         ^XA
                         ^CF0,30
-                        <t t-if="o.company_id.logo">
-                             ^FO50,90^FD<t t-esc="o.company_id.log_zpl"/>^FS
+                        <t t-if="move_line.move_id.company_id.logo_zpl">
+                             ^FO50,90^FD<t t-esc="move_line.move_id.company_id.logo_zpl"/>^FS
                         </t>
-                        <t t-if="o.company_id.website">
-                            ^FO50,210^FD<t t-esc="o.company_id.website"/>^FS
+                        <t t-if="move_line.move_id.company_id.website">
+                            ^FO50,210^FD<t t-esc="move_line.move_id.company_id.website"/>^FS
                         </t>
-
-                        <t t-if="o.company_id.email">
-                            ^FO50,250^FD<t t-esc="o.company_id.email"/>^FS
+                        <t t-if="move_line.move_id.company_id.email">
+                            ^FO50,250^FD<t t-esc="move_line.move_id.company_id.email"/>^FS
                         </t>
-
-                        <t t-if="o.origin">
-                            ^FO50,290^FD<t t-esc="o.origin"/>^FS
+                        <t t-if="move_line.move_id.origin">
+                            ^FO50,290^FD<t t-esc="move_line.move_id.origin"/>^FS
                         </t>
-
-                        <t t-if="o.sale_id.client_order_ref">
-                            ^FO50,330^FD<t t-esc="o.sale_id.client_order_ref"/>^FS
+                        <t t-if="move_line.move_id.picking_id.sale_id.client_order_ref">
+                            ^FO50,330^FD<t t-esc="move_line.move_id.picking_id.sale_id.client_order_ref"/>^FS
                         </t>
-
-                        <t t-if="ml.description_picking">
-                            ^FO50,370^FD<t t-esc="ml.description_picking"/>^FS
+                        <t t-if="move_line.description_picking">
+                            ^FO50,370^FD<t t-esc="move_line.description_picking"/>^FS
                         </t>
                         ^XZ
                     </t>
-                </t>
+               </t>
             </t>
         </template>
 
         <record id="report_green_card" model="ir.actions.report">
             <field name="name">Green Card (ZPL)</field>
-            <field name="model">stock.picking</field>
+            <field name="model">stock.move.line</field>
             <field name="report_type">qweb-text</field>
-            <field name="report_name">eurocable_stock.greem_card_label</field>
-            <field name="report_file">eurocable_stock.greem_card_label</field>
-            <field name="binding_model_id" ref="model_stock_picking"/>
-            <field name="paperformat_id" ref="eurocable_stock.paperformat_green_card"/>
-            <field name="binding_type">report</field>
+            <field name="report_name">eurocable_stock.green_card_label</field>
+            <field name="report_file">eurocable_stock.green_card_label</field>
         </record>
 </odoo>

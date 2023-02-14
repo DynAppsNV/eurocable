@@ -5,7 +5,7 @@
         <field name="inherit_id" ref="base.view_company_form"/>
         <field name="arch" type="xml">
             <xpath expr="//sheet/notebook/page[@name='general_info']" position="inside">
-                <field name="log_zpl"></field>
+                <field name="logo_zpl"></field>
             </xpath>
         </field>
     </record>
