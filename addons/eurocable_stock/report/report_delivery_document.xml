@@ -57,15 +57,12 @@
               inherit_id="stock.stock_report_delivery_has_serial_move_line">
         <xpath expr="//td[1]" position="replace">
             <td>
-                <span t-field="move_line.description_picking"/>
-            </td>
-        </xpath>
-    </template>
-    <template id="stock_report_delivery_has_serial_move_line_inherit_stock"
-              inherit_id="stock.stock_report_delivery_aggregated_move_lines">
-        <xpath expr="//td[1]" position="replace">
-            <td>
-                <span t-esc="aggregated_lines[line]['description']"/>
+                <t t-if="not description and description != ''">
+                    <t t-set="description" t-value="move_line.move_id.description_picking"/>
+                </t>
+                <p t-if="description !='' and description != move_line.product_id.name">
+                    <span t-esc="description"/>
+                </p>
             </td>
         </xpath>
     </template>
