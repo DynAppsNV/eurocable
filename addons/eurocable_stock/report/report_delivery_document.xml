@@ -22,10 +22,6 @@
                 <b>Shipping policy</b>
                 <p t-field="o.move_type"/>
             </div>
-            <div t-if="o.name">
-                <b>Delivery order-</b>
-                <span t-field="o.name"/>
-            </div>
         </xpath>
         <xpath expr="//div[hasclass('page')]/h2" position="replace">
             <h2>
