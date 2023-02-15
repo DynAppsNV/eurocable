@@ -26,7 +26,10 @@
             </h2>
 
         </xpath>
-
+        
+        <xpath expr="//p[@t-field='o.date_done']" position="attributes">
+            <attribute name="t-options">{"widget": "date"}</attribute>
+        </xpath>
 
         <xpath expr="//th[@name='th_sm_product']" position="replace">
             <th name="th_description">
