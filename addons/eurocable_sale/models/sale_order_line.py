@@ -31,3 +31,10 @@ class SaleOrderLine(models.Model):
             rec.weight_total = 0.0
             if rec.weight:
                 rec.weight_total = rec.weight * rec.product_uom_qty
+
+    def _prepare_invoice_line(self, **optional_values):
+        res = super()._prepare_invoice_line(**optional_values)
+        res.update({'weight': self.weight,
+                    'intrastat_id': self.product_id.intrastat_id.id
+                    })
+        return res
