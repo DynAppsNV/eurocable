@@ -6,24 +6,30 @@
                 <t t-foreach="range(move_lines[1][0][1])" t-as="qty">
                     <t t-translation="off">
                         ^XA
+                        ^FWR
                         ^CF0,30
                         <t t-if="move_line.move_id.company_id.logo_zpl">
-                             ^FO50,90^FD<t t-esc="move_line.move_id.company_id.logo_zpl"/>^FS
+                             ^FO550,300
+                             ^GFA,9500,9500,19,,<t t-esc="move_line.move_id.company_id.logo_zpl"/>
+                             ^FS
                         </t>
                         <t t-if="move_line.move_id.company_id.website">
-                            ^FO50,210^FD<t t-esc="move_line.move_id.company_id.website"/>^FS
+                            ^FO510,400^FD<t t-esc="move_line.move_id.company_id.website"/>^FS
                         </t>
                         <t t-if="move_line.move_id.company_id.email">
-                            ^FO50,250^FD<t t-esc="move_line.move_id.company_id.email"/>^FS
-                        </t>
-                        <t t-if="move_line.move_id.origin">
-                            ^FO50,290^FD<t t-esc="move_line.move_id.origin"/>^FS
+                            ^FO480,430^FD<t t-esc="move_line.move_id.company_id.email"/>^FS
                         </t>
                         <t t-if="move_line.move_id.picking_id.sale_id.client_order_ref">
-                            ^FO50,330^FD<t t-esc="move_line.move_id.picking_id.sale_id.client_order_ref"/>^FS
+                            ^FO380,330^FD<t t-esc="move_line.move_id.picking_id.sale_id.partner_id.name"/>^FS
+                        </t>
+                        <t t-if="move_line.move_id.origin">
+                            ^FO340,330^FD Order:<t t-esc="move_line.move_id.origin"/>^FS
+                        </t>
+                        <t t-if="move_line.move_id.picking_id.sale_id.client_order_ref">
+                            ^FO300,330^FD Reference: <t t-esc="move_line.move_id.picking_id.sale_id.client_order_ref"/>^FS
                         </t>
                         <t t-if="move_line.description_picking">
-                            ^FO50,370^FD<t t-esc="move_line.description_picking"/>^FS
+                            ^FO250,350^FD<t t-esc="move_line.description_picking"/>^FS
                         </t>
                         ^XZ
                     </t>
