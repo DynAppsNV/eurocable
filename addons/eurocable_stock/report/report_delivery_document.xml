@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="report_delivery_document_inherit_stock" inherit_id="stock.report_delivery_document">
-        <xpath expr="//div[@name='div_origin']" position="after">
-            <div t-if="o.date_done" class="col-auto" name="div_date_done">
-                <strong>Date de Livraison:</strong>
-                <p t-field="o.date_done" t-options='{"widget": "date"}'/>
-            </div>
-
-        </xpath>
-
         <xpath expr="//div[@name='div_sched_date']" position="after">
             <div t-if="o.weight_move" class="col-auto" name="div_total_weight">
                 <strong>Total Weight:</strong>
