@@ -2,7 +2,7 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
 from collections import defaultdict
 from odoo import _, api, fields, models
-from odoo.exceptions import UserError
+from odoo.exceptions import UserError, ValidationError
 
 
 class StockPickingLabelLayout(models.TransientModel):
@@ -14,13 +14,14 @@ class StockPickingLabelLayout(models.TransientModel):
         string="Stock picking"
     )
     print_format = fields.Selection(
-        [('green_card_zpl', 'Green card ZPL Labels')]
+        [('green_card_zpl', 'Green card ZPL Labels')],
+        default='green_card_zpl'
     )
     printer_id = fields.Many2one(
         comodel_name='printnode.printer',
         default=lambda self: self._default_printer_id(),
     )
-    custom_quantity = fields.Integer('Quantity', default=1, required=True)
+    custom_quantity = fields.Integer('Quantity', default=1)
     printer_bin = fields.Many2one(
         'printnode.printer.bin',
         string='Printer Bin',
@@ -43,7 +44,7 @@ class StockPickingLabelLayout(models.TransientModel):
     )
     rows = fields.Integer(compute='_compute_dimensions')
     columns = fields.Integer(compute='_compute_dimensions')
-    
+
     @api.depends('print_format')
     def _compute_dimensions(self):
         for wizard in self:
@@ -126,7 +127,7 @@ class StockPickingLabelLayout(models.TransientModel):
                 qties[line.stock_move_line_id.id] += line.quantity
             # Pass only products with some quantity done to the report
             data['quantity_by_product'] = {p: int(q) for p, q in qties.items() if q}
-                
+
         return xml_id, data
 
     def _check_quantity(self):
@@ -136,7 +137,7 @@ class StockPickingLabelLayout(models.TransientModel):
                     _(
                         'Quantity can not be less than 1 for line {product}'
                     ).format(**{
-                        'product': rec.product_id.display_name,
+                        'product': rec.stock_move_line_id.product_id.name,
                     })
                 )
 
