@@ -24,7 +24,6 @@ class StockPickingLabelLayout(models.TransientModel):
     custom_quantity = fields.Integer('Quantity', default=1)
     printer_bin = fields.Many2one(
         'printnode.printer.bin',
-        string='Printer Bin',
         required=False,
         domain='[("printer_id", "=", printer_id)]',
     )
@@ -33,27 +32,12 @@ class StockPickingLabelLayout(models.TransientModel):
         inverse_name='wizard_id',
         string='Products',
     )
-    active_model = fields.Char(
-        string='Active Model'
-    )
     status = fields.Char(
         related='printer_id.status',
     )
     is_dpc_enabled = fields.Boolean(
         default=lambda self: self._is_dpc_enabled(),
     )
-    rows = fields.Integer(compute='_compute_dimensions')
-    columns = fields.Integer(compute='_compute_dimensions')
-
-    @api.depends('print_format')
-    def _compute_dimensions(self):
-        for wizard in self:
-            if 'x' in wizard.print_format:
-                columns, rows = wizard.print_format.split('x')[:2]
-                wizard.columns = int(columns)
-                wizard.rows = int(rows)
-            else:
-                wizard.columns, wizard.rows = 1, 1
 
     def _default_printer_id(self):
         """
