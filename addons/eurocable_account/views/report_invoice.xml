@@ -27,5 +27,8 @@
             </t>
         </xpath>
     </template>
+    <template id="report_invoice_document_inherit_sale" inherit_id="sale.report_invoice_document_inherit_sale" priority="100">
+            <xpath expr="//t[@t-set='information_block']" position="replace"/>
+    </template>
 
 </odoo>
