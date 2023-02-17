@@ -30,7 +30,7 @@
     </t>
     <t t-if="move_line.description_picking">
 ^FB900,8,,
-^FO70,150^FD<t t-esc="move_line.description_picking"/>^FS
+^FO300,150^FD<t t-esc="move_line.description_picking"/>^FS
     </t>
 ^XZ
 </t>
