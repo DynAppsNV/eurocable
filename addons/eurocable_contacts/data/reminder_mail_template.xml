@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Template: Payment reminder -->
+    <record id="email_template_payment_reminder" model="mail.template">
+        <field name="name">Contact: Payment reminder</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="email_from">${(object.invoice_user_id.email_formatted or user.email_formatted) |safe}</field>
+        <field name="partner_to">${object.partner_to.id}</field>
+        <field name="subject">%(company_name)s Payment Reminder - %(partner_name)s</field>
+        <field name="body_html" type="html">
+            <div style="margin: 0px; padding: 0px;">
+                <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                    Dear ,<br/><br/>
+                    <p style="margin: 0px; padding: 0px; font-size: 13px; color:red;">
+                        We kindly request you to pay attention to the attached dunning letter.
+                    </p>
+                    Please pay the overdue amount as soon as possible. <br/>
+                    <br/>
+                    Best regards,
+                </p>
+            </div>
+        </field>
+
+        <field name="lang">${object.partner_to.lang}</field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+</odoo>

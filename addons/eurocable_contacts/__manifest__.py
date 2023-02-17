@@ -13,5 +13,6 @@
     ],
     'data': [
         'views/res_partner_view.xml',
+        'data/reminder_mail_template.xml'
     ],
 }
