@@ -7,4 +7,5 @@ from odoo import models, fields
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
-    partner_to = fields.Many2one('res.partner')
+    partner_to = fields.Many2one('res.partner',
+                                 help="partner used for payment reminder")
