@@ -3,11 +3,11 @@
 
     <!-- Template: Payment reminder -->
     <record id="email_template_payment_reminder" model="mail.template">
-        <field name="name">Contact: Payment reminder</field>
+        <field name="name">Payment reminder</field>
         <field name="model_id" ref="base.model_res_partner"/>
-        <field name="email_from">${(object.invoice_user_id.email_formatted or user.email_formatted) |safe}</field>
-        <field name="partner_to">${object.partner_to.id}</field>
-        <field name="subject">%(company_name)s Payment Reminder - %(partner_name)s</field>
+        <field name="email_from">{{ (object.company_id.email or object.user_id.email_formatted or user.email_formatted) }}</field>
+        <field name="partner_to">{{object.partner_to.id}}</field>
+        <field name="subject">{{ object.company_id.name }} Payment Reminder - {{ object.partner_to.name or 'n/a' }}</field>
         <field name="body_html" type="html">
             <div style="margin: 0px; padding: 0px;">
                 <p style="margin: 0px; padding: 0px; font-size: 13px;">
@@ -22,7 +22,9 @@
             </div>
         </field>
 
-        <field name="lang">${object.partner_to.lang}</field>
+        <field name="report_template" ref="account_followup.action_report_followup"/>
+        <field name="report_name">{{ (object.name or '').replace('/','-') }}</field>
+        <field name="lang">{{object.partner_to.lang}}</field>
         <field name="auto_delete" eval="True"/>
     </record>
 </odoo>
