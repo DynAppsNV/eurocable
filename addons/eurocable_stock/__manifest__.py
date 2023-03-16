@@ -23,6 +23,8 @@
         'views/product_views.xml',
         'report/green_card_label.xml',
         'views/res_company_view.xml',
-        'views/stock_picking_label_layout_views.xml'
+        'views/stock_picking_label_layout_views.xml',
+        'report/stock_report_views.xml',
+        'report/all_report.xml'
     ],
 }
