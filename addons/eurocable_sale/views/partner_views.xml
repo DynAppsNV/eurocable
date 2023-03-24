@@ -23,6 +23,11 @@
                            options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"/>
                 </div>
             </xpath>
+            <xpath expr="//page[@name='internal_notes']/field[@name='comment']" position="before">
+                <group>
+                    <field name="send_so_to_inv"/>
+                </group>
+            </xpath>
         </field>
     </record>
 
