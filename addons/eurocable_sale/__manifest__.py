@@ -19,5 +19,6 @@
         'views/product_template_view.xml',
         'views/document_type.xml',
         'data/template_certificate.xml',
+        'report/report_packing_list.xml'
     ],
 }
