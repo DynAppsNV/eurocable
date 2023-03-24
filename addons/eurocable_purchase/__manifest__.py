@@ -11,6 +11,7 @@
         'purchase',
     ],
     'data': [
-        'views/product_views.xml'
+        'views/product_views.xml',
+        'reports/purchase_order_template.xml'
     ],
 }
