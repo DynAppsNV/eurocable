@@ -26,14 +26,6 @@
                          t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
             </t>
         </xpath>
-
-        <xpath expr="//p[@name='incoterm']" position="after">
-            <p t-if="o.partner_id.invoice_warn_msg">
-                <strong><span t-field="o.partner_id.invoice_warn"/></strong>
-                <span t-field="o.partner_id.invoice_warn_msg"/>
-            </p>
-        </xpath>
-
     </template>
     <template id="report_invoice_document_inherit_sale" inherit_id="sale.report_invoice_document_inherit_sale" priority="100">
             <xpath expr="//t[@t-set='information_block']" position="replace"/>
