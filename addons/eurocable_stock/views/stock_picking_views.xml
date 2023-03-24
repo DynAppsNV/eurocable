@@ -39,6 +39,20 @@
             <button name="action_toggle_is_locked" position="attributes">
                 <attribute name="invisible">1</attribute>
             </button>
+
         </field>
     </record>
+
+    <record id="view_picking_form_inherit_printnode" model="ir.ui.view">
+        <field name="name">stock.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="printnode_base.view_picking_form"/>
+        <field name="arch" type="xml">
+            <!--Last shipping label-->
+            <button name="print_last_shipping_label" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </button>
+        </field>
+    </record>
+
 </odoo>
