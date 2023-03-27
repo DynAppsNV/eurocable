@@ -29,7 +29,7 @@ class SaleAdvancePaymentInv(models.TransientModel):
             message = ''
             for order in sale_orders:
                 if order.partner_invoice_id.invoice_warn_msg:
-                    message += order.partner_invoice_id.display_name + ': ' + \
+                    message += order.partner_invoice_id.display_name + '\n' + \
                         order.partner_invoice_id.invoice_warn_msg + '\n'
             return message
         else:
