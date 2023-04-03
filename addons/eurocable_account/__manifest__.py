@@ -7,8 +7,10 @@
     'category': 'Account',
     'license': 'LGPL-3',
     'depends': [
+        'account',
         'account_followup',
         'account_intrastat',
+        'account_reports',
         'eurocable_contacts'
     ],
     'data': [
@@ -19,7 +21,8 @@
         'views/account_financial_report.xml',
         'views/report_financial.xml',
         'views/account_move.xml',
-        'views/report_invoice.xml'
+        'views/report_invoice.xml',
+        'views/partner_views.xml'
     ],
     "installable": True,
 }
