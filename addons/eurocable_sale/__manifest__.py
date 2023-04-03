@@ -12,13 +12,14 @@
     'data': [
         'security/ir.model.access.csv',
         'wizard/sales_wizard_views.xml',
+        'wizard/sale_make_invoice_advance_views.xml'
         'views/sales_views.xml',
         'views/partner_views.xml',
-        'report/certificat_report.xml',
-        'report/sale_report_template.xml',
         'views/product_template_view.xml',
         'views/document_type.xml',
         'data/template_certificate.xml',
-        'wizard/sale_make_invoice_advance_views.xml'
+        'report/certificat_report.xml',
+        'report/sale_report_template.xml',
+        'report/report_packing_list.xml'
     ],
 }

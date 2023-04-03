@@ -2,6 +2,10 @@
 <odoo>
     <template id="report_delivery_document_inherit_stock" inherit_id="stock.report_delivery_document">
         <xpath expr="//div[@name='div_sched_date']" position="after">
+            <div t-if="o.sudo().sale_id" class="col-auto" name="div_sale_ref">
+                <strong>Sale Reference:</strong>
+                <p t-field="o.sudo().sale_id.name"/>
+            </div>
             <div t-if="o.weight_move" class="col-auto" name="div_total_weight">
                 <strong>Total Weight:</strong>
                 <p t-field="o.weight_move"/>
