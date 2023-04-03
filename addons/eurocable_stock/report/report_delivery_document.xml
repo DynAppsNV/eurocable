@@ -10,10 +10,10 @@
         <xpath expr="//div[hasclass('page')]/div[@name='signature']" position="after">
             <br/>
             <br/>
-            <div t-if="o.sudo().sale_id.delivery_notes">
+<!--            <div t-if="o.sudo().sale_id.delivery_notes">
                 <b>Delivery Notes</b>
                 <p t-field="o.sudo().sale_id.delivery_notes"/>
-            </div>
+            </div>-->
             <div t-if="o.move_type">
                 <b>Shipping policy</b>
                 <p t-field="o.move_type"/>
