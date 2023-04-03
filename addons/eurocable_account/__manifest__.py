@@ -8,8 +8,10 @@
     'license': 'LGPL-3',
     'depends': [
         'account',
+        'account_followup',
+        'account_intrastat',
         'account_reports',
-        'account_intrastat'
+        'eurocable_contacts'
     ],
     'data': [
         "security/ir.model.access.csv",
