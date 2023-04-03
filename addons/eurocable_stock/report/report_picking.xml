@@ -14,8 +14,15 @@
                     <p t-field="o.date_done" t-options='{"widget": "date"}'/>
                 </div>
             </div>
-
         </xpath>
+
+        <xpath expr="//div[@name='div_state']" position="before">
+            <div class="col-auto" t-if="o.sudo().sale_id">
+                <strong>Sale Reference:</strong>
+                <p t-field="o.sudo().sale_id.name"/>
+            </div>
+        </xpath>
+
         <xpath expr="//th[@name='th_product']" position="replace">
             <th name="th_description">
                 <strong>Description</strong>
