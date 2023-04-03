@@ -23,10 +23,12 @@ class SaleOrder(models.Model):
         store=True)
 
     # Description fields for stock.picking prints
+    picking = fields.Char('Pakbon')
     picking_op_notes = fields.Char('Pakbon en prints',
                                    help="Information mentioned here will be "
                                         "visible in Picking operation document"
                                         " of transfer.")
+    delivery = fields.Char('Leverbon')
     delivery_notes = fields.Char('Leverbon en prints',
                                  help='Information mentioned here will be '
                                       'visible in delivery slip document '

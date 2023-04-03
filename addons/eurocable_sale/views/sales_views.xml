@@ -38,9 +38,11 @@
                 <page name="transfer_notes" string="Delivery Notes">
                     <group>
                         <group string="Picking Document">
+                            <field name="picking"/>
                             <field name="picking_op_notes"/>
                         </group>
                         <group string="Delivery Document">
+                            <field name="delivery"/>
                             <field name="delivery_notes"/>
                         </group>
                     </group>
