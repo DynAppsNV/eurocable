@@ -12,7 +12,7 @@
     'data': [
         'security/ir.model.access.csv',
         'wizard/sales_wizard_views.xml',
-        'wizard/sale_make_invoice_advance_views.xml'
+        'wizard/sale_make_invoice_advance_views.xml',
         'views/sales_views.xml',
         'views/partner_views.xml',
         'views/product_template_view.xml',
