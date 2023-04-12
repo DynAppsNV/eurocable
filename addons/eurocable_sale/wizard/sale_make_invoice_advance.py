@@ -27,6 +27,8 @@ class SaleAdvancePaymentInv(models.TransientModel):
 
     def _get_message(self):
         sale_orders = self.get_sale_id()
+        if not sale_orders:
+            return ''
         if len(sale_orders) > 1:
             message = ''
             for order in sale_orders:
