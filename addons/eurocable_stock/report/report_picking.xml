@@ -33,5 +33,12 @@
                 <span t-field="ml.description_picking"/>
             </td>
         </xpath>
+
+<!--        <xpath expr="//p[@t-field='o.note']" position="before">
+            <div t-if="o.sudo().sale_id.picking_op_notes">
+                <b>Picking operation Notes</b>
+                <p t-field="o.sudo().sale_id.picking_op_notes"/>
+            </div>
+        </xpath>-->
     </template>
 </odoo>

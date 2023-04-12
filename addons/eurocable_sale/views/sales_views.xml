@@ -33,6 +33,22 @@
                 <field name="certificate_notes"/>
                 <field name="has_certificate"/>
             </xpath>
+
+            <xpath expr="//notebook[last()]" position="inside">
+                <page name="transfer_notes" string="Delivery Notes">
+                    <group>
+                        <group string="Picking Document">
+                            <field name="picking"/>
+                            <field name="picking_op_notes"/>
+                        </group>
+                        <group string="Delivery Document">
+                            <field name="delivery"/>
+                            <field name="delivery_notes"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
         </field>
     </record>
 
