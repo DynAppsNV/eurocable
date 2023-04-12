@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="stock.view_picking_form"/>
         <field name="arch" type="xml">
             <button name="button_validate" position="after">
-                <button string="Print picking label" name="print_picking_label" type="object" groups="base.group_user"/>
+                <button string="Print picking label" name="print_picking_label" type="object" invisible="1" groups="base.group_user"/>
             </button>
             <field name="origin" position="after">
                 <field name="date_done"/>
@@ -19,6 +19,40 @@
                     <field name="weight"></field>
                    <field name="total_weight"/>
             </xpath>
+
+            <!--Check Availability-->
+            <button name="action_assign" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </button>
+
+            <!--Unreserve-->
+             <button name="do_unreserve" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </button>
+
+            <!--Scrap-->
+             <button name="button_scrap" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </button>
+
+            <!--Unlock-->
+            <button name="action_toggle_is_locked" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </button>
+
         </field>
     </record>
+
+    <record id="view_picking_form_inherit_printnode" model="ir.ui.view">
+        <field name="name">stock.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="printnode_base.view_picking_form"/>
+        <field name="arch" type="xml">
+            <!--Last shipping label-->
+            <button name="print_last_shipping_label" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </button>
+        </field>
+    </record>
+
 </odoo>
