@@ -18,6 +18,8 @@ class SaleAdvancePaymentInv(models.TransientModel):
 
     def _is_message_exists(self):
         sale_ids = self.get_sale_id()
+        if not sale_ids:
+            return False
         if any(sale_ids.partner_invoice_id.filtered(lambda x: x.invoice_warn_msg)):
             return True
         else:
@@ -25,6 +27,8 @@ class SaleAdvancePaymentInv(models.TransientModel):
 
     def _get_message(self):
         sale_orders = self.get_sale_id()
+        if not sale_orders:
+            return ''
         if len(sale_orders) > 1:
             message = ''
             for order in sale_orders:
