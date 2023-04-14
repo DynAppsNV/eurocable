@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="stock.view_picking_form"/>
         <field name="arch" type="xml">
             <button name="button_validate" position="after">
-                <button string="Print picking label" name="print_picking_label" type="object" invisible="1" groups="base.group_user"/>
+                <button string="Print picking label" name="print_picking_label" type="object" groups="base.group_user"/>
             </button>
             <field name="origin" position="after">
                 <field name="date_done"/>
