@@ -19,7 +19,6 @@ class ResPartner(models.Model):
         return super().write(vals)
 
     def unlink(self):
-        if self.user_has_groups('eurocable_contacts.group_user_noedit') and \
-                not self.type == 'delivery':
+        if self.user_has_groups('eurocable_contacts.group_user_noedit'):
             raise UserError(_("You do not have access to delete the user!"))
         return super().unlink()
