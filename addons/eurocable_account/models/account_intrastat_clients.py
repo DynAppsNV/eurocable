@@ -117,23 +117,8 @@ class IntrastatReports(models.Model):
             AND inv.move_type IN %(invoice_types)s
             AND NOT inv_line.exclude_from_invoice_tab
             AND inv_line.show_in_report = True            
-            '''
+        '''
         return query, params
-        query['where'] = '''
-            inv.state = 'posted'
-        #     AND inv_line.display_type IS NULL
-        #     AND NOT inv_line.quantity = 0
-        #     AND inv_line.show_in_report = True
-        #     AND inv.company_id = %(company_id)s
-        #     AND company_country.id != country.id
-        #     AND country.intrastat = TRUE AND (country.code != 'GB' OR inv.date < '2021-01-01')
-        #     AND coalesce(inv.date, inv.invoice_date) >= %(date_from)s
-        #     AND coalesce(inv.date, inv.invoice_date) <= %(date_to)s
-        #     AND inv.journal_id IN %(journal_ids)s
-        #     AND inv.move_type IN %(invoice_types)s
-        #     AND NOT inv_line.exclude_from_invoice_tab
-            '''
-        # return query, params
 
     @api.model
     def _create_intrastat_report_line(self, options, vals):
