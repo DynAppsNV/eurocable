@@ -29,6 +29,7 @@ class AccountMove(models.Model):
     is_service = fields.Integer(compute='_compute_is_service',
                                 store=1)
     show_in_report = fields.Boolean()
+
     def get_default_transaction(self):
         intrastat_transaction_id = self.env['account.intrastat.code'].search([('code', '=', 11)])
         return intrastat_transaction_id and intrastat_transaction_id[0] or False

@@ -116,9 +116,7 @@ class IntrastatReports(models.Model):
             AND inv.journal_id IN %(journal_ids)s
             AND inv.move_type IN %(invoice_types)s
             AND NOT inv_line.exclude_from_invoice_tab
-            AND inv_line.show_in_report = True
-            
-
+            AND inv_line.show_in_report = True            
             '''
         return query, params
         query['where'] = '''
@@ -178,7 +176,6 @@ class IntrastatReports(models.Model):
         for vals in query_results:
             if vals['supplementary_units'] is None:
                 vals['supplementary_units'] = vals['line_quantity']
-        print(query_results,'query_results')
         return query_results
 
     def _get_filter_journals(self):
