@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_order_form_inherit_attachments" model="ir.ui.view">
+        <field name="name">sale.order.view.form.attachments</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook[last()]" position="inside">
+                <page name="documents" string="Attachments">
+                    <group>
+                        <group>
+                            <field name="is_attach_purchase_docs"/>
+                            <field name="sale_po_attachment_ids" widget="many2many_binary"
+                                   attrs="{'invisible': [('is_attach_purchase_docs', '=', False)]}"/>
+                        </group>
+                        <group>
+                            <field name="is_attach_delivery_note"/>
+                            <field name="sale_delivery_attachment_ids" widget="many2many_binary"
+                                   attrs="{'invisible': [('is_attach_delivery_note', '=', False)]}"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_quotation_tree_with_onboarding_inherit_attachment" model="ir.ui.view">
+        <field name="name">sale.order.view.tree.attachment</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="client_order_ref" optional="show"/>
+                <field name="sale_send_so_to_inv" optional="show"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_order_tree_euro_inh" model="ir.ui.view">
+        <field name="name">sale.order.tree.inherit.euro.attchment</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='team_id']" position="after">
+                <field name="sale_send_so_to_inv" optional="show"/>
+                <field name="is_attach_purchase_docs" optional="show"/>
+                <field name="is_attach_delivery_note" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
