@@ -39,8 +39,8 @@ class AccountFollowupReport(models.AbstractModel):
                                'subject': self._get_report_manager(options).
                                email_subject,
                                'email_to': partner.partner_to.email or email}
-                self.env['mail.mail'].sudo().create(mail_values).send()
-
+                template.send_mail(partner.id, force_send=True,
+                                   email_values=mail_values)
             return True
         raise UserError(_('Could not send mail to partner %s because it does '
                           'not have any email address '
