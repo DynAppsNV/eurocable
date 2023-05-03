@@ -42,10 +42,11 @@ class AccountMove(models.Model):
     @api.depends('name')
     def _compute_is_service(self):
         for rec in self:
-            rec.is_service = 0
             if rec.product_id and rec.product_id.\
                     detailed_type == 'service':
                 rec.is_service = 1
+            else:
+                rec.is_service = 0
 
     @api.onchange('product_id')
     def compute_intrastat_code(self):
