@@ -13,7 +13,8 @@ class ResPartner(models.Model):
                                  help="partner used for payment reminder")
 
     def write(self, vals):
-        if self.user_has_groups('eurocable_contacts.group_user_noedit'):
+        if self.user_has_groups('eurocable_contacts.group_user_noedit') and \
+                not self.type == 'delivery':
             raise UserError(_("You do not have access to edit the user details!"))
         return super().write(vals)
 
