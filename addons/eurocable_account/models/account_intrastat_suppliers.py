@@ -44,6 +44,8 @@ class IntrastatReports(models.Model):
             %(export_merchandise_code)s END AS system,
             country.code AS country_code,
             country.name AS country_name,
+            inv_line.is_service AS is_service,
+            inv_line.show_in_report AS show_in_report,
             inv_line.quantity AS line_quantity,
             product_country.name AS intrastat_product_origin_country_name,
             company_country.code AS comp_country_code,
@@ -111,6 +113,8 @@ class IntrastatReports(models.Model):
             AND inv.journal_id IN %(journal_ids)s
             AND inv.move_type IN %(invoice_types)s
             AND NOT inv_line.exclude_from_invoice_tab
+            AND inv_line.is_service = 0
+            AND inv_line.show_in_report = True
             '''
         return query, params
 
