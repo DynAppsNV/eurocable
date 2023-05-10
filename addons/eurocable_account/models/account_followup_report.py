@@ -45,3 +45,22 @@ class AccountFollowupReport(models.AbstractModel):
         raise UserError(_('Could not send mail to partner %s because it does '
                           'not have any email address '
                           'defined', partner.display_name))
+
+    # Override for formatting purpose
+    def _get_columns_name(self, options):
+        """
+        Override
+        Return the name of the columns of the follow-ups report
+        """
+        headers = [{},
+                   {'name': _('Date'), 'class': 'date', 'style': 'text-align:center; white-space:nowrap; padding:5px;'},
+                   {'name': _('Due Date'), 'class': 'date', 'style': 'text-align:center; padding:5px;'},
+                   {'name': _('Source Document'), 'style': 'text-align:center;'},
+                   {'name': _('Communication'), 'style': 'text-align:center; white-space:nowrap;'},
+                   {'name': _('Expected Date'), 'class': 'date', 'style': 'white-space:nowrap;'},
+                   {'name': _('Excluded'), 'class': 'date', 'style': 'white-space:nowrap;'},
+                   {'name': _('Total Due'), 'class': 'number o_price_total', 'style': 'text-align:center; white-space:nowrap;'}
+                  ]
+        if self.env.context.get('print_mode'):
+            headers = headers[:5] + headers[7:]  # Remove the 'Expected Date' and 'Excluded' columns
+        return headers
