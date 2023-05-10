@@ -85,9 +85,8 @@ class AccountFollowupReport(models.AbstractModel):
         Compute and return the lines of the columns of the follow-ups report.
         """
         # Get date format for the lang
-        partner = options.get('partner_id') and \
-                  self.env['res.partner'].browse(options['partner_id']) or\
-                  False
+        partner = options.get('partner_id') and self.env['res.partner'].\
+            browse(options['partner_id']) or False
         if not partner:
             return []
 
