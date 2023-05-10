@@ -96,9 +96,9 @@ class AccountFollowupReport(models.AbstractModel):
         res = {}
         today = fields.Date.today()
         line_num = 0
-        for l in partner.unreconciled_aml_ids.sorted().\
-                filtered(lambda aml: not
-        aml.currency_id.is_zero(aml.amount_residual_currency)):
+        for l in partner.unreconciled_aml_ids.\
+                sorted().\
+                filtered(lambda aml: not aml.currency_id.is_zero(aml.amount_residual_currency)):
             if l.company_id == self.env.company:
                 if self.env.context.get('print_mode') and l.blocked:
                     continue
