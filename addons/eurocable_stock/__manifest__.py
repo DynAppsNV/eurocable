@@ -7,12 +7,9 @@
     'category': 'Sale',
     'license': 'LGPL-3',
     'depends': [
-        'base',
-        'stock',
         'product',
-        'sale_stock',
-        'delivery',
-        'printnode_base'
+        'printnode_base',
+        'eurocable_sale'
     ],
     'data': [
         'security/ir.model.access.csv',
