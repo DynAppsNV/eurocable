@@ -1,6 +1,6 @@
 # Copyright 2022 Eezee-IT (<http://www.eezee-it.com>)
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
-from odoo import models, _
+from odoo import models, api, _
 from odoo.exceptions import UserError
 
 
@@ -13,6 +13,13 @@ class AccountMove(models.Model):
                 move.to_check = True
         res = super(AccountMove, self).action_post()
         return res
+
+    @api.model
+    def _cron_show_in_intrastat(self):
+        invoice_line_ids = self.env['account.move.line'].search([
+            ('product_id.detailed_type', 'in', ['consu', 'product'])])
+        if invoice_line_ids:
+            invoice_line_ids.sudo().write({'show_in_report': True})
 
     # Override method to remove is_move_sent checkbox from updating
     def button_draft(self):
