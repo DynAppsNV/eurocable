@@ -49,7 +49,6 @@ class IntrastatReports(models.Model):
             country.name AS country_name,
             inv_line.quantity AS line_quantity,
             inv_line.show_in_report AS show_in_report,
-            inv_line.optional_to_show AS optional_to_show,
             product_country.name AS intrastat_product_origin_country_name,
             company_country.code AS comp_country_code,
             transaction.code AS transaction_code,
@@ -108,7 +107,7 @@ class IntrastatReports(models.Model):
         inv.state = 'posted'
             AND inv_line.display_type IS NULL
             AND NOT inv_line.quantity = 0
-            AND (inv_line.optional_to_show = TRUE OR inv_line.show_in_report = TRUE)
+            AND inv_line.show_in_report = TRUE
             AND inv_line.is_service = 0
             AND inv.company_id = %(company_id)s
             AND company_country.id != country.id
