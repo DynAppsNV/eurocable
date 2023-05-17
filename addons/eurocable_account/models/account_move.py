@@ -21,6 +21,15 @@ class AccountMove(models.Model):
         if invoice_line_ids:
             invoice_line_ids.sudo().write({'show_in_report': True})
 
+    @api.model
+    def _cron_update_transaction(self):
+        intrastat_transaction_id = self.env['account.intrastat.code'].\
+            search([('code', '=', 11)])
+        invoice_line_ids = self.env['account.move.line'].search([])
+        if invoice_line_ids and intrastat_transaction_id:
+            invoice_line_ids.sudo().write(
+                {'intrastat_transaction_id': intrastat_transaction_id.id})
+
     # Override method to remove is_move_sent checkbox from updating
     def button_draft(self):
         AccountMoveLine = self.env['account.move.line']
