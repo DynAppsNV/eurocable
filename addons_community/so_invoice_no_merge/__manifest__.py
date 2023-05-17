@@ -3,7 +3,7 @@
     'name': "SW - SO Invoicing No Merge",
     'summary': "Choose whether to merge multiple sale orders into one invoice or invoice them separately.",
     'description': """
-        This module grants the user the choice to whether consolidate multiple sales orders in one invoice 
+        This module grants the user the choice to whether consolidate multiple sales orders in one invoice
         or note when selecting them in the Orders To Invoice page.
         """,
     'author': "Smart Way Business Solutions",
