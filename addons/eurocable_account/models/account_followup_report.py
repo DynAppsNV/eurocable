@@ -62,13 +62,14 @@ class AccountFollowupReport(models.AbstractModel):
                    {'name': _('Source Document'),
                     'style': 'text-align:center;'},
                    {'name': _('Communication'),
-                    'style': 'text-align:center; white-space:nowrap;'},
+                    'style': 'text-align:right; white-space:nowrap;'
+                             'padding-right:2px;'},
                    {'name': _('Expected Date'), 'class': 'date',
                     'style': 'white-space:nowrap;'},
                    {'name': _('Excluded'), 'class': 'date',
                     'style': 'white-space:nowrap;'},
                    {'name': _('Total Due'), 'class': 'number o_price_total',
-                    'style': 'text-align:center; white-space:nowrap;'}
+                    'style': 'text-align:right; padding-right:2px;'}
                    ]
         if self.env.context.get('print_mode'):
             # Remove the 'Source Document', 'Expected Date' and
