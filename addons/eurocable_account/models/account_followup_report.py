@@ -97,16 +97,16 @@ class AccountFollowupReport(models.AbstractModel):
         res = {}
         today = fields.Date.today()
         line_num = 0
-        for l in partner.unreconciled_aml_ids.\
+        for line in partner.unreconciled_aml_ids.\
                 sorted().\
                 filtered(lambda aml: not aml.currency_id.is_zero(aml.amount_residual_currency)):
-            if l.company_id == self.env.company:
-                if self.env.context.get('print_mode') and l.blocked:
+            if line.company_id == self.env.company:
+                if self.env.context.get('print_mode') and line.blocked:
                     continue
-                currency = l.currency_id or l.company_id.currency_id
+                currency = line.currency_id or line.company_id.currency_id
                 if currency not in res:
                     res[currency] = []
-                res[currency].append(l)
+                res[currency].append(line)
         for currency, aml_recs in res.items():
             total = 0
             total_issued = 0
