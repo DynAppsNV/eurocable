@@ -30,7 +30,7 @@ class AccountMove(models.Model):
                                 store=1)
 
     show_in_report = fields.Boolean(compute='_compute_line_to_show',
-                                    store=1, precompute=True)
+                                    store=1, precompute=True, readonly=0)
 
     def get_default_transaction(self):
         intrastat_transaction_id = self.env['account.intrastat.code'].search([('code', '=', 11)])
