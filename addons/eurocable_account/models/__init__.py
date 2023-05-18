@@ -12,3 +12,4 @@ from . import account_fiscal_position
 from . import account_followup_report
 from . import res_partner
 from . import sale_order
+from . import ir_attachment
