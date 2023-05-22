@@ -6,4 +6,4 @@ from odoo import fields, models
 class ResCompany(models.Model):
     _inherit = "res.company"
 
-    logo_zpl = fields.Text(string="Logo ZPL")
+    logo_zpl = fields.Binary(string="Logo ZPL")

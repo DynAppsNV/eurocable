@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
             <xpath expr="//sheet/notebook/page[@name='general_info']" position="inside">
                 <group>
-                    <field name="logo_zpl"/>
+                    <field name="logo_zpl" widget="image" options='{"size": [120, 120]}'/>
                 </group>
             </xpath>
         </field>
