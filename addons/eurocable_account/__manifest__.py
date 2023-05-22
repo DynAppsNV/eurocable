@@ -2,7 +2,7 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
 {
     'name': 'Eurocable Account',
-    'version': '15.0.1.0.17',
+    'version': '15.0.1.0.20',
     'author': 'Eezee-It',
     'category': 'Account',
     'license': 'LGPL-3',
@@ -22,7 +22,9 @@
         'views/report_financial.xml',
         'views/account_move.xml',
         'views/report_invoice.xml',
-        'views/partner_views.xml'
+        'views/partner_views.xml',
+        'data/intrastat_data.xml',
+        'views/account_tax_view.xml'
     ],
     "installable": True,
 }

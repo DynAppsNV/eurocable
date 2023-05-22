@@ -11,6 +11,9 @@
             </xpath>
             <xpath expr="//form/sheet/notebook/page[@id='invoice_tab']/field/tree/field[@name='quantity']" position="after">
                 <field name="weight"/>
+              <field name="is_service" invisible="1"/>
+                <field name="show_in_report" attrs="{'invisible': ['|',('product_id', '!=', False),('is_service','=',True)]}"/>
+
                 <field name="uom_id" invisible="1"/>
                 <field name="uom_category_id"/>
                 <field name="factor" invisible="1"/>
@@ -18,7 +21,10 @@
             <xpath expr="//form/sheet/notebook/page[@id='aml_tab']/field/tree/field[@name='account_id']" position="after">
                 <field name="intrastat_id" invisible="1"/>
                 <field name="weight" invisible="1"/>
+                <field name="is_service" invisible="1"/>
                 <field name="co_commd" invisible="1"/>
+                <field name="show_in_report" invisible="1"
+                      />
                 <field name="uom_id" invisible="1"/>
                 <field name="uom_category_id" invisible="1"/>
                 <field name="factor" invisible="1"/>

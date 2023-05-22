@@ -29,9 +29,19 @@
             <xpath expr="//field[@name='order_line']//tree//field[@name='product_uom']" position="before">
                 <field name="weight" optional="show"/>
                 <field name="weight_total" optional="show"/>
-                <field name="document_type"/>
-                <field name="certificate_notes"/>
-                <field name="has_certificate"/>
+                <field name="document_type" optional="show"/>
+                <field name="certificate_notes" optional="show"/>
+                <field name="has_certificate" optional="show"/>
+            </xpath>
+
+            <xpath expr="//field[@name='order_line']//tree//field[@name='product_id']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']//tree//field[@name='product_uom_qty']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']//tree//field[@name='price_unit']" position="attributes">
+                <attribute name="optional">hide</attribute>
             </xpath>
 
             <xpath expr="//notebook[last()]" position="inside">
@@ -47,6 +57,10 @@
                         </group>
                     </group>
                 </page>
+            </xpath>
+
+            <xpath expr="//sheet/notebook/page[@name='order_lines']/field[@name='order_line']/tree/field[@name='product_id']" position="attributes">
+                <attribute name="options">{'no_create': True, 'no_edit': True}</attribute>
             </xpath>
 
         </field>

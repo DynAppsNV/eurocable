@@ -26,12 +26,43 @@ class AccountMove(models.Model):
         related='product_id.intrastat_id.code',
         store=True
     )
+    is_service = fields.Integer(compute='_compute_is_service',
+                                store=1)
+
+    show_in_report = fields.Boolean(compute='_compute_line_to_show',
+                                    store=1, precompute=True, readonly=0)
+
+    def get_default_transaction(self):
+        intrastat_transaction_id = self.env['account.intrastat.code'].search([('code', '=', 11)])
+        return intrastat_transaction_id and intrastat_transaction_id[0] or False
+
+    intrastat_transaction_id = fields.Many2one('account.intrastat.code',
+                                               string='Intrastat',
+                                               domain="[('type', '=', 'transaction')]",
+                                               default=get_default_transaction)
+
+    @api.depends('name')
+    def _compute_is_service(self):
+        for rec in self:
+            if rec.product_id and rec.product_id.\
+                    detailed_type == 'service':
+                rec.is_service = 1
+            else:
+                rec.is_service = 0
+
+    @api.depends('product_id', 'name', 'tax_ids')
+    def _compute_line_to_show(self):
+        for rec in self:
+            line_to_show = rec.tax_ids.filtered(lambda tax: tax.show_intrastat)
+            if ((rec.product_id and rec.product_id.detailed_type != 'service') or
+                    (not rec.product_id and bool(line_to_show))):
+                rec.show_in_report = True
+            else:
+                rec.show_in_report = False
 
     @api.onchange('product_id')
     def compute_intrastat_code(self):
-        intrastat_transaction_id = self.env['account.intrastat.code'].search([('code', '=', 11)]).id
         for rec in self:
-            rec.intrastat_transaction_id = intrastat_transaction_id
             if rec.product_id:
                 rec.intrastat_id = rec.product_id.intrastat_id
                 rec.weight = rec.product_id.weight

@@ -7,7 +7,6 @@ from odoo.tools import float_round
 class IntrastatReports(models.Model):
     _inherit = 'account.intrastat.report'
     _name = 'account.intrast.clients'
-    _description = 'Client account.intrast'
 
     def _get_columns_name(self, options):
         """ Insert new column Intrastat in report"""
@@ -48,6 +47,7 @@ class IntrastatReports(models.Model):
             country.code AS country_code,
             country.name AS country_name,
             inv_line.quantity AS line_quantity,
+            inv_line.show_in_report AS show_in_report,
             product_country.name AS intrastat_product_origin_country_name,
             company_country.code AS comp_country_code,
             transaction.code AS transaction_code,
@@ -103,9 +103,11 @@ class IntrastatReports(models.Model):
             ref_weight_uom.uom_type = 'reference'
     '''
         query['where'] = '''
-            inv.state = 'posted'
+        inv.state = 'posted'
             AND inv_line.display_type IS NULL
             AND NOT inv_line.quantity = 0
+            AND inv_line.show_in_report = TRUE
+            AND inv_line.is_service = 0
             AND inv.company_id = %(company_id)s
             AND company_country.id != country.id
             AND country.intrastat = TRUE AND (country.code != 'GB' OR inv.date < '2021-01-01')
