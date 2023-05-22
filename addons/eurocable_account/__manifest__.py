@@ -22,8 +22,8 @@
         'views/account_move.xml',
         'views/report_invoice.xml',
         'views/partner_views.xml',
-        'views/sales_views.xml'
-        'data/intrastat_data.xml',
+        'views/sales_views.xml',
+        'data/intrastat_data.xml'
     ],
     "installable": True,
 }
