@@ -30,8 +30,8 @@ class ProductProduct(models.Model):
                 [("name", "=", seller.id)]
             )
             args += [
-                "|",
-                ("product_tmpl_id", "in", supplierinfos.product_tmpl_id.ids),
+                # "|",
+                # ("product_tmpl_id", "in", supplierinfos.product_tmpl_id.ids),
                 ("id", "in", supplierinfos.product_id.ids),
             ]
         return super()._search(
