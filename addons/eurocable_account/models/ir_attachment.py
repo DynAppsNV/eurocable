@@ -11,10 +11,10 @@ class IrAttachment(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         new_records = super(IrAttachment, self).create(vals_list)
+        sale_obj = self.env['sale.order']
         for record in new_records.\
                 filtered(lambda x: x.res_model == 'sale.order'):
-            sale_order_id = self.env['sale.order'].\
-                search([('id', '=', record.res_id)])
+            sale_order_id = sale_obj.search([('id', '=', record.res_id)])
             if sale_order_id and 'copy_po_att' not in self._context:
                 record.with_context({'copy_po_att': True}).sudo().copy()
             if 'copy_po_att' in self._context and 'copy_del_att' \
