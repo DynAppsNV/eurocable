@@ -29,9 +29,7 @@ class AccountMove(models.Model):
     is_service = fields.Integer(compute='_compute_is_service',
                                 store=1)
 
-    show_in_report = fields.Boolean(compute='_compute_line_to_show',
-                                    inverse='_inverse_line_to_show',
-                                    store=True, readonly=False)
+    show_in_report = fields.Boolean()
 
     def _inverse_line_to_show(self):
         pass
@@ -54,8 +52,8 @@ class AccountMove(models.Model):
             else:
                 rec.is_service = 0
 
-    @api.depends('product_id', 'name', 'tax_ids')
-    def _compute_line_to_show(self):
+    @api.onchange('product_id', 'name', 'tax_ids')
+    def _onchange_show_in_report(self):
         for rec in self:
             line_to_show = rec.tax_ids.filtered(lambda tax: tax.show_intrastat)
             if ((rec.product_id and rec.product_id.detailed_type != 'service') or
