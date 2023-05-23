@@ -30,10 +30,10 @@ class AccountMove(models.Model):
                                 store=1)
 
     show_in_report = fields.Boolean(compute='_compute_line_to_show',
-                                    inverse='_set_line_to_show',
+                                    inverse='_inverse_line_to_show',
                                     store=True, readonly=False)
 
-    def _set_line_to_show(self):
+    def _inverse_line_to_show(self):
         pass
 
     def get_default_transaction(self):
