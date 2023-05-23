@@ -31,9 +31,6 @@ class AccountMove(models.Model):
 
     show_in_report = fields.Boolean()
 
-    def _inverse_line_to_show(self):
-        pass
-
     def get_default_transaction(self):
         intrastat_transaction_id = self.env['account.intrastat.code'].search([('code', '=', 11)])
         return intrastat_transaction_id and intrastat_transaction_id[0] or False
