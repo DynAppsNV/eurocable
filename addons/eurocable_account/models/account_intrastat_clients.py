@@ -7,7 +7,6 @@ from odoo.tools import float_round
 class IntrastatReports(models.Model):
     _inherit = 'account.intrastat.report'
     _name = 'account.intrast.clients'
-    _description = 'Client account.intrast'
 
     def _get_columns_name(self, options):
         """ Insert new column Intrastat in report"""

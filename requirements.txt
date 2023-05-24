@@ -2,3 +2,4 @@ Avalara
 cryptography==3.3.2
 pyOpenSSL==20.0.0
 stripe
+astor==0.8.1

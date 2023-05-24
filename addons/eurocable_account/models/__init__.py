@@ -13,3 +13,4 @@ from . import account_followup_report
 from . import res_partner
 from . import sale_order
 from . import ir_attachment
+from . import account_tax

@@ -23,7 +23,8 @@
         'views/report_invoice.xml',
         'views/partner_views.xml',
         'views/sales_views.xml',
-        'data/intrastat_data.xml'
+        'data/intrastat_data.xml',
+        'views/account_tax_view.xml'
     ],
     "installable": True,
 }

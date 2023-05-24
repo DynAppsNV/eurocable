@@ -1,0 +1,12 @@
+<odoo>
+    <record id="view_tax_form_inherit" model="ir.ui.view">
+        <field name="name">account.tax.form</field>
+        <field name="model">account.tax</field>
+        <field name="inherit_id" ref="account.view_tax_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group/group/field[@name='active']" position="after">
+                <field name="show_intrastat"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
