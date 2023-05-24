@@ -26,6 +26,24 @@
             </t>
         </xpath>
 
+        <xpath expr="//h2" position="replace">
+            <span class="row">
+                <h2 class="mt8 col-5">
+                    <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
+                        <span t-if="doc.state not in ['draft','sent']">Order # </span>
+                        <span t-if="doc.state in ['draft','sent']">Quotation # </span>
+                    </t>
+                    <t t-if="env.context.get('proforma', False) or is_pro_forma">
+                        <span>Pro-Forma Invoice # </span>
+                    </t>
+                    <span t-field="doc.name"/>
+                </h2>
+                <span class="text-right col-5">
+                    <span t-field="doc.name" t-options="{'widget': 'barcode', 'width': 500, 'height': 80, 'img_style': 'width:300px;height:40px'}"/>
+                </span>
+            </span>
+        </xpath>
+
         <xpath expr="//div/div[@id='total']/div/table/t[1]" position="after">
             <tr class="border-black" style="">
                 <td>
