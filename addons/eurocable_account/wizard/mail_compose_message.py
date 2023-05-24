@@ -34,13 +34,16 @@ class MailComposer(models.TransientModel):
                             partner_invoice_id.send_so_to_inv:
                         # Get value from sale order Purchase Documents
                         if sale_order.is_attach_purchase_docs:
-                            sale_attachment.\
-                                append(sale_order.sale_po_attachment_ids.id)
+                            for po_attachment in \
+                                    sale_order.sale_po_attachment_ids:
+                                sale_attachment.\
+                                    append(po_attachment.id)
                         # Get value from sale order Delivery Documents
                         if sale_order.is_attach_delivery_note:
-                            sale_attachment.\
-                                append(sale_order.
-                                       sale_delivery_attachment_ids.id)
+                            for delivery_attachment in \
+                                    sale_order.sale_delivery_attachment_ids:
+                                sale_attachment.\
+                                    append(delivery_attachment.id)
                         # Raise error if there's no document found
                         if not sale_attachment:
                             raise UserError(_('There is no attachment found'
