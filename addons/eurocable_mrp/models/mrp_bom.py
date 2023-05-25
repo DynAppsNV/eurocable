@@ -2,7 +2,7 @@
 # Copyright 2023 Eezee-IT (<http://www.eezee-it.com>)
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
 
-from odoo import fields, models, api
+from odoo import models, api
 
 
 class MrpBom(models.Model):
@@ -18,7 +18,7 @@ class MrpBom(models.Model):
                 weight_sum += line.product_id.weight
             # Divide weight by qty to get per unit weight
             else:
-                weight_sum += line.product_id.weight / line.product_qty
+                weight_sum += line.product_id.weight * line.product_qty
         if weight_sum:
             # If we are creating BOM for more than 1 qty of finish product
             if record.product_qty != 1.0:
