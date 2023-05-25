@@ -12,6 +12,7 @@
                     <strong t-if="doc.partner_shipping_id != doc.partner_invoice_id" style="color: green;">Invoicing Address:</strong>
                     <div t-field="doc.partner_invoice_id" style="color: green;"
                         t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True, "phone_icons": True}'/>
+                    <p t-if="doc.partner_id.vat" style="color: green;"><t t-esc="doc.company_id.account_fiscal_country_id.vat_label or 'Tax ID'"/>: <span t-field="doc.partner_id.vat"/></p>
                 </t>
             </t>
         </xpath>
@@ -28,7 +29,7 @@
 
         <xpath expr="//h2" position="replace">
             <span class="row">
-                <h2 class="mt8 col-5">
+                <h2 class="mt8 col-8">
                     <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
                         <span t-if="doc.state not in ['draft','sent']">Order # </span>
                         <span t-if="doc.state in ['draft','sent']">Quotation # </span>
