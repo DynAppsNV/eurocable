@@ -7,7 +7,7 @@
                     <t t-translation="off">
 
                         ^XA
-                        ^FWN
+                        ^CI28
                         ^CF0,30
 
                             <t t-if="move_line.move_id.company_id.website">
