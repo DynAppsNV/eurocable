@@ -29,8 +29,7 @@ class AccountMove(models.Model):
     is_service = fields.Integer(compute='_compute_is_service',
                                 store=1)
 
-    show_in_report = fields.Boolean(compute='_compute_line_to_show',
-                                    store=1, precompute=True, readonly=0)
+    show_in_report = fields.Boolean()
 
     def get_default_transaction(self):
         intrastat_transaction_id = self.env['account.intrastat.code'].search([('code', '=', 11)])
@@ -50,8 +49,8 @@ class AccountMove(models.Model):
             else:
                 rec.is_service = 0
 
-    @api.depends('product_id', 'name', 'tax_ids')
-    def _compute_line_to_show(self):
+    @api.onchange('product_id', 'name', 'tax_ids')
+    def _onchange_show_in_report(self):
         for rec in self:
             line_to_show = rec.tax_ids.filtered(lambda tax: tax.show_intrastat)
             if ((rec.product_id and rec.product_id.detailed_type != 'service') or
