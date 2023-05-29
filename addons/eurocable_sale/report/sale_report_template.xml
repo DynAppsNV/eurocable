@@ -91,6 +91,7 @@
                         </th>
                         <th name="th_taxes" class="text-right">Taxes</th>
                         <th name="th_weight" class="text-right">Gewicht</th>
+                        <th name="th_weighttotal" class="text-right">Gesamtgewicht</th>
                         <th name="th_code" class="text-right">HS Code</th>
                         <th name="th_subtotal" class="text-right">
                             <span groups="account.group_show_line_subtotals_tax_excluded">Amount</span>
@@ -123,6 +124,11 @@
                                 </td>
                                 <td name="td_weight" class="text-right">
                                     <span t-field="line.weight"/>
+                                    <span t-field="line.product_id.weight_uom_name"/>
+                                </td>
+                                <td name="td_weighttotal" class="text-right">
+                                    <span t-field="line.weight_total"/>
+                                    <span t-field="line.product_id.weight_uom_name"/>
                                 </td>
                                 <td name="td_code" class="text-right">
                                     <span t-field="line.product_id.hs_code"/>
