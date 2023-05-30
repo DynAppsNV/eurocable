@@ -1,4 +1,4 @@
-# Copyright 2022 Eezee-IT (<http://www.eezee-it.com>)
+# Copyright 2023 Eezee-IT (<http://www.eezee-it.com>)
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
 {
     'name': 'Eurocable Mrp',
@@ -13,6 +13,7 @@
     ],
     'data': [
         'views/products_views.xml',
+        'views/mrp_bom.xml',
         'reports/mrp_production_templates.xml'
     ],
 }
