@@ -18,7 +18,8 @@ class MrpBom(models.Model):
             weight_sum += line.product_id.weight * line.product_qty
 
         # If we are creating BOM for more than 1 qty of finish product
-        weight_sum = weight_sum / record.product_qty
+        if record.product_qty != 0:
+            weight_sum = weight_sum / record.product_qty
 
         # Check for product variant
         if record.product_tmpl_id and record.product_id:
