@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="followup_filter_info_template_extended" inherit_id="account_followup.followup_filter_info_template">
+        <xpath expr="//t[@t-if='partner_addr.ref']" position="replace">
+
+        </xpath>
+    </template>
+
+</odoo>
