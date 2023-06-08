@@ -2,7 +2,7 @@
 # Copyright 2023 Eezee-IT (<http://www.eezee-it.com>)
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
 
-from odoo import models, api
+from odoo import models, api, fields
 
 
 class MrpBom(models.Model):
@@ -41,3 +41,10 @@ class MrpBom(models.Model):
                 'bom_line_ids' in vals:
             self._calculate_weight(self)
         return rec
+
+
+class MrpBomLine(models.Model):
+    _inherit = 'mrp.bom.line'
+
+    lot_id = fields.Many2one('stock.production.lot', 'Lot/Serial Number',
+                             domain="[('product_id', '=', product_id)]")
