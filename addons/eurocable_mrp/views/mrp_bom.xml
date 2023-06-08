@@ -12,6 +12,9 @@
             <xpath expr="//field[@name='bom_line_ids']/tree/field[@name='product_uom_id']" position="attributes">
                 <attribute name="readonly">1</attribute>
             </xpath>
+            <xpath expr="//field[@name='bom_line_ids']/tree/field[@name='product_uom_id']" position="after">
+                <field name="lot_id" groups="stock.group_production_lot" optional="show"/>
+            </xpath>
         </field>
     </record>
 
