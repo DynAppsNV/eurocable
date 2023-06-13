@@ -20,7 +20,7 @@
                                 </td>
                                 <td>
                                     <t t-if="move_line.state == 'done'">
-                                        <span t-field="move_line.quantity_done"/>
+                                        <span t-field="move_line.qty_done"/>
                                     </t>
                                     <t t-else="">
                                         <span t-field="move_line.product_uom_qty"/>
