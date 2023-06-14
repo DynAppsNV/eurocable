@@ -12,9 +12,9 @@
                     <strong>Sales Order:</strong>
                     <p t-field="o.sudo().sale_id.name"/>
                 </div>
-                <div class="col-auto" t-if="o.date_done" name="div_del_date">
+                <div class="col-auto" t-if="o.sudo().sale_id.commitment_date" name="div_del_date">
                     <strong>Date de Livraison:</strong>
-                    <p t-field="o.date_done" t-options='{"widget": "date"}'/>
+                    <p t-field="o.sudo().sale_id.commitment_date" t-options='{"widget": "date"}'/>
                 </div>
                 <div class="col-auto" t-if="o.move_type" name="div_shipping">
                     <strong>Shipping Method:</strong>
