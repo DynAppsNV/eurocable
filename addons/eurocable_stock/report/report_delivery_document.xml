@@ -8,7 +8,9 @@
             </div>
             <div t-if="o.weight_move" class="col-auto" name="div_total_weight">
                 <strong>Total Weight:</strong>
-                <p t-field="o.weight_move"/>
+                <p>
+                    <span t-field="o.weight_move"/>  <span t-esc="env['product.template']._get_weight_uom_id_from_ir_config_parameter().display_name"/>
+                </p>
             </div>
         </xpath>
         <xpath expr="//div[hasclass('page')]/div[@name='signature']" position="after">

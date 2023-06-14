@@ -4,6 +4,45 @@
             <t t-foreach="quantity.items()" t-as="move_lines">
                 <t t-set="move_line" t-value="move_lines[0]"/>
                 <t t-foreach="range(move_lines[1][0][1])" t-as="qty">
+                    <!--<t t-translation="off">
+
+                        ^XA
+                        ^CI28
+                        ^CF0,30
+
+                            <t t-if="move_line.move_id.company_id.website">
+                                ^FO480,80^FD<t t-esc="move_line.move_id.company_id.website"/>^FS
+                            </t>
+
+                            <t t-if="move_line.move_id.company_id.email">
+                                ^FO480,110^FD<t t-esc="move_line.move_id.company_id.email"/>^FS
+                            </t>
+
+                            <t t-if="move_line.move_id.company_id.logo_zpl">
+                                ^FO30,60^GFA,5000,5000,50,,<t t-esc="move_line.move_id.company_id.logo_zpl"/>^FS
+                            </t>
+
+                            <t t-if="move_line.move_id.picking_id.sale_id.client_order_ref">
+                                ^FO50,250^FD<t t-esc="move_line.move_id.picking_id.sale_id.partner_id.name"/>^FS
+                            </t>
+
+                            <t t-if="move_line.move_id.origin">
+                                ^FO40,280^FD Order:<t t-esc="move_line.move_id.origin"/>^FS
+                            </t>
+
+                            <t t-if="move_line.move_id.picking_id.sale_id.client_order_ref">
+                                ^FO40,310^FD Reference: <t t-esc="move_line.move_id.picking_id.sale_id.client_order_ref"/>^FS
+                            </t>
+
+                            <t t-if="move_line.product_id.description_sale">
+                                ^FB410,20,10,
+                                ^FO60,400^A0,^FH_^FD<t t-esc="move_line.product_id.description_sale"/>^FS
+                            </t>
+
+                        ^XZ
+                    </t>-->
+
+
 <t t-translation="off">
 ^XA
 ^FWR
@@ -34,6 +73,7 @@
     </t>
 ^XZ
 </t>
+
                </t>
             </t>
         </template>

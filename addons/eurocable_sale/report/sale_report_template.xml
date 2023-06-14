@@ -12,6 +12,12 @@
                     <strong t-if="doc.partner_shipping_id != doc.partner_invoice_id" style="color: green;">Invoicing Address:</strong>
                     <div t-field="doc.partner_invoice_id" style="color: green;"
                         t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True, "phone_icons": True}'/>
+                    <p t-if="doc.partner_id.vat" style="color: green;"><t t-esc="doc.company_id.account_fiscal_country_id.vat_label or 'Tax ID'"/>: <span t-field="doc.partner_id.vat"/></p>
+                </t>
+                <t t-if="doc.partner_shipping_id == doc.partner_invoice_id == doc.partner_id">
+                    <div t-field="doc.partner_id"
+                         t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
+                    <p t-if="doc.partner_id.vat"><t t-esc="doc.company_id.account_fiscal_country_id.vat_label or 'Tax ID'"/>: <span t-field="doc.partner_id.vat"/></p>
                 </t>
             </t>
         </xpath>
@@ -24,6 +30,24 @@
                         t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
                 </t>
             </t>
+        </xpath>
+
+        <xpath expr="//h2" position="replace">
+            <span class="row">
+                <h2 class="mt8 col-8">
+                    <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
+                        <span t-if="doc.state not in ['draft','sent']">Order # </span>
+                        <span t-if="doc.state in ['draft','sent']">Quotation # </span>
+                    </t>
+                    <t t-if="env.context.get('proforma', False) or is_pro_forma">
+                        <span>Pro-Forma Invoice # </span>
+                    </t>
+                    <span t-field="doc.name"/>
+                </h2>
+                <span class="text-right col-5">
+                    <span t-field="doc.name" t-options="{'widget': 'barcode', 'width': 500, 'height': 80, 'img_style': 'width:300px;height:40px'}"/>
+                </span>
+            </span>
         </xpath>
 
         <xpath expr="//div/div[@id='total']/div/table/t[1]" position="after">
@@ -91,6 +115,7 @@
                         </th>
                         <th name="th_taxes" class="text-right">Taxes</th>
                         <th name="th_weight" class="text-right">Gewicht</th>
+                        <th name="th_weighttotal" class="text-right">Gesamtgewicht</th>
                         <th name="th_code" class="text-right">HS Code</th>
                         <th name="th_subtotal" class="text-right">
                             <span groups="account.group_show_line_subtotals_tax_excluded">Amount</span>
@@ -123,6 +148,11 @@
                                 </td>
                                 <td name="td_weight" class="text-right">
                                     <span t-field="line.weight"/>
+                                    <span t-field="line.product_id.weight_uom_name"/>
+                                </td>
+                                <td name="td_weighttotal" class="text-right">
+                                    <span t-field="line.weight_total"/>
+                                    <span t-field="line.product_id.weight_uom_name"/>
                                 </td>
                                 <td name="td_code" class="text-right">
                                     <span t-field="line.product_id.hs_code"/>
