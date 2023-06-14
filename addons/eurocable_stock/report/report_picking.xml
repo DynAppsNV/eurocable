@@ -1,44 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="report_report_picking_inherit_stock" inherit_id="stock.report_picking" >
-        <xpath expr="//div[@name='div_sched_date']" position="after">
-            <div class="row justify-content-end" t-if="o.sudo().sale_id.client_order_ref">
-                <div class="col-auto">
-                    <strong>Customer Reference:</strong>
+
+        <xpath expr="//div[hasclass('mt48')]" position="replace">
+            <div class="row mt48 mb32">
+                <div t-if="o.sudo().sale_id.client_order_ref" class="col-auto" name="div_cust_ref">
+                    <strong>Your reference:</strong>
                     <p t-field="o.sudo().sale_id.client_order_ref"/>
                 </div>
-            </div>
-            <div class="row justify-content-end" t-if="o.date_done">
-                <div class="col-auto">
+                <div class="col-auto" t-if="o.sudo().sale_id" name="div_sale_ref">
+                    <strong>Sales Order:</strong>
+                    <p t-field="o.sudo().sale_id.name"/>
+                </div>
+                <div class="col-auto" t-if="o.sudo().sale_id.commitment_date" name="div_del_date">
                     <strong>Date de Livraison:</strong>
-                    <p t-field="o.date_done" t-options='{"widget": "date"}'/>
+                    <p t-field="o.sudo().sale_id.commitment_date" t-options='{"widget": "date"}'/>
+                </div>
+                <div class="col-auto" t-if="o.move_type" name="div_shipping">
+                    <strong>Shipping Method:</strong>
+                    <p t-field="o.sudo().move_type"/>
+                </div>
+                <div t-if="o.weight_move" class="col-auto" name="div_total_weight">
+                    <strong>Total Weight:</strong>
+                    <p>
+                        <span t-field="o.weight_move"/>  <span t-esc="env['product.template']._get_weight_uom_id_from_ir_config_parameter().display_name"/>
+                    </p>
                 </div>
             </div>
         </xpath>
 
-        <xpath expr="//div[@name='div_state']" position="before">
-            <div class="col-auto" t-if="o.sudo().sale_id">
-                <strong>Sale Reference:</strong>
-                <p t-field="o.sudo().sale_id.name"/>
+        <xpath expr="//table[@t-if='o.move_line_ids and o.move_ids_without_package']" position="replace">
+            <table class="table table-sm" t-if="o.move_line_ids and o.move_ids_without_package">
+                <t t-set="has_serial_number" t-value="any(move_line.lot_id or move_line.lot_name for move_line in o.move_line_ids)" groups="stock.group_production_lot"/>
+                <thead>
+                    <tr>
+                        <th name="th_product">
+                            <strong>Description</strong>
+                        </th>
+                        <th>
+                            <strong>Quantity</strong>
+                        </th>
+                        <th name="th_serial_number" class="text-center" t-if="has_serial_number">
+                           <strong>Lot/Serial Number</strong>
+                        </th>
+                        <th name="th_weight" class="text-center">
+                            <strong>Product Total Weight</strong>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- In case you come across duplicated lines, ask NIM or LAP -->
+                    <t t-foreach="o.move_line_ids_without_package" t-as="ml">
+                        <tr>
+                            <td>
+                                <span t-field="ml.description_picking"/>
+                            </td>
+                            <td>
+                                <span t-if="o.state != 'done'" t-field="ml.product_uom_qty"/>
+                                <span t-if="o.state == 'done'" t-field="ml.qty_done"/>
+                                <span t-field="ml.product_uom_id" groups="uom.group_uom"/>
+                            </td>
+                            <td class=" text-center h6" t-if="has_serial_number">
+                                <div t-if="has_serial_number and (ml.lot_id or ml.lot_name)" t-esc="ml.lot_id.name or ml.lot_name" t-options="{'widget': 'barcode', 'humanreadable': 1, 'width': 400, 'height': 100, 'img_style': 'width:100%;height:35px;'}"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-field="ml.move_id.total_weight"/>
+                                <span t-field="ml.product_id.weight_uom_name"/>
+                            </td>
+                        </tr>
+                    </t>
+                  </tbody>
+            </table>
+        </xpath>
+
+       <xpath expr="//p[@t-field='o.note']" position="before">
+           <div t-if="o.carrier_id">
+                <b>Carrier</b>
+                <p t-field="o.carrier_id.name"/>
             </div>
-        </xpath>
-
-        <xpath expr="//th[@name='th_product']" position="replace">
-            <th name="th_description">
-                <strong>Description</strong>
-            </th>
-        </xpath>
-        <xpath expr="//t[@t-foreach='o.move_line_ids_without_package']/tr/td[1]" position="replace">
-            <td>
-                <span t-field="ml.description_picking"/>
-            </td>
-        </xpath>
-
-<!--        <xpath expr="//p[@t-field='o.note']" position="before">
-            <div t-if="o.sudo().sale_id.picking_op_notes">
-                <b>Picking operation Notes</b>
+           <div t-if="o.sudo().sale_id.picking_op_notes">
+                <b>Information</b>
                 <p t-field="o.sudo().sale_id.picking_op_notes"/>
             </div>
-        </xpath>-->
+        </xpath>
     </template>
 </odoo>
