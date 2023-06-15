@@ -18,17 +18,17 @@
                                 ^FO280,280^FD<t t-esc="move_line.move_id.company_id.email"/>^FS
                             </t>
                             <t t-if="move_line.move_id.picking_id.sale_id.client_order_ref">
-                                ^FO50,330^FD<t t-esc="move_line.move_id.picking_id.sale_id.partner_id.name"/>^FS
+                                ^FO140,330^FD<t t-esc="move_line.move_id.picking_id.sale_id.partner_id.name"/>^FS
                             </t>
                             <t t-if="move_line.move_id.origin">
-                                ^FO40,370^FD Order:<t t-esc="move_line.move_id.origin"/>^FS
+                                ^FO130,370^FD Order:<t t-esc="move_line.move_id.origin"/>^FS
                             </t>
                             <t t-if="move_line.move_id.picking_id.sale_id.client_order_ref">
-                                ^FO40,400^FD Reference: <t t-esc="move_line.move_id.picking_id.sale_id.client_order_ref"/>^FS
+                                ^FO130,400^FD Reference: <t t-esc="move_line.move_id.picking_id.sale_id.client_order_ref"/>^FS
                             </t>
                             <t t-if="move_line.product_id.description_sale">
                                 ^FB410,20,10,
-                                ^FO50,460^A0,^FH_^FD<t t-esc="move_line.product_id.description_sale"/>^FS
+                                ^FO130,460^A0,^FH_^FD<t t-esc="move_line.product_id.description_sale"/>^FS
                             </t>
                         ^XZ
                     </t>
