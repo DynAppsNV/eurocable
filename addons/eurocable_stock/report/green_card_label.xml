@@ -9,7 +9,7 @@
                         ^CI28
                         ^CF0,30
                             <t t-if="move_line.move_id.company_id.logo_zpl">
-                                ^FO130,100^GFA,10564,10564,76,,<t t-esc="move_line.move_id.company_id.logo_zpl"/>^FS
+                                ^FO180,100^GFA,<t t-esc="move_line.move_id.company_id.logo_zpl"/>^FS
                             </t>
                             <t t-if="move_line.move_id.company_id.website">
                                 ^FO280,250^FD<t t-esc="move_line.move_id.company_id.website"/>^FS
@@ -28,7 +28,7 @@
                             </t>
                             <t t-if="move_line.product_id.description_sale">
                                 ^FB410,20,10,
-                                ^FO130,460^A0,^FH_^FD<t t-esc="move_line.product_id.description_sale"/>^FS
+                                ^FO130,460^A0,^FH_^FD<t t-raw="move_line.product_id.get_description_sale_zpl()"/>^FS
                             </t>
                         ^XZ
                     </t>

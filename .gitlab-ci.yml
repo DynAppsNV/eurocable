@@ -49,10 +49,10 @@ tests:
   - pip3 install -q -r requirements.txt
   - pip3 install -q -r requirements-dev.txt
   - inv clean --database-name=$DBNAME
-  - git clone --quiet --branch=$ODOO_VERSION $ODOO_SRC/odoo.git env/community
+  - git clone --quiet --branch=$ODOO_VERSION $ODOO_SRC/odoo.git env/community --depth 1 --single-branch
   - rm -rf env/community/.git
   - pip3 install -q -r env/community/requirements.txt
-  - git clone --quiet --branch=$ODOO_VERSION $ODOO_SRC/enterprise.git env/enterprise
+  - git clone --quiet --branch=$ODOO_VERSION $ODOO_SRC/enterprise.git env/enterprise --depth 1 --single-branch
   - rm -rf env/enterprise/.git
   - createdb --encoding=UTF8 --locale=en_US.UTF-8 --template=template0 $DBNAME
   - cp invoke.yaml.template invoke.yaml
