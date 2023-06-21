@@ -9,7 +9,5 @@ class ProductProduct(models.Model):
     def get_description_sale_zpl(self):
         description_zpl = self.description_sale
         if description_zpl:
-            print(description_zpl)
-            description_zpl = description_zpl.replace('\n', '\&')
-            print(description_zpl)
+            description_zpl = description_zpl.replace('\n', '\&') # NOQA
         return description_zpl
