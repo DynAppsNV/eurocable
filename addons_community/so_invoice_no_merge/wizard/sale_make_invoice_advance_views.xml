@@ -5,7 +5,7 @@
         <field name="inherit_id" ref="sale.view_sale_advance_payment_inv"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='count']" position="after">
-                <field name="merge_invoices" attrs="{'invisible': [('count','=', 1)]}"/>
+                <field name="merge_invoices" invisible="count == 1"/>
             </xpath>
         </field>
     </record>

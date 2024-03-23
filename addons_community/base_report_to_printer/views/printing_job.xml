@@ -10,7 +10,7 @@
                         name="action_cancel"
                         type="object"
                         string="Cancel"
-                        attrs="{'invisible': [('job_state', 'in', ('canceled', 'aborted', 'completed'))]}"
+                        invisible="job_state in ('canceled', 'aborted', 'completed')"
                     />
                     <field name="job_state" widget="statusbar" />
                 </header>

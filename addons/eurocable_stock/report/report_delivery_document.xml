@@ -1,42 +1,44 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <template id="report_delivery_document_inherit_stock" inherit_id="stock.report_delivery_document">
+    <template
+        id="report_delivery_document_inherit_stock"
+        inherit_id="stock.report_delivery_document"
+        priority="99"
+    >
         <xpath expr="//div[@name='div_sched_date']" position="after">
             <div t-if="o.sudo().sale_id" class="col-auto" name="div_sale_ref">
                 <strong>Sale Reference:</strong>
-                <p t-field="o.sudo().sale_id.name"/>
+                <p t-field="o.sudo().sale_id.name" />
             </div>
             <div t-if="o.weight_move" class="col-auto" name="div_total_weight">
                 <strong>Total Weight:</strong>
                 <p>
-                    <span t-field="o.weight_move"/>  <span t-esc="env['product.template']._get_weight_uom_id_from_ir_config_parameter().display_name"/>
+                    <span t-field="o.weight_move" />  <span
+                        t-esc="env['product.template']._get_weight_uom_id_from_ir_config_parameter().display_name"
+                    />
                 </p>
             </div>
         </xpath>
         <xpath expr="//div[hasclass('page')]/div[@name='signature']" position="after">
-            <br/>
-            <br/>
-<!--            <div t-if="o.sudo().sale_id.delivery_notes">
-                <b>Delivery Notes</b>
-                <p t-field="o.sudo().sale_id.delivery_notes"/>
-            </div>-->
+            <br />
+            <br />
             <div t-if="o.move_type">
                 <b>Shipping policy</b>
-                <p t-field="o.move_type"/>
+                <p t-field="o.move_type" />
             </div>
             <div t-if="o.name">
                 <b>Delivery order-</b>
-                <span t-field="o.name"/>
+                <span t-field="o.name" />
             </div>
         </xpath>
         <xpath expr="//div[hasclass('page')]/h2" position="replace">
             <h2>
                 <b>Delivery order-</b>
-                <span t-field="o.name"/>
+                <span t-field="o.name" />
             </h2>
 
         </xpath>
-        
+
         <xpath expr="//p[@t-field='o.date_done']" position="attributes">
             <attribute name="t-options">{"widget": "date"}</attribute>
         </xpath>
@@ -48,7 +50,7 @@
         </xpath>
         <xpath expr="//table[@name='stock_move_table']/tbody/tr/td[1]" position="replace">
             <td>
-                <span t-field="move.description_picking"/>
+                <span t-field="move.description_picking" />
             </td>
         </xpath>
 
@@ -59,15 +61,18 @@
         </xpath>
 
     </template>
-    <template id="stock_report_delivery_has_serial_move_line_inherit_stock"
-              inherit_id="stock.stock_report_delivery_has_serial_move_line">
+    <template
+        id="stock_report_delivery_has_serial_move_line_inherit_stock"
+        inherit_id="stock.stock_report_delivery_has_serial_move_line"
+        priority="99"
+    >
         <xpath expr="//td[1]" position="replace">
             <td>
                 <t t-if="not description and description != ''">
-                    <t t-set="description" t-value="move_line.move_id.description_picking"/>
+                    <t t-set="description" t-value="move_line.move_id.description_picking" />
                 </t>
                 <p t-if="description !='' and description != move_line.product_id.name">
-                    <span t-esc="description"/>
+                    <span t-esc="description" />
                 </p>
             </td>
         </xpath>

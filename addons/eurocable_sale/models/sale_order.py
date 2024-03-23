@@ -1,6 +1,4 @@
-# Copyright 2022 Eezee-IT (<http://www.eezee-it.com>)
-# License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
-from odoo import fields, models, api
+from odoo import fields, models, api, _
 import base64
 
 
@@ -15,29 +13,31 @@ class SaleOrder(models.Model):
         compute="_compute_total_prices",
         readonly=False,
     )
-    attachment_certification_ids = fields.Many2many('ir.attachment',
-                                                    domain="[('is_certificate', '=', True)]")
-    weight_total = fields.Float(
-        default=0.0,
-        compute="_compute_total_weight",
-        store=True)
+    attachment_certification_ids = fields.Many2many(
+        comodel_name="ir.attachment", domain="[('is_certificate', '=', True)]"
+    )
+    weight_total = fields.Float(default=0.0, compute="_compute_total_weight", store=True)
 
     # Description fields for stock.picking prints
-    picking = fields.Char('Pakbon')
-    picking_op_notes = fields.Char('Pakbon en prints',
-                                   help="Information mentioned here will be "
-                                        "visible in Picking operation document"
-                                        " of transfer.")
-    delivery = fields.Char('Leverbon')
-    delivery_notes = fields.Char('Leverbon en prints',
-                                 help='Information mentioned here will be '
-                                      'visible in delivery slip document '
-                                      'of transfer.')
+    picking = fields.Char("Pakbon")
+    picking_op_notes = fields.Char(
+        string="Pakbon en prints",
+        help="Information mentioned here will be "
+        "visible in Picking operation document"
+        " of transfer.",
+    )
+    delivery = fields.Char("Leverbon")
+    delivery_notes = fields.Char(
+        string="Leverbon en prints",
+        help="Information mentioned here will be "
+        "visible in delivery slip document "
+        "of transfer.",
+    )
 
     @api.depends("order_line")
     def _compute_total_weight(self):
         for line in self:
-            line.weight_total = sum(line.order_line.mapped('weight_total'))
+            line.weight_total = sum(line.order_line.mapped("weight_total"))
 
     @api.depends("order_line")
     def _compute_total_prices(self):
@@ -55,41 +55,44 @@ class SaleOrder(models.Model):
         self.total_discount = round(total_discount, 2)
 
     def action_confirm(self):
-        show_warning = self._context.get('show_warning', False)
+        show_warning = self._context.get("show_warning", False)
         if not self.partner_id.vat and not show_warning and not self.partner_id.is_not_vat:
             return {
-                'name': 'Warning',
-                'type': 'ir.actions.act_window',
-                'res_model': 'sales.wizard',
-                'view_mode': 'form',
-                'view_type': 'form',
-                'target': 'new',
-                'context': {
-                    'show_warning': True,
-                }
+                "name": "Warning",
+                "type": "ir.actions.act_window",
+                "res_model": "sales.wizard",
+                "view_mode": "form",
+                "view_type": "form",
+                "target": "new",
+                "context": {
+                    "show_warning": True,
+                },
             }
-        return super(SaleOrder, self).action_confirm()
+        return super().action_confirm()
 
     def print_certificate(self):
         self.ensure_one()
+        report = self.env["ir.actions.report"]
         attachments = []
-        attachment_obj = self.env['ir.attachment']
+        attachment_obj = self.env["ir.attachment"]
 
-        certif_template = self.env.ref('eurocable_sale.report_certification')
+        certif_template = self.env.ref("eurocable_sale.report_certification")
 
         for line in self.order_line:
             if line.product_id and not line.has_certificate:
                 """Create certificates for each order line and make has_certificate True"""
-                pdf_file, dummy = certif_template._render_qweb_pdf(line.id)
-                attachment = attachment_obj.create({
-                    'name': 'Certificate_' + line.product_id.name,
-                    'datas': base64.b64encode(pdf_file),
-                    'res_model': 'sale.order',
-                    'res_id': self.id,
-                    'is_certificate': True,
-                    'origin_id': line.id,
-                    'type': 'binary',
-                })
+                pdf_file, dummy = report._render_qweb_pdf(certif_template, line.ids)
+                attachment = attachment_obj.create(
+                    {
+                        "name": "Certificate_" + line.product_id.name,
+                        "datas": base64.b64encode(pdf_file),
+                        "res_model": "sale.order",
+                        "res_id": self.id,
+                        "is_certificate": True,
+                        "origin_id": line.id,
+                        "type": "binary",
+                    }
+                )
                 line.has_certificate = True
                 attachments.append(attachment.id)
         if attachments:
@@ -98,21 +101,20 @@ class SaleOrder(models.Model):
     def send_certificate(self):
         self.ensure_one()
 
-        template = self.env.ref('sale.email_template_edi_sale', False)
+        template = self.env.ref("sale.email_template_edi_sale", False)
 
         self.print_certificate()
 
         compose_form = self.env.ref("mail.email_compose_message_wizard_form", False)
         ctx = dict(
             default_model="sale.order",
-            default_res_id=self.id,
-            default_use_template=bool(template),
+            default_res_ids=self.ids,
             default_template_id=template and template.id or False,
-            default_composition_mode='comment',
+            default_composition_mode="comment",
             default_attachment_ids=self.attachment_certification_ids.ids,
         )
         return {
-            "name": ("Compose Email"),
+            "name": _("Compose Email"),
             "type": "ir.actions.act_window",
             "view_type": "form",
             "view_mode": "form",

@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
     <template id="all_rep">
         <t t-foreach="range(2)" t-as="j">
-            <t t-call="stock.report_picking"/>
+            <t t-call="stock.report_picking" />
         </t>
         <t t-foreach="range(3)" t-as="i">
-            <t t-call="stock.report_deliveryslip"/>
+            <t t-call="stock.report_deliveryslip" />
         </t>
     </template>
 
