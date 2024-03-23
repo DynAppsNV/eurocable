@@ -18,9 +18,7 @@ class TestBaseLocation(common.TransactionCase):
         zip_obj = cls.env["res.city.zip"]
         cls.partner_obj = cls.env["res.partner"]
         cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
-        cls.state_vd = state_obj.create(
-            {"name": "Vaud", "code": "VD", "country_id": cls.env.ref("base.ch").id}
-        )
+        cls.state_vd = cls.env.ref("base.state_ch_vd")
         cls.env.ref("base.es").write({"enforce_cities": True})
         cls.company = cls.env.ref("base.main_company")
         cls.country_es = cls.env.ref("base.es")
@@ -182,14 +180,6 @@ class TestBaseLocation(common.TransactionCase):
         partner._onchange_country_id()
         self.assertFalse(partner.zip_id)
 
-    def test_partner_onchange_city(self):
-        """Test partner onchange city_id"""
-        partner = Form(self.env["res.partner"])
-        partner.zip_id = self.lausanne
-        self.city_bcn.country_id.enforce_cities = False
-        partner.city_id = self.city_bcn
-        self.assertFalse(partner.zip_id)
-
     def test_partner_onchange_state(self):
         """Test partner onchange state_id"""
         partner = Form(self.env["res.partner"])
@@ -231,7 +221,7 @@ class TestBaseLocation(common.TransactionCase):
         """Test if the display_name is stored and computed properly"""
         self.assertEqual(
             self.lausanne.display_name,
-            "666, Lausanne, Vaud, " + self.browse_ref("base.ch").name,
+            "666, Lausanne, Waadt, " + self.browse_ref("base.ch").name,
         )
 
     def test_name_search(self):

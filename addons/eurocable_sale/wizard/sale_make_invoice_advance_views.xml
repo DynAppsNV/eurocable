@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
     <record id="sale_advance_payment_inv_warnings" model="ir.ui.view">
         <field name="name">sale.advance.payment.inv.view.form.warnings</field>
         <field name="model">sale.advance.payment.inv</field>
-        <field name="inherit_id" ref="sale.view_sale_advance_payment_inv"/>
+        <field name="inherit_id" ref="sale.view_sale_advance_payment_inv" />
         <field name="arch" type="xml">
             <xpath expr="//p[hasclass('oe_grey')]" position="after">
-                <field name="is_warn_message" invisible="1"/>
-                <div role="alert" class="alert alert-warning" attrs="{'invisible': [('is_warn_message', '=', False)]}">
-                    <field name="warn_message" nolabel="1" readonly="1"/>
+                <field name="is_warn_message" invisible="1" />
+                <div role="alert" lass="alert alert-warning" invisible="not is_warn_message">
+                    <field name="warn_message" nolabel="1" readonly="1" />
                 </div>
             </xpath>
         </field>

@@ -7,12 +7,12 @@
             <field name="order_line" position="before">
                 <field
                     name="use_only_supplied_product"
-                    attrs="{'invisible': [('state', 'not in', ('draft', 'sent'))]}"
+                    invisible="state not in ('draft', 'sent')"
                     class="oe_edit_only"
                 />
                 <label
                     for="use_only_supplied_product"
-                    attrs="{'invisible': [('state', 'not in', ('draft', 'sent'))]}"
+                    invisible="state not in ('draft', 'sent')"
                     class="oe_edit_only"
                 />
             </field>

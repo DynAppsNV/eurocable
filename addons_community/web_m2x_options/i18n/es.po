@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-03 03:50+0000\n"
-"PO-Revision-Date: 2023-11-19 19:33+0000\n"
+"PO-Revision-Date: 2023-09-02 20:35+0000\n"
 "Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
@@ -20,85 +20,86 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: web_m2x_options
-#. openerp-web
-#: code:addons/web_m2x_options/static/src/xml/base.xml:0
+#. odoo-javascript
+#: code:addons/web_m2x_options/static/src/components/base.xml:0
 #, python-format
-msgid ""
-"!(widget.nodeOptions.no_open || widget.nodeOptions.no_open_edit || widget."
-"noOpen)"
-msgstr ""
-"!(widget.nodeOptions.no_open || widget.nodeOptions.no_open_edit || widget."
-"noOpen)"
+msgid ", are you sure it does not exist yet?"
+msgstr ",¿Está seguro de que aún no existe?"
 
 #. module: web_m2x_options
-#. openerp-web
-#: code:addons/web_m2x_options/static/src/js/form.js:0
-#, python-format
-msgid "Cancel"
-msgstr "Cancelar"
-
-#. module: web_m2x_options
-#. openerp-web
-#: code:addons/web_m2x_options/static/src/js/form.js:0
+#. odoo-javascript
+#: code:addons/web_m2x_options/static/src/components/base.xml:0
 #, python-format
 msgid "Create"
 msgstr "Crear"
 
 #. module: web_m2x_options
-#. openerp-web
-#: code:addons/web_m2x_options/static/src/js/form.js:0
+#. odoo-javascript
+#: code:addons/web_m2x_options/static/src/components/relational_utils.esm.js:0
 #, python-format
-msgid "Create \"<strong>%s</strong>\""
-msgstr "Crear \"<strong>%s</strong>\""
+msgid "Create \"%s\""
+msgstr "Crear \"%s\""
 
 #. module: web_m2x_options
-#. openerp-web
-#: code:addons/web_m2x_options/static/src/js/form.js:0
+#. odoo-javascript
+#: code:addons/web_m2x_options/static/src/components/base.xml:0
 #, python-format
-msgid "Create a %s"
-msgstr "Crear un %s"
+msgid "Create and Edit"
+msgstr "Crear y Editar"
 
 #. module: web_m2x_options
-#. openerp-web
-#: code:addons/web_m2x_options/static/src/js/form.js:0
+#. odoo-javascript
+#: code:addons/web_m2x_options/static/src/components/relational_utils.esm.js:0
 #, python-format
-msgid "Create and Edit..."
+msgid "Create and edit..."
 msgstr "Crear y editar..."
 
 #. module: web_m2x_options
-#. openerp-web
-#: code:addons/web_m2x_options/static/src/js/form.js:0
+#. odoo-javascript
+#: code:addons/web_m2x_options/static/src/components/base.xml:0
 #, python-format
-msgid "Create and edit"
-msgstr "Crear y editar"
+msgid "Discard"
+msgstr "Descartar"
 
 #. module: web_m2x_options
-#. openerp-web
-#: code:addons/web_m2x_options/static/src/js/form.js:0
-#, python-format
-msgid "No results to show..."
-msgstr "Sin resultados para mostrar..."
+#: model:ir.model,name:web_m2x_options.model_ir_http
+msgid "HTTP Routing"
+msgstr "Enrutamiento HTTP"
 
 #. module: web_m2x_options
-#. openerp-web
-#: code:addons/web_m2x_options/static/src/js/form.js:0
+#. odoo-javascript
+#: code:addons/web_m2x_options/static/src/components/form.esm.js:0
+#, python-format
+msgid "New: %s"
+msgstr "Nuevo: %s"
+
+#. module: web_m2x_options
+#. odoo-javascript
+#: code:addons/web_m2x_options/static/src/components/relational_utils.esm.js:0
+#, python-format
+msgid "No records"
+msgstr "Sin registros"
+
+#. module: web_m2x_options
+#. odoo-javascript
+#: code:addons/web_m2x_options/static/src/components/form.esm.js:0
 #, python-format
 msgid "Open: "
-msgstr "Abierto: "
+msgstr "Abrir "
 
 #. module: web_m2x_options
-#. openerp-web
-#: code:addons/web_m2x_options/static/src/js/form.js:0
-#, python-format
-msgid "Quick search: %s"
-msgstr "Búsqueda rápida: %s"
-
-#. module: web_m2x_options
-#. openerp-web
-#: code:addons/web_m2x_options/static/src/js/form.js:0
+#. odoo-javascript
+#: code:addons/web_m2x_options/static/src/components/relational_utils.esm.js:0
 #, python-format
 msgid "Search More..."
 msgstr "Buscar más..."
+
+#. module: web_m2x_options
+#. odoo-javascript
+#: code:addons/web_m2x_options/static/src/components/relational_utils.esm.js:0
+#, python-format
+msgid "Start typing..."
+msgstr "Empieza a escribir..."
 
 #. module: web_m2x_options
 #: model:ir.model,name:web_m2x_options.model_ir_config_parameter
@@ -106,8 +107,39 @@ msgid "System Parameter"
 msgstr "Parámetro del Sistema"
 
 #. module: web_m2x_options
-#. openerp-web
-#: code:addons/web_m2x_options/static/src/js/form.js:0
+#. odoo-javascript
+#: code:addons/web_m2x_options/static/src/components/base.xml:0
 #, python-format
-msgid "You are creating a new %s, are you sure it does not exist yet?"
-msgstr "Está creando un nuevo %s, ¿está seguro de no existe ya?"
+msgid "You are creating a new"
+msgstr "Estás creando un nuevo"
+
+#. module: web_m2x_options
+#. odoo-javascript
+#: code:addons/web_m2x_options/static/src/components/base.xml:0
+#, python-format
+msgid "as a new"
+msgstr "como un nuevo"
+
+#, python-format
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
+
+#, python-format
+#~ msgid "Create \"<strong>%s</strong>\""
+#~ msgstr "Crear \"<strong>%s</strong>\""
+
+#, python-format
+#~ msgid "Create a %s"
+#~ msgstr "Crear un %s"
+
+#, python-format
+#~ msgid "Create and Edit..."
+#~ msgstr "Crear y editar..."
+
+#, python-format
+#~ msgid "Create and edit"
+#~ msgstr "Crear y editar"
+
+#, python-format
+#~ msgid "You are creating a new %s, are you sure it does not exist yet?"
+#~ msgstr "Está creando un nuevo %s, ¿está seguro de no existe ya?"

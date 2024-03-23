@@ -12,4 +12,6 @@
 * Rod Schouteden <rod@schout-it.be>
 * Alexandre Fayolle <alexandre.fayolle@camptocamp.com>
 * Matias Peralta <mnp@adhoc.com.ar>
+* Hughes Damry <hughes.damry@acsone.eu>
 * Akim Juillerat <akim.juillerat@camptocamp.com>
+* Jacques-Etienne Baudoux (BCIM) <je@bcim.be>

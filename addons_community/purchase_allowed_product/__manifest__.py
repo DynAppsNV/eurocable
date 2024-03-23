@@ -4,9 +4,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Purchase and Invoice Allowed Product",
-    "summary": "This module allows to select only products that can be "
-    "supplied by the vendor",
-    "version": "15.0.2.0.0",
+    "summary": "This module allows to select only products that can be " "supplied by the vendor",
+    "version": "17.0.0.0.0",
     "category": "Accounting & Finance",
     "website": "https://github.com/OCA/purchase-workflow",
     "author": "Akretion, Odoo Community Association (OCA)",
