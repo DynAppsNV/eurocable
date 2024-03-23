@@ -26,3 +26,8 @@ studio
 website_animate
 theme_common
 theme_graphene
+
+# Odoo.sh modules
+# Exclude parts except custom
+/parts/*
+/data
