@@ -1,7 +1,3 @@
-# -*- coding: utf-8 -*-
-# Copyright 2023 Eezee-IT (<http://www.eezee-it.com>)
-# License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
-
 from odoo import fields, models
 
 
@@ -9,10 +5,10 @@ class SaleAdvancePaymentInv(models.TransientModel):
     _inherit = "sale.advance.payment.inv"
 
     def get_sale_id(self):
-        if self._context.get('active_model') == 'sale.order' and \
-                self._context.get('active_id', False):
-            sale_orders = self.env['sale.order']. \
-                browse(self._context.get('active_ids'))
+        if self._context.get("active_model") == "sale.order" and self._context.get(
+            "active_id", False
+        ):
+            sale_orders = self.env["sale.order"].browse(self._context.get("active_ids"))
             if sale_orders:
                 return sale_orders
 
@@ -28,17 +24,21 @@ class SaleAdvancePaymentInv(models.TransientModel):
     def _get_message(self):
         sale_orders = self.get_sale_id()
         if not sale_orders:
-            return ''
+            return ""
         if len(sale_orders) > 1:
-            message = ''
+            message = ""
             for order in sale_orders:
                 if order.partner_invoice_id.invoice_warn_msg:
-                    message += order.partner_invoice_id.display_name + '\n' + \
-                        order.partner_invoice_id.invoice_warn_msg + '\n'
+                    message += (
+                        order.partner_invoice_id.display_name
+                        + "\n"
+                        + order.partner_invoice_id.invoice_warn_msg
+                        + "\n"
+                    )
             return message
         else:
             if sale_orders.partner_invoice_id.invoice_warn_msg:
                 return sale_orders.partner_invoice_id.invoice_warn_msg
 
-    is_warn_message = fields.Boolean('Is Warning Message', default=_is_message_exists)
-    warn_message = fields.Text('Message', default=_get_message)
+    is_warn_message = fields.Boolean("Is Warning Message", default=_is_message_exists)
+    warn_message = fields.Text("Message", default=_get_message)

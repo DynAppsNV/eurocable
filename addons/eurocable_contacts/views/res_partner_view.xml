@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record id="contacts.action_contacts_view_kanban" model="ir.actions.act_window.view">
         <field name="sequence">3</field>
@@ -8,23 +8,10 @@
     </record>
     <record id="account.res_partner_action_customer" model="ir.actions.act_window">
         <field name="view_mode">tree,form,kanban</field>
-        <field name="view_id" ref="base.view_partner_tree"/>
+        <field name="view_id" ref="base.view_partner_tree" />
     </record>
     <record id="account.res_partner_action_supplier" model="ir.actions.act_window">
         <field name="view_mode">tree,form,kanban</field>
-        <field name="view_id" ref="base.view_partner_tree"/>
-    </record>
-
-    <!-- Res partner form view-->
-    <record id="view_partner_form_inherit" model="ir.ui.view">
-        <field name="name">res.partner.form</field>
-        <field name="model">res.partner</field>
-        <field name="inherit_id" ref="base.view_partner_form"/>
-        <field name="priority" eval="9"/>
-        <field name="arch" type="xml">
-            <xpath expr="//form/sheet/group/group/field[@name='vat']" position="after">
-                <field name="partner_to" domain="[('id','in',child_ids),('type','=','private')]"/>
-            </xpath>
-        </field>
+        <field name="view_id" ref="base.view_partner_tree" />
     </record>
 </odoo>

@@ -2,9 +2,12 @@
 # See LICENSE file for full copyright and licensing details.
 
 import inspect
+import logging
 import psycopg2
 
 from odoo import api, fields, models, registry, SUPERUSER_ID
+
+_logger = logging.getLogger(__name__)
 
 
 class PrintNodeLoggerMixin(models.AbstractModel):
@@ -22,7 +25,6 @@ class PrintNodeLoggerMixin(models.AbstractModel):
         :param str log_type: required type of logs
         :param str log_string: required event string for logging
         """
-        self.ensure_one()
 
         company = self.env.company
         if not company.debug_logging:
@@ -49,23 +51,26 @@ class PrintNodeLoggerMixin(models.AbstractModel):
             'line': line
         }
 
-        self.flush()
         self._write_logs(logging_object, self._cr.dbname)
+        return True
 
     def _write_logs(self, logging_object, db_name):
         """
         Writing logs to the database
         Use a new cursor to avoid rollback that could be caused by an upper method
         """
+        self.env['ir.logging'].flush_model()
         try:
             db_registry = registry(db_name)
             with db_registry.cursor() as cr:
                 env = api.Environment(cr, SUPERUSER_ID, {})
                 env['ir.logging'].sudo().create(logging_object)
-        except psycopg2.Error:
-            pass
+        except psycopg2.Error as err:
+            _logger.error("Error writing logs to the database: %s", err)
 
     def get_stack_info(self):
+        """ Get info for the logged string using the "inspect" module.
+        """
         call_stack_info = inspect.stack()[2]
         path = call_stack_info.filename
         line = call_stack_info.lineno

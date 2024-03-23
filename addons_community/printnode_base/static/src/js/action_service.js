@@ -1,39 +1,13 @@
 /** @odoo-module */
 
+import { makeErrorFromResponse } from "@web/core/network/rpc_service";
 import { registry } from "@web/core/registry";
-import { ErrorDialog } from "@web/core/errors/error_dialogs";
-import { session } from '@web/session';
-import { csrf_token } from 'web.core';
-import { browser } from '@web/core/browser/browser';
+import { session } from "@web/session";
 import { _t } from "@web/core/l10n/translation";
+import { ErrorDialog } from "@web/core/errors/error_dialogs";
 
-import WORKSTATION_DEVICES from './constants';
+import { WKHTMLTOPDF_MESSAGES } from "./constants";
 
-
-// Messages that might be shown to the user dependening on the state of wkhtmltopdf
-const LINK = '<br><br><a href="http://wkhtmltopdf.org/" target="_blank">wkhtmltopdf.org</a>';
-
-const WKHTMLTOPDF_MESSAGES = {
-    broken:
-        _t(
-            "Your installation of Wkhtmltopdf seems to be broken. The report will be shown " +
-            "in html."
-        ) + LINK,
-    install:
-        _t(
-            "Unable to find Wkhtmltopdf on this system. The report will be shown in " + "html."
-        ) + LINK,
-    upgrade:
-        _t(
-            "You should upgrade your version of Wkhtmltopdf to at least 0.12.0 in order to " +
-            "get a correct display of headers and footers as well as support for " +
-            "table-breaking between pages."
-        ) + LINK,
-    workers: _t(
-        "You need to start Odoo with at least two workers to print a pdf version of " +
-        "the reports."
-    ),
-};
 
 export default class PrintActionHandler {
     constructor() {
@@ -50,7 +24,7 @@ export default class PrintActionHandler {
         if (action.report_type === "qweb-pdf") {
             // Check for selected printer because even when printnode disabled on user level
             // we want to try to print (of course, if module enabled on company level)
-            if (!download_only && (session.printnode_enabled || action.context.printer_id)) {
+            if (!download_only && (session.dpc_user_enabled || action.context.printer_id)) {
                 // Check the state of wkhtmltopdf before proceeding
                 const state = await this._checkWkhtmltopdfState(env);
 
@@ -59,11 +33,13 @@ export default class PrintActionHandler {
                     return this._triggerDownload(action, options, "pdf", env);
                 }
             }
-        } else if (action.report_type === "qweb-text") {
+        } else if (action.report_type === "qweb-text" || action.report_type === "py3o") {
+            const type = action.report_type === "py3o" ? "py3o" : "text";
+
             // Check for selected printer because even when printnode disabled on user level
             // we want to try to print (of course, if module enabled on company level)
-            if (!download_only && (session.printnode_enabled || action.context.printer_id)) {
-                return this._triggerDownload(action, options, "text", env);
+            if (!download_only && (session.dpc_user_enabled || action.context.printer_id)) {
+                return this._triggerDownload(action, options, type, env);
             }
         }
     }
@@ -73,7 +49,7 @@ export default class PrintActionHandler {
         const actionContext = action.context || {};
 
         if (action.data && JSON.stringify(action.data) !== "{}") {
-            // Build a query string with `action.data` (it's the place where reports
+            // Build a query string with `action.data` (it"s the place where reports
             // using a wizard to customize the output traditionally put their options)
             const options = encodeURIComponent(JSON.stringify(action.data));
             const context = encodeURIComponent(JSON.stringify(actionContext));
@@ -95,28 +71,27 @@ export default class PrintActionHandler {
 
     async _triggerDownload(action, options, type, env) {
         const url = this._getReportUrl(action, type, env);
-        const rtype = 'qweb-' + url.split('/')[2];
+        const rtype = "qweb-" + url.split("/")[2];
 
         env.services.ui.block();
 
-        const workstationDevices = this._getWorkstationDevices();
         const payload = JSON.stringify([
             url, rtype,
             action.context.printer_id,
             action.context.printer_bin,
-            workstationDevices,
         ]);
+        const context = JSON.stringify(env.services.user.context);
 
         let checkPromise = env.services.http.post(
             "/report/check",
-            { csrf_token: csrf_token, data: payload },
+            { csrf_token: odoo.csrf_token, data: payload, context },
         );
 
         const checkResult = await checkPromise;
         if (checkResult === true) {
             let printPromise = env.services.http.post(
-                '/report/print',
-                { csrf_token: csrf_token, data: payload },
+                "/report/print",
+                { csrf_token: odoo.csrf_token, data: payload, context },
                 "text",
             );
             const printResult = await printPromise;
@@ -132,21 +107,26 @@ export default class PrintActionHandler {
                     });
                 } else if (printResultJson.success === false) {
                     env.services.dialog.add(ErrorDialog, { traceback: printResultJson.data.debug });
+                } else {
+                    // This will lead to showing an error message
+                    Promise.reject(makeErrorFromResponse(printResultJson));
                 }
             } catch (e) { // Arbitrary uncaught python side exception
-                const doc = new DOMParser().parseFromString(printResult, 'text/html');
+                const doc = new DOMParser().parseFromString(printResult, "text/html");
                 const nodes = doc.body.children.length === 0 ? doc.body.childNodes : doc.body.children;
                 let traceback = null;
 
-                try { // Case of a serialized Odoo Exception: It is Json Parsable
+                try { // Case of a serialized Odoo Exception (can be parsed as JSON)
                     const node = nodes[1] || nodes[0];
                     const err = JSON.parse(node.textContent);
-                    traceback = err.data.debug
-                } catch (e) { // Arbitrary uncaught python side exception
-                    traceback = nodes.length > 1 ? nodes[1].textContent : nodes.length > 0 ? nodes[0].textContent : '';
-                }
+                    traceback = err.data.debug;
 
-                env.services.dialog.add(ErrorDialog, { traceback: traceback });
+                    // This will lead to showing an error message
+                    Promise.reject(makeErrorFromResponse(err));
+                } catch (e) { // Arbitrary uncaught python side exception (can"t be parsed as JSON)
+                    traceback = nodes.length > 1 ? nodes[1].textContent : nodes.length > 0 ? nodes[0].textContent : "";
+                    env.services.dialog.add(ErrorDialog, { traceback: traceback });
+                }
             }
 
             const onClose = options.onClose;
@@ -157,6 +137,9 @@ export default class PrintActionHandler {
                 onClose();
             }
             return true;
+        } else {
+            // Do nothing, just unblock the UI
+            env.services.ui.unblock();
         }
     }
 
@@ -166,7 +149,7 @@ export default class PrintActionHandler {
         }
         const state = await this.wkhtmltopdfStateProm;
 
-        // Display a notification according to wkhtmltopdf's state
+        // Display a notification according to wkhtmltopdf state
         if (state in WKHTMLTOPDF_MESSAGES) {
             env.services.notification.add(WKHTMLTOPDF_MESSAGES[state], {
                 sticky: true,
@@ -175,16 +158,6 @@ export default class PrintActionHandler {
         }
 
         return state;
-    }
-
-    _getWorkstationDevices() {
-        let res = {};
-
-        for (let workstationDevice of WORKSTATION_DEVICES) {
-            res[workstationDevice] = browser.localStorage.getItem('printnode_base.' + workstationDevice);
-        }
-
-        return res;
     }
 }
 
@@ -196,4 +169,4 @@ function print_or_download_report_handler(action, options, env) {
 
 registry
     .category("ir.actions.report handlers")
-    .add('print_or_download_report', print_or_download_report_handler);
+    .add("print_or_download_report", print_or_download_report_handler, { sequence: 0 });

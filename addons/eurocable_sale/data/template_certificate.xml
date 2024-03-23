@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
 <odoo>
         <!-- document.type -->
         <record id="document_type_1" model="document.type">
@@ -7,7 +7,7 @@
                 <body>
                     <div>
                         <p>
-                            CE DECLARATION OF CONFORMITY <br/>
+                            CE DECLARATION OF CONFORMITY <br />
                             Appendix IIA / EN13414-3
                         </p>
                         <p>
@@ -17,15 +17,15 @@
                             used and maintained according to the rules of good craftsmanship.
                         </p>
                         Surface: Galvanized
-                        <br/>
+                        <br />
                         Tensile strength: 1960N/mm²
-                        <br/>
+                        <br />
                         Construction: 7 x (6x36WS+iwrc)
-                        <br/>
+                        <br />
                         Finish: endless grummet
-                        <br/>
+                        <br />
                         Safety factor : 6,33-0,022*d
-                        <br/>
+                        <br />
                     </div>
                 </body>
             </field>
@@ -37,7 +37,7 @@
                     <div>
                     <p>
                         CE DECLARATION OF CONFORMITY
-                        <br/>
+                        <br />
                         Appendix IIA / EN13414-3
                     </p>
                     <p>
@@ -48,13 +48,13 @@
                         according to the rules of good craftsmanship.
                     </p>
                     Surface: Galvanized
-                    <br/>
+                    <br />
                     Tensile strength: 1960N/mm²
-                    <br/>
+                    <br />
                     Construction: 7 x (6x36WS+iwrc)
-                    <br/>
+                    <br />
                     Finish: endless grummet
-                    <br/>
+                    <br />
 
                     Safety factor : 3:1
                     </div>
@@ -135,9 +135,9 @@
                     <div>
                     <p>
                         CE DECLARATION OF CONFORMITY
-                        <br/>
+                        <br />
                         Appendix IIA / EN13414-3
-                        <br/>
+                        <br />
                     </p>
                     <p>
                         According to the CE-Machinery directive (2006/42/CE). Undersigned, Paul Sillis, manager of
@@ -149,16 +149,16 @@
                         craftsmanship.
                     </p>
                     Surface: Galvanized
-                    <br/>
+                    <br />
                     Tensile strength: 1960N/mm²
-                    <br/>
+                    <br />
                     Construction: 7 x (6x36WS+iwrc)
-                    <br/>
+                    <br />
                     Finish: endless grummet
-                    <br/>
+                    <br />
 
                     Safety factor : 5/1
-                    <br/>
+                    <br />
                     </div>
                 </body>
             </field>
@@ -171,7 +171,7 @@
                     <div>
                     <p>
                         CE DECLARATION OF CONFORMITY
-                        <br/>
+                        <br />
                         declaration of incorporation (former IIB)
                     </p>
                     <p>
@@ -195,7 +195,7 @@
                 <body>
                     <div>
                     CE DECLARATION OF CONFORMITY
-                    <br/>
+                    <br />
 
                     <p>
                         According to the CE-Machinery directive (2006/42/CE).

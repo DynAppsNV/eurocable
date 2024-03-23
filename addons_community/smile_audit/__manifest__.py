@@ -4,11 +4,11 @@
 
 {
     "name": "Audit Trail",
-    "version": "0.1",
+    "version": "17.0.0.0.0",
     "sequence": 100,
     "category": "Tools",
     "author": "Smile",
-    "license": 'LGPL-3',
+    "license": "LGPL-3",
     "website": "https://www.smile.eu/",
     "summary": "Track every user operation",
     "description": """
@@ -17,14 +17,14 @@ all the objects of the system
 (for the moment, only create, write and unlink methods).
     """,
     "depends": [
-        'base',
+        "base",
     ],
     "data": [
-        'security/ir.model.access.csv',
-        'views/audit_rule_view.xml',
-        'views/audit_log_view.xml',
+        "security/ir.model.access.csv",
+        "views/audit_rule_view.xml",
+        "views/audit_log_view.xml",
     ],
-    'installable': True,
-    'auto_install': False,
-    'application': False,
+    "installable": True,
+    "auto_install": False,
+    "application": False,
 }

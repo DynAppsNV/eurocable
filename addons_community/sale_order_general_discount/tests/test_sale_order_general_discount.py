@@ -2,15 +2,22 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from lxml import etree
 
-from odoo.tests import SavepointCase
+from odoo.tests import TransactionCase
 
 
-class TestSaleOrderLineInput(SavepointCase):
+class TestSaleOrderLineInput(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         cls.partner = cls.env["res.partner"].create(
             {"name": "Test", "sale_discount": 10.0}
+        )
+        cls.contact = cls.env["res.partner"].create(
+            {
+                "name": "Contact Test",
+                "parent_id": cls.partner.id,
+                "type": "contact",
+            }
         )
         cls.product = cls.env["product.product"].create(
             {"name": "test_product", "type": "service"}
@@ -34,10 +41,34 @@ class TestSaleOrderLineInput(SavepointCase):
                 "pricelist_id": cls.env.ref("product.list0").id,
             }
         )
+        cls.contact_order = cls.env["sale.order"].create(
+            {
+                "partner_id": cls.contact.id,
+                "order_line": [
+                    (
+                        0,
+                        0,
+                        {
+                            "name": cls.product.name,
+                            "product_id": cls.product.id,
+                            "product_uom_qty": 1,
+                            "product_uom": cls.product.uom_id.id,
+                            "price_unit": 1000.00,
+                        },
+                    )
+                ],
+                "pricelist_id": cls.env.ref("product.list0").id,
+            }
+        )
         cls.View = cls.env["ir.ui.view"]
 
     def test_default_partner_discount(self):
         self.assertEqual(self.order.general_discount, self.partner.sale_discount)
+
+    def test_contact_partner_discount(self):
+        self.assertEqual(
+            self.contact_order.general_discount, self.partner.sale_discount
+        )
 
     def test_sale_order_values(self):
         self.order.general_discount = 10
@@ -51,7 +82,7 @@ class TestSaleOrderLineInput(SavepointCase):
 
     def test_default_line_discount_value(self):
 
-        res = self.order.fields_view_get(
+        res = self.order.get_view(
             view_id=self.env.ref(
                 "sale_order_general_discount." "sale_order_general_discount_form_view"
             ).id,
@@ -73,7 +104,7 @@ class TestSaleOrderLineInput(SavepointCase):
             """,
             }
         )
-        res = self.order.fields_view_get(view_id=view.id, view_type="form")
+        res = self.order.get_view(view_id=view.id, view_type="form")
         ctx = self._get_ctx_from_view(res)
         self.assertTrue("default_discount" in ctx)
 
