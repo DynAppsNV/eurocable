@@ -3,7 +3,7 @@
     "version": "17.0.1.0.1",
     "author": "dynapps",
     "website": "https://www.dynapps.be",
-    "category": "Hidden",
+    "category": "Account",
     "license": "LGPL-3",
     "depends": [
         "eurocable_account",
