@@ -1,6 +1,6 @@
 {
     "name": "Install all custom modules",
-    "version": "17.0.0.0.1",
+    "version": "17.0.1.0.1",
     "author": "dynapps",
     "website": "https://www.dynapps.be",
     "category": "Hidden",
