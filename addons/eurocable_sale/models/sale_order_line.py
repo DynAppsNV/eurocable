@@ -10,12 +10,15 @@ class SaleOrderLine(models.Model):
     weight = fields.Float(default=0.0)
     weight_total = fields.Float(default=0.0, compute="_compute_total_weight")
 
+    @api.onchange("product_id")
+    def _compute_weight(self):
+        if self.product_id:
+            self.weight = self.product_id.weight
+
     @api.depends("product_template_id", "product_id", "product_uom_qty", "weight")
     def _compute_total_weight(self):
         for rec in self:
             rec.weight_total = 0.0
-            rec.weight = rec.product_id.weight
-
             if rec.weight:
                 rec.weight_total = rec.weight * rec.product_uom_qty
 

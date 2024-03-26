@@ -1,6 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_product_label_layout_user,product.label.layout.user,model_product_label_layout,printnode_security_group_user,1,1,1,1
-access_product_label_line_layout_user,product.label.layout.line.user,model_product_label_layout_line,printnode_security_group_user,1,1,1,1
 ir_model_printnode_manager,ir.model.manager,base.model_ir_model,printnode_security_group_manager,1,0,0,0
 printnode_account_group_manager,printnode.account.manager,model_printnode_account,printnode_security_group_manager,1,1,1,1
 printnode_account_group_user,printnode.account.user,model_printnode_account,printnode_security_group_user,1,0,0,0

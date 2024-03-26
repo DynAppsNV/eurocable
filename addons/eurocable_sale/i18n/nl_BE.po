@@ -761,7 +761,7 @@ msgstr ""
 "veiligheids- en gezondheidseisen van de\n"
 "EG-MACHINERICHTLIJN, op voorwaarde dat zij\n"
 "gebruikt en onderhouden worden volgens de regels\n"
-"van goed vakmanschap.
+"van goed vakmanschap."
 
 #. module: eurocable_sale
 #: model:ir.model,name:eurocable_sale.model_document_type
@@ -771,4 +771,14 @@ msgstr ""
 #. module: eurocable_sale
 #: model:ir.model,name:eurocable_sale.model_sales_wizard
 msgid "sales wizard"
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "Weight"
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "Total Weight"
 msgstr ""

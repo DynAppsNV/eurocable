@@ -247,8 +247,7 @@ msgstr ""
 #. module: eurocable_sale
 #: model_terms:document.type,text:eurocable_sale.document_type_3
 #: model_terms:document.type,text:eurocable_sale.document_type_7
-msgid "Safety factor : 5/1
-
+msgid "Safety factor : 5/1"
 msgstr ""
 "Coefficient de sécurité : 5/1"
 
@@ -444,3 +443,13 @@ msgid "Safety factor : 4/1"
 
 msgstr ""
 "Coefficient de sécurité : 4/1"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "Weight"
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "Total Weight"
+msgstr ""
