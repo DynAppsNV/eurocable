@@ -124,11 +124,7 @@
                     <strong>Delivery Date:</strong>
                     <p class="m-0" t-field="doc.commitment_date" t-options='{"widget": "date"}' />
                 </div>
-                <div
-                    class="col-auto col-3 mw-100 mb-2"
-                    t-if="doc.incoterm"
-                    groups="sale_stock.group_display_incoterm"
-                >
+                <div class="col-auto col-3 mw-100 mb-2" t-if="doc.incoterm">
                     <strong>Incoterm:</strong>
                     <p class="m-0" t-field="doc.incoterm.code" />
                 </div>
@@ -156,8 +152,8 @@
                             <span>Disc.%</span>
                         </th>
                         <th name="th_taxes" class="text-right">Taxes</th>
-                        <th name="th_weight" class="text-right">Gewicht</th>
-                        <th name="th_weighttotal" class="text-right">Gesamtgewicht</th>
+                        <th name="th_weight" class="text-right">Weight</th>
+                        <th name="th_weighttotal" class="text-right">Total Weight</th>
                         <th name="th_code" class="text-right">HS Code</th>
                         <th name="th_subtotal" class="text-end">
                             <span>Amount</span>
