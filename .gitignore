@@ -20,6 +20,7 @@ venv/
 htmlcov
 invoke.yaml
 odoo.conf
+odoo.cfg
 studio
 
 # Odoo.sh modules
