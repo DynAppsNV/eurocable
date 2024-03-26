@@ -36,21 +36,6 @@
                 <attribute name="invisible">1</attribute>
             </button>
 
-            <!--Unreserve-->
-             <button name="do_unreserve" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </button>
-
-            <!--Scrap-->
-             <button name="button_scrap" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </button>
-
-            <!--Unlock-->
-            <button name="action_toggle_is_locked" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </button>
-
         </field>
     </record>
 
