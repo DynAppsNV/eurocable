@@ -2,7 +2,7 @@
     "name": "Eurocable Stock",
     "version": "17.0.0.0.1",
     "author": "dynapps",
-    "category": "Sale",
+    "category": "Stcok",
     "license": "LGPL-3",
     "depends": ["xx_base", "eurocable_sale"],
     "data": [
