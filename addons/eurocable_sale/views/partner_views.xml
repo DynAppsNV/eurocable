@@ -36,7 +36,7 @@
         <field name="inherit_id" ref="base.res_partner_kanban_view" />
         <field name="arch" type="xml">
             <xpath
-                expr="//li[@t-if='record.parent_id.raw_value and record.function.raw_value']"
+                expr="//li[@t-elif='record.parent_id.raw_value and record.function.raw_value']"
                 position="after"
             >
                 <li t-if="record.street.raw_value">
