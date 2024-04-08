@@ -8,5 +8,7 @@
     "data": [
         "views/products_views.xml",
         "views/mrp_bom.xml",
+        "views/mrp_production_views.xml",
+        "views/stock_lot_views.xml",
     ],
 }
