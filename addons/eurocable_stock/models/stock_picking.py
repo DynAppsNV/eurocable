@@ -25,7 +25,7 @@ class StockPicking(models.Model):
                 {
                     "wizard_id": wizard.id,
                     "stock_move_line_id": move_line.id,
-                    "quantity": move_line.qty_done,
+                    "quantity": move_line.quantity,
                 }
             )
 
