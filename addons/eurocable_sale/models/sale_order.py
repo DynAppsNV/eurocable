@@ -33,6 +33,7 @@ class SaleOrder(models.Model):
         "visible in delivery slip document "
         "of transfer.",
     )
+    invoice_status = fields.Selection(readonly=False)
 
     @api.depends("order_line")
     def _compute_total_weight(self):
