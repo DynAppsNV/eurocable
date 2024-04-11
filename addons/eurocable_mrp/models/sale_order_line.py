@@ -12,8 +12,7 @@ class SaleOrderLine(models.Model):
             production = rec.order_id.mrp_production_ids.filtered(
                 lambda x: x.product_id == rec.product_id
             )
-            if len(production) == 1:
-                rec.weight = production.xx_weight
+            rec.weight = production.xx_weight if len(production) == 1 else 0
 
     @api.depends("product_uom_qty", "weight")
     def _compute_total_weight(self):
