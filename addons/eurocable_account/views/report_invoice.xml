@@ -13,7 +13,7 @@
         </xpath>
         <xpath expr="//td[3]" position="before">
             <td class="text-right">
-                <span t-field="line.intrastat_transaction_id.code" />
+                <span t-field="line.product_id.intrastat_code_id.code" />
             </td>
             <t t-if="o.partner_id.property_account_position_id">
                 <td t-if="o.partner_id.property_account_position_id.is_weight" class="text-right">
