@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="mrp_production_form_view" model="ir.ui.view">
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view" />
+        <field name="arch" type="xml">
+            <field name='user_id' position="after">
+                <field name="xx_weight" />
+            </field>
+            <xpath
+                expr="//field[@name='move_raw_ids']/tree/field[@name='lot_ids']"
+                position="after"
+            >
+                <field name="xx_weight" optional="show" />
+            </xpath>
+            <xpath expr="//page[@name='miscellaneous']/group/group[2]/field[@name='origin']" position="attributes">
+                <attribute name="readonly">True</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

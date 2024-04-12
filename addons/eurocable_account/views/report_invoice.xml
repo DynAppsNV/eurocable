@@ -6,20 +6,15 @@
     >
         <xpath expr="//th[3]" position="before">
             <th class="text-right">HS code</th>
-            <t t-if="o.partner_id.property_account_position_id">
-                <th t-if="o.partner_id.property_account_position_id.is_weight" class="text-right">
-                    Weight</th>
-            </t>
+            <th class="text-right">Weight</th>
         </xpath>
         <xpath expr="//td[3]" position="before">
             <td class="text-right">
                 <span t-field="line.product_id.intrastat_code_id.code" />
             </td>
-            <t t-if="o.partner_id.property_account_position_id">
-                <td t-if="o.partner_id.property_account_position_id.is_weight" class="text-right">
-                    <span t-field="line.weight" />
-                </td>
-            </t>
+            <td class="text-right">
+                <span t-field="line.weight" />
+            </td>
         </xpath>
     </template>
 

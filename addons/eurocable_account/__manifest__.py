@@ -4,7 +4,7 @@
     "author": "dynapps",
     "category": "Account",
     "license": "LGPL-3",
-    "depends": ["account", "eurocable_contacts"],
+    "depends": ["account", "eurocable_contacts", "eurocable_mrp"],
     "data": [
         "security/ir.model.access.csv",
         "views/account_fiscal_position.xml",
