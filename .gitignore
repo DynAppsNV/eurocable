@@ -32,3 +32,4 @@ theme_graphene
 # Exclude parts except custom
 /parts/*
 /data
+!/submodules/
