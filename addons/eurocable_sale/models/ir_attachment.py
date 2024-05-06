@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import fields, models
 
 
 class IrAttachment(models.Model):
@@ -10,5 +10,5 @@ class IrAttachment(models.Model):
     def unlink(self):
         for rec in self:
             rec.origin_id.has_certificate = False
-        res = super(IrAttachment, self).unlink()
+        res = super().unlink()
         return res

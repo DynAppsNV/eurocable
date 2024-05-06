@@ -13,6 +13,6 @@ class MrpProduction(models.Model):
             for move in rec.move_raw_ids:
                 rec.xx_weight += move.xx_weight
 
-            sale_order = self.env['sale.order'].search([('name', "=", rec.origin)])
+            sale_order = self.env["sale.order"].search([("name", "=", rec.origin)])
             for line in sale_order.order_line:
                 line._compute_weight()

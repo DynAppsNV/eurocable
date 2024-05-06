@@ -1,4 +1,4 @@
-from odoo import models, api
+from odoo import api, models
 
 
 class StockMoveLine(models.Model):
@@ -6,7 +6,7 @@ class StockMoveLine(models.Model):
 
     @api.onchange("product_id", "product_uom_id")
     def _onchange_product_id(self):
-        res = super(StockMoveLine, self)._onchange_product_id()
+        res = super()._onchange_product_id()
         if self.product_id and self.picking_id:
             product = self.product_id.with_context(
                 lang=self.picking_id.partner_id.lang or self.env.user.lang
