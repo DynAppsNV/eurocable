@@ -5,80 +5,86 @@
         inherit_id="sale.report_saleorder_document"
         priority="99"
     >
-
-        <xpath expr="//t[@t-set='address']" position="replace">
-            <t t-set="address">
-                <t
-                    t-if="doc.partner_shipping_id == doc.partner_invoice_id
-                             and doc.partner_invoice_id != doc.partner_id
-                             or doc.partner_shipping_id != doc.partner_invoice_id"
-                >
-                    <strong
-                        t-if="doc.partner_shipping_id == doc.partner_invoice_id"
-                        style="color: green;"
-                    >Invoicing and Shipping Address:</strong>
-                    <strong
-                        t-if="doc.partner_shipping_id != doc.partner_invoice_id"
-                        style="color: green;"
-                    >Invoicing Address:</strong>
-                    <div
-                        t-field="doc.partner_invoice_id"
-                        style="color: green;"
-                        t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True, "phone_icons": True}'
-                    />
-                    <p t-if="doc.partner_id.vat" style="color: green;"><t
-                            t-esc="doc.company_id.account_fiscal_country_id.vat_label or 'Tax ID'"
-                        />
-                        : <span t-field="doc.partner_id.vat" /></p>
-                </t>
-                <t t-if="doc.partner_shipping_id == doc.partner_invoice_id == doc.partner_id">
-                    <div
-                        t-field="doc.partner_id"
-                        t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'
-                    />
-                    <p t-if="doc.partner_id.vat"><t
-                            t-esc="doc.company_id.account_fiscal_country_id.vat_label or 'Tax ID'"
-                        />
-                        : <span t-field="doc.partner_id.vat" /></p>
-                </t>
-            </t>
+        <xpath expr="//t[@t-set='address']/div" position="before">
+            <span><strong>Customer Address:</strong></span>
         </xpath>
-
-        <xpath expr="//t[@t-set='information_block']" position="replace">
-            <t t-set="information_block">
-                <t t-if="doc.partner_shipping_id != doc.partner_invoice_id">
-                    <strong>Shipping Address:</strong>
-                    <div
-                        t-field="doc.partner_shipping_id"
-                        t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'
-                    />
-                </t>
-            </t>
+        <xpath expr="//t[@t-set='information_block']/div" position="attributes">
+            <attribute name="t-options">
+                {"widget": "contact", "fields": ["address", "name"], "no_marker": True}
+            </attribute>
         </xpath>
-
-        <xpath expr="//h2" position="replace">
-            <span class="row">
-                <h2 class="mt8 col-8">
-                    <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
-                        <span t-if="doc.state not in ['draft','sent']">Order # </span>
-                        <span t-if="doc.state in ['draft','sent']">Quotation # </span>
-                    </t>
-                    <t t-if="env.context.get('proforma', False) or is_pro_forma">
-                        <span>Pro-Forma Invoice # </span>
-                    </t>
-                    <span t-field="doc.name" />
-                </h2>
-                <span class="text-right col-5">
+        <xpath expr="//t[@t-set='information_block']/t/div" position="attributes">
+            <attribute name="t-options">
+                {"widget": "contact", "fields": ["address", "name"], "no_marker": True}
+            </attribute>
+        </xpath>
+        <h2 position="before">
+            <div class="row mt-4">
+                <div class="col-8">
+                    <div name="xx_title" />
+                </div>
+                <div class="col-4 text-end">
                     <span
                         t-field="doc.name"
                         t-options="{'widget': 'barcode', 'width': 500, 'height': 80, 'img_style': 'width:300px;height:40px'}"
                     />
-                </span>
-            </span>
+                </div>
+            </div>
+        </h2>
+        <div name="xx_title" position="replace">
+            <h2 position="move" />
+        </div>
+        <xpath
+            expr="//div[@id='informations']/div[@name='informations_reference']/strong"
+            position="replace"
+        >
+            <strong>Your Reference:</strong>
         </xpath>
-
-        <xpath expr="//div/div[@id='total']/div/table/t[1]" position="after">
-            <tr class="border-black" style="">
+        <xpath
+            expr="//div[@id='informations']/div[span[@t-field='doc.user_id']]/strong"
+            position="replace"
+        >
+            <strong>Contact Person:</strong>
+        </xpath>
+        <xpath
+            expr="//div[@id='informations']/div[@name='informations_reference']"
+            position="after"
+        >
+            <xpath
+                expr="//div[@id='informations']/div[span[@t-field='doc.user_id']]"
+                position="move"
+            />
+        </xpath>
+        <xpath expr="//div[@id='informations']/div[@name='expiration_date']" position="replace">
+            <div
+                t-if="doc.commitment_date"
+                class="col-auto col-3 mw-100 mb-2"
+                name="commitment_date"
+            >
+                <strong>Delivery Date:</strong><br />
+                <span class="m-0" t-field="doc.commitment_date" t-options="{'widget': 'date'}" />
+            </div>
+        </xpath>
+        <th name="th_taxes" position="after">
+            <th name="th_weight" class="text-right">Weight</th>
+            <th name="th_weighttotal" class="text-right">Total Weight</th>
+            <th name="th_code" class="text-right">HS Code</th>
+        </th>
+        <td name="td_taxes" position="after">
+            <td name="td_weight" class="text-right">
+                <span t-field="line.weight" />
+                <span t-field="line.product_id.weight_uom_name" />
+            </td>
+            <td name="td_weighttotal" class="text-right">
+                <span t-field="line.weight_total" />
+                <span t-field="line.product_id.weight_uom_name" />
+            </td>
+            <td name="td_code" class="text-right">
+                <span t-field="line.product_id.hs_code" />
+            </td>
+        </td>
+        <xpath expr="//div[@id='total']//t[@t-set='tax_totals']" position="after">
+            <tr class="border-black">
                 <td>
                     <strong>Total Price</strong>
                 </td>
@@ -86,7 +92,7 @@
                     <span t-field="doc.total_prices" />
                 </td>
             </tr>
-            <tr class="border-black" style="">
+            <tr class="border-black">
                 <td>
                     <strong>Total Disc</strong>
                 </td>
@@ -95,174 +101,21 @@
                 </td>
             </tr>
         </xpath>
-
-        <xpath expr="//div[@id='informations']" position="replace">
-            <div class="row mt32 mb32" id="informations">
-                <div t-if="doc.client_order_ref" class="col-auto col-3 mw-100 mb-2">
-                    <strong style="color: green;">Your Reference:</strong>
-                    <p class="m-0" t-field="doc.client_order_ref" />
-                </div>
-                <div t-if="doc.user_id.name" class="col-auto col-3 mw-100 mb-2">
-                    <strong>Salesperson:</strong>
-                    <p class="m-0" t-field="doc.user_id" />
-                </div>
-                <div
-                    t-if="doc.date_order and doc.state in ['draft','sent']"
-                    class="col-auto col-3 mw-100 mb-2"
-                >
-                    <strong>Quotation Date:</strong>
-                    <p class="m-0" t-field="doc.date_order" t-options='{"widget": "date"}' />
-                </div>
-                <div
-                    t-if="doc.date_order and doc.state not in ['draft','sent']"
-                    class="col-auto col-3 mw-100 mb-2"
-                >
-                    <strong>Order Date:</strong>
-                    <p class="m-0" t-field="doc.date_order" t-options='{"widget": "date"}' />
-                </div>
-                <div t-if="doc.commitment_date" class="col-auto col-3 mw-100 mb-2">
-                    <strong>Delivery Date:</strong>
-                    <p class="m-0" t-field="doc.commitment_date" t-options='{"widget": "date"}' />
-                </div>
-                <div class="col-auto col-3 mw-100 mb-2" t-if="doc.incoterm">
-                    <strong>Incoterm:</strong>
-                    <p class="m-0" t-field="doc.incoterm.code" />
-                </div>
-                <div t-if="doc.weight_total" class="col-auto col-3 mw-100 mb-2">
-                    <strong>Total Weight:</strong>
-                    <p class="m-0" t-field="doc.weight_total" />
-                </div>
-            </div>
-        </xpath>
-
-        <xpath expr="//table[hasclass('o_main_table')]" position="replace">
-            <table class="table table-sm o_main_table">
-                <!-- In case we want to repeat the header, remove "display: table-row-group" -->
-                <thead style="display: table-row-group">
-                    <tr>
-                        <th name="th_description" class="text-left">Description</th>
-                        <th name="th_quantity" class="text-right">Quantity</th>
-                        <th name="th_priceunit" class="text-right">Unit Price</th>
-                        <th
-                            name="th_discount"
-                            t-if="display_discount"
-                            class="text-right"
-                            groups="product.group_discount_per_so_line"
-                        >
-                            <span>Disc.%</span>
-                        </th>
-                        <th name="th_taxes" class="text-right">Taxes</th>
-                        <th name="th_weight" class="text-right">Weight</th>
-                        <th name="th_weighttotal" class="text-right">Total Weight</th>
-                        <th name="th_code" class="text-right">HS Code</th>
-                        <th name="th_subtotal" class="text-end">
-                            <span>Amount</span>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="sale_tbody">
-
-                    <t t-set="current_subtotal" t-value="0" />
-
-                    <t t-foreach="doc.order_line" t-as="line">
-                        <t
-                            t-set="current_subtotal"
-                            t-value="current_subtotal + line.price_subtotal"
-                        />
-                        <tr
-                            t-att-class="'bg-200 font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else ''"
-                        >
-                            <t t-if="not line.display_type">
-                                <td name="td_name"><span t-field="line.name" /></td>
-                                <td name="td_quantity" class="text-end">
-                                    <span t-field="line.product_uom_qty" />
-                                    <span t-field="line.product_uom" />
-                                </td>
-                                <td name="td_priceunit" class="text-end">
-                                    <span t-field="line.price_unit">3</span>
-                                </td>
-                                <td
-                                    t-if="display_discount"
-                                    class="text-right"
-                                    groups="product.group_discount_per_so_line"
-                                >
-                                    <span t-field="line.discount" />
-                                </td>
-                                <td name="td_taxes" class="text-end">
-                                    <span
-                                        t-out="', '.join(map(lambda x: (x.description or x.name), line.tax_id))"
-                                    />
-                                </td>
-                                <td name="td_weight" class="text-right">
-                                    <span t-field="line.weight" />
-                                    <span t-field="line.product_id.weight_uom_name" />
-                                </td>
-                                <td name="td_weighttotal" class="text-right">
-                                    <span t-field="line.weight_total" />
-                                    <span t-field="line.product_id.weight_uom_name" />
-                                </td>
-                                <td name="td_code" class="text-right">
-                                    <span t-field="line.product_id.hs_code" />
-                                </td>
-                                <td
-                                    t-if="not line.is_downpayment"
-                                    name="td_subtotal"
-                                    class="text-end o_price_total"
-                                >
-                                    <span t-field="line.price_subtotal" />
-                                </td>
-                            </t>
-                            <t t-if="line.display_type == 'line_section'">
-                                <td name="td_section_line" colspan="99">
-                                    <span t-field="line.name" />
-                                </td>
-                                <t t-set="current_section" t-value="line" />
-                                <t t-set="current_subtotal" t-value="0" />
-                            </t>
-                            <t t-if="line.display_type == 'line_note'">
-                                <td name="td_note_line" colspan="99">
-                                    <span t-field="line.name" />
-                                </td>
-                            </t>
-                        </tr>
-
-                        <t
-                            t-if="current_section and (line_last or doc.order_line[line_index+1].display_type == 'line_section')"
-                        >
-                            <tr class="is-subtotal text-right">
-                                <td name="td_section_subtotal" colspan="99">
-                                    <strong class="mr16">Subtotal</strong>
-                                    <span
-                                        t-esc="current_subtotal"
-                                        t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'
-                                    />
-                                </td>
-                            </tr>
-                        </t>
-                    </t>
-                </tbody>
-            </table>
-        </xpath>
-
         <xpath expr="//p[@id='fiscal_position_remark']" position="before">
             <p
                 id="delivery_details"
                 t-if="doc.partner_shipping_id and doc.partner_shipping_id.property_delivery_carrier_id"
             >
-                <p>Delivery Method:</p>
+                <strong>Delivery Method:</strong><br />
                 <span t-field="doc.partner_shipping_id.property_delivery_carrier_id.sudo().name" />
             </p>
         </xpath>
-
     </template>
-
     <template
         id="report_order_inherit_incoterm_replace"
         inherit_id="sale_stock.report_saleorder_document_inherit_sale_stock"
         priority="99"
     >
-        <xpath expr="//div[@t-if='doc.incoterm']" position="replace">
-        </xpath>
+        <div t-if="doc.incoterm" position="replace" />
     </template>
-
 </odoo>
