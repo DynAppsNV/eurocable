@@ -1,21 +1,38 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <template
-        id="account_intrastat.report_invoice_document_intrastat_2019"
+        id="report_invoice_document_inherit"
         inherit_id="account.report_invoice_document"
+        priority="99"
     >
+        <xpath expr="//div[@name='address_not_same_as_shipping']/t/address" position="before">
+            <strong>Invoicing Address:</strong>
+        </xpath>
+        <xpath expr="//div[t[div[@name='no_shipping']]]" position="after">
+            <t t-set="information_block">
+                <strong>Shipping Address:</strong>
+                <div
+                    t-field="o.partner_shipping_id"
+                    t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'
+                />
+            </t>
+            <xpath expr="//div[@name='address_not_same_as_shipping']/t" position="move" />
+        </xpath>
+        <xpath expr="//div[@id='informations']/div[@name='customer_code']" position="replace" />
         <xpath expr="//th[3]" position="before">
             <th class="text-right">HS code</th>
             <th class="text-right">Weight</th>
         </xpath>
+        <th name="th_taxes" position="replace" />
         <xpath expr="//td[3]" position="before">
             <td class="text-right">
                 <span t-field="line.product_id.intrastat_code_id.code" />
             </td>
             <td class="text-right">
                 <span t-field="line.weight" />
+                <span t-field="line.product_id.weight_uom_name" groups="uom.group_uom">kg</span>
             </td>
         </xpath>
+        <td name="td_taxes" position="replace" />
     </template>
-
 </odoo>
