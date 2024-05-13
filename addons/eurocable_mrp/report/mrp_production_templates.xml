@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="report_mrp_production_components"
+        inherit_id="mrp.report_mrp_production_components"
+    >
+        <th position="after">
+            <th>Serial Number</th>
+        </th>
+        <td position="after">
+            <td>
+                <span t-out="', '.join(raw_line.move_line_ids.lot_id.mapped('name'))" />
+            </td>
+        </td>
+    </template>
+</odoo>
