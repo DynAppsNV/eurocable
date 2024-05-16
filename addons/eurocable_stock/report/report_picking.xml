@@ -106,21 +106,27 @@
                 </p>
             </div>
         </div>
-        <div name="div_state" position="replace" />
+        <div name="div_state" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </div>
         <xpath expr="//div[@name='div_sched_date']/p" position="attributes">
             <attribute name="t-options">{"widget": "date"}</attribute>
         </xpath>
-        <xpath expr="//div[p[@t-field='o.carrier_id']]" position="replace" />
-        <xpath expr="//div[span[@t-field='o.weight']]" position="replace" />
         <xpath expr="//th[@name='th_product']/strong" position="replace">
             <strong>Description</strong>
         </xpath>
         <th name="th_product" position="after">
             <th name="th_serial_number" position="move" />
         </th>
-        <th name="th_from" position="replace" />
-        <th name="th_to" position="replace" />
-        <th name="th_barcode" position="replace" />
+        <th name="th_from" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </th>
+        <th name="th_to" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </th>
+        <th name="th_barcode" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </th>
         <xpath expr="//tr[th[@name='th_product']]" position="inside">
             <th name="th_total_weight" class="text-center">
                 <strong>Product Total Weight</strong>
@@ -129,9 +135,15 @@
         <xpath expr="//td[span[@t-field='ml.product_id.display_name']]" position="after">
             <td t-if="has_serial_number" position="move" />
         </xpath>
-        <xpath expr="//td[t[span[@t-field='ml.package_id']]]" position="replace" />
-        <xpath expr="//td[div[t[span[@t-field='ml.result_package_id']]]]" position="replace" />
-        <td t-if="has_barcode" position="replace" />
+        <xpath expr="//td[t[span[@t-field='ml.package_id']]]" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//td[div[t[span[@t-field='ml.result_package_id']]]]" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <td t-if="has_barcode" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </td>
         <xpath expr="//tr[td[span[@t-field='ml.product_id.display_name']]]" position="inside">
             <td class="text-center">
                 <span t-field="ml.move_id.total_weight" />
@@ -149,5 +161,16 @@
                 <p t-field="customer.name" />
             </div>
         </p>
+    </template>
+    <template
+        id="report_report_picking_inherit_stock_delivery"
+        inherit_id="stock_delivery.report_shipping2"
+    >
+        <xpath expr="//div[p[@t-field='o.carrier_id']]" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//div[span[@t-field='o.weight']]" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
     </template>
 </odoo>

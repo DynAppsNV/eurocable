@@ -12,9 +12,9 @@ class SaleOrderLine(models.Model):
             # Loop instead of .filtered() to get rid of pre-commit error
             # B023 Function definition does not bind loop variable `rec`
             production = self.env["mrp.production"]
-            for x in rec.order_id.mrp_production_ids:
-                if x.product_id == rec.product_id:
-                    production |= x
+            for mo in rec.order_id.mrp_production_ids:
+                if mo.product_id == rec.product_id:
+                    production |= mo
             rec.weight = production.xx_weight if len(production) == 1 else 0
 
     @api.depends("product_uom_qty", "weight")
