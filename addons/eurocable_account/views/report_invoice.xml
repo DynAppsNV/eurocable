@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <template
-        id="report_invoice_document_inherit"
-        inherit_id="account.report_invoice_document"
-        priority="99"
-    >
+    <template id="report_invoice_document_inherit" inherit_id="account.report_invoice_document">
         <xpath expr="//div[@name='address_not_same_as_shipping']/t/address" position="before">
             <strong>Invoicing Address:</strong>
         </xpath>
@@ -18,12 +14,16 @@
             </t>
             <xpath expr="//div[@name='address_not_same_as_shipping']/t" position="move" />
         </xpath>
-        <xpath expr="//div[@id='informations']/div[@name='customer_code']" position="replace" />
+        <xpath expr="//div[@id='informations']/div[@name='customer_code']" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
         <xpath expr="//th[3]" position="before">
             <th class="text-right">HS code</th>
             <th class="text-right">Weight</th>
         </xpath>
-        <th name="th_taxes" position="replace" />
+        <th name="th_taxes" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </th>
         <xpath expr="//td[3]" position="before">
             <td class="text-right">
                 <span t-field="line.product_id.intrastat_code_id.code" />
@@ -33,6 +33,8 @@
                 <span t-field="line.product_id.weight_uom_name" groups="uom.group_uom">kg</span>
             </td>
         </xpath>
-        <td name="td_taxes" position="replace" />
+        <td name="td_taxes" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </td>
     </template>
 </odoo>

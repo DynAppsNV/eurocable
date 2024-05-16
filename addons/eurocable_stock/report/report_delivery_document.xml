@@ -80,12 +80,6 @@
                 </p>
             </div>
         </div>
-        <div t-if="o.sudo().sale_id.client_order_ref" position="replace" />
-        <div t-if="o.sudo().sale_id.incoterm" position="replace" />
-        <xpath expr="//div[p[@t-field='o.carrier_id']]" position="replace" />
-        <div t-if="o.shipping_weight" position="replace" />
-        <div t-if="o.carrier_tracking_ref" position="replace" />
-        <t t-set="has_hs_code" position="replace" />
         <xpath expr="//th[@name='th_sm_product']/strong" position="replace">
             <strong>Description</strong>
         </xpath>
@@ -112,6 +106,34 @@
                 <strong>Shipping Method:</strong>
                 <p t-field="o.move_type" />
             </div>
+        </div>
+    </template>
+    <template
+        id="report_delivery_document_inherit_stock_delivery"
+        inherit_id="stock_delivery.report_delivery_document2"
+    >
+        <xpath expr="//div[p[@t-field='o.carrier_id']]" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <div t-if="o.shipping_weight" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </div>
+        <div t-if="o.carrier_tracking_ref" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </div>
+        <t t-set="has_hs_code" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </t>
+    </template>
+    <template
+        id="report_delivery_document_inherit_sale_stock"
+        inherit_id="sale_stock.report_delivery_document_inherit_sale_stock"
+    >
+        <div t-if="o.sudo().sale_id.client_order_ref" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </div>
+        <div t-if="o.sudo().sale_id.incoterm" position="attributes">
+            <attribute name="t-if">False</attribute>
         </div>
     </template>
 </odoo>
