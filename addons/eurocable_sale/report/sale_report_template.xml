@@ -35,16 +35,26 @@
             <h2 position="move" />
         </div>
         <xpath
-            expr="//div[@id='informations']/div[@name='informations_reference']/strong"
+            expr="//div[@id='informations']/div[@name='informations_reference']"
             position="replace"
         >
-            <strong>Your Reference:</strong>
+            <div
+                t-if="doc.client_order_ref"
+                class="col-auto col-3 mw-100 mb-2"
+                name="informations_reference"
+            >
+                <strong>Your Reference:</strong><br />
+                <span class="m-0" t-field="doc.client_order_ref">SO0000</span>
+            </div>
         </xpath>
         <xpath
-            expr="//div[@id='informations']/div[span[@t-field='doc.user_id']]/strong"
+            expr="//div[@id='informations']/div[span[@t-field='doc.user_id']]"
             position="replace"
         >
-            <strong>Contact Person:</strong>
+            <div t-if="doc.user_id.name" class="col-auto col-3 mw-100 mb-2">
+                <strong>Contact Person:</strong><br />
+                <span class="m-0" t-field="doc.user_id">Mitchell Admin</span>
+            </div>
         </xpath>
         <xpath
             expr="//div[@id='informations']/div[@name='informations_reference']"
@@ -92,7 +102,7 @@
                     <span t-field="doc.total_prices" />
                 </td>
             </tr>
-            <tr class="border-black">
+            <tr t-if="doc.total_discount" class="border-black">
                 <td>
                     <strong>Total Disc</strong>
                 </td>

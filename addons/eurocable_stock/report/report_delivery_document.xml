@@ -5,9 +5,6 @@
         inherit_id="stock.report_delivery_document"
         priority="99"
     >
-        <xpath expr="//div[@name='div_outgoing_address']/div" position="attributes">
-            <attribute name="t-if" remove="o.should_print_delivery_address()" add="partner" />
-        </xpath>
         <xpath
             expr="//div[@name='div_outgoing_address']//div[@t-field='o.move_ids[0].partner_id']"
             position="attributes"
@@ -80,6 +77,9 @@
                 </p>
             </div>
         </div>
+        <table name="stock_move_table" position="attributes">
+            <attribute name="t-if">True</attribute>
+        </table>
         <xpath expr="//th[@name='th_sm_product']/strong" position="replace">
             <strong>Description</strong>
         </xpath>

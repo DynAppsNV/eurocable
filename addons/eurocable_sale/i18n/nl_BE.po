@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-08 14:50+0000\n"
-"PO-Revision-Date: 2024-05-08 14:50+0000\n"
+"POT-Creation-Date: 2024-05-23 08:28+0000\n"
+"PO-Revision-Date: 2024-05-23 08:28+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -59,8 +59,8 @@ msgstr "<strong class=\"mr16\">Subtotaal</strong>"
 
 #. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
-msgid "<strong>Contact Person:</strong>"
-msgstr "<strong>Contactpersoon:</strong>"
+msgid "<strong>Contact Person:</strong><br/>"
+msgstr "<strong>Contactpersoon:</strong><br/>"
 
 #. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
@@ -123,10 +123,14 @@ msgid "<strong>Total Weight:</strong>"
 msgstr "<strong>Totaal gewicht:</strong>"
 
 #. module: eurocable_sale
-#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
 msgid "<strong>Your Reference:</strong>"
 msgstr "<strong>Uw referentie:</strong>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "<strong>Your Reference:</strong><br/>"
+msgstr "<strong>Uw referentie:</strong><br/>"
 
 #. module: eurocable_sale
 #: model_terms:document.type,text:eurocable_sale.document_type_3
@@ -632,6 +636,11 @@ msgid "Message"
 msgstr "Bericht"
 
 #. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "Mitchell Admin"
+msgstr ""
+
+#. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.sale_report_certification
 msgid ""
 "Naam en adres van de fabrikant of diens vertegenwoordiger\n"
@@ -719,6 +728,11 @@ msgstr "Aantal"
 #: model:ir.model.fields,field_description:eurocable_sale.field_res_users__ref
 msgid "Reference"
 msgstr "Referentie"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "SO0000"
+msgstr ""
 
 #. module: eurocable_sale
 #: model_terms:document.type,text:eurocable_sale.document_type_10
