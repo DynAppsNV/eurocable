@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <template id="report_invoice_document_inherit" inherit_id="account.report_invoice_document">
+    <template
+        id="report_invoice_document_inherit"
+        inherit_id="account.report_invoice_document"
+        priority="99"
+    >
         <xpath expr="//div[@name='address_not_same_as_shipping']/t/address" position="before">
             <strong>Invoicing Address:</strong>
         </xpath>
@@ -14,8 +18,52 @@
             </t>
             <xpath expr="//div[@name='address_not_same_as_shipping']/t" position="move" />
         </xpath>
+        <xpath expr="//div[@name='due_date']" position="replace">
+            <div
+                t-attf-class="#{'col-auto col-3 mw-100' if report_type != 'html' else 'col'} mb-2"
+                t-if="o.invoice_date_due and o.move_type == 'out_invoice' and o.state == 'posted'"
+                name="due_date"
+            >
+                <strong>Due Date:</strong><br />
+                <span t-field="o.invoice_date_due">2023-10-31</span>
+            </div>
+        </xpath>
+        <xpath expr="//div[@name='origin']" position="replace">
+            <div
+                t-attf-class="#{'col-auto col-3 mw-100' if report_type != 'html' else 'col'} mb-2"
+                t-if="o.invoice_origin"
+                name="origin"
+            >
+                <strong>Source:</strong><br />
+                <span t-field="o.invoice_origin">SO123</span>
+            </div>
+        </xpath>
         <xpath expr="//div[@id='informations']/div[@name='customer_code']" position="attributes">
             <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//div[@name='reference']" position="replace">
+            <div
+                t-attf-class="#{'col-auto col-3 mw-100' if report_type != 'html' else 'col'} mb-2"
+                t-if="o.ref"
+                name="reference"
+            >
+                <strong>Reference:</strong><br />
+                <span t-field="o.ref">INV/2023/00001</span>
+            </div>
+        </xpath>
+        <xpath expr="//div[@name='incoterm_id']" position="replace">
+            <div
+                t-attf-class="#{'col-auto col-3 mw-100' if report_type != 'html' else 'col'} mb-2"
+                t-if="o.invoice_incoterm_id"
+                name="incoterm_id"
+            >
+                <strong>Incoterm:</strong><br />
+                <p t-if="o.incoterm_location">
+                    <span t-field="o.invoice_incoterm_id.code" /> <br />
+                    <span t-field="o.incoterm_location" />
+                </p>
+                <span t-else="" t-field="o.invoice_incoterm_id.code" class="m-0" />
+            </div>
         </xpath>
         <xpath expr="//th[3]" position="before">
             <th class="text-right">HS code</th>
