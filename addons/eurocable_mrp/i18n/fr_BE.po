@@ -23,7 +23,7 @@ msgstr "Nomenclature"
 #. module: eurocable_mrp
 #: model:ir.model,name:eurocable_mrp.model_stock_lot
 msgid "Lot/Serial"
-msgstr "Lot/série"
+msgstr "Lot/N° série"
 
 #. module: eurocable_mrp
 #: model:ir.model,name:eurocable_mrp.model_mrp_production

@@ -195,7 +195,7 @@ msgstr ""
 #. module: eurocable_stock
 #: model:ir.model,name:eurocable_stock.model_stock_lot
 msgid "Lot/Serial"
-msgstr "Lot/série"
+msgstr "Lot/N° série"
 
 #. module: eurocable_stock
 #: model:ir.model.fields,field_description:eurocable_stock.field_stock_picking_label_layout__print_format

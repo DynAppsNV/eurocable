@@ -35,7 +35,7 @@
                             <t t-if="move_line.lot_id">
                                 ^FO130,550^FD Serial No.: <t t-esc="move_line.lot_id.name" />^FS
                             </t>
-                            <t t-if="move_line.product_id.description_sale">
+                            <t t-if="move_line.move_id.sale_line_id">
                                 ^FB410,20,10,
                                 ^FO130,600^A0,^FH_^FD<t
                             t-raw="move_line.move_id.sale_line_id.get_description_sale_zpl()"

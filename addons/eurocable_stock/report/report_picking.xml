@@ -132,6 +132,12 @@
                 <strong>Product Total Weight</strong>
             </th>
         </xpath>
+        <xpath expr="//td/span[@t-field='ml.product_id.description_picking']" position="replace">
+            <span
+                t-if="ml.description_picking and ml.description_picking != ml.product_id.display_name"
+                t-field="ml.description_picking"
+            />
+        </xpath>
         <xpath expr="//td[span[@t-field='ml.product_id.display_name']]" position="after">
             <td t-if="has_serial_number" position="move" />
         </xpath>

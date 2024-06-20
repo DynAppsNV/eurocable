@@ -231,7 +231,7 @@ msgstr ""
 #. module: eurocable_stock
 #: model:ir.model,name:eurocable_stock.model_stock_move_line
 msgid "Product Moves (Stock Move Line)"
-msgstr "Productverplaatstingen (voorraadverplaatsingsregels)"
+msgstr "Productverplaatsingen (voorraadverplaatsingregels)"
 
 #. module: eurocable_stock
 #: model:ir.model.fields,field_description:eurocable_stock.field_stock_picking_label_layout__label_line_ids
@@ -284,7 +284,7 @@ msgstr "Totaal gewicht"
 #. module: eurocable_stock
 #: model:ir.model,name:eurocable_stock.model_stock_picking
 msgid "Transfer"
-msgstr "Verplaatsing"
+msgstr "Overdracht"
 
 #. module: eurocable_stock
 #. odoo-python
