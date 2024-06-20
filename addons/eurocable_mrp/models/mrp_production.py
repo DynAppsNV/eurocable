@@ -5,6 +5,7 @@ class MrpProduction(models.Model):
     _inherit = "mrp.production"
 
     xx_weight = fields.Float(string="Weight", compute="_compute_total_weight", store=True)
+    xx_product_description_variants = fields.Text("Custom Description")
 
     @api.depends("move_raw_ids.xx_weight", "origin")
     def _compute_total_weight(self):
