@@ -132,13 +132,10 @@
                 <strong>Product Total Weight</strong>
             </th>
         </xpath>
-        <xpath expr="//td/span[@t-field='ml.product_id.description_picking']" position="replace">
-            <span
-                t-if="ml.description_picking and ml.description_picking != ml.product_id.display_name"
-                t-field="ml.description_picking"
-            />
-        </xpath>
-        <xpath expr="//td[span[@t-field='ml.product_id.display_name']]" position="after">
+        <xpath expr="//td[span[@t-field='ml.product_id.display_name']]" position="replace">
+            <td>
+                <span t-field="ml.description_picking" />
+            </td>
             <td t-if="has_serial_number" position="move" />
         </xpath>
         <xpath expr="//td[t[span[@t-field='ml.package_id']]]" position="attributes">
@@ -150,7 +147,7 @@
         <td t-if="has_barcode" position="attributes">
             <attribute name="t-if">False</attribute>
         </td>
-        <xpath expr="//tr[td[span[@t-field='ml.product_id.display_name']]]" position="inside">
+        <xpath expr="//tr[td[span[@t-field='ml.quantity']]]" position="inside">
             <td class="text-center">
                 <span t-field="ml.move_id.total_weight" />
                 <span t-field="ml.product_id.weight_uom_name" />
