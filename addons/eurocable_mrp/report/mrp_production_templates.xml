@@ -8,7 +8,11 @@
             <attribute name="class" remove="col-3" add="col-6" separator=" " />
         </xpath>
         <xpath expr="//div/span[@t-field='o.product_description_variants']" position="replace">
-            <span t-field="o.xx_product_description_variants" />
+            <span
+                t-if="o.xx_product_description_variants"
+                t-field="o.xx_product_description_variants"
+            />
+            <span t-else="" t-field="o.product_description_variants" />
         </xpath>
     </template>
     <template
