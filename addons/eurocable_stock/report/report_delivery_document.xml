@@ -88,6 +88,14 @@
                 <strong>Product Total Weight</strong>
             </th>
         </xpath>
+        <xpath
+            expr="//table[@name='stock_move_table']/tbody/tr/td[span[@t-field='move.product_id']]"
+            position="replace"
+        >
+            <td>
+                <span t-field="move.description_picking" />
+            </td>
+        </xpath>
         <xpath expr="//table[@name='stock_move_table']/tbody/tr" position="inside">
             <td class="text-center">
                 <span t-field="move.total_weight" />
