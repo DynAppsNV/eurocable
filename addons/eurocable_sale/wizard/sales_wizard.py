@@ -6,9 +6,7 @@ class SalesWizard(models.TransientModel):
     _description = "sales wizard"
 
     sales_id = fields.Many2one("sale.order")
-    message = fields.Text(
-        string="The VAT field of partner is empty", readonly=True, store=True
-    )
+    message = fields.Text(string="The VAT field of partner is empty", readonly=True, store=True)
 
     @api.model
     def default_get(self, fields):

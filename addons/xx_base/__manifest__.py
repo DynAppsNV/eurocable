@@ -21,6 +21,7 @@
         "sale",
         "sale_procurement_group_by_line",
         "sale_stock",
+        "sale_management",
         "smile_audit",
         "web_m2x_options",
     ],

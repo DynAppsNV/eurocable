@@ -1,5 +1,6 @@
-from odoo import fields, models, api, _
 import base64
+
+from odoo import _, api, fields, models
 
 
 class SaleOrder(models.Model):
@@ -36,8 +37,8 @@ class SaleOrder(models.Model):
 
     @api.depends("order_line")
     def _compute_total_weight(self):
-        for line in self:
-            line.weight_total = sum(line.order_line.mapped("weight_total"))
+        for order in self:
+            order.weight_total = sum(order.order_line.mapped("weight_total"))
 
     @api.depends("order_line")
     def _compute_total_prices(self):
