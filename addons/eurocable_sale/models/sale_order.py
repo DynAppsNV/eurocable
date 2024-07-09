@@ -81,7 +81,7 @@ class SaleOrder(models.Model):
 
         for line in self.order_line:
             if line.product_id and not line.has_certificate:
-                """Create certificates for each order line and make has_certificate True"""
+                # Create certificates for each order line and make has_certificate True
                 pdf_file, dummy = report._render_qweb_pdf(certif_template, line.ids)
                 attachment = attachment_obj.create(
                     {

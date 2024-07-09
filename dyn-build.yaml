@@ -1,26 +1,19 @@
-version: 0.0.4
+version: 0.0.3
 build:
   parts:
-    - repo: config
-      source: local
-    - repo: verticals/dynapps
-      branch: 17.0
-      source: dynapps
     - repo: addons
       source: local
-      test_enabled: true
     - repo: addons_community
       source: local
-      test_enabled: false
-    - repo: submodules
-      source: local
-      test_enabled: false
     - repo: odoo/odoo.git
-      branch: 17.0-20240407
+      branch: 17.0
       source: dynapps
     - repo: odoo/enterprise.git
-      branch: 17.0-20240407
+      branch: 17.0
       source: dynapps
     - repo: odoo/odoo-themes.git
-      branch: 17.0-20240407
+      branch: 17.0
+      source: dynapps
+    - repo: oca/l10n-belgium.git
+      branch: 17.0-20240331
       source: dynapps

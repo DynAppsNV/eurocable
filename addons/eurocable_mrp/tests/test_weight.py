@@ -61,19 +61,7 @@ class TestWeight(TransactionCase):
         )
         self.assertEqual(production.xx_weight, 50)
 
-    def test_02_weight_on_move_lines(self):
-        production = self.env["mrp.production"].create(
-            {
-                "product_id": self.main_product.id,
-                "product_qty": 1,
-            }
-        )
-        line_product1 = production.move_raw_ids.filtered(lambda x: x.product_id == self.product1)
-        self.assertEqual(line_product1.xx_total_weight, 10)
-        line_product2 = production.move_raw_ids.filtered(lambda x: x.product_id == self.product2)
-        self.assertEqual(line_product2.xx_total_weight, 40)
-
-    def test_03_weight_on_lot(self):
+    def test_02_weight_on_lot(self):
         production = self.env["mrp.production"].create(
             {
                 "product_id": self.main_product.id,

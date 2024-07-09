@@ -10,7 +10,7 @@ class SalesWizard(models.TransientModel):
 
     @api.model
     def default_get(self, fields):
-        vals = super(SalesWizard, self).default_get(fields)
+        vals = super().default_get(fields)
         active_id = self.env.context.get("active_id")
         sale = self.env["sale.order"].browse(active_id)
         vals["sales_id"] = sale.id

@@ -1,6 +1,6 @@
 {
     "name": "Eurocable Account",
-    "version": "17.0.0.0.1",
+    "version": "17.0.0.1.2",
     "author": "dynapps",
     "category": "Account",
     "license": "LGPL-3",

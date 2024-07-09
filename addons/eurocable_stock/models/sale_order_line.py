@@ -7,5 +7,5 @@ class SaleOrderLine(models.Model):
     def get_description_sale_zpl(self):
         description_zpl = self.name
         if description_zpl:
-            description_zpl = description_zpl.replace("\n", "\&")  # NOQA
+            description_zpl = description_zpl.replace("\n", r"\&")  # NOQA
         return description_zpl
