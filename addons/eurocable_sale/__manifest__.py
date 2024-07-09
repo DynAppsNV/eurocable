@@ -1,6 +1,6 @@
 {
     "name": "Eurocable Sale",
-    "version": "17.0.0.1.2",
+    "version": "17.0.0.1.3",
     "author": "dynapps",
     "category": "Sale",
     "license": "LGPL-3",
