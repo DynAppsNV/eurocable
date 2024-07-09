@@ -27,11 +27,6 @@ msgid "'Packing List - %s' % (object.name)"
 msgstr "'Paklijst - %s' % (object.name)"
 
 #. module: eurocable_sale
-#: model:ir.actions.report,print_report_name:eurocable_sale.report_packing
-msgid "'Packing List - %s' % (object.name)"
-msgstr ""
-
-#. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.sale_report_certification
 msgid "<b>CERTIFICATE</b>"
 msgstr "<b>CERTIFICAAT</b>"
@@ -137,17 +132,6 @@ msgstr "<strong>Uw referentie:</strong>"
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
 msgid "<strong>Your Reference:</strong><br/>"
 msgstr "<strong>Uw referentie:</strong><br/>"
-
-#. module: eurocable_sale
-#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
-#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
-msgid "<strong>Total Weight:</strong>"
-msgstr ""
-
-#. module: eurocable_sale
-#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
-msgid "<strong>Your Reference:</strong>"
-msgstr ""
 
 #. module: eurocable_sale
 #: model_terms:document.type,text:eurocable_sale.document_type_3
@@ -379,18 +363,6 @@ msgid "Compose Email"
 msgstr "E-mail opstellen"
 
 #. module: eurocable_sale
-#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_res_partner_form_inherit
-msgid "City"
-msgstr ""
-
-#. module: eurocable_sale
-#. odoo-python
-#: code:addons/eurocable_sale/models/sale_order.py:0
-#, python-format
-msgid "Compose Email"
-msgstr ""
-
-#. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.add_fixed_sale_phrase_form
 msgid "Confirm"
 msgstr "Bevestig"
@@ -436,6 +408,11 @@ msgid "Delivery Document"
 msgstr "Leveringsdocument"
 
 #. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "Delivery Method:"
+msgstr ""
+
+#. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.view_order_form_inherit
 msgid "Delivery Notes"
 msgstr "Leveringsnotities"
@@ -444,27 +421,6 @@ msgstr "Leveringsnotities"
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
 msgid "Description"
 msgstr "Beschrijving"
-
-#. module: eurocable_sale
-#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_order_form_inherit
-msgid "Delivery Document"
-msgstr ""
-
-#. module: eurocable_sale
-#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
-msgid "Delivery Method:"
-msgstr ""
-
-#. module: eurocable_sale
-#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_order_form_inherit
-msgid "Delivery Notes"
-msgstr ""
-
-#. module: eurocable_sale
-#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
-#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
-msgid "Description"
-msgstr ""
 
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_document_type__display_name
@@ -673,11 +629,6 @@ msgid "Is Warning Message"
 msgstr "Is waarschuwingsbericht"
 
 #. module: eurocable_sale
-#: model:ir.model.fields,field_description:eurocable_sale.field_sale_advance_payment_inv__is_warn_message
-msgid "Is Warning Message"
-msgstr ""
-
-#. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.sale_report_certification
 msgid ""
 "Klant\n"
@@ -712,16 +663,6 @@ msgstr "Laatst bijgewerkt door"
 #: model:ir.model.fields,field_description:eurocable_sale.field_xx_fixed_sale_phrase__write_date
 msgid "Last Updated on"
 msgstr "Laatst bijgewerkt op"
-
-#. module: eurocable_sale
-#: model:ir.model.fields,field_description:eurocable_sale.field_sale_order__delivery
-msgid "Leverbon"
-msgstr ""
-
-#. module: eurocable_sale
-#: model:ir.model.fields,field_description:eurocable_sale.field_sale_order__delivery_notes
-msgid "Leverbon en prints"
-msgstr ""
 
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_sale_order__delivery
@@ -898,11 +839,6 @@ msgid "Sales Advance Payment Invoice"
 msgstr "Verkoop vooruibetaling factuur"
 
 #. module: eurocable_sale
-#: model:ir.model,name:eurocable_sale.model_sale_advance_payment_inv
-msgid "Sales Advance Payment Invoice"
-msgstr "Verkoop vooruibetaling factuur"
-
-#. module: eurocable_sale
 #: model:ir.model,name:eurocable_sale.model_sale_order
 msgid "Sales Order"
 msgstr "Verkooporder"
@@ -926,16 +862,6 @@ msgstr "Straat 2..."
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.view_res_partner_form_inherit
 msgid "Street..."
 msgstr "Straat..."
-
-#. module: eurocable_sale
-#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_res_partner_form_inherit
-msgid "Street 2..."
-msgstr ""
-
-#. module: eurocable_sale
-#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_res_partner_form_inherit
-msgid "Street..."
-msgstr ""
 
 #. module: eurocable_sale
 #: model_terms:document.type,text:eurocable_sale.document_type_1
@@ -1048,16 +974,6 @@ msgstr "Totale gewicht"
 #: model:ir.model,name:eurocable_sale.model_document_type
 msgid "Type Document"
 msgstr "Documenttype"
-
-#. module: eurocable_sale
-#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
-msgid "Total Weight"
-msgstr ""
-
-#. module: eurocable_sale
-#: model:ir.model,name:eurocable_sale.model_document_type
-msgid "Type Document"
-msgstr ""
 
 #. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.sale_report_certification
