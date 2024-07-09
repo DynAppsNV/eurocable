@@ -13,7 +13,10 @@
             >
                 <field name="xx_weight" optional="show" />
             </xpath>
-            <xpath expr="//page[@name='miscellaneous']/group/group[2]/field[@name='origin']" position="attributes">
+            <xpath
+                expr="//page[@name='miscellaneous']/group/group[2]/field[@name='origin']"
+                position="attributes"
+            >
                 <attribute name="readonly">True</attribute>
             </xpath>
         </field>

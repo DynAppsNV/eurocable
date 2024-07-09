@@ -4,8 +4,6 @@
     "author": "dynapps",
     "category": "Sale",
     "license": "LGPL-3",
-    "depends": [
-       "xx_base"
-    ],
+    "depends": ["xx_base"],
     "data": [],
 }
