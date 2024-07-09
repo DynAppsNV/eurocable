@@ -7,5 +7,4 @@ class AccountMove(models.Model):
     to_check = fields.Boolean(default=lambda self: self._default_to_check())
 
     def _default_to_check(self):
-        for move in self:
-            move.to_check = move.move_type in ["in_refund", "in_invoice", "out_refund"]
+        return self._context.get("default_move_type") in ["in_refund", "in_invoice", "out_refund"]
