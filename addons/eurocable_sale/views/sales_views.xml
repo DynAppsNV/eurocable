@@ -89,6 +89,15 @@
             >
                 <attribute name="options">{'no_create': True, 'no_edit': True}</attribute>
             </xpath>
+            <xpath expr="//control/button[@name='action_add_from_catalog']" position="before">
+                <button
+                    name="action_add_fixed_sale_phrase"
+                    string="Add Fixed Phrases"
+                    type="object"
+                    class="px-4 btn-link"
+                    context="{'order_id': parent.id}"
+                />
+            </xpath>
 
         </field>
     </record>
