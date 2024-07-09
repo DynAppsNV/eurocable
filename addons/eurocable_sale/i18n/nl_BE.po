@@ -824,10 +824,6 @@ msgstr "Vaste Tekst"
 
 #. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.view_order_form_inherit
-msgstr "Leveringsdocument"
-
-#. module: eurocable_sale
-#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_order_form_inherit
 msgid "Print Certificate"
 msgstr "Print certificaat"
 
