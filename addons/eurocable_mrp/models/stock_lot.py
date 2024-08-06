@@ -8,5 +8,7 @@ class StockLot(models.Model):
 
     def _compute_weight(self):
         for rec in self:
-            production = self.env["mrp.production"].search([("lot_producing_id", "=", rec.id)], limit=1)
+            production = self.env["mrp.production"].search(
+                [("lot_producing_id", "=", rec.id)], limit=1
+            )
             rec.xx_weight = production.xx_weight

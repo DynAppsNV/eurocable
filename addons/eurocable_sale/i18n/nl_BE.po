@@ -3,12 +3,11 @@
 # 	* eurocable_sale
 #
 msgid ""
-
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0+e\n"
+"Project-Id-Version: Odoo Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-21 08:31+0000\n"
-"PO-Revision-Date: 2022-10-21 08:31+0000\n"
+"POT-Creation-Date: 2024-05-23 08:28+0000\n"
+"PO-Revision-Date: 2024-05-23 08:28+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -19,12 +18,17 @@ msgstr ""
 #. module: eurocable_sale
 #: model:ir.actions.report,print_report_name:eurocable_sale.report_certification
 msgid "'Certification for Quotation - %s' % (object.name)"
-msgstr ""
+msgstr "'Certificaat voor offerte - %s' % (object.name)"
+
+#. module: eurocable_sale
+#: model:ir.actions.report,print_report_name:eurocable_sale.report_packing
+msgid "'Packing List - %s' % (object.name)"
+msgstr "'Paklijst - %s' % (object.name)"
 
 #. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.sale_report_certification
 msgid "<b>CERTIFICATE</b>"
-msgstr ""
+msgstr "<b>CERTIFICAAT</b>"
 
 #. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.sale_report_certification
@@ -35,13 +39,98 @@ msgstr ""
 
 #. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "<span><strong>Customer Address:</strong></span>"
+msgstr "<span><strong>Klantadres:</strong></span>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "<span>Packing List # </span>"
+msgstr "<span>Paklijst # </span>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "<span>Pro-Forma Invoice # </span>"
+msgstr "<span>Pro-forma factuur # </span>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "<strong class=\"mr16\">Subtotal</strong>"
+msgstr "<strong class=\"mr16\">Subtotaal</strong>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "<strong>Contact Person:</strong><br/>"
+msgstr "<strong>Contactpersoon:</strong><br/>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "<strong>Delivery Date:</strong>"
+msgstr "<strong>Leveringsdatum:</strong>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "<strong>Delivery Date:</strong><br/>"
+msgstr "<strong>Leveringsdatum:</strong><br/>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "<strong>Delivery Method:</strong><br/>"
+msgstr "<strong>Leveringsmethode:</strong><br/>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "<strong>Expiration:</strong>"
+msgstr "<strong>Vervaldatum:</strong>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "<strong>Order Date:</strong>"
+msgstr "<strong>Orderdatum:</strong>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "<strong>Quotation Date:</strong>"
+msgstr "<strong>Offertedatum:</strong>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "<strong>Salesperson:</strong>"
+msgstr "<strong>Verkoper:</strong>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "<strong>Shipping Address:</strong>"
+msgstr "<strong>Afleveradres:</strong>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "<strong>Signature</strong>"
+msgstr "<strong>Handtekening</strong>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
 msgid "<strong>Total Disc</strong>"
-msgstr ""
+msgstr "<strong>Totale kort</strong>"
 
 #. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
 msgid "<strong>Total Price</strong>"
-msgstr ""
+msgstr "<strong>Totale prijs</strong>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "<strong>Total Weight:</strong>"
+msgstr "<strong>Totaal gewicht:</strong>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "<strong>Your Reference:</strong>"
+msgstr "<strong>Uw referentie:</strong>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "<strong>Your Reference:</strong><br/>"
+msgstr "<strong>Uw referentie:</strong><br/>"
 
 #. module: eurocable_sale
 #: model_terms:document.type,text:eurocable_sale.document_type_3
@@ -55,7 +144,6 @@ msgid ""
 "                        directive, provide that they are used and maintained\n"
 "                        according to the rules of good craftsmanship."
 msgstr ""
-
 "In overeenstemming met EG-machinerichtlijn\n"
 "(2006/42/CE). Ondergetekende, Paul Sillis,\n"
 "bestuurder, bij de firma EUROCABLE NV, tevens\n"
@@ -64,7 +152,7 @@ msgstr ""
 "veiligheids- en gezondheidseisen van de\n"
 "EG-MACHINERICHTLIJN, op voorwaarde dat zij\n"
 "gebruikt en onderhouden worden volgens de regels\n"
-"van goed vakmanschap.\n"
+"van goed vakmanschap."
 
 #. module: eurocable_sale
 #: model_terms:document.type,text:eurocable_sale.document_type_8
@@ -74,7 +162,6 @@ msgid ""
 "                        and holder of the technical report, declares that the goods meet all\n"
 "                        the fundamental safety and health requirements of the EC-machine directive,\n"
 "                        rovide that they are used and maintained according to the rules of good craftsmanship."
-
 msgstr ""
 "In overeenstemming met EG-machinerichtlijn (2006/42/CE).\n"
 "Ondergetekende, Paul Sillis, bestuurder, bij de firma EUROCABLE nv,\n"
@@ -91,14 +178,13 @@ msgid ""
 "                        declares that the goods meet all the fundamental safety and health\n"
 "                        requirements of the EC-machine directive, rovide that they are used and maintained\n"
 "                        according to the rules of good craftsmanship."
-
 msgstr ""
 "In overeenstemming met EG-machinerichtlijn (2006/42/CE).\n"
 "Ondergetekende, Paul Sillis, bestuurder, bij de firma EUROCABLE nv,\n"
 "tevens houder van het technisch dossier, verklaart dat de hijsmaterialen\n"
 "beantwoorden aan de fundamentele veiligheids- en gezondheidseisen\n"
 "van de EG-MACHINERICHTLIJN, op voorwaarde dat zij gebruikt en onderhouden\n"
-"worden volgens de regels van goed vakmanschap.\n"
+"worden volgens de regels van goed vakmanschap."
 
 #. module: eurocable_sale
 #: model_terms:document.type,text:eurocable_sale.document_type_9
@@ -108,7 +194,6 @@ msgid ""
 "                        declares that the goods meet all the fundamental safety and health requirements\n"
 "                        of the EC-machine directive, provide that they are used and maintained\n"
 "                        according to the rules of good craftsmanship."
-
 msgstr ""
 "In overeenstemming met EG-machinerichtlijn (2006/42/CE).\n"
 "Ondergetekende, Paul Sillis, bestuurder, bij de firma EUROCABLE NV,\n"
@@ -125,7 +210,6 @@ msgid ""
 "                            EUROCABLE nv and holder of the technical report, declares that the goods meet all the\n"
 "                            fundamental safety and health requirements of the EC-machine directive, rovide that they are\n"
 "                            used and maintained according to the rules of good craftsmanship."
-
 msgstr ""
 "In overeenstemming met EG-machinerichtlijn (2006/42/CE).Ondergetekende, Paul Sillis, bestuurder,\n"
 "                           bij de firma EUROCABLE nv, tevens houder van het technisch dossier, verklaart dat \n"
@@ -143,19 +227,18 @@ msgid ""
 "                        of the EC-machine directive, rovide that they are used and maintained according to the rules of\n"
 "                        good\n"
 "                        craftsmanship."
-
 msgstr ""
 "In overeenstemming met EG-machinerichtlijn (2006/42/CE).\n"
 "Ondergetekende, Paul Sillis, bestuurder, bij de firma EUROCABLE nv,\n"
 "tevens houder van het technisch dossier, verklaart dat de hijsmaterialen\n"
 "beantwoorden aan de fundamentele veiligheids- en gezondheidseisen\n"
 "van de EG-MACHINERICHTLIJN, op voorwaarde dat zij gebruikt\n"
-"en onderhouden worden volgens de regels van goed vakmanschap.\n"
+"en onderhouden worden volgens de regels van goed vakmanschap."
 
 #. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.view_sales_wizard
 msgid "Apply"
-msgstr ""
+msgstr "Pas toe"
 
 #. module: eurocable_sale
 #: model:ir.model,name:eurocable_sale.model_ir_attachment
@@ -165,12 +248,12 @@ msgstr "Bijlage"
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_sale_order__attachment_certification_ids
 msgid "Attachment Certification"
-msgstr ""
+msgstr "Bijlage certificering"
 
 #. module: eurocable_sale
 #: model:ir.model,name:eurocable_sale.model_audit_rule
 msgid "Audit Rule"
-msgstr ""
+msgstr "Auditregel"
 
 #. module: eurocable_sale
 #: model_terms:document.type,text:eurocable_sale.document_type_3
@@ -180,7 +263,7 @@ msgstr ""
 msgid "CE DECLARATION OF CONFORMITY"
 msgstr ""
 "CE CONFORMITEITSVERKLARING Volgens\n"
- "bijlage IIA"
+"bijlage IIA"
 
 #. module: eurocable_sale
 #: model_terms:document.type,text:eurocable_sale.document_type_2
@@ -188,11 +271,10 @@ msgid ""
 "CE DECLARATION OF CONFORMITY\n"
 "                        <br>\n"
 "                        Appendix IIA / EN13414-3"
-
 msgstr ""
 "CE CONFORMITEITSVERKLARING\n"
 "                        <br>\n"
-"Volgens bijlage IIA / EN13414-3\n"
+"Volgens bijlage IIA / EN13414-3"
 
 #. module: eurocable_sale
 #: model_terms:document.type,text:eurocable_sale.document_type_6
@@ -201,7 +283,6 @@ msgid ""
 "                        <br>\n"
 "                        Appendix IIA / EN13414-3\n"
 "                        <br>"
-
 msgstr ""
 "CE CONFORMITEITSVERKLARING\n"
 "                        <br>\n"
@@ -214,7 +295,6 @@ msgid ""
 "CE DECLARATION OF CONFORMITY\n"
 "                        <br>\n"
 "                        declaration of incorporation (former IIB)"
-
 msgstr ""
 "CE CONFORMITEITSVERKLARING\n"
 "                        <br>\n"
@@ -232,7 +312,6 @@ msgstr ""
 #. module: eurocable_sale
 #: model_terms:document.type,text:eurocable_sale.document_type_1
 msgid ""
-
 "CE DECLARATION OF CONFORMITY <br>\n"
 "                            Appendix IIA / EN13414-3"
 msgstr ""
@@ -242,23 +321,35 @@ msgstr ""
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_sale_order_line__certificate_notes
 msgid "Certificate Notes"
-msgstr ""
+msgstr "Certificaatnotities"
 
 #. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.view_order_form_inherit
 msgid "Certificates"
-msgstr ""
+msgstr "Certificaten"
 
 #. module: eurocable_sale
 #: model:ir.actions.act_window,name:eurocable_sale.action_document_type
 #: model:ir.actions.report,name:eurocable_sale.report_certification
 msgid "Certification"
-msgstr ""
+msgstr "Certificering"
 
 #. module: eurocable_sale
 #: model:ir.ui.menu,name:eurocable_sale.menu_document_type
 msgid "Certifications"
-msgstr ""
+msgstr "Certificeringen"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_res_partner_form_inherit
+msgid "City"
+msgstr "Stad"
+
+#. module: eurocable_sale
+#. odoo-python
+#: code:addons/eurocable_sale/models/sale_order.py:0
+#, python-format
+msgid "Compose Email"
+msgstr "E-mail opstellen"
 
 #. module: eurocable_sale
 #: model:ir.model,name:eurocable_sale.model_res_partner
@@ -266,16 +357,21 @@ msgid "Contact"
 msgstr ""
 
 #. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_res_partner_form_inherit
+msgid "Country"
+msgstr "Land"
+
+#. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_document_type__create_uid
 #: model:ir.model.fields,field_description:eurocable_sale.field_sales_wizard__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Aangemaakt door"
 
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_document_type__create_date
 #: model:ir.model.fields,field_description:eurocable_sale.field_sales_wizard__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Aangemaakt op"
 
 #. module: eurocable_sale
 #: model_terms:document.type,text:eurocable_sale.document_type_10
@@ -284,20 +380,35 @@ msgstr ""
 #: model_terms:document.type,text:eurocable_sale.document_type_13
 #: model_terms:document.type,text:eurocable_sale.document_type_14
 msgid "DECLARATION OF CONFORMITY"
-msgstr ""
+msgstr "VERKLARING VAN CONFORMITEIT"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_order_form_inherit
+msgid "Delivery Document"
+msgstr "Leveringsdocument"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_order_form_inherit
+msgid "Delivery Notes"
+msgstr "Leveringsnotities"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "Description"
+msgstr "Beschrijving"
 
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_document_type__display_name
 #: model:ir.model.fields,field_description:eurocable_sale.field_sales_wizard__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Weergavenaam"
 
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_product_product__document_type_id
 #: model:ir.model.fields,field_description:eurocable_sale.field_product_template__document_type_id
 #: model:ir.model.fields,field_description:eurocable_sale.field_sale_order_line__document_type
 msgid "Document Type"
-msgstr ""
+msgstr "Documenttype"
 
 #. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.sale_report_certification
@@ -320,20 +431,19 @@ msgid ""
 msgstr ""
 
 #. module: eurocable_sale
-#: model:ir.model.fields,field_description:eurocable_sale.field_res_partner__email
-#: model:ir.model.fields,field_description:eurocable_sale.field_res_users__email
-msgid "Email"
-msgstr "E-mail"
-
-#. module: eurocable_sale
 #: model:ir.model,name:eurocable_sale.model_mail_compose_message
 msgid "Email composition wizard"
-msgstr "E-mail samenstellen wizard"
+msgstr "Wizard e-mail opstellen"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "HS Code"
+msgstr ""
 
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_sale_order_line__has_certificate
 msgid "Has Certificate"
-msgstr ""
+msgstr "Heeft certificaat"
 
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_document_type__id
@@ -438,9 +548,40 @@ msgid ""
 msgstr ""
 
 #. module: eurocable_sale
-#: model:ir.model.fields,field_description:eurocable_sale.field_ir_attachment__is_certificate
-msgid "Is Certificate"
+#: model:ir.model.fields,help:eurocable_sale.field_sale_order__picking_op_notes
+msgid ""
+"Information mentioned here will be visible in Picking operation document of "
+"transfer."
 msgstr ""
+
+#. module: eurocable_sale
+#: model:ir.model.fields,help:eurocable_sale.field_sale_order__delivery_notes
+msgid ""
+"Information mentioned here will be visible in delivery slip document of "
+"transfer."
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "Invoicing Address:"
+msgstr "Factuuradres:"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "Invoicing and Shipping Address:"
+msgstr "Factuur- en afleveradres:"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_ir_attachment__is_certificate
+#: model:ir.model.fields,field_description:eurocable_sale.field_mrp_document__is_certificate
+#: model:ir.model.fields,field_description:eurocable_sale.field_product_document__is_certificate
+msgid "Is Certificate"
+msgstr "Is certificaat"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_sale_advance_payment_inv__is_warn_message
+msgid "Is Warning Message"
+msgstr "Is waarschuwingsbericht"
 
 #. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.sale_report_certification
@@ -463,26 +604,40 @@ msgid ""
 msgstr ""
 
 #. module: eurocable_sale
-#: model:ir.model.fields,field_description:eurocable_sale.field_document_type____last_update
-#: model:ir.model.fields,field_description:eurocable_sale.field_sales_wizard____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_document_type__write_uid
 #: model:ir.model.fields,field_description:eurocable_sale.field_sales_wizard__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Laatst bijgewerkt door"
 
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_document_type__write_date
 #: model:ir.model.fields,field_description:eurocable_sale.field_sales_wizard__write_date
 msgid "Last Updated on"
+msgstr "Laatst bijgewerkt op"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_sale_order__delivery
+msgid "Leverbon"
+msgstr ""
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_sale_order__delivery_notes
+msgid "Leverbon en prints"
 msgstr ""
 
 #. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.sale_report_certification
 msgid "Logo"
+msgstr ""
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_sale_advance_payment_inv__warn_message
+msgid "Message"
+msgstr "Bericht"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "Mitchell Admin"
 msgstr ""
 
 #. module: eurocable_sale
@@ -498,7 +653,7 @@ msgstr ""
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_document_type__name
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_res_partner__is_not_vat
@@ -528,24 +683,56 @@ msgstr ""
 
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_ir_attachment__origin_id
+#: model:ir.model.fields,field_description:eurocable_sale.field_mrp_document__origin_id
+#: model:ir.model.fields,field_description:eurocable_sale.field_product_document__origin_id
 msgid "Origin"
+msgstr "Bron"
+
+#. module: eurocable_sale
+#: model:ir.actions.report,name:eurocable_sale.report_packing
+msgid "Packing List"
+msgstr "Paklijst"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_sale_order__picking
+msgid "Pakbon"
+msgstr ""
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_sale_order__picking_op_notes
+msgid "Pakbon en prints"
 msgstr ""
 
 #. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.view_order_form_inherit
+msgid "Picking Document"
+msgstr "Leveringsdocument"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_order_form_inherit
 msgid "Print Certificate"
-msgstr ""
+msgstr "Print certificaat"
 
 #. module: eurocable_sale
 #: model:ir.model,name:eurocable_sale.model_product_template
-msgid "Product Template"
-msgstr "Productsjabloon"
+msgid "Product"
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "Quantity"
+msgstr "Aantal"
 
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_res_partner__ref
 #: model:ir.model.fields,field_description:eurocable_sale.field_res_users__ref
 msgid "Reference"
 msgstr "Referentie"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "SO0000"
+msgstr ""
 
 #. module: eurocable_sale
 #: model_terms:document.type,text:eurocable_sale.document_type_10
@@ -563,33 +750,33 @@ msgstr ""
 #. module: eurocable_sale
 #: model_terms:document.type,text:eurocable_sale.document_type_9
 msgid "Safety factor : 4/1"
-msgstr ""
-"Veiligheidsfactor : 4/1"
+msgstr "Veiligheidsfactor : 4/1"
 
 #. module: eurocable_sale
 #: model_terms:document.type,text:eurocable_sale.document_type_3
 #: model_terms:document.type,text:eurocable_sale.document_type_7
 msgid "Safety factor : 5/1"
-
-msgstr ""
-"Veiligheidsfactor : 5/1"
+msgstr "Veiligheidsfactor : 5/1"
 
 #. module: eurocable_sale
 #: model_terms:document.type,text:eurocable_sale.document_type_5
 msgid "Safety factor : 6:1"
-msgstr ""
-"Veiligheidsfactor  6:1"
+msgstr "Veiligheidsfactor  6:1"
 
 #. module: eurocable_sale
 #: model_terms:document.type,text:eurocable_sale.document_type_4
 msgid "Safety factor : 7/1"
-msgstr ""
-"Veiligheidsfactor : 7/1"
+msgstr "Veiligheidsfactor : 7/1"
 
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_sales_wizard__sales_id
 msgid "Sales"
-msgstr ""
+msgstr "Verkoop"
+
+#. module: eurocable_sale
+#: model:ir.model,name:eurocable_sale.model_sale_advance_payment_inv
+msgid "Sales Advance Payment Invoice"
+msgstr "Verkoop vooruibetaling factuur"
 
 #. module: eurocable_sale
 #: model:ir.model,name:eurocable_sale.model_sale_order
@@ -599,12 +786,22 @@ msgstr "Verkooporder"
 #. module: eurocable_sale
 #: model:ir.model,name:eurocable_sale.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Verkooporderlijn"
+msgstr "Verkooporderregel"
 
 #. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.view_order_form_inherit
 msgid "Send Certificate"
-msgstr ""
+msgstr "Zend certificaat"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_res_partner_form_inherit
+msgid "Street 2..."
+msgstr "Straat 2..."
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_res_partner_form_inherit
+msgid "Street..."
+msgstr "Straat..."
 
 #. module: eurocable_sale
 #: model_terms:document.type,text:eurocable_sale.document_type_1
@@ -620,7 +817,6 @@ msgid ""
 "                        Safety factor : 6,33-0,022*d\n"
 "                        <br>"
 msgstr ""
-
 "Draadoppervlak: Verz.\n"
 "                    <br>\n"
 "                    Treksterkte: 1960N/mm²\n"
@@ -657,7 +853,6 @@ msgstr ""
 "\n"
 "                    Veiligheidsfactor : 3:1"
 
-
 #. module: eurocable_sale
 #: model_terms:document.type,text:eurocable_sale.document_type_6
 msgid ""
@@ -685,7 +880,6 @@ msgstr ""
 "                    Veiligheidsfactor : 5/1\n"
 "                    <br>"
 
-
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_document_type__text
 msgid "Text"
@@ -694,17 +888,27 @@ msgstr ""
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_sales_wizard__message
 msgid "The VAT field of partner is empty"
-msgstr ""
+msgstr "Het BTW-veld van de partner is leeg"
 
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_sale_order__total_discount
 msgid "Total Discount"
-msgstr ""
+msgstr "Totale korting"
 
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_sale_order__total_prices
 msgid "Total Prices"
-msgstr ""
+msgstr "Totale prijzen"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "Total Weight"
+msgstr "Totale gewicht"
+
+#. module: eurocable_sale
+#: model:ir.model,name:eurocable_sale.model_document_type
+msgid "Type Document"
+msgstr "Documenttype"
 
 #. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.sale_report_certification
@@ -719,7 +923,7 @@ msgstr ""
 #. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.view_sales_wizard
 msgid "Warning"
-msgstr ""
+msgstr "Waarschuwing"
 
 #. module: eurocable_sale
 #: model_terms:document.type,text:eurocable_sale.document_type_5
@@ -731,15 +935,14 @@ msgid ""
 "                        in which the above product(s) is/are used, is put into operation before it is declared\n"
 "                        to be in compliance with the machinery directive rules."
 msgstr ""
-
 "Wij verklaren geheel onder onze verantwoordelijkheid dat het/de genoemde\n"
- "product(en) met CE markering voldoet(n) aan de essentiële eisen uit\n"
- "de machinerichtlijn 2006/42/EG, volgens bijlage IIA.\n"
- "Voor het samenstellen van het technisch dossier is de manager\n"
- "van de kwaliteitdienst gemachtigd. Wij herinneren u eraan dat het\n"
- "verboden is het hijsmiddel, waarin bovenstaande artikelen zijn gebruikt,\n"
- "in gebruik te nemen voordat is verklaard dat dit in overeenstemming\n"
- "is met de machinerichtlijnen.\n"
+"product(en) met CE markering voldoet(n) aan de essentiële eisen uit\n"
+"de machinerichtlijn 2006/42/EG, volgens bijlage IIA.\n"
+"Voor het samenstellen van het technisch dossier is de manager\n"
+"van de kwaliteitdienst gemachtigd. Wij herinneren u eraan dat het\n"
+"verboden is het hijsmiddel, waarin bovenstaande artikelen zijn gebruikt,\n"
+"in gebruik te nemen voordat is verklaard dat dit in overeenstemming\n"
+"is met de machinerichtlijnen."
 
 #. module: eurocable_sale
 #: model_terms:document.type,text:eurocable_sale.document_type_4
@@ -752,7 +955,6 @@ msgid ""
 "                        is put into operation before it is declared to be in compliance with the machinery directive\n"
 "                        rules."
 msgstr ""
-
 "In overeenstemming met EG-machinerichtlijn\n"
 "(2006/42/CE). Ondergetekende, Paul Sillis,\n"
 "bestuurder, bij de firma EUROCABLE NV, tevens\n"
@@ -764,21 +966,21 @@ msgstr ""
 "van goed vakmanschap."
 
 #. module: eurocable_sale
-#: model:ir.model,name:eurocable_sale.model_document_type
-msgid "document.type"
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "Weight"
+msgstr "Gewicht"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_sale_order__weight_total
+msgid "Weight Total"
+msgstr "Totaalgewicht"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_res_partner_form_inherit
+msgid "ZIP"
 msgstr ""
 
 #. module: eurocable_sale
 #: model:ir.model,name:eurocable_sale.model_sales_wizard
 msgid "sales wizard"
-msgstr ""
-
-#. module: eurocable_sale
-#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
-msgid "Weight"
-msgstr ""
-
-#. module: eurocable_sale
-#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
-msgid "Total Weight"
 msgstr ""

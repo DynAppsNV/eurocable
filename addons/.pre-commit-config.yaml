@@ -17,11 +17,11 @@ exclude: |
   # Ignore build and dist directories in addons
   /build/|/dist/|
   # Ignore test files in addons
-  /tests/samples/*|
+  /tests/samples/|
   # You don't usually want a bot to modify your legal texts
   (LICENSE.*|COPYING.*)|
-  # OCA ported modules to ignore
-  parts/oca_pull
+  # OCA ported modules to ignore (plus community addons that eezee-it copied)
+  parts/oca_pull|addons_community
 default_language_version:
   python: python3
   node: "16.17.0"

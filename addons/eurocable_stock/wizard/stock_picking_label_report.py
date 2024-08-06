@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError, ValidationError
 
@@ -83,9 +84,7 @@ class StockPickingLabelLayout(models.TransientModel):
                 or self.env.company.printnode_printer
             )
             printer_bin = (
-                user_rules.printer_bin
-                if user_rules.printer_id
-                else printer.default_printer_bin
+                user_rules.printer_bin if user_rules.printer_id else printer.default_printer_bin
             )
 
             return printer, printer_bin
@@ -146,15 +145,11 @@ class StockPickingLabelLayout(models.TransientModel):
         xml_id, data = self._prepare_report_data()
 
         if not xml_id:
-            raise UserError(
-                _("Unable to find report template for %s format", self.print_format)
-            )
+            raise UserError(_("Unable to find report template for %s format", self.print_format))
 
         return (
             self.env.ref(xml_id)
-            .with_context(
-                printer_id=self.printer_id.id, printer_bin=self.printer_bin.id
-            )
+            .with_context(printer_id=self.printer_id.id, printer_bin=self.printer_bin.id)
             .report_action(None, data=data)
         )
 

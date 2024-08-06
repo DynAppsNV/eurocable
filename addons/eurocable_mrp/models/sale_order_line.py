@@ -1,4 +1,4 @@
-from odoo import fields, models, api
+from odoo import api, fields, models
 
 
 class SaleOrderLine(models.Model):
@@ -9,9 +9,12 @@ class SaleOrderLine(models.Model):
 
     def _compute_weight(self):
         for rec in self:
-            production = rec.order_id.mrp_production_ids.filtered(
-                lambda x: x.product_id == rec.product_id
-            )
+            # Loop instead of .filtered() to get rid of pre-commit error
+            # B023 Function definition does not bind loop variable `rec`
+            production = self.env["mrp.production"]
+            for mo in rec.order_id.mrp_production_ids:
+                if mo.product_id == rec.product_id:
+                    production |= mo
             rec.weight = production.xx_weight if len(production) == 1 else 0
 
     @api.depends("product_uom_qty", "weight")
