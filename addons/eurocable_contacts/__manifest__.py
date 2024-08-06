@@ -7,7 +7,6 @@
     "depends": ["xx_base"],
     "data": [
         "views/res_partner_view.xml",
-
         "security/group.xml",
     ],
 }
