@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="fixed_sale_phrase_form_view" model="ir.ui.view">
+        <field name="name">xx.fixed.sale.phrase.form.view</field>
+        <field name="model">xx.fixed.sale.phrase</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <h3>
+                        <field name="name" />
+                    </h3>
+                    <group>
+                        <field name="phrase" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="fixed_sale_phrase_tree_view" model="ir.ui.view">
+        <field name="name">xx.fixed.sale.phrase.tree.view</field>
+        <field name="model">xx.fixed.sale.phrase</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name" />
+                <field name="phrase" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_open_fixed_phrases" model="ir.actions.act_window">
+        <field name="name">Fixed Sale Phrases</field>
+        <field name="res_model">xx.fixed.sale.phrase</field>
+        <field name="view_mode">tree</field>
+    </record>
+</odoo>
