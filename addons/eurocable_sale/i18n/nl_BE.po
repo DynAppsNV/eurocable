@@ -6,8 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-23 08:28+0000\n"
-"PO-Revision-Date: 2024-05-23 08:28+0000\n"
+
+"POT-Creation-Date: 2024-07-09 06:36+0000\n"
+"PO-Revision-Date: 2024-07-09 06:36+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -236,6 +237,16 @@ msgstr ""
 "en onderhouden worden volgens de regels van goed vakmanschap."
 
 #. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_order_form_inherit
+msgid "Add Fixed Phrases"
+msgstr "Voeg vaste teksten toe"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.add_fixed_sale_phrase_form
+msgid "Add Fixed Sale Phrase"
+msgstr "Voeg vaste verkoopstekst toe"
+
+#. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.view_sales_wizard
 msgid "Apply"
 msgstr "Pas toe"
@@ -352,6 +363,11 @@ msgid "Compose Email"
 msgstr "E-mail opstellen"
 
 #. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.add_fixed_sale_phrase_form
+msgid "Confirm"
+msgstr "Bevestig"
+
+#. module: eurocable_sale
 #: model:ir.model,name:eurocable_sale.model_res_partner
 msgid "Contact"
 msgstr ""
@@ -364,12 +380,16 @@ msgstr "Land"
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_document_type__create_uid
 #: model:ir.model.fields,field_description:eurocable_sale.field_sales_wizard__create_uid
+#: model:ir.model.fields,field_description:eurocable_sale.field_xx_add_fixed_sale_phrase__create_uid
+#: model:ir.model.fields,field_description:eurocable_sale.field_xx_fixed_sale_phrase__create_uid
 msgid "Created by"
 msgstr "Aangemaakt door"
 
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_document_type__create_date
 #: model:ir.model.fields,field_description:eurocable_sale.field_sales_wizard__create_date
+#: model:ir.model.fields,field_description:eurocable_sale.field_xx_add_fixed_sale_phrase__create_date
+#: model:ir.model.fields,field_description:eurocable_sale.field_xx_fixed_sale_phrase__create_date
 msgid "Created on"
 msgstr "Aangemaakt op"
 
@@ -388,6 +408,11 @@ msgid "Delivery Document"
 msgstr "Leveringsdocument"
 
 #. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "Delivery Method:"
+msgstr ""
+
+#. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.view_order_form_inherit
 msgid "Delivery Notes"
 msgstr "Leveringsnotities"
@@ -400,6 +425,8 @@ msgstr "Beschrijving"
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_document_type__display_name
 #: model:ir.model.fields,field_description:eurocable_sale.field_sales_wizard__display_name
+#: model:ir.model.fields,field_description:eurocable_sale.field_xx_add_fixed_sale_phrase__display_name
+#: model:ir.model.fields,field_description:eurocable_sale.field_xx_fixed_sale_phrase__display_name
 msgid "Display Name"
 msgstr "Weergavenaam"
 
@@ -436,6 +463,22 @@ msgid "Email composition wizard"
 msgstr "Wizard e-mail opstellen"
 
 #. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_xx_add_fixed_sale_phrase__fixed_sale_phrase_ids
+msgid "Fixed Sale Phrase"
+msgstr "Vaste Verkoopstekst"
+
+#. module: eurocable_sale
+#: model:ir.model,name:eurocable_sale.model_xx_fixed_sale_phrase
+msgid "Fixed Sale Phrase which can be added to the Sale Order as a note"
+msgstr "Vaste Verkooptekst die aan de verkooporder kan worden toegevoegd als opmerking"
+
+#. module: eurocable_sale
+#: model:ir.actions.act_window,name:eurocable_sale.action_open_fixed_phrases
+#: model:ir.ui.menu,name:eurocable_sale.action_open_phrases_menu
+msgid "Fixed Sale Phrases"
+msgstr "Vaste Verkoopteksten"
+
+#. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
 msgid "HS Code"
 msgstr ""
@@ -448,6 +491,8 @@ msgstr "Heeft certificaat"
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_document_type__id
 #: model:ir.model.fields,field_description:eurocable_sale.field_sales_wizard__id
+#: model:ir.model.fields,field_description:eurocable_sale.field_xx_add_fixed_sale_phrase__id
+#: model:ir.model.fields,field_description:eurocable_sale.field_xx_fixed_sale_phrase__id
 msgid "ID"
 msgstr ""
 
@@ -606,12 +651,16 @@ msgstr ""
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_document_type__write_uid
 #: model:ir.model.fields,field_description:eurocable_sale.field_sales_wizard__write_uid
+#: model:ir.model.fields,field_description:eurocable_sale.field_xx_add_fixed_sale_phrase__write_uid
+#: model:ir.model.fields,field_description:eurocable_sale.field_xx_fixed_sale_phrase__write_uid
 msgid "Last Updated by"
 msgstr "Laatst bijgewerkt door"
 
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_document_type__write_date
 #: model:ir.model.fields,field_description:eurocable_sale.field_sales_wizard__write_date
+#: model:ir.model.fields,field_description:eurocable_sale.field_xx_add_fixed_sale_phrase__write_date
+#: model:ir.model.fields,field_description:eurocable_sale.field_xx_fixed_sale_phrase__write_date
 msgid "Last Updated on"
 msgstr "Laatst bijgewerkt op"
 
@@ -652,6 +701,7 @@ msgstr ""
 
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_document_type__name
+#: model:ir.model.fields,field_description:eurocable_sale.field_xx_fixed_sale_phrase__name
 msgid "Name"
 msgstr "Naam"
 
@@ -682,6 +732,11 @@ msgid ""
 msgstr ""
 
 #. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "Order #"
+msgstr ""
+
+#. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_ir_attachment__origin_id
 #: model:ir.model.fields,field_description:eurocable_sale.field_mrp_document__origin_id
 #: model:ir.model.fields,field_description:eurocable_sale.field_product_document__origin_id
@@ -704,9 +759,9 @@ msgid "Pakbon en prints"
 msgstr ""
 
 #. module: eurocable_sale
-#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_order_form_inherit
-msgid "Picking Document"
-msgstr "Leveringsdocument"
+#: model:ir.model.fields,field_description:eurocable_sale.field_xx_fixed_sale_phrase__phrase
+msgid "Phrase"
+msgstr "Vaste Tekst"
 
 #. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.view_order_form_inherit
@@ -767,6 +822,11 @@ msgstr "Veiligheidsfactor  6:1"
 #: model_terms:document.type,text:eurocable_sale.document_type_4
 msgid "Safety factor : 7/1"
 msgstr "Veiligheidsfactor : 7/1"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_xx_add_fixed_sale_phrase__sale_order_ids
+msgid "Sale Order"
+msgstr "Verkoopsorder"
 
 #. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_sales_wizard__sales_id
@@ -881,6 +941,11 @@ msgstr ""
 "                    <br>"
 
 #. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "Taxes"
+msgstr ""
+
+#. module: eurocable_sale
 #: model:ir.model.fields,field_description:eurocable_sale.field_document_type__text
 msgid "Text"
 msgstr ""
@@ -918,6 +983,11 @@ msgid ""
 "                                    Type de document\n"
 "                                    <br/>\n"
 "                                    Document Type"
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "Unit Price"
 msgstr ""
 
 #. module: eurocable_sale
@@ -974,6 +1044,11 @@ msgstr "Gewicht"
 #: model:ir.model.fields,field_description:eurocable_sale.field_sale_order__weight_total
 msgid "Weight Total"
 msgstr "Totaalgewicht"
+
+#. module: eurocable_sale
+#: model:ir.model,name:eurocable_sale.model_xx_add_fixed_sale_phrase
+msgid "Wizard to add a Fixed Sale Phrase to the Sale Order"
+msgstr "Wizard om een vaste verkoopzin toe te voegen aan de verkooporder"
 
 #. module: eurocable_sale
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.view_res_partner_form_inherit
