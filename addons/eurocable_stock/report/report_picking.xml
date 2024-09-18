@@ -8,7 +8,7 @@
         <div name="div_outgoing_address" position="before">
             <t
                 t-set="customer"
-                t-value="o.sale_id.partner_id or o.purchase_id.partner_id or o.move_ids and o.move_ids[0].partner_id"
+                t-value="o.sale_id.partner_shipping_id or o.purchase_id.partner_id or o.move_ids and o.move_ids[0].partner_id"
             />
         </div>
         <xpath expr="//div[@name='div_outgoing_address']/div" position="attributes">
@@ -22,15 +22,16 @@
             expr="//div[@name='div_outgoing_address']//div[@t-field='o.move_ids[0].partner_id']"
             position="replace"
         >
+            <div class="mt-1 mb-1" t-out="customer.name" />
             <div
                 t-if="o.picking_type_id.code == 'outgoing'"
                 t-out="customer"
-                t-options="{'widget': 'contact', 'fields': ['address', 'name'], 'no_marker': True}"
+                t-options="{'widget': 'contact', 'fields': ['address'], 'no_marker': True}"
             />
             <div
                 t-else=""
                 t-out="customer"
-                t-options="{'widget': 'contact', 'fields': ['address', 'name', 'phone', 'vat'], 'no_marker': True, 'phone_icons': True}"
+                t-options="{'widget': 'contact', 'fields': ['address', 'phone', 'vat'], 'no_marker': True, 'phone_icons': True}"
             />
         </xpath>
         <xpath expr="//div[@name='div_incoming_address']/div[@t-if]" position="attributes">
