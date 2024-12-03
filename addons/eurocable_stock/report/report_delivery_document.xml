@@ -6,13 +6,13 @@
         priority="99"
     >
         <xpath
-            expr="//div[@name='div_outgoing_address']//div[@t-field='o.move_ids[0].partner_id']"
+            expr="//div[@name='div_outgoing_address']/div[@name='outgoing_delivery_address']/div"
             position="before"
         >
             <div class="mt-1 mb-1" t-out="o.move_ids[0].partner_id.name" />
         </xpath>
         <xpath
-            expr="//div[@name='div_outgoing_address']//div[@t-field='o.move_ids[0].partner_id']"
+            expr="//div[@name='div_outgoing_address']/div[@name='outgoing_delivery_address']/div"
             position="attributes"
         >
             <attribute name="t-options">
