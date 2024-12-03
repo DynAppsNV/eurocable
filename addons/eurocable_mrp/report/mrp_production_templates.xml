@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+    <template id="internal_layout" inherit_id="web.internal_layout">
+        <xpath expr="//div[hasclass('header')]" position="inside">
+            <h3 t-if="o._name == 'mrp.production'" class="mt-4">Production Order</h3>
+        </xpath>
+    </template>
     <template id="report_mrporder" inherit_id="mrp.report_mrporder" priority="99">
         <xpath expr="//div[div[span[@t-field='o.origin']]]" position="inside">
             <xpath expr="//div/div[span[@t-field='o.product_qty']]" position="move" />
+        </xpath>
+        <xpath expr="//div/span[@t-field='o.date_deadline']" position="attributes">
+            <attribute name="t-options">{'widget': 'date'}</attribute>
         </xpath>
         <xpath expr="//div[span[@t-field='o.product_description_variants']]" position="attributes">
             <attribute name="class" remove="col-3" add="col-6" separator=" " />
@@ -13,6 +21,19 @@
                 t-field="o.xx_product_description_variants"
             />
             <span t-else="" t-field="o.product_description_variants" />
+        </xpath>
+        <xpath expr="//div[span[@t-field='o.qty_producing']]" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//div[div[span[@t-field='o.qty_producing']]]" position="inside">
+            <t
+                t-set="cust_ref"
+                t-value="o.env['sale.order'].search([('name', '=', o.origin)], limit=1).partner_id.ref"
+            />
+            <div class="col-3" t-if="cust_ref">
+                <strong>Customer:</strong><br />
+                <span t-out="cust_ref" />
+            </div>
         </xpath>
     </template>
     <template

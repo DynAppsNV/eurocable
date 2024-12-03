@@ -70,10 +70,24 @@
             >
                 <strong>Your reference:</strong>
                 <p t-field="o.sale_id.client_order_ref" />
+                <p t-field="o.sale_id.partner_id.name" />
             </div>
         </div>
+        <xpath expr="//div[@name='div_origin']/p" position="before">
+            <p
+                t-if="o.purchase_id.order_line.sale_order_id"
+                t-out="o.origin + ' / ' + ' / '.join(o.purchase_id.order_line.sale_order_id.mapped('name'))"
+            />
+        </xpath>
+        <xpath expr="//div[@name='div_origin']/p" position="attributes">
+            <attribute name="t-else">''</attribute>
+        </xpath>
         <div name="div_sched_date" position="attributes">
-            <attribute name="t-if" add="o.picking_type_id.code == 'outgoing'" separator=" and " />
+            <attribute
+                name="t-if"
+                add="o.picking_type_id.code == 'outgoing' and not o.purchase_id.order_line.sale_order_id"
+                separator=" and "
+            />
         </div>
         <div name="div_sched_date" position="after">
             <div t-if="o.date_done" class="col-auto" name="div_date_done">
