@@ -18,10 +18,7 @@
             <strong t-if="o.picking_type_id.code == 'outgoing'">Delivery Address:</strong>
             <strong t-else="">Vendor Address:</strong>
         </xpath>
-        <xpath
-            expr="//div[@name='div_outgoing_address']//div[@t-field='o.move_ids[0].partner_id']"
-            position="replace"
-        >
+        <xpath expr="//div[@name='div_outgoing_address']/div/div" position="replace">
             <div class="mt-1 mb-1" t-out="customer.name" />
             <div
                 t-if="o.picking_type_id.code == 'outgoing'"
@@ -72,11 +69,29 @@
                 name="div_cust_ref"
             >
                 <strong>Your reference:</strong>
-                <p t-field="o.sale_id.client_order_ref" />
+                <p>
+                    <span t-field="o.sale_id.client_order_ref" />
+                    <br t-if="o.sale_id.client_order_ref" />
+                    <span t-field="o.sale_id.partner_id.name" />
+                </p>
             </div>
         </div>
+        <xpath expr="//div[@name='div_origin']/p" position="attributes">
+            <attribute name="t-else">''</attribute>
+        </xpath>
+        <xpath expr="//div[@name='div_origin']/p" position="before">
+            <t t-set="sale_orders" t-value="o.purchase_id._get_sale_orders()" />
+            <p
+                t-if="sale_orders"
+                t-out="o.origin + ' / ' + ' / '.join(sale_orders.mapped('name'))"
+            />
+        </xpath>
         <div name="div_sched_date" position="attributes">
-            <attribute name="t-if" add="o.picking_type_id.code == 'outgoing'" separator=" and " />
+            <attribute
+                name="t-if"
+                add="o.picking_type_id.code == 'outgoing' and not o.purchase_id.order_line.sale_order_id"
+                separator=" and "
+            />
         </div>
         <div name="div_sched_date" position="after">
             <div t-if="o.date_done" class="col-auto" name="div_date_done">
