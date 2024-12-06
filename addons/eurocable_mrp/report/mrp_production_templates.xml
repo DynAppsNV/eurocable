@@ -12,9 +12,6 @@
         <xpath expr="//div/span[@t-field='o.date_deadline']" position="attributes">
             <attribute name="t-options">{'widget': 'date'}</attribute>
         </xpath>
-        <xpath expr="//div[span[@t-field='o.product_description_variants']]" position="attributes">
-            <attribute name="class" remove="col-3" add="col-6" separator=" " />
-        </xpath>
         <xpath expr="//div/span[@t-field='o.product_description_variants']" position="replace">
             <span
                 t-if="o.xx_product_description_variants"
@@ -27,12 +24,15 @@
         </xpath>
         <xpath expr="//div[div[span[@t-field='o.qty_producing']]]" position="inside">
             <t
-                t-set="cust_ref"
-                t-value="o.env['sale.order'].search([('name', '=', o.origin)], limit=1).partner_id.ref"
+                t-set="sale_orders"
+                t-value="o.procurement_group_id.mrp_production_ids.move_dest_ids.group_id.sale_id"
             />
-            <div class="col-3" t-if="cust_ref">
+            <div class="col-3" t-if="sale_orders">
                 <strong>Customer:</strong><br />
-                <span t-out="cust_ref" />
+                <span t-out="' / '.join(sale_orders.partner_id.mapped('name'))" /><br />
+                <span
+                    t-out="' / '.join(sale_orders.filtered('client_order_ref').mapped('client_order_ref'))"
+                />
             </div>
         </xpath>
     </template>

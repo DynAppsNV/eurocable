@@ -69,18 +69,22 @@
                 name="div_cust_ref"
             >
                 <strong>Your reference:</strong>
-                <p t-field="o.sale_id.client_order_ref" />
-                <p t-field="o.sale_id.partner_id.name" />
+                <p>
+                    <span t-field="o.sale_id.client_order_ref" />
+                    <br t-if="o.sale_id.client_order_ref" />
+                    <span t-field="o.sale_id.partner_id.name" />
+                </p>
             </div>
         </div>
-        <xpath expr="//div[@name='div_origin']/p" position="before">
-            <p
-                t-if="o.purchase_id.order_line.sale_order_id"
-                t-out="o.origin + ' / ' + ' / '.join(o.purchase_id.order_line.sale_order_id.mapped('name'))"
-            />
-        </xpath>
         <xpath expr="//div[@name='div_origin']/p" position="attributes">
             <attribute name="t-else">''</attribute>
+        </xpath>
+        <xpath expr="//div[@name='div_origin']/p" position="before">
+            <t t-set="sale_orders" t-value="o.purchase_id._get_sale_orders()" />
+            <p
+                t-if="sale_orders"
+                t-out="o.origin + ' / ' + ' / '.join(sale_orders.mapped('name'))"
+            />
         </xpath>
         <div name="div_sched_date" position="attributes">
             <attribute
