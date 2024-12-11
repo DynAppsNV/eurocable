@@ -41,7 +41,7 @@
                             t-raw="move_line.move_id.sale_line_id.get_description_sale_zpl()"
                         />^FS
                                 ^BCN,50,Y,N,N
-                                ^FO130,650^FD<t
+                                ^FO130,1600^FD<t
                             t-out="move_line.move_id.sale_line_id.order_id.name + str(move_line.move_id.sale_line_id.xx_number)"
                         />^FS
                             </t>

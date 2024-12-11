@@ -45,7 +45,7 @@
             <t t-set="information_block" t-value="xx_address" />
         </t>
         <div name="div_origin" position="before">
-            <div t-if="o.sale_id.client_order_ref" class="col-auto" name="div_cust_ref">
+            <div t-if="o.sale_id" class="col-auto" name="div_cust_ref">
                 <strong>Your reference:</strong>
                 <p>
                     <span t-field="o.sale_id.client_order_ref" />
