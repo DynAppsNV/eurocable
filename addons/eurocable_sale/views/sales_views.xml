@@ -39,6 +39,14 @@
                 <attribute name="invisible">1</attribute>
             </xpath>
             <xpath
+                expr="//field[@name='order_line']//tree//field[@name='sequence']"
+                position="after"
+            >
+                <!-- readonly="not id" is a trick to prevent autofocusing this field when adding a new line,
+                and to allow the field to be calculated before being editable -->
+                <field name="xx_number" readonly="not id" optional="show" />
+            </xpath>
+            <xpath
                 expr="//field[@name='order_line']//tree//field[@name='product_uom']"
                 position="before"
             >
