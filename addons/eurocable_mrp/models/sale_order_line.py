@@ -4,15 +4,9 @@ from odoo import api, fields, models
 class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
 
-    weight = fields.Float(compute="_compute_weight", store=True, readonly=False)
+    weight = fields.Float(compute="_compute_weight", readonly=False)
     weight_total = fields.Float(compute="_compute_total_weight", store=True)
 
-    @api.depends(
-        "product_id.weight",
-        "product_id.bom_ids",
-        "order_id.mrp_production_ids",
-        "order_id.mrp_production_ids.product_id",
-    )
     def _compute_weight(self):
         for rec in self:
             weight = 0
