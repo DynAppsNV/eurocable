@@ -9,7 +9,6 @@
         "account",
         "account_followup",
         "account_intrastat",
-        "auditlog",
         "base",
         "contacts",
         "dyn_analytics",
@@ -28,9 +27,6 @@
         "smile_audit",
         "web_environment_ribbon",
         "web_m2x_options",
-    ],
-    "data": [
-        "data/auditlog_rule_data.xml",
     ],
     "installable": True,
     "dyn_required": True,
