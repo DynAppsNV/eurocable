@@ -1,6 +1,6 @@
 {
     "name": "Customer Base",
-    "version": "17.0.1.0.6",
+    "version": "17.0.1.0.5",
     "author": "dynapps",
     "website": "https://www.dynapps.eu",
     "category": "Hidden",
