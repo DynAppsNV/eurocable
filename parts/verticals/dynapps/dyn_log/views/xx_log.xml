@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="xx_log_form_view" model="ir.ui.view">
+        <field name="name">Log - Form</field>
+        <field name="model">xx.log</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Log" create='false' edit='false' delete='false'>
+                <sheet>
+                    <field name="date" />
+                    <field name="user_name" />
+                    <field name="model_name" />
+                    <field name="res_id" />
+                    <field name="pid" />
+                    <field name="level" />
+                    <field name="message" />
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="xx_log_tree_view" model="ir.ui.view">
+        <field name="name">Log - Tree</field>
+        <field name="model">xx.log</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date" />
+                <field name="pid" />
+                <field name="model_name" />
+                <field name="res_id" />
+                <field name="level" />
+                <field name="message" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="xx_log_search_view" model="ir.ui.view">
+        <field name="name">Log - Search</field>
+        <field name="model">xx.log</field>
+        <field name="type">search</field>
+        <field name="arch" type="xml">
+            <search string="Logs">
+                <field name="date" />
+                <field name="pid" />
+                <field name="model_name" />
+                <field name="level" />
+                <field name="message" />
+                <filter
+                    string="Errors"
+                    name="errors"
+                    domain="[('level','=', 'ERROR')]"
+                    help="Show Errors"
+                />
+                <group expand="0" string="Group By">
+                    <filter
+                        string="Model"
+                        name="model"
+                        domain="[]"
+                        context="{'group_by':'model_name'}"
+                    />
+                    <filter string="PID" name="pid" domain="[]" context="{'group_by':'pid'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="act_xx_log" model="ir.actions.act_window">
+        <field name="name">Logs</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">xx.log</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="xx_log_search_view" />
+    </record>
+
+    <menuitem id="menu_logging" name="Logging" parent="base.menu_custom" sequence="99" />
+    <menuitem id="menu_xx_log" parent="dyn_log.menu_logging" name="Logs" action="act_xx_log" />
+
+    <record id="xx_log_simple_tree_view" model="ir.ui.view">
+        <field name="name">Log - Tree</field>
+        <field name="model">xx.log</field>
+        <field name="type">tree</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date" />
+                <field name="pid" />
+                <field name="level" />
+                <field name="message" />
+            </tree>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,519 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dyn_ftp_transfer
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-02 15:01+0000\n"
+"PO-Revision-Date: 2021-12-02 15:01+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: dyn_ftp_transfer
+#: model_terms:ir.ui.view,arch_db:dyn_ftp_transfer.xx_ftp_file_handler_form
+msgid "/&gt;"
+msgstr ""
+
+#. module: dyn_ftp_transfer
+#: model_terms:ir.ui.view,arch_db:dyn_ftp_transfer.xx_ftp_connection_form_dirs
+msgid "Action to Trigger"
+msgstr "Te starten actie"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__active
+msgid "Active?"
+msgstr "Actief?"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__attach_file
+msgid "Add imported file as attachment"
+msgstr "Voeg geïmporteerd bestand toe als bijlage"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__args
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_file_handler__args
+msgid "Arguments"
+msgstr "Argumenten"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,help:dyn_ftp_transfer.field_xx_ftp_connection_directory__args
+#: model:ir.model.fields,help:dyn_ftp_transfer.field_xx_ftp_file_handler__args
+msgid "Arguments to be passed to the method, e.g. (uid,)."
+msgstr "Argumenten welke worden doorgegeven aan de methodes, bijv. (uid)."
+
+#. module: dyn_ftp_transfer
+#: code:addons/dyn_ftp_transfer/models/ftp.py:0
+#, python-format
+msgid ""
+"Check local directory '%(localdir)s'\n"
+"%(exc)s"
+msgstr ""
+"Lokale folder controleren '%(localdir)s'\n"
+"%(exc)s"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__company_id
+msgid "Company"
+msgstr "Bedrijf"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__confirm_file_size
+msgid "Confirm File Size?"
+msgstr "Bevestig bestandsgrootte?"
+
+#. module: dyn_ftp_transfer
+#: code:addons/dyn_ftp_transfer/models/ftp.py:0
+#, python-format
+msgid "Connection Failed: '%s'"
+msgstr "Connectie Mislukt: '%s'"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__create_uid
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_file_handler__create_uid
+msgid "Created by"
+msgstr "Aangemaakt door"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__create_date
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_file_handler__create_date
+msgid "Created on"
+msgstr "Aangemaakt op"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields.selection,name:dyn_ftp_transfer.selection__xx_ftp_connection_directory__interval_type__days
+msgid "Days"
+msgstr "Dagen"
+
+#. module: dyn_ftp_transfer
+#: model_terms:ir.ui.view,arch_db:dyn_ftp_transfer.xx_ftp_connection_form_dirs
+msgid "Directories"
+msgstr "Folders"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__display_name
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_file_handler__display_name
+msgid "Display Name"
+msgstr "Schermnaam"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields.selection,name:dyn_ftp_transfer.selection__xx_ftp_file_handler__state__error
+msgid "Error"
+msgstr "Fout"
+
+#. module: dyn_ftp_transfer
+#: code:addons/dyn_ftp_transfer/models/ftp.py:0
+#, python-format
+msgid "Error occurred when processing file '%s'"
+msgstr "Fout opgetreden tijdens het verwerken van het bestand '%s'"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__exclude_dirs
+msgid "Exclude Directories (comma-separated)"
+msgstr "Sluit directories uit (gescheiden door komma)"
+
+#. module: dyn_ftp_transfer
+#: model:ir.ui.menu,name:dyn_ftp_transfer.menu_ftp
+msgid "FTP"
+msgstr ""
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__ftp_connection_id
+msgid "FTP Connection"
+msgstr "FTP Verbinding"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_file_handler__ftp_connection_directory_id
+msgid "FTP Connection Directory"
+msgstr "FTP Verbinding Directory"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__direction
+msgid "FTP Direction"
+msgstr "FTP Richting"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection__ftp_directory_ids
+msgid "FTP Directories"
+msgstr ""
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__name
+msgid "FTP Directory"
+msgstr ""
+
+#. module: dyn_ftp_transfer
+#: model_terms:ir.ui.view,arch_db:dyn_ftp_transfer.xx_ftp_file_handler_search
+msgid "FTP Files"
+msgstr "FTP Bestanden"
+
+#. module: dyn_ftp_transfer
+#: model:ir.ui.menu,name:dyn_ftp_transfer.menu_ftp_files
+msgid "FTP Transfers"
+msgstr "FTP Bestanden"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model,name:dyn_ftp_transfer.model_xx_ftp_utility
+msgid "FTP Utility Object"
+msgstr ""
+
+#. module: dyn_ftp_transfer
+#: code:addons/dyn_ftp_transfer/models/ftp.py:0
+#, python-format
+msgid "File '%(filename)s' processed"
+msgstr "Bestand '%(filename)s' succesvol verwerkt"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__file_mask
+msgid "File Mask"
+msgstr ""
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_file_handler__file_on_server
+msgid "File On Server"
+msgstr "Bestand Op Server"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_file_handler__filename
+msgid "Filename"
+msgstr "Bestandsnaam"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields.selection,name:dyn_ftp_transfer.selection__xx_ftp_connection_directory__direction__get
+msgid "Get Files"
+msgstr "Bestanden Ophalen"
+
+#. module: dyn_ftp_transfer
+#: model_terms:ir.ui.view,arch_db:dyn_ftp_transfer.xx_ftp_file_handler_search
+msgid "Group By..."
+msgstr "Groepeer"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields.selection,name:dyn_ftp_transfer.selection__xx_ftp_connection_directory__interval_type__hours
+msgid "Hours"
+msgstr "Uren"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__id
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_file_handler__id
+msgid "ID"
+msgstr ""
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__include_subdirs
+msgid "Include Subdirectories"
+msgstr "Voeg Subdirectories Toe"
+
+#. module: dyn_ftp_transfer
+#: model:ir.actions.act_window,name:dyn_ftp_transfer.xx_ftp_file_handler_action
+#: model:ir.ui.menu,name:dyn_ftp_transfer.xx_ftp_file_handler_menu
+msgid "Incoming files"
+msgstr "Importeren"
+
+#. module: dyn_ftp_transfer
+#: model_terms:ir.ui.view,arch_db:dyn_ftp_transfer.xx_ftp_connection_form_dirs
+msgid "Information"
+msgstr "Informatie"
+
+#. module: dyn_ftp_transfer
+#: model:res.groups,name:dyn_ftp_transfer.group_interface_manager
+msgid "Interface manager"
+msgstr ""
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__interval_number
+msgid "Interval Number"
+msgstr "Interval Nummer"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__interval_type
+msgid "Interval Unit"
+msgstr "Interval Eenheid"
+
+#. module: dyn_ftp_transfer
+#: code:addons/dyn_ftp_transfer/models/ftp.py:0
+#, python-format
+msgid "Invalid arguments: %s"
+msgstr "Onjuiste argumenten: %s"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory____last_update
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_file_handler____last_update
+msgid "Last Modified on"
+msgstr "Laatst Bijgewerkt op"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__write_uid
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_file_handler__write_uid
+msgid "Last Updated by"
+msgstr "Laatst Bijgewerkt door"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__write_date
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_file_handler__write_date
+msgid "Last Updated on"
+msgstr "Laatst Bijgewerkt op"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__local_directory
+msgid "Local Directory"
+msgstr "Lokale Folder"
+
+#. module: dyn_ftp_transfer
+#: model:ir.actions.act_window,name:dyn_ftp_transfer.xx_ftp_logs_action
+#: model:ir.ui.menu,name:dyn_ftp_transfer.menu_ftp_logs
+msgid "Logs"
+msgstr ""
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__method_name
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_file_handler__method_name
+msgid "Method"
+msgstr "Methode"
+
+#. module: dyn_ftp_transfer
+#: code:addons/dyn_ftp_transfer/models/ftp.py:0
+#, python-format
+msgid "Method '%(method)s' does not exist in model '%(model)s'!"
+msgstr "Functie '%(method)s' bestaat niet in het model '%(model)s'!"
+
+#. module: dyn_ftp_transfer
+#: code:addons/dyn_ftp_transfer/models/ftp.py:0
+#, python-format
+msgid "Method '%(method_name)s' does not exist in model '%(model_name)s'!"
+msgstr "Functie '%(method_name)s' bestaat niet in het model '%(model_name)s'!"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields.selection,name:dyn_ftp_transfer.selection__xx_ftp_connection_directory__interval_type__minutes
+msgid "Minutes"
+msgstr "Minuten"
+
+#. module: dyn_ftp_transfer
+#: code:addons/dyn_ftp_transfer/models/ftp.py:0
+#, python-format
+msgid "Model '%(model_name)s' does not exist!"
+msgstr "Model '%(model_name)s' bestaat niet!"
+
+#. module: dyn_ftp_transfer
+#: code:addons/dyn_ftp_transfer/models/ftp.py:0
+#, python-format
+msgid "Model '%s' does not exist!"
+msgstr ""
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,help:dyn_ftp_transfer.field_xx_ftp_connection_directory__model_name
+#: model:ir.model.fields,help:dyn_ftp_transfer.field_xx_ftp_file_handler__model_name
+msgid ""
+"Model name on which the method to be called is located, e.g. 'res.partner'."
+msgstr ""
+"Modelnaam waarop de methode die opgeroepen wordt, zich bevindt, bv. "
+"'res.partner'."
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields.selection,name:dyn_ftp_transfer.selection__xx_ftp_connection_directory__interval_type__months
+msgid "Months"
+msgstr "Maanden"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,help:dyn_ftp_transfer.field_xx_ftp_connection_directory__method_name
+#: model:ir.model.fields,help:dyn_ftp_transfer.field_xx_ftp_file_handler__method_name
+msgid "Name of the method to be called when this directory is processed."
+msgstr ""
+"Naam van de methode die wordt opgeroepen als deze directory wordt verwerkt."
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields.selection,name:dyn_ftp_transfer.selection__xx_ftp_file_handler__state__new
+msgid "New"
+msgstr "Nieuw"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__next_execution_date
+msgid "Next Execution Date"
+msgstr "Volgende Uitvoeringsdatum"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,help:dyn_ftp_transfer.field_xx_ftp_connection_directory__next_execution_date
+msgid "Next planned execution date for this directory."
+msgstr "Volgende geplande uitvoeringsdatum voor deze folder."
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__model_name
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_file_handler__model_name
+msgid "Object"
+msgstr ""
+
+#. module: dyn_ftp_transfer
+#: code:addons/dyn_ftp_transfer/models/ftp.py:0
+#, python-format
+msgid "Please define some directories!"
+msgstr ""
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__priority
+msgid "Priority"
+msgstr "Prioriteit"
+
+#. module: dyn_ftp_transfer
+#: model_terms:ir.ui.view,arch_db:dyn_ftp_transfer.xx_ftp_connection_form_dirs
+msgid "Process Directory"
+msgstr "Verwerk Directory"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_file_handler__process_error
+msgid "Process Error"
+msgstr "Verwerkingserror"
+
+#. module: dyn_ftp_transfer
+#: model:ir.actions.server,name:dyn_ftp_transfer.process_ftp_connections_ir_actions_server
+#: model:ir.cron,cron_name:dyn_ftp_transfer.process_ftp_connections
+#: model:ir.cron,name:dyn_ftp_transfer.process_ftp_connections
+msgid "Process FTP Connections"
+msgstr "Verwerk FTP Verbindingen"
+
+#. module: dyn_ftp_transfer
+#: model:ir.actions.server,name:dyn_ftp_transfer.process_ftp_files_ir_actions_server
+#: model:ir.cron,cron_name:dyn_ftp_transfer.process_ftp_files
+#: model:ir.cron,name:dyn_ftp_transfer.process_ftp_files
+msgid "Process FTP Files"
+msgstr "Verwerk FTP Bestanden"
+
+#. module: dyn_ftp_transfer
+#: model_terms:ir.ui.view,arch_db:dyn_ftp_transfer.xx_ftp_file_handler_form
+msgid "Process File"
+msgstr "Verwerk Bestand"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_file_handler__process_message
+msgid "Process Message"
+msgstr "Verwerk Bericht"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_file_handler__process_time
+msgid "Process Time"
+msgstr "Verwerktijd"
+
+#. module: dyn_ftp_transfer
+#: code:addons/dyn_ftp_transfer/models/ftp.py:0
+#, python-format
+msgid "Processing file '%s'"
+msgstr ""
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields.selection,name:dyn_ftp_transfer.selection__xx_ftp_connection_directory__direction__put
+msgid "Put Files"
+msgstr ""
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,help:dyn_ftp_transfer.field_xx_ftp_connection_directory__interval_number
+msgid "Repeat every x."
+msgstr "Herhaal elke x."
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_file_handler__state
+msgid "State"
+msgstr "Status"
+
+#. module: dyn_ftp_transfer
+#: model_terms:ir.ui.view,arch_db:dyn_ftp_transfer.xx_ftp_file_handler_search
+msgid "Status"
+msgstr ""
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields.selection,name:dyn_ftp_transfer.selection__xx_ftp_file_handler__state__success
+msgid "Success"
+msgstr "Succes"
+
+#. module: dyn_ftp_transfer
+#: model_terms:ir.ui.view,arch_db:dyn_ftp_transfer.xx_ftp_connection_form_dirs
+msgid "Technical Data"
+msgstr "Technische Data"
+
+#. module: dyn_ftp_transfer
+#: code:addons/dyn_ftp_transfer/models/ftp.py:0
+#, python-format
+msgid ""
+"The object '%(name)s' (%(id)s) is currently being executed and may not be "
+"modified, please try again in a few minutes"
+msgstr ""
+"Het object '%(name)s' (%(id)s) wordt momenteel uitgevoerd en kan niet "
+"gewijzigd worden, probeer later opnieuw."
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,help:dyn_ftp_transfer.field_xx_ftp_connection_directory__priority
+msgid ""
+"The priority of the directory, as an integer: 0 means higher priority,10 "
+"means lower priority."
+msgstr ""
+"De prioriteit van de directory, als een integer: 0 betekent een hogere "
+"prioriteit,10 een lagere prioriteit."
+
+#. module: dyn_ftp_transfer
+#: code:addons/dyn_ftp_transfer/models/ftp.py:0
+#, python-format
+msgid ""
+"Unexpected exception while processing directory %(name)s\n"
+"%(exc)s"
+msgstr ""
+"Onverwachte fout tijdens het verwerken van de folder %(name)s\n"
+"%(exc)s"
+
+#. module: dyn_ftp_transfer
+#: code:addons/dyn_ftp_transfer/models/ftp.py:0
+#, python-format
+msgid ""
+"Unexpected exception while processing file %(filename)s\n"
+"%(exc)s"
+msgstr ""
+"Onverwachte fout tijdens het verwerken van %(filename)s\n"
+"%(exc)s"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__data_dir_prefix
+msgid "Use Data Dir as Prefix?"
+msgstr "Gebruik Data Dir als Prefix?"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields,field_description:dyn_ftp_transfer.field_xx_ftp_connection_directory__user_id
+msgid "User"
+msgstr "Gebruiker"
+
+#. module: dyn_ftp_transfer
+#: model_terms:ir.ui.view,arch_db:dyn_ftp_transfer.xx_ftp_file_handler_form
+msgid "View File"
+msgstr "Bekijk Bestand"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields.selection,name:dyn_ftp_transfer.selection__xx_ftp_connection_directory__interval_type__weeks
+msgid "Weeks"
+msgstr "Weken"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model.fields.selection,name:dyn_ftp_transfer.selection__xx_ftp_connection_directory__interval_type__work_days
+msgid "Work Days"
+msgstr "Werkdagen"
+
+#. module: dyn_ftp_transfer
+#: code:addons/dyn_ftp_transfer/models/ftp.py:0
+#, python-format
+msgid "process_directory not implemented for '%s'"
+msgstr "process_directory niet gevonden voor '%s'"
+
+#. module: dyn_ftp_transfer
+#: model:ir.model,name:dyn_ftp_transfer.model_xx_ftp_connection
+msgid "xx.ftp.connection"
+msgstr ""
+
+#. module: dyn_ftp_transfer
+#: model:ir.model,name:dyn_ftp_transfer.model_xx_ftp_connection_directory
+msgid "xx.ftp.connection.directory"
+msgstr ""
+
+#. module: dyn_ftp_transfer
+#: model:ir.model,name:dyn_ftp_transfer.model_xx_ftp_file_handler
+msgid "xx.ftp.file.handler"
+msgstr ""

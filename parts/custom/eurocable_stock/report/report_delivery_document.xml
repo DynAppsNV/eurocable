@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="report_delivery_document_inherit_stock"
+        inherit_id="stock.report_delivery_document"
+        priority="99"
+    >
+        <xpath
+            expr="//div[@name='div_outgoing_address']/div[@name='outgoing_delivery_address']/div"
+            position="before"
+        >
+            <div class="mt-1 mb-1" t-out="o.move_ids[0].partner_id.name" />
+        </xpath>
+        <xpath
+            expr="//div[@name='div_outgoing_address']/div[@name='outgoing_delivery_address']/div"
+            position="attributes"
+        >
+            <attribute name="t-options">
+                {"widget": "contact", "fields": ["address"], "no_marker": True}
+            </attribute>
+        </xpath>
+        <div name="vendor_address" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </div>
+        <div name="customer_address" position="attributes">
+            <attribute name="t-if">partner</attribute>
+        </div>
+        <xpath expr="//div[@name='partner_header']/div" position="attributes">
+            <attribute name="t-options">
+                {"widget": "contact", "fields": ["address", "name", "vat"], "no_marker": True}
+            </attribute>
+        </xpath>
+        <h2 position="attributes">
+            <attribute name="class">mt-2</attribute>
+        </h2>
+        <xpath expr="//h2/span" position="before">
+            <span>Delivery Order</span>
+        </xpath>
+        <t t-set="information_block" position="inside">
+            <xpath expr="//div[hasclass('page')]/h2" position="move" />
+        </t>
+        <t t-set="information_block" position="after">
+            <t t-set="xx_address" t-value="address" />
+            <t t-set="address" t-value="information_block" />
+            <t t-set="information_block" t-value="xx_address" />
+        </t>
+        <div name="div_origin" position="before">
+            <div t-if="o.sale_id.client_order_ref" class="col-auto" name="div_cust_ref">
+                <strong>Your reference:</strong>
+                <p t-field="o.sale_id.client_order_ref" />
+            </div>
+        </div>
+        <div name="div_sched_date" position="attributes">
+            <attribute name="t-if">o.scheduled_date</attribute>
+        </div>
+        <xpath expr="//div[@name='div_sched_date']/strong" position="replace">
+            <strong>Scheduled Date:</strong>
+        </xpath>
+        <xpath expr="//div[@name='div_sched_date']/p[@t-if]" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//div[@name='div_sched_date']/p[@t-else]" position="attributes">
+            <attribute name="t-options">{"widget": "date"}</attribute>
+        </xpath>
+        <div name="div_sched_date" position="after">
+            <div t-if="o.date_done" class="col-auto" name="div_date_done">
+                <strong>Delivery Date:</strong>
+                <p t-field="o.date_done" t-options="{'widget': 'date'}" />
+            </div>
+            <div t-if="o.user_id" class="col-auto" name="div_contact">
+                <strong>Contact Person:</strong>
+                <p t-field="o.user_id" />
+            </div>
+            <t
+                t-set="total_weight"
+                t-value="sum(move.total_weight for move in o.move_ids.filtered(lambda x: x.product_uom_qty))"
+            />
+            <div t-if="total_weight" class="col-auto" name="div_total_weight">
+                <strong>Total Weight:</strong>
+                <p>
+                    <span t-out="total_weight" />
+                    <span t-out="o.weight_uom_name" />
+                </p>
+            </div>
+        </div>
+        <table name="stock_move_table" position="attributes">
+            <attribute name="t-if">True</attribute>
+        </table>
+        <xpath expr="//th[@name='th_sm_product']/strong" position="replace">
+            <strong>Description</strong>
+        </xpath>
+        <xpath expr="//tr[th[@name='th_sm_product']]" position="inside">
+            <th name="th_sm_total_weight" class="text-center">
+                <strong>Product Total Weight</strong>
+            </th>
+        </xpath>
+        <xpath
+            expr="//table[@name='stock_move_table']/tbody/tr/td[span[@t-field='move.product_id']]"
+            position="replace"
+        >
+            <td>
+                <span t-field="move.description_picking" />
+            </td>
+        </xpath>
+        <xpath expr="//table[@name='stock_move_table']/tbody/tr" position="inside">
+            <td class="text-center">
+                <span t-field="move.total_weight" />
+                <span t-field="move.product_id.weight_uom_name" />
+            </td>
+        </xpath>
+        <xpath expr="//th[@name='th_sml_product']/strong" position="replace">
+            <strong>Description</strong>
+        </xpath>
+        <div name="signature" position="replace">
+            <div t-if="o.sale_id.incoterm" name="div_incoterm" class="mt-4">
+                <strong>Incoterm:</strong>
+                <p t-field="o.sale_id.incoterm.code" />
+            </div>
+            <div t-if="o.move_type" name="div_shipping" class="mt-2">
+                <strong>Shipping Method:</strong>
+                <p t-field="o.move_type" />
+            </div>
+        </div>
+    </template>
+    <template
+        id="report_delivery_document_inherit_stock_delivery"
+        inherit_id="stock_delivery.report_delivery_document2"
+    >
+        <xpath expr="//div[p[@t-field='o.carrier_id']]" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <div t-if="o.shipping_weight" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </div>
+        <div t-if="o.carrier_tracking_ref" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </div>
+        <t t-set="has_hs_code" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </t>
+    </template>
+    <template
+        id="report_delivery_document_inherit_sale_stock"
+        inherit_id="sale_stock.report_delivery_document_inherit_sale_stock"
+    >
+        <div t-if="o.sudo().sale_id.client_order_ref" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </div>
+        <div t-if="o.sudo().sale_id.incoterm" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </div>
+    </template>
+</odoo>
