@@ -1,6 +1,6 @@
 {
     "name": "Customer Base",
-    "version": "17.0.1.0.5",
+    "version": "17.0.1.0.6",
     "author": "dynapps",
     "website": "https://www.dynapps.eu",
     "category": "Hidden",
@@ -9,6 +9,7 @@
         "account",
         "account_followup",
         "account_intrastat",
+        "account_invoice_extract",
         "base",
         "contacts",
         "dyn_analytics",
