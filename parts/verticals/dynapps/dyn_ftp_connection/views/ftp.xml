@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="xx_ftp_connection_form" model="ir.ui.view">
+        <field name="name">xx.ftp.connection.form</field>
+        <field name="model">xx.ftp.connection</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="FTP connection">
+                <header>
+                    <button
+                        icon="fa-plug"
+                        name="test_connection"
+                        string="Test connection"
+                        type="object"
+                    />
+                    <button
+                        icon="fa-arrow-left"
+                        invisible="state != 'confirm'"
+                        name="to_draft"
+                        string="To draft"
+                        type="object"
+                    />
+                    <field name="state" readonly="True" widget="statusbar" />
+                </header>
+                <sheet>
+                    <label class="oe_edit_only" for="name" />
+                    <h2>
+                        <field name="name" readonly="state == 'confirm'" />
+                    </h2>
+                    <group groups="base.group_multi_company">
+                        <field name="company_id" />
+                    </group>
+                    <separator string="Configuration" />
+                    <group>
+                        <field name="use_config_file" readonly="state == 'confirm'" />
+                        <field
+                            name="config_file_prefix"
+                            invisible="use_config_file == False"
+                            required="use_config_file == True"
+                            readonly="state == 'confirm'"
+                        />
+                    </group>
+                    <separator string="Parameters" />
+                    <group>
+                        <field name="ftp_protocol" readonly="state == 'confirm'" />
+                        <field
+                            name="ftp_host"
+                            invisible="use_config_file == True"
+                            readonly="state == 'confirm'"
+                            required="use_config_file == False"
+                        />
+                        <field
+                            name="ftp_port"
+                            invisible="use_config_file == True"
+                            readonly="state == 'confirm'"
+                            required="use_config_file == False"
+                        />
+                        <field name="ftp_base" readonly="state == 'confirm'" />
+                        <field
+                            name="ftp_timeout"
+                            invisible="ftp_protocol != 'ftp'"
+                            readonly="state == 'confirm'"
+                        />
+                        <field
+                            name="ftp_passive"
+                            invisible="ftp_protocol != 'ftp'"
+                            readonly="state == 'confirm'"
+                        />
+                        <field
+                            name="ftp_tls"
+                            invisible="ftp_protocol != 'ftp'"
+                            readonly="state == 'confirm'"
+                        />
+                        <field name="active" readonly="state == 'confirm'" />
+                    </group>
+                    <separator string="Authentication" />
+                    <group>
+                        <field name="authentication" readonly="state == 'confirm'" />
+                        <field
+                            name="ftp_user"
+                            invisible="use_config_file == True"
+                            readonly="state == 'confirm'"
+                            required="use_config_file == False"
+                        />
+                        <field
+                            name="ftp_password"
+                            invisible="use_config_file == True or authentication not in ['user', 'user_key']"
+                            password="True"
+                            readonly="state == 'confirm'"
+                            required="use_config_file == False and authentication in ['user', 'user_key']"
+                        />
+                        <field
+                            name="cryptography_algorithm"
+                            invisible="use_config_file == True or authentication in ['user', 'user_key']"
+                            readonly="state == 'confirm'"
+                            required="use_config_file == False and authentication == 'key'"
+                        />
+                        <field
+                            name="private_key"
+                            invisible="use_config_file == True or authentication == 'user'"
+                            readonly="state == 'confirm'"
+                            required="use_config_file == False and authentication in ['key', 'user_key']"
+                        />
+                        <field
+                            name="passphrase"
+                            invisible="use_config_file == True or authentication == 'user'"
+                            password="True"
+                            readonly="state == 'confirm'"
+                        />
+                    </group>
+                </sheet>
+            </form></field>
+    </record>
+    <record id="xx_ftp_connection_tree" model="ir.ui.view">
+        <field name="name">xx.ftp.connection.tree</field>
+        <field name="model">xx.ftp.connection</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="ftp_protocol" />
+                <field name="ftp_host" />
+                <field name="state" />
+                <field name="active" />
+            </tree>
+        </field>
+    </record>
+    <record id="xx_ftp_connection_search" model="ir.ui.view">
+        <field name="name">xx.ftp.connection.search</field>
+        <field name="model">xx.ftp.connection</field>
+        <field name="arch" type="xml">
+            <search string="FTP connection">
+                <field name="name" />
+                <field name="ftp_host" />
+                <field name="ftp_user" />
+            </search>
+        </field>
+    </record>
+    <record id="xx_ftp_connection_action" model="ir.actions.act_window">
+        <field name="name">FTP Connections</field>
+        <field name="res_model">xx.ftp.connection</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'active_test': False}</field>
+        <field name="view_id" ref="xx_ftp_connection_tree" />
+    </record>
+    <menuitem
+        action="xx_ftp_connection_action"
+        groups="base.group_system"
+        id="xx_ftp_connection_menu"
+        parent="base.menu_administration"
+    />
+</odoo>

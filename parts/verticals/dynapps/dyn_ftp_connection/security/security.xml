@@ -1,0 +1,10 @@
+<odoo noupdate="1">
+    <record id="xx_ftp_connection_comp_rule" model="ir.rule">
+        <field name="name">FTP Connection MC</field>
+        <field name="model_id" ref="model_xx_ftp_connection" />
+        <field name="global" eval="True" />
+        <field
+            name="domain_force"
+        >['|',('company_id','=',False),('company_id','in',company_ids)]</field>
+    </record>
+</odoo>
