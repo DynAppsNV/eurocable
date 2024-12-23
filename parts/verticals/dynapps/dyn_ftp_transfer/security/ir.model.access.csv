@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+xx_ftp_connection_user,xx.ftp.connection user,model_xx_ftp_connection,base.group_user,1,0,0,0
+xx_ftp_connection_system,xx.ftp.connection system,model_xx_ftp_connection,base.group_no_one,1,1,1,1
+xx_ftp_connection_directory_user,xx.ftp.connection.directory user,model_xx_ftp_connection_directory,base.group_user,1,0,0,0
+xx_ftp_connection_directory_system,xx.ftp.connection.directory system,model_xx_ftp_connection_directory,base.group_no_one,1,1,1,1
+xx_ftp_file_handler_user,xx.ftp.file.handler user,model_xx_ftp_file_handler,base.group_user,1,1,0,0
+xx_ftp_file_handler_system,xx.ftp.file.handler system,model_xx_ftp_file_handler,base.group_no_one,1,1,1,1

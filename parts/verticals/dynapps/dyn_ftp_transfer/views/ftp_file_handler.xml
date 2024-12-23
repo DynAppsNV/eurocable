@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="xx_ftp_file_handler_form" model="ir.ui.view">
+        <field name="name">xx.ftp.file.handler.form</field>
+        <field name="model">xx.ftp.file.handler</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="FTP Files">
+                <field invisible="1" name="file_on_server" />
+                <header>
+                    <button
+                        name="process_file"
+                        class="oe_highlight"
+                        invisible="file_on_server == False or state not in ['new', 'error']"
+                        string="Process File"
+                        type="object"
+                    />
+                    />
+                    <button
+                        name="view_file"
+                        class="oe_highlight"
+                        invisible="file_on_server == False"
+                        string="View File"
+                        type="object"
+                    />
+                    <field
+                        name="state"
+                        statusbar_visible="new,success"
+                        widget="statusbar"
+                        readonly="1"
+                    />
+                </header>
+                <sheet>
+                    <group>
+                        <field name="filename" readonly="1" />
+                        <field name="model_name" readonly="1" />
+                        <field name="method_name" readonly="1" />
+                        <field name="args" readonly="1" />
+                        <field name="process_time" invisible="process_time == False" readonly="1" />
+                        <field
+                            name="process_error"
+                            invisible="process_error == False"
+                            readonly="1"
+                        />
+                        <field
+                            name="process_message"
+                            invisible="process_message == False"
+                            readonly="1"
+                        />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="xx_ftp_file_handler_tree" model="ir.ui.view">
+        <field name="name">xx.ftp.file.handler.tree</field>
+        <field name="model">xx.ftp.file.handler</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree decoration-danger="state == 'error'" decoration-success="state == 'success'">
+                <field name="filename" />
+                <field name="model_name" />
+                <field name="method_name" />
+                <field name="args" />
+                <field name="state" />
+                <field name="create_date" />
+                <field name="process_time" />
+            </tree>
+        </field>
+    </record>
+    <record id="xx_ftp_file_handler_search" model="ir.ui.view">
+        <field name="name">xx.ftp.file.handler.search</field>
+        <field name="model">xx.ftp.file.handler</field>
+        <field name="type">search</field>
+        <field name="arch" type="xml">
+            <search string="FTP Files">
+                <field name="filename" />
+                <field name="model_name" />
+                <group expand="0" string="Group By...">
+                    <filter name="state" context="{'group_by':'state'}" string="Status" />
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>
