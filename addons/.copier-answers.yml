@@ -1,9 +1,0 @@
-# Do NOT update manually; changes here will be overwritten by Copier
-_commit: 1.2.23
-_src_path: git@gitlab.dynapps.be:verticals/skeleton-template.git
-ci_system: gitlab
-manifest_website_fix: true
-odoo_version: 17.0
-org_name: dynapps
-repo_type: customer
-use_ruff: true

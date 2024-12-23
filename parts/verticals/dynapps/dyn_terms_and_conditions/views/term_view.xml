@@ -1,0 +1,209 @@
+<?xml version="1.0" ?>
+<odoo>
+        <record id="term_tree_view" model="ir.ui.view">
+            <field name="name">term.tree</field>
+            <field name="model">term.term</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="mode" />
+                    <field name="term_rule_ids" />
+                </tree>
+            </field>
+        </record>
+        <record id="term_search_view" model="ir.ui.view">
+            <field name="name">term.search</field>
+            <field name="model">term.term</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search terms">
+                    <group col="10" colspan="4">
+                        <field name="name" />
+                        <field name="mode" />
+                    </group>
+                    <newline />
+                    <group string="Group By..." expand="0" col="10" colspan="4">
+                        <filter
+                        name="group_mode"
+                        string="Insertion Mode"
+                        context="{'group_by': 'mode'}"
+                    />
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="action_term" model="ir.actions.act_window">
+            <field name="name">Terms</field>
+            <field name="res_model">term.term</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="menu_terms" name="Terms" parent="base.menu_administration" sequence="6" />
+        <menuitem id="menu_terms_view" action="action_term" parent="menu_terms" />
+        <record id="term_form_views" model="ir.ui.view">
+            <field name="name">term.form</field>
+            <field name="model">term.term</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Term">
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="mode" />
+                            <field
+                            name="pdf"
+                            required="mode != 'txttoimg'"
+                            invisible="mode == 'txttoimg'"
+                        />
+                            <field
+                            name="text"
+                            required="mode == 'txttoimg'"
+                            invisible="mode != 'txttoimg'"
+                        />
+                            <field
+                            name="font"
+                            required="mode == 'txttoimg'"
+                            invisible="mode != 'txttoimg'"
+                        />
+                            <field
+                            name="fontcolor"
+                            required="mode == 'txttoimg'"
+                            invisible="mode != 'txttoimg'"
+                        />
+                            <field
+                            name="fontsize"
+                            required="mode == 'txttoimg'"
+                            invisible="mode != 'txttoimg'"
+                        />
+                            <field
+                            name="img_width"
+                            required="mode == 'txttoimg'"
+                            invisible="mode != 'txttoimg'"
+                        />
+                            <field
+                            name="img_height"
+                            required="mode == 'txttoimg'"
+                            invisible="mode != 'txttoimg'"
+                        />
+                            <field
+                            name="img_posx"
+                            required="mode == 'txttoimg'"
+                            invisible="mode != 'txttoimg'"
+                        />
+                            <field
+                            name="img_posy"
+                            required="mode == 'txttoimg'"
+                            invisible="mode != 'txttoimg'"
+                        />
+                        </group>
+                        <group />
+                    </group>
+                    <field name="term_rule_ids" nolabel="1" colspan="4">
+                        <tree editable="bottom">
+                            <field name="sequence" />
+                            <field name="report_id" />
+                            <field name="report_name" />
+                            <field name="company_id" />
+                            <field name="condition" />
+                        </tree>
+                        <form string="Reports">
+                            <field name="report_id" />
+                            <field name="report_name" />
+                            <field name="sequence" />
+                            <field name="company_id" />
+                            <field name="condition" colspan="4" />
+                        </form>
+                    </field>
+                </form>
+            </field>
+        </record>
+        <record id="term_rule_search_view" model="ir.ui.view">
+            <field name="name">term.rule.search</field>
+            <field name="model">term.rule</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Term rules">
+                    <group col="10" colspan="4">
+                        <field name="term_id" />
+                        <field name="report_id" />
+                        <field name="report_name" />
+                    </group>
+                    <newline />
+                    <group string="Group By..." expand="0" col="10" colspan="4">
+                        <filter name="group_term" string="Term" context="{'group_by': 'term_id'}" />
+                        <filter
+                        name="group_company"
+                        string="Company"
+                        context="{'group_by': 'company_id'}"
+                    />
+                        <filter
+                        name="group_report"
+                        string="Report"
+                        context="{'group_by': 'report_id'}"
+                    />
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="term_rule_tree_view" model="ir.ui.view">
+            <field name="name">term.rule.tree</field>
+            <field name="model">term.rule</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="sequence" />
+                    <field name="term_id" />
+                    <field name="report_id" />
+                    <field name="report_name" />
+                    <field name="company_id" />
+                    <field name="condition" />
+                </tree>
+            </field>
+        </record>
+        <record id="term_rule_form_view" model="ir.ui.view">
+            <field name="name">term.rule.form</field>
+            <field name="model">term.rule</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Terms and Conditions rules">
+                    <field name="term_id" />
+                    <field name="company_id" />
+                    <field name="report_id" />
+                    <field name="report_name" />
+                    <field name="sequence" />
+                    <field name="condition" colspan="4" />
+                    <group colspan="4" col="1">
+                        <span
+                        class="o_form_label"
+                    >You can use the following keywords in the condition field:</span>
+                        <span
+                        class="o_form_label"
+                    >'object': This is a browse record (always a single item) of the model you printed the report from.</span>
+                        <span
+                        class="o_form_label"
+                    >'report': The ir.actions.report object (in browse mode).</span>
+                        <span
+                        class="o_form_label"
+                    >'data': Any wizard data (also includes 'model' to show the model from which the report was started)</span>
+                        <span
+                        class="o_form_label"
+                    >'context': The context used to launch the report.</span>
+                        <span
+                        class="o_form_label"
+                    >'date': The current date in '%%Y-%%m-%%d' format.</span>
+                        <span
+                        class="o_form_label"
+                    >'time': The almighty/omnipresent time module.</span>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record id="action_term_rule" model="ir.actions.act_window">
+            <field name="name">Term rules</field>
+            <field name="res_model">term.rule</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="menu_term_rule_view" action="action_term_rule" parent="menu_terms" />
+</odoo>

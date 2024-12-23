@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record id="xx_ftp_connection_comp_rule" model="ir.rule">
+        <field name="name">FTP Connection MC</field>
+        <field name="model_id" ref="model_xx_ftp_connection" />
+        <field name="global" eval="True" />
+        <field
+            name="domain_force"
+        >['|',('company_id','=',False),('company_id','in',company_ids)]</field>
+    </record>
+    <record id="xx_ftp_connection_directory_comp_rule" model="ir.rule">
+        <field name="name">FTP Connection Directory MC</field>
+        <field name="model_id" ref="model_xx_ftp_connection_directory" />
+        <field name="global" eval="True" />
+        <field
+            name="domain_force"
+        >['|',('company_id','=',False),('company_id','in',company_ids)]</field>
+    </record>
+    <record model="res.groups" id="group_interface_manager">
+        <field name="name">Interface manager</field>
+        <field name="category_id" ref="base.module_category_administration" />
+        <field name="users" eval="[(4, ref('base.user_admin'))]" />
+    </record>
+</odoo>

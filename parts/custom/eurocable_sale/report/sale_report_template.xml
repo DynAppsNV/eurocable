@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="report_order_inherit_discount"
+        inherit_id="sale.report_saleorder_document"
+        priority="99"
+    >
+        <xpath expr="//t[@t-set='address']/div" position="before">
+            <span><strong>Customer Address:</strong></span>
+        </xpath>
+        <xpath expr="//t[@t-set='information_block']/div" position="attributes">
+            <attribute name="t-options">
+                {"widget": "contact", "fields": ["address", "name"], "no_marker": True}
+            </attribute>
+        </xpath>
+        <xpath expr="//t[@t-set='information_block']/t/div" position="attributes">
+            <attribute name="t-options">
+                {"widget": "contact", "fields": ["address", "name"], "no_marker": True}
+            </attribute>
+        </xpath>
+        <h2 position="before">
+            <div class="row mt-4">
+                <div class="col-8">
+                    <div name="xx_title" />
+                </div>
+                <div class="col-4 text-end">
+                    <span
+                        t-field="doc.name"
+                        t-options="{'widget': 'barcode', 'width': 500, 'height': 80, 'img_style': 'width:300px;height:40px'}"
+                    />
+                </div>
+            </div>
+        </h2>
+        <div name="xx_title" position="replace">
+            <h2 position="move" />
+        </div>
+        <xpath
+            expr="//div[@id='informations']/div[@name='informations_reference']"
+            position="replace"
+        >
+            <div
+                t-if="doc.client_order_ref"
+                class="col-auto col-3 mw-100 mb-2"
+                name="informations_reference"
+            >
+                <strong>Your Reference:</strong><br />
+                <span class="m-0" t-field="doc.client_order_ref">SO0000</span>
+            </div>
+        </xpath>
+        <xpath
+            expr="//div[@id='informations']/div[span[@t-field='doc.user_id']]"
+            position="replace"
+        >
+            <div t-if="doc.user_id.name" class="col-auto col-3 mw-100 mb-2">
+                <strong>Contact Person:</strong><br />
+                <span class="m-0" t-field="doc.user_id">Mitchell Admin</span>
+            </div>
+        </xpath>
+        <xpath
+            expr="//div[@id='informations']/div[@name='informations_reference']"
+            position="after"
+        >
+            <xpath
+                expr="//div[@id='informations']/div[span[@t-field='doc.user_id']]"
+                position="move"
+            />
+        </xpath>
+        <xpath expr="//div[@id='informations']/div[@name='expiration_date']" position="replace">
+            <div
+                t-if="doc.commitment_date"
+                class="col-auto col-3 mw-100 mb-2"
+                name="commitment_date"
+            >
+                <strong>Delivery Date:</strong><br />
+                <span class="m-0" t-field="doc.commitment_date" t-options="{'widget': 'date'}" />
+            </div>
+        </xpath>
+        <th name="th_description" position="before">
+            <th name="th_number">NO</th>
+        </th>
+        <th name="th_taxes" position="after">
+            <th name="th_weight" class="text-right">Weight</th>
+            <th name="th_weighttotal" class="text-right">Total Weight</th>
+            <th name="th_code" class="text-right">HS Code</th>
+        </th>
+        <td name="td_name" position="before">
+            <td name="td_number" class="text-center">
+                <span t-field="line.xx_number" />
+            </td>
+        </td>
+        <td name="td_taxes" position="after">
+            <td name="td_weight" class="text-right">
+                <span t-field="line.weight" />
+                <span t-field="line.product_id.weight_uom_name" />
+            </td>
+            <td name="td_weighttotal" class="text-right">
+                <span t-field="line.weight_total" />
+                <span t-field="line.product_id.weight_uom_name" />
+            </td>
+            <td name="td_code" class="text-right">
+                <span t-field="line.product_id.hs_code" />
+            </td>
+        </td>
+        <xpath expr="//div[@id='total']//t[@t-set='tax_totals']" position="after">
+            <tr class="border-black">
+                <td>
+                    <strong>Total Price</strong>
+                </td>
+                <td class="text-end">
+                    <span t-field="doc.total_prices" />
+                </td>
+            </tr>
+            <tr t-if="doc.total_discount" class="border-black">
+                <td>
+                    <strong>Total Disc</strong>
+                </td>
+                <td class="text-end">
+                    <span t-field="doc.total_discount" />
+                </td>
+            </tr>
+        </xpath>
+        <xpath expr="//p[@id='fiscal_position_remark']" position="before">
+            <p
+                id="delivery_details"
+                t-if="doc.partner_shipping_id and doc.partner_shipping_id.property_delivery_carrier_id"
+            >
+                <strong>Delivery Method:</strong><br />
+                <span t-field="doc.partner_shipping_id.property_delivery_carrier_id.sudo().name" />
+            </p>
+        </xpath>
+    </template>
+    <template
+        id="report_order_inherit_incoterm_replace"
+        inherit_id="sale_stock.report_saleorder_document_inherit_sale_stock"
+    >
+        <div t-if="doc.incoterm" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </div>
+    </template>
+</odoo>

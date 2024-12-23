@@ -1,0 +1,75 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* eurocable_mrp
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-02 11:50+0000\n"
+"PO-Revision-Date: 2024-12-02 11:50+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: eurocable_mrp
+#: model_terms:ir.ui.view,arch_db:eurocable_mrp.report_mrporder
+msgid "<strong>Customer:</strong><br/>"
+msgstr "<strong>Klant:</strong><br/>"
+
+#. module: eurocable_mrp
+#: model:ir.model,name:eurocable_mrp.model_mrp_bom
+msgid "Bill of Material"
+msgstr "Stuklijst"
+
+#. module: eurocable_mrp
+#: model:ir.model.fields,field_description:eurocable_mrp.field_mrp_production__xx_product_description_variants
+msgid "Custom Description"
+msgstr "Aangepaste beschrijving"
+
+#. module: eurocable_mrp
+#: model:ir.model,name:eurocable_mrp.model_stock_lot
+msgid "Lot/Serial"
+msgstr "Partij/Serienummer"
+
+#. module: eurocable_mrp
+#: model:ir.model,name:eurocable_mrp.model_mrp_production
+#: model_terms:ir.ui.view,arch_db:eurocable_mrp.internal_layout
+msgid "Production Order"
+msgstr "Productieorder"
+
+#. module: eurocable_mrp
+#: model:ir.model,name:eurocable_mrp.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Verkooporderregel"
+
+#. module: eurocable_mrp
+#: model_terms:ir.ui.view,arch_db:eurocable_mrp.report_mrp_production_components
+msgid "Serial Number"
+msgstr "Serienummer"
+
+#. module: eurocable_mrp
+#: model:ir.model,name:eurocable_mrp.model_stock_move
+msgid "Stock Move"
+msgstr "Voorraadverplaatsing"
+
+#. module: eurocable_mrp
+#: model:ir.model,name:eurocable_mrp.model_stock_rule
+msgid "Stock Rule"
+msgstr "Voorraadregel"
+
+#. module: eurocable_mrp
+#: model:ir.model.fields,field_description:eurocable_mrp.field_mrp_production__xx_weight
+#: model:ir.model.fields,field_description:eurocable_mrp.field_sale_order_line__weight
+#: model:ir.model.fields,field_description:eurocable_mrp.field_stock_lot__xx_weight
+#: model:ir.model.fields,field_description:eurocable_mrp.field_stock_move__xx_weight
+msgid "Weight"
+msgstr "Gewicht"
+
+#. module: eurocable_mrp
+#: model:ir.model.fields,field_description:eurocable_mrp.field_sale_order_line__weight_total
+msgid "Weight Total"
+msgstr "Totaal gewicht"

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="internal_layout" inherit_id="web.internal_layout">
+        <xpath expr="//div[hasclass('header')]" position="inside">
+            <h3 t-if="o._name == 'mrp.production'" class="mt-4">Production Order</h3>
+        </xpath>
+    </template>
+    <template id="report_mrporder" inherit_id="mrp.report_mrporder" priority="99">
+        <xpath expr="//div[div[span[@t-field='o.origin']]]" position="inside">
+            <xpath expr="//div/div[span[@t-field='o.product_qty']]" position="move" />
+        </xpath>
+        <xpath expr="//div/span[@t-field='o.date_deadline']" position="attributes">
+            <attribute name="t-options">{'widget': 'date'}</attribute>
+        </xpath>
+        <xpath expr="//div/span[@t-field='o.product_description_variants']" position="replace">
+            <span
+                t-if="o.xx_product_description_variants"
+                t-field="o.xx_product_description_variants"
+            />
+            <span t-else="" t-field="o.product_description_variants" />
+        </xpath>
+        <xpath expr="//div[span[@t-field='o.qty_producing']]" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//div[div[span[@t-field='o.qty_producing']]]" position="inside">
+            <t
+                t-set="sale_orders"
+                t-value="o.procurement_group_id.mrp_production_ids.move_dest_ids.group_id.sale_id"
+            />
+            <div class="col-3" t-if="sale_orders">
+                <strong>Customer:</strong><br />
+                <span t-out="' / '.join(sale_orders.partner_id.mapped('name'))" /><br />
+                <span
+                    t-out="' / '.join(sale_orders.filtered('client_order_ref').mapped('client_order_ref'))"
+                />
+            </div>
+        </xpath>
+    </template>
+    <template
+        id="report_mrp_production_components"
+        inherit_id="mrp.report_mrp_production_components"
+    >
+        <th position="after">
+            <th>Serial Number</th>
+        </th>
+        <td position="after">
+            <td>
+                <span t-out="', '.join(raw_line.move_line_ids.lot_id.mapped('name'))" />
+            </td>
+        </td>
+    </template>
+</odoo>

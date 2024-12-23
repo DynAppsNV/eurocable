@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<odoo>
-    <record id="purchase.product_normal_action_puchased" model="ir.actions.act_window">
-        <field name="view_mode">tree,form,activity,kanban</field>
-        <field name="view_id" ref="product.product_template_tree_view" />
-    </record>
-</odoo>

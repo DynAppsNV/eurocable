@@ -1,5 +1,0 @@
-# Do NOT update manually; changes here will be overwritten by Copier
--r parts/odoo/odoo/requirements.txt
--r requirements.txt
-
-# Add testing dependencies here
