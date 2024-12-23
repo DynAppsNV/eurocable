@@ -1,6 +1,6 @@
 {
     "name": "Customer Base",
-    "version": "17.0.1.0.4",
+    "version": "17.0.1.0.5",
     "author": "dynapps",
     "website": "https://www.dynapps.eu",
     "category": "Hidden",
@@ -9,6 +9,7 @@
         "account",
         "account_followup",
         "account_intrastat",
+        "account_invoice_extract",
         "base",
         "contacts",
         "dyn_analytics",
@@ -27,9 +28,6 @@
         "smile_audit",
         "web_environment_ribbon",
         "web_m2x_options",
-    ],
-    "data": [
-        "data/auditlog_rule_data.xml",
     ],
     "installable": True,
     "dyn_required": True,

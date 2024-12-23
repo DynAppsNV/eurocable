@@ -75,11 +75,19 @@
                 <span class="m-0" t-field="doc.commitment_date" t-options="{'widget': 'date'}" />
             </div>
         </xpath>
+        <th name="th_description" position="before">
+            <th name="th_number">NO</th>
+        </th>
         <th name="th_taxes" position="after">
             <th name="th_weight" class="text-right">Weight</th>
             <th name="th_weighttotal" class="text-right">Total Weight</th>
             <th name="th_code" class="text-right">HS Code</th>
         </th>
+        <td name="td_name" position="before">
+            <td name="td_number" class="text-center">
+                <span t-field="line.xx_number" />
+            </td>
+        </td>
         <td name="td_taxes" position="after">
             <td name="td_weight" class="text-right">
                 <span t-field="line.weight" />

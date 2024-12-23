@@ -45,23 +45,28 @@
             <t t-set="information_block" t-value="xx_address" />
         </t>
         <div name="div_origin" position="before">
-            <div t-if="o.sale_id.client_order_ref" class="col-auto" name="div_cust_ref">
+            <div t-if="o.sale_id" class="col-auto" name="div_cust_ref">
                 <strong>Your reference:</strong>
-                <p t-field="o.sale_id.client_order_ref" />
+                <p>
+                    <span t-field="o.sale_id.client_order_ref" />
+                    <br t-if="o.sale_id.client_order_ref" />
+                    <span t-field="o.sale_id.partner_id.name" />
+                </p>
             </div>
         </div>
+        <xpath expr="//div[@name='div_origin']/p" position="attributes">
+            <attribute name="t-else">''</attribute>
+        </xpath>
+        <xpath expr="//div[@name='div_origin']/p" position="before">
+            <t t-set="sale_orders" t-value="o.purchase_id._get_sale_orders()" />
+            <p
+                t-if="sale_orders"
+                t-out="o.origin + ' / ' + ' / '.join(sale_orders.mapped('name'))"
+            />
+        </xpath>
         <div name="div_sched_date" position="attributes">
-            <attribute name="t-if">o.scheduled_date</attribute>
-        </div>
-        <xpath expr="//div[@name='div_sched_date']/strong" position="replace">
-            <strong>Scheduled Date:</strong>
-        </xpath>
-        <xpath expr="//div[@name='div_sched_date']/p[@t-if]" position="attributes">
             <attribute name="t-if">False</attribute>
-        </xpath>
-        <xpath expr="//div[@name='div_sched_date']/p[@t-else]" position="attributes">
-            <attribute name="t-options">{"widget": "date"}</attribute>
-        </xpath>
+        </div>
         <div name="div_sched_date" position="after">
             <div t-if="o.date_done" class="col-auto" name="div_date_done">
                 <strong>Delivery Date:</strong>

@@ -33,6 +33,5 @@ class MrpBom(models.Model):
     def write(self, vals):
         rec = super().write(vals)
         if "product_qty" or "product_tmpl_id" or "product_id" or "bom_line_ids" in vals:
-            for bom in self:
-                self._compute_weight(bom)
+            self._compute_weight(self)
         return rec

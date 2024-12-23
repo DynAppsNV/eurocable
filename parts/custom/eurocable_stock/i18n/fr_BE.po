@@ -76,11 +76,6 @@ msgstr "<strong>Poids total du produit</strong>"
 
 #. module: eurocable_stock
 #: model_terms:ir.ui.view,arch_db:eurocable_stock.report_delivery_document_inherit_stock
-msgid "<strong>Scheduled Date:</strong>"
-msgstr "<strong>Date planifiée:</strong>"
-
-#. module: eurocable_stock
-#: model_terms:ir.ui.view,arch_db:eurocable_stock.report_delivery_document_inherit_stock
 msgid "<strong>Shipping Method:</strong>"
 msgstr "<strong>Mode d'expédition:</strong>"
 
