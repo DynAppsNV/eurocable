@@ -9,7 +9,6 @@
         "account",
         "account_followup",
         "account_intrastat",
-        "auditlog",
         "base",
         "contacts",
         "dyn_analytics",
