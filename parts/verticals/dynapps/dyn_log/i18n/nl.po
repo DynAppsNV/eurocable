@@ -1,0 +1,146 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dyn_log
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-25 13:47+0000\n"
+"PO-Revision-Date: 2023-10-25 13:47+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: dyn_log
+#: model:ir.actions.server,name:dyn_log.ir_cron_cleanup_log_entries_ir_actions_server
+#: model:ir.cron,cron_name:dyn_log.ir_cron_cleanup_log_entries
+msgid "CleanUp log entries"
+msgstr "Logboekitems opschonen"
+
+#. module: dyn_log
+#: model:ir.model.fields,field_description:dyn_log.field_xx_log__create_uid
+msgid "Created by"
+msgstr "Aangemaakt door"
+
+#. module: dyn_log
+#: model:ir.model.fields,field_description:dyn_log.field_xx_log__create_date
+msgid "Created on"
+msgstr "Aangemaakt op"
+
+#. module: dyn_log
+#: model:ir.model.fields,field_description:dyn_log.field_xx_log__date
+msgid "Date"
+msgstr "Datum"
+
+#. module: dyn_log
+#: model:ir.model.fields,field_description:dyn_log.field_xx_log__display_name
+msgid "Display Name"
+msgstr "Weergavenaam"
+
+#. module: dyn_log
+#: model_terms:ir.ui.view,arch_db:dyn_log.xx_log_search_view
+msgid "Errors"
+msgstr "Fouten"
+
+#. module: dyn_log
+#: model_terms:ir.ui.view,arch_db:dyn_log.xx_log_search_view
+msgid "Group By"
+msgstr "Groeperen op"
+
+#. module: dyn_log
+#: model:ir.model.fields,field_description:dyn_log.field_xx_log__id
+msgid "ID"
+msgstr ""
+
+#. module: dyn_log
+#: model:ir.model.fields,field_description:dyn_log.field_xx_log____last_update
+msgid "Last Modified on"
+msgstr "Laatst gewijzigd op"
+
+#. module: dyn_log
+#: model:ir.model.fields,field_description:dyn_log.field_xx_log__write_uid
+msgid "Last Updated by"
+msgstr "Laatst bijgewerkt door"
+
+#. module: dyn_log
+#: model:ir.model.fields,field_description:dyn_log.field_xx_log__write_date
+msgid "Last Updated on"
+msgstr "Laatst bijgewerkt op"
+
+#. module: dyn_log
+#: model:ir.model.fields,field_description:dyn_log.field_xx_log__level
+msgid "Level"
+msgstr "Niveau"
+
+#. module: dyn_log
+#: model_terms:ir.ui.view,arch_db:dyn_log.xx_log_form_view
+msgid "Log"
+msgstr ""
+
+#. module: dyn_log
+#: model:ir.ui.menu,name:dyn_log.menu_logging
+msgid "Logging"
+msgstr ""
+
+#. module: dyn_log
+#: model:ir.actions.act_window,name:dyn_log.act_xx_log
+#: model:ir.model,name:dyn_log.model_xx_log
+#: model:ir.ui.menu,name:dyn_log.menu_xx_log
+#: model_terms:ir.ui.view,arch_db:dyn_log.xx_log_search_view
+msgid "Logs"
+msgstr ""
+
+#. module: dyn_log
+#: model:res.groups,name:dyn_log.group_xx_log_user
+msgid "Logs / User"
+msgstr "Logs / Gebruiker"
+
+#. module: dyn_log
+#: model:ir.model.fields,field_description:dyn_log.field_xx_log__message
+msgid "Message"
+msgstr "Bericht"
+
+#. module: dyn_log
+#: model_terms:ir.ui.view,arch_db:dyn_log.xx_log_search_view
+msgid "Model"
+msgstr ""
+
+#. module: dyn_log
+#: model:ir.model.fields,field_description:dyn_log.field_xx_log__model_name
+msgid "Model Name"
+msgstr "Model Naam"
+
+#. module: dyn_log
+#: model:ir.model.fields,field_description:dyn_log.field_xx_log__pid
+#: model_terms:ir.ui.view,arch_db:dyn_log.xx_log_search_view
+msgid "PID"
+msgstr ""
+
+#. module: dyn_log
+#: model:ir.model.fields,field_description:dyn_log.field_xx_log__res_id
+msgid "Resource Id"
+msgstr "Object Id"
+
+#. module: dyn_log
+#: model:ir.model.fields,field_description:dyn_log.field_xx_log__res_name
+msgid "Resource Name"
+msgstr "Object Name"
+
+#. module: dyn_log
+#: model_terms:ir.ui.view,arch_db:dyn_log.xx_log_search_view
+msgid "Show Errors"
+msgstr "Toon Fouten"
+
+#. module: dyn_log
+#: model:ir.model.fields,field_description:dyn_log.field_xx_log__user_name
+msgid "User"
+msgstr "Gebruiker"
+
+#. module: dyn_log
+#: model:ir.model.fields,field_description:dyn_log.field_xx_log__uid
+msgid "User Id"
+msgstr "Gebruiker Id"

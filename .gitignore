@@ -12,8 +12,11 @@ _build/
 # hg stuff
 *.orig
 status
-# config files
-*.cfg
+# odoo filestore
+openerp/filestore
+# generated for windows installer?
+install/win32/*.bat
+install/win32/meta.py
 
 # various virtualenv
 /bin/
@@ -24,16 +27,21 @@ status
 /man/
 /share/
 /src/
+/eggs/
+/develop-eggs/
+/etc/
 /var/
 /data/
 /usr/
 /virtualenv/
 /venv/
+/a.r.odoo/
+/buildout.cfg
+/deploy.sh
+/upgrade.log
 
 # Pycharm
 .idea
 
-# Exclude parts except custom
-/parts/*
-!/parts/custom/
-!/parts/oca_pull/
+# Buildout
+.installed.cfg

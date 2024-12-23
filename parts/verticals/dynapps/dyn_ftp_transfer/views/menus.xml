@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="xx_ftp_file_handler_action" model="ir.actions.act_window">
+        <field name="name">Incoming files</field>
+        <field name="res_model">xx.ftp.file.handler</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="xx_ftp_file_handler_tree" />
+    </record>
+
+    <record id="xx_ftp_logs_action" model="ir.actions.act_window">
+        <field name="name">Logs</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">xx.log</field>
+        <field name="view_mode">tree,form</field>
+        <field
+            name="domain"
+        >[('model_name', 'in', ['xx.ftp.file.handler', 'xx.ftp.connection.directory'])]</field>
+    </record>
+
+    <menuitem id="menu_ftp" name="FTP" parent="base.menu_administration" sequence="2" />
+    <record model="ir.ui.menu" id="dyn_ftp_connection.xx_ftp_connection_menu">
+        <field name="parent_id" ref="dyn_ftp_transfer.menu_ftp" />
+        <field name="sequence">1</field>
+    </record>
+
+    <menuitem
+        id="menu_ftp_files"
+        name="FTP Transfers"
+        parent="dyn_ftp_transfer.menu_ftp"
+        groups="group_interface_manager"
+        sequence="2"
+    />
+    <menuitem
+        id="menu_ftp_logs"
+        action="xx_ftp_logs_action"
+        parent="dyn_ftp_transfer.menu_ftp_files"
+        sequence="1"
+    />
+    <menuitem
+        id="xx_ftp_file_handler_menu"
+        action="xx_ftp_file_handler_action"
+        parent="dyn_ftp_transfer.menu_ftp_files"
+        sequence="2"
+    />
+</odoo>
