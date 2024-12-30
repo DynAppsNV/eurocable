@@ -7,17 +7,17 @@
     >
         <xpath
             expr="//div[@name='div_outgoing_address']/div[@name='outgoing_delivery_address']/div"
-            position="before"
-        >
-            <div class="mt-1 mb-1" t-out="o.move_ids[0].partner_id.name" />
-        </xpath>
-        <xpath
-            expr="//div[@name='div_outgoing_address']/div[@name='outgoing_delivery_address']/div"
             position="attributes"
         >
             <attribute name="t-options">
                 {"widget": "contact", "fields": ["address"], "no_marker": True}
             </attribute>
+        </xpath>
+        <xpath
+            expr="//div[@name='div_outgoing_address']/div[@name='outgoing_delivery_address']/div"
+            position="before"
+        >
+            <div class="mt-1 mb-1" t-out="o.move_ids[0].partner_id.name" />
         </xpath>
         <div name="vendor_address" position="attributes">
             <attribute name="t-if">False</attribute>
