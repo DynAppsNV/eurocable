@@ -1,0 +1,991 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* eurocable_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-02 11:50+0000\n"
+"PO-Revision-Date: 2024-12-02 11:50+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: eurocable_sale
+#: model:ir.actions.report,print_report_name:eurocable_sale.report_certification
+msgid "'Certification for Quotation - %s' % (object.name)"
+msgstr "'Certification pour le devis - %s' % (object.name)"
+
+#. module: eurocable_sale
+#: model:ir.actions.report,print_report_name:eurocable_sale.report_packing
+msgid "'Packing List - %s' % (object.name)"
+msgstr "'Liste de colisage - %s' % (object.name)"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.sale_report_certification
+msgid "<b>CERTIFICATE</b>"
+msgstr "<b>CERTIFICAT</b>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.sale_report_certification
+msgid ""
+"<br/>\n"
+"                                        Tel"
+msgstr ""
+"<br/>\n"
+"                                        Tél"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "<span><strong>Customer Address:</strong></span>"
+msgstr "<span><strong>Adresse du client:</strong></span>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "<span>Packing List # </span>"
+msgstr "<span>Liste de colisage # </span>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "<span>Pro-Forma Invoice # </span>"
+msgstr "<span>Facture pro-forma # </span>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "<strong class=\"mr16\">Subtotal</strong>"
+msgstr "<strong class=\"mr16\">Sous-total</strong>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "<strong>Contact Person:</strong><br/>"
+msgstr "<strong>Personne de contact:</strong><br/>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "<strong>Delivery Date:</strong>"
+msgstr "<strong>Date de livraison:</strong>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "<strong>Delivery Date:</strong><br/>"
+msgstr "<strong>Date de livraison:</strong><br/>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "<strong>Delivery Method:</strong><br/>"
+msgstr "<strong>Méthode de livraison:</strong><br/>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "<strong>Expiration:</strong>"
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "<strong>Order Date:</strong>"
+msgstr "<strong>Date de commande:</strong>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "<strong>Quotation Date:</strong>"
+msgstr "<strong>Date du devis:</strong>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "<strong>Salesperson:</strong>"
+msgstr "<strong>Représentant de commerce:</strong>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "<strong>Shipping Address:</strong>"
+msgstr "<strong>Adresse de livraison:</strong>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "<strong>Signature</strong>"
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "<strong>Total Disc</strong>"
+msgstr "<strong>Réd totale</strong>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "<strong>Total Price</strong>"
+msgstr "<strong>Prix total</strong>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "<strong>Total Weight:</strong>"
+msgstr "<strong>Poids total:</strong>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "<strong>Your Reference:</strong>"
+msgstr "<strong>Votre référence:</strong>"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "<strong>Your Reference:</strong><br/>"
+msgstr "<strong>Votre référence:</strong><br/>"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_3
+#: model_terms:document.type,text:eurocable_sale.document_type_7
+msgid ""
+"According to the CE-Machinery directive (2006/42/CE).\n"
+"                        Undersigned, Paul Sillis, manager of EUROCABLE nv\n"
+"                        and holder of the technical report,\n"
+"                        declares that the goods meet all the fundamental\n"
+"                        safety and health requirements of the EC-machine\n"
+"                        directive, provide that they are used and maintained\n"
+"                        according to the rules of good craftsmanship."
+msgstr ""
+"Selon la directive des machines (2006/42/CE).\n"
+"Le soussigné P.SILLIS, gérant de la société\n"
+"EUROCABLE s.a, également titulaire du dossier\n"
+"technique déclare que les marchandises\n"
+"fabriquées par la société EUROCABLE nv.,\n"
+"à condition qu’elles soient employées\n"
+"et entretenus conformément aux\n"
+"“Conseils pratiques sur l’utilisation et l’entretien”.\n"
+"Répondent aux exigences essentielles de sécurité\n"
+"et santé de la CE DIRECTIVES MACHINE."
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_8
+msgid ""
+"According to the CE-Machinery directive (2006/42/CE).\n"
+"                        Undersigned, Paul Sillis, manager of EUROCABLE nv\n"
+"                        and holder of the technical report, declares that the goods meet all\n"
+"                        the fundamental safety and health requirements of the EC-machine directive,\n"
+"                        rovide that they are used and maintained according to the rules of good craftsmanship."
+msgstr ""
+"Selon la directive des machines (2006/42/CE).\n"
+"Le soussigné P.SILLIS, gérant de la société EUROCABLE s.a,\n"
+"galement titulaire du dossier technique déclare\n"
+"que les marchandises fabriquées par la société EUROCABLE nv.,\n"
+"à condition qu’elles soient employées et entretenus conformément\n"
+"aux “Conseils pratiques sur l’utilisation et ’entretien”.\n"
+"Répondent aux exigences essentielles de sécurité et santé de la CE DIRECTIVES MACHINE."
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_2
+msgid ""
+"According to the CE-Machinery directive (2006/42/CE).\n"
+"                        Undersigned, Paul Sillis, manager of EUROCABLE nv and holder of the technical report,\n"
+"                        declares that the goods meet all the fundamental safety and health\n"
+"                        requirements of the EC-machine directive, rovide that they are used and maintained\n"
+"                        according to the rules of good craftsmanship."
+msgstr ""
+"Selon la directive des machines (2006/42/CE).\n"
+"Le soussigné P.SILLIS, gérant de la société EUROCABLE s.a, galement titulaire\n"
+"du dossier technique déclare que les marchandises fabriquées par la société EUROCABLE nv.,\n"
+"à condition qu’elles soient employées et entretenus conformément aux “Conseils pratiques\n"
+"sur l’utilisation et ’entretien”. Répondent aux exigences essentielles\n"
+"de sécurité et santé de la CE DIRECTIVES MACHINE."
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_9
+msgid ""
+"According to the CE-Machinery directive (2006/42/CE).\n"
+"                        Undersigned, Paul Sillis, manager of EUROCABLE nv and holder of the technical report,\n"
+"                        declares that the goods meet all the fundamental safety and health requirements\n"
+"                        of the EC-machine directive, provide that they are used and maintained\n"
+"                        according to the rules of good craftsmanship."
+msgstr ""
+"Selon la directive des machines (2006/42/CE). Le soussigné P.SILLIS,\n"
+"gérant de la société EUROCABLE s.a, également titulaire du dossier\n"
+"technique déclare que les marchandises fabriquées par la société EUROCABLE nv.,\n"
+"à condition qu’elles soient employées et entretenus conformément\n"
+"aux “Conseils pratiques sur l’utilisation et l’entretien”.\n"
+"Répondent aux exigences essentielles de sécurité et santé de la CE DIRECTIVES MACHINE."
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_1
+msgid ""
+"According to the CE-Machinery directive (2006/42/CE). Undersigned, Paul Sillis, manager of\n"
+"                            EUROCABLE nv and holder of the technical report, declares that the goods meet all the\n"
+"                            fundamental safety and health requirements of the EC-machine directive, rovide that they are\n"
+"                            used and maintained according to the rules of good craftsmanship."
+msgstr ""
+"Selon la directive des machines (2006/42/CE). Le soussigné P.SILLIS, gérant de\n"
+"                            EUROCABLE nv and holder of the technical report, declares that the goods meet all the\n"
+"                            la société EUROCABLE s.a, galement titulaire du dossier technique déclare que les marchandises fabriquées\n"
+"                            par la société EUROCABLE nv., à condition qu’elles soient employées et entretenus conformément\n"
+".                            aux “Conseils pratiques sur l’utilisation et ’entretien”. Répondent aux exigences essentielles\n"
+"                             de sécurité et santé de la CE DIRECTIVES MACHINE."
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_6
+msgid ""
+"According to the CE-Machinery directive (2006/42/CE). Undersigned, Paul Sillis, manager of\n"
+"                        EUROCABLE nv and\n"
+"                        holder of the technical report, declares that the goods meet all the fundamental safety and\n"
+"                        health requirements\n"
+"                        of the EC-machine directive, rovide that they are used and maintained according to the rules of\n"
+"                        good\n"
+"                        craftsmanship."
+msgstr ""
+"Selon la directive des machines (2006/42/CE). Le soussigné P.SILLIS, gérant de la société\n"
+"EUROCABLE s.a, galement titulaire du dossier technique déclare que les marchandises\n"
+"fabriquées par la société EUROCABLE nv., à condition qu’elles soient employées et entretenus\n"
+"conformément aux “Conseils pratiques sur l’utilisation et ’entretien”.\n"
+"Répondent aux exigences essentielles de sécurité et santé de la CE DIRECTIVES MACHINE."
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_sales_wizard
+msgid "Apply"
+msgstr "Appliquer"
+
+#. module: eurocable_sale
+#: model:ir.model,name:eurocable_sale.model_ir_attachment
+msgid "Attachment"
+msgstr "Pièce jointe"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_sale_order__attachment_certification_ids
+msgid "Attachment Certification"
+msgstr "Certificat de pièce jointe"
+
+#. module: eurocable_sale
+#: model:ir.model,name:eurocable_sale.model_audit_rule
+msgid "Audit Rule"
+msgstr "Règle d'audit"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_3
+#: model_terms:document.type,text:eurocable_sale.document_type_4
+#: model_terms:document.type,text:eurocable_sale.document_type_5
+#: model_terms:document.type,text:eurocable_sale.document_type_9
+msgid "CE DECLARATION OF CONFORMITY"
+msgstr "CE DECLARATION DE CONFORMITE"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_2
+msgid ""
+"CE DECLARATION OF CONFORMITY\n"
+"                        <br>\n"
+"                        Appendix IIA / EN13414-3"
+msgstr ""
+"CE DECLARATION DE CONFORMITE\n"
+"                        <br>\n"
+"                            Annexe IIA / EN13414-3"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_6
+msgid ""
+"CE DECLARATION OF CONFORMITY\n"
+"                        <br>\n"
+"                        Appendix IIA / EN13414-3\n"
+"                        <br>"
+msgstr ""
+"CE DECLARATION DE CONFORMITE\n"
+"                        <br>\n"
+"                        Annexe IIA / EN13414-3\n"
+"                        <br>"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_7
+msgid ""
+"CE DECLARATION OF CONFORMITY\n"
+"                        <br>\n"
+"                        declaration of incorporation (former IIB)"
+msgstr ""
+"CE DECLARATION DE CONFORMITE\n"
+"                        <br>\n"
+"                        déclaration d'incorporation (avant, II B)"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_8
+msgid ""
+"CE DECLARATION OF CONFORMITY\n"
+"                    <br>"
+msgstr "CE DECLARATION DE CONFORMITE"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_1
+msgid ""
+"CE DECLARATION OF CONFORMITY <br>\n"
+"                            Appendix IIA / EN13414-3"
+msgstr ""
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_sale_order_line__certificate_notes
+msgid "Certificate Notes"
+msgstr "Notes de certificat"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_order_form_inherit
+msgid "Certificates"
+msgstr "Certificats"
+
+#. module: eurocable_sale
+#: model:ir.actions.act_window,name:eurocable_sale.action_document_type
+#: model:ir.actions.report,name:eurocable_sale.report_certification
+msgid "Certification"
+msgstr ""
+
+#. module: eurocable_sale
+#: model:ir.ui.menu,name:eurocable_sale.menu_document_type
+msgid "Certifications"
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_res_partner_form_inherit
+msgid "City"
+msgstr "Cité"
+
+#. module: eurocable_sale
+#. odoo-python
+#: code:addons/eurocable_sale/models/sale_order.py:0
+#, python-format
+msgid "Compose Email"
+msgstr "Composer un email"
+
+#. module: eurocable_sale
+#: model:ir.model,name:eurocable_sale.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_res_partner_form_inherit
+msgid "Country"
+msgstr "Pays"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_document_type__create_uid
+#: model:ir.model.fields,field_description:eurocable_sale.field_sales_wizard__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_document_type__create_date
+#: model:ir.model.fields,field_description:eurocable_sale.field_sales_wizard__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_10
+#: model_terms:document.type,text:eurocable_sale.document_type_11
+#: model_terms:document.type,text:eurocable_sale.document_type_12
+#: model_terms:document.type,text:eurocable_sale.document_type_13
+#: model_terms:document.type,text:eurocable_sale.document_type_14
+msgid "DECLARATION OF CONFORMITY"
+msgstr "DÉCLARATION DE CONFORMITÉ"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_order_form_inherit
+msgid "Delivery Document"
+msgstr "Document de livraison"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_order_form_inherit
+msgid "Delivery Notes"
+msgstr "Notes de livraison"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "Description"
+msgstr ""
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_document_type__display_name
+#: model:ir.model.fields,field_description:eurocable_sale.field_sales_wizard__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_product_product__document_type_id
+#: model:ir.model.fields,field_description:eurocable_sale.field_product_template__document_type_id
+#: model:ir.model.fields,field_description:eurocable_sale.field_sale_order_line__document_type
+msgid "Document Type"
+msgstr "Type de document"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.sale_report_certification
+msgid ""
+"Document referentie\n"
+"                                    <br/>\n"
+"                                    Reference document\n"
+"                                    <br/>\n"
+"                                    Document reference"
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.sale_report_certification
+msgid ""
+"Eenheid\n"
+"                                    <br/>\n"
+"                                    Unité\n"
+"                                    <br/>\n"
+"                                    Unity"
+msgstr ""
+
+#. module: eurocable_sale
+#: model:ir.model,name:eurocable_sale.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr "Assistant de composition d'emails"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "HS Code"
+msgstr ""
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_sale_order_line__has_certificate
+msgid "Has Certificate"
+msgstr "A un certificat"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_document_type__id
+#: model:ir.model.fields,field_description:eurocable_sale.field_sales_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_13
+msgid ""
+"In compliance with Machinery Directive 2006/42/EC\n"
+"                        Herewith we declare that the materials, as delivered,\n"
+"                        are made in accordance with the following specifications:\n"
+"                        Steel Wire Rope for guiding purposes\n"
+"                        Nominal Diameter: 12mm\n"
+"                        Type: Galv. 7X19-G1770N-RHRL\n"
+"                        Min. Breaking Load: 102kN\n"
+"                        Actual Breaking Load: 108kN\n"
+"                        Finish: thimble with Talurit &amp; 2t shackle\n"
+"                                /bullet end\n"
+"                        It is not allowed to put the machinery into service until the machinery into which\n"
+"                        it is to be incorporated or of which it is to be a component, has been found and declared\n"
+"                        to be in conformity with the provisions Machinery Directive 2006/42/EC and with the national\n"
+"                        implementing legislation, as a whole, including the machinery referred to in this declaration.\n"
+"                        Attention: When the above described product is changed in any way, without our consent,\n"
+"                        this certificate is not valid anymore."
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_11
+msgid ""
+"In compliance with Machinery Directive 2006/42/EC\n"
+"                        Herewith we declare that the materials, as delivered,\n"
+"                        are made in accordance with the following specifications:\n"
+"                        Steel Wire Rope for usage by Hoist Nominal Diameter: 8.4mm\n"
+"                        5x26WSR+HDPP (1960N/mm²,galvanized,RHOL, 54kN MBL)\n"
+"                        Finish: thimble with Talurit &amp; 2t shackle\n"
+"                        /bullet end\n"
+"                        It is not allowed to put the machinery into service until the machinery into\n"
+"                        which it is to be incorporated or of which it is to be a component, has been found and declared\n"
+"                        to be in conformity with the provisions Machinery Directive 2006/42/EC and with the national\n"
+"                        implementing legislation,\n"
+"                        as a whole, including the machinery referred to in this declaration.\n"
+"                        Attention: When the above described product is changed in any way, without our consent,\n"
+"                        this certificate is not valid anymore."
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_14
+msgid ""
+"In compliance with Machinery Directive 2006/42/EC\n"
+"                        Herewith we declare that the materials, as delivered,\n"
+"                        are made in accordance with the following specifications:\n"
+"                        Steel Wire Rope for usage by Hoist Nominal Diameter: 8.4mm\n"
+"                        5x26WSR+HDPP (1960N/mm²,galvanized,RHOL, 54kN MBL)\n"
+"                        Finish: thimble with Talurit + bullet end\n"
+"                        It is not allowed to put the machinery into service until the machinery into\n"
+"                        which it is to be incorporated or of which it is to be a component,\n"
+"                        has been found and declared to be in conformity with the provisions Machinery\n"
+"                        Directive 2006/42/EC and with the national implementing legislation, as a whole,\n"
+"                        including the machinery referred to in this declaration.\n"
+"                        Attention: When the above described product is changed in any way, without our consent,\n"
+"                        this certificate is not valid anymore."
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_12
+msgid ""
+"In compliance with Machinery Directive 2006/42/EC\n"
+"                        Herewith we declare that the materials, as delivered, are made in accordance\n"
+"                        with the following specifications:\n"
+"                        Steel Wire Rope for guiding purposes\n"
+"                        Nominal Diameter: 12mm\n"
+"                        Type: Galv. 7X19-G1770N-RHRL\n"
+"                        Min. Breaking Load: 102kN\n"
+"                        Actual Breaking Load: 108kN\n"
+"                        Finish: thimble with Talurit + bullet end\n"
+"                        It is not allowed to put the machinery into service until the machinery into which\n"
+"                        it is to be incorporated or of which it is to be a component, has been found and declared\n"
+"                        to be in conformity with the provisions Machinery Directive 2006/42/EC and with the national\n"
+"                        implementing legislation, as a whole, including the machinery referred to in this declaration.\n"
+"                        Attention: When the above described product is changed in any way, without our consent,\n"
+"                        this certificate is not valid anymore."
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_10
+msgid ""
+"In compliance with Machinery Directive 2006/42/EC\n"
+"                        Herewith we declare that the materials, as delivered, are made in accordance\n"
+"                        with the following specifications:\n"
+"                        Steel Wire Rope for usage by Hoist Nominal Diameter: 8.4mm\n"
+"                        5x26WSR+HDPP (1960N/mm²,galvanized,RHOL, 54kN MBL)\n"
+"                        Finish: thimble with Talurit + bullet end\n"
+"                        It is not allowed to put the machinery into service until the machinery\n"
+"                        into which it is to be incorporated or of which it is to be a component,\n"
+"                        has been found and declared to be in conformity with the provisions\n"
+"                        Machinery Directive 2006/42/EC and with the national implementing legislation, as a whole,\n"
+"                        including the machinery referred to in this declaration.\n"
+"                        Attention: When the above described product is changed in any way, without our consent,\n"
+"                        this certificate is not valid anymore."
+msgstr ""
+
+#. module: eurocable_sale
+#: model:ir.model.fields,help:eurocable_sale.field_sale_order__picking_op_notes
+msgid ""
+"Information mentioned here will be visible in Picking operation document of "
+"transfer."
+msgstr ""
+
+#. module: eurocable_sale
+#: model:ir.model.fields,help:eurocable_sale.field_sale_order__delivery_notes
+msgid ""
+"Information mentioned here will be visible in delivery slip document of "
+"transfer."
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "Invoicing Address:"
+msgstr "Adresse de facturation:"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "Invoicing and Shipping Address:"
+msgstr "Adresse de facturation et de livraison:"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_ir_attachment__is_certificate
+#: model:ir.model.fields,field_description:eurocable_sale.field_mrp_document__is_certificate
+#: model:ir.model.fields,field_description:eurocable_sale.field_product_document__is_certificate
+msgid "Is Certificate"
+msgstr "Est un certificat"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_sale_advance_payment_inv__is_warn_message
+msgid "Is Warning Message"
+msgstr "Est un message d'avertissement"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.sale_report_certification
+msgid ""
+"Klant\n"
+"                                    <br/>\n"
+"                                    Client\n"
+"                                    <br/>\n"
+"                                    Customer"
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.sale_report_certification
+msgid ""
+"Klant referentie\n"
+"                                    <br/>\n"
+"                                    Reference client\n"
+"                                    <br/>\n"
+"                                    Customer reference"
+msgstr ""
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_document_type__write_uid
+#: model:ir.model.fields,field_description:eurocable_sale.field_sales_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_document_type__write_date
+#: model:ir.model.fields,field_description:eurocable_sale.field_sales_wizard__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_sale_order__delivery
+msgid "Leverbon"
+msgstr ""
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_sale_order__delivery_notes
+msgid "Leverbon en prints"
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.sale_report_certification
+msgid "Logo"
+msgstr ""
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_sale_advance_payment_inv__warn_message
+msgid "Message"
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "Mitchell Admin"
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "NO"
+msgstr "N°"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.sale_report_certification
+msgid ""
+"Naam en adres van de fabrikant of diens vertegenwoordiger\n"
+"                                    <br/>\n"
+"                                    Nom et adresse du fabricant ou de son mandataire\n"
+"                                    <br/>\n"
+"                                    Name and adress of manufacturer or his representative"
+msgstr ""
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_document_type__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_res_partner__is_not_vat
+#: model:ir.model.fields,field_description:eurocable_sale.field_res_users__is_not_vat
+msgid "Not VAT Obligated"
+msgstr "Non assujetti à la TVA"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_sale_order_line__xx_number
+msgid "Number"
+msgstr "Numéro"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.sale_report_certification
+msgid ""
+"Omschrijving van het materiaal\n"
+"                                    <br/>\n"
+"                                    Description du matériel\n"
+"                                    <br/>\n"
+"                                    Description of the material"
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.sale_report_certification
+msgid ""
+"Opmerkingen\n"
+"                                    <br/>\n"
+"                                    Remarques\n"
+"                                    <br/>\n"
+"                                    Comments"
+msgstr ""
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_ir_attachment__origin_id
+#: model:ir.model.fields,field_description:eurocable_sale.field_mrp_document__origin_id
+#: model:ir.model.fields,field_description:eurocable_sale.field_product_document__origin_id
+msgid "Origin"
+msgstr "Source"
+
+#. module: eurocable_sale
+#: model:ir.actions.report,name:eurocable_sale.report_packing
+msgid "Packing List"
+msgstr "Liste de colisage"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_sale_order__picking
+msgid "Pakbon"
+msgstr ""
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_sale_order__picking_op_notes
+msgid "Pakbon en prints"
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_order_form_inherit
+msgid "Picking Document"
+msgstr "Document de prélèvement"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_order_form_inherit
+msgid "Print Certificate"
+msgstr "Certificat d'impression"
+
+#. module: eurocable_sale
+#: model:ir.model,name:eurocable_sale.model_product_template
+msgid "Product"
+msgstr "Produit"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_packing_document
+msgid "Quantity"
+msgstr "Quantité"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_res_partner__ref
+#: model:ir.model.fields,field_description:eurocable_sale.field_res_users__ref
+msgid "Reference"
+msgstr "Référence"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "SO0000"
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_10
+#: model_terms:document.type,text:eurocable_sale.document_type_11
+#: model_terms:document.type,text:eurocable_sale.document_type_14
+msgid "SWR Manufacturer: 4017"
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_12
+#: model_terms:document.type,text:eurocable_sale.document_type_13
+msgid "SWR Manufacturer: 4426"
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_9
+msgid "Safety factor : 4/1"
+msgstr "Coefficient de sécurité : 4/1"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_3
+#: model_terms:document.type,text:eurocable_sale.document_type_7
+msgid "Safety factor : 5/1"
+msgstr "Coefficient de sécurité : 5/1"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_5
+msgid "Safety factor : 6:1"
+msgstr "Coefficient de sécurité : 6/1"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_4
+msgid "Safety factor : 7/1"
+msgstr "Coefficient de sécurité : 7/1"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_sales_wizard__sales_id
+msgid "Sales"
+msgstr "Ventes"
+
+#. module: eurocable_sale
+#: model:ir.model,name:eurocable_sale.model_sale_advance_payment_inv
+msgid "Sales Advance Payment Invoice"
+msgstr "Facture de paiement d'avance"
+
+#. module: eurocable_sale
+#: model:ir.model,name:eurocable_sale.model_sale_order
+msgid "Sales Order"
+msgstr "Bon de commande"
+
+#. module: eurocable_sale
+#: model:ir.model,name:eurocable_sale.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Ligne de commande"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_order_form_inherit
+msgid "Send Certificate"
+msgstr "Envoyer le certificat"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_res_partner_form_inherit
+msgid "Street 2..."
+msgstr "Rue 2..."
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_res_partner_form_inherit
+msgid "Street..."
+msgstr "Rue..."
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_1
+msgid ""
+"Surface: Galvanized\n"
+"                        <br>\n"
+"                        Tensile strength: 1960N/mm²\n"
+"                        <br>\n"
+"                        Construction: 7 x (6x36WS+iwrc)\n"
+"                        <br>\n"
+"                        Finish: endless grummet\n"
+"                        <br>\n"
+"                        Safety factor : 6,33-0,022*d\n"
+"                        <br>"
+msgstr ""
+"Draadoppervlak: Verz.\n"
+"                        <br>\n"
+"                        Treksterkte: 1960N/mm²\n"
+"                        <br>\n"
+"                        Constructie: 7 x (6x36WS+STK)\n"
+"                        <br>\n"
+"                        Afwerking: eindloze grommer\n"
+"                        <br>\n"
+"                        Veiligheidsfactor : 6,33-0,022*d"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_2
+msgid ""
+"Surface: Galvanized\n"
+"                    <br>\n"
+"                    Tensile strength: 1960N/mm²\n"
+"                    <br>\n"
+"                    Construction: 7 x (6x36WS+iwrc)\n"
+"                    <br>\n"
+"                    Finish: endless grummet\n"
+"                    <br>\n"
+"\n"
+"                    Safety factor : 3:1"
+msgstr ""
+"Surface: Galvanisé\n"
+"                    <br>\n"
+"                    Résistance: 1960N/mm²\n"
+"                    <br>\n"
+"                    Construction: 7 x (6x36WS+AA)\n"
+"                    <br>\n"
+"                    Finition: grelin sans fin\n"
+"                    <br>\n"
+"\n"
+"                    Coefficient de sécurité: 3:1"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_6
+msgid ""
+"Surface: Galvanized\n"
+"                    <br>\n"
+"                    Tensile strength: 1960N/mm²\n"
+"                    <br>\n"
+"                    Construction: 7 x (6x36WS+iwrc)\n"
+"                    <br>\n"
+"                    Finish: endless grummet\n"
+"                    <br>\n"
+"\n"
+"                    Safety factor : 5/1\n"
+"                    <br>"
+msgstr ""
+"Surface: Galvanisé\n"
+"                    <br>\n"
+"                    Résistance: 1960N/mm²\n"
+"                    <br>\n"
+"                    Construction: 7 x (6x36WS+AA)\n"
+"                    <br>\n"
+"                    Finition: grelin sans fin\n"
+"                    <br>\n"
+"\n"
+"                    Coefficient de sécurité 5:1\n"
+"                    <br>"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_document_type__text
+msgid "Text"
+msgstr "Texte"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_sales_wizard__message
+msgid "The VAT field of partner is empty"
+msgstr "Le champ TVA du partenaire est vide"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_sale_order__total_discount
+msgid "Total Discount"
+msgstr "Remise totale"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_sale_order__total_prices
+msgid "Total Prices"
+msgstr "Prix total"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "Total Weight"
+msgstr "Poids total"
+
+#. module: eurocable_sale
+#: model:ir.model,name:eurocable_sale.model_document_type
+msgid "Type Document"
+msgstr "Type de document"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.sale_report_certification
+msgid ""
+"Type Document\n"
+"                                    <br/>\n"
+"                                    Type de document\n"
+"                                    <br/>\n"
+"                                    Document Type"
+msgstr ""
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_sales_wizard
+msgid "Warning"
+msgstr "Avertissement"
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_5
+msgid ""
+"We declare under our responsibility that the mentioned product(s),\n"
+"                        with CE marking, comply with the essential requirements of machinery directive 2006/42/EC,\n"
+"                        according to annex IIA. Our QC-manager is authorized to compile the technical file.\n"
+"                        We remind you that it is forbidden that the lifting equipment,\n"
+"                        in which the above product(s) is/are used, is put into operation before it is declared\n"
+"                        to be in compliance with the machinery directive rules."
+msgstr ""
+"Nous déclarons sous notre responsabilité que le ou les produits mentionnés(s) et portant\n"
+"le marquage CE correspondent aux exigences essentielles de la directive machine 2006/42/EC,\n"
+"selon l’annexe IIA. Notre responsable qualité est autorisé à constituer le dossier technique.\n"
+"Nous vous rappelons qu’il est formellement interdit d’utiliser l‘appareil de levage,\n"
+"avec lequel les produits mentionnés ci-dessus sont utilisés, sans avoir vérifié au préalable\n"
+"que l’appareil répond aux exigences de la directive machine."
+
+#. module: eurocable_sale
+#: model_terms:document.type,text:eurocable_sale.document_type_4
+msgid ""
+"We declare under our responsibility that the mentioned product(s),\n"
+"                        with CE marking, comply with the essential requirements of machinery directive 2006/42/EC,\n"
+"                        according to annex IIA. Our QC-manager is authorized to compile the technical file.\n"
+"                        We remind you that it is forbidden that the lifting equipment, in which the above product(s)\n"
+"                        is/are used,\n"
+"                        is put into operation before it is declared to be in compliance with the machinery directive\n"
+"                        rules."
+msgstr ""
+"Selon la directive des machines (2006/42/CE).\n"
+"Le soussigné P.SILLIS, gérant de la société\n"
+"EUROCABLE s.a, également titulaire du dossier\n"
+"technique déclare que les marchandises\n"
+"fabriquées par la société EUROCABLE nv.,\n"
+"à condition qu’elles soient employées\n"
+"et entretenus conformément aux\n"
+"“Conseils pratiques sur l’utilisation et l’entretien”.\n"
+"Répondent aux exigences essentielles de sécurité\n"
+"et santé de la CE DIRECTIVES MACHINE."
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.report_order_inherit_discount
+msgid "Weight"
+msgstr "Poids"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_sale_order__weight_total
+msgid "Weight Total"
+msgstr "Poids total"
+
+#. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_res_partner_form_inherit
+msgid "ZIP"
+msgstr "CAP"
+
+#. module: eurocable_sale
+#: model:ir.model,name:eurocable_sale.model_sales_wizard
+msgid "sales wizard"
+msgstr ""

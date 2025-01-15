@@ -1,0 +1,397 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dyn_terms_and_conditions
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-14 18:38+0000\n"
+"PO-Revision-Date: 2024-05-14 18:38+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: dyn_terms_and_conditions
+#: model_terms:ir.ui.view,arch_db:dyn_terms_and_conditions.term_rule_form_view
+msgid ""
+"<span class=\"o_form_label\">You can use the following keywords in the condition field:</span>\n"
+"                        <span class=\"o_form_label\">'object': This is a browse record (always a single item) of the model you printed the report from.</span>\n"
+"                        <span class=\"o_form_label\">'report': The ir.actions.report object (in browse mode).</span>\n"
+"                        <span class=\"o_form_label\">'data': Any wizard data (also includes 'model' to show the model from which the report was started)</span>\n"
+"                        <span class=\"o_form_label\">'context': The context used to launch the report.</span>\n"
+"                        <span class=\"o_form_label\">'date': The current date in '%Y-%m-%d' format.</span>\n"
+"                        <span class=\"o_form_label\">'time': The almighty/omnipresent time module.</span>"
+msgstr ""
+"<span class=\"o_form_label\">U kunt volgende sleutelwoorden gebruiken in het Voorwaarden veld:</span>\n"
+"                        <span class=\"o_form_label\">'object': Het browse record (altijd een item) van het model waarvan u de afdrukopdracht heeft gestart.</span>\n"
+"                        <span class=\"o_form_label\">'report': Het ir.actions.report object (in browse modus).</span>\n"
+"                        <span class=\"o_form_label\">'data': De gegevens die worden meegegeven aan het rapport (vb. door een wizard)</span>\n"
+"                        <span class=\"o_form_label\">'context': De context waarmee het rapport wordt opgestart.</span>\n"
+"                        <span class=\"o_form_label\">'date': De huidige datum in '%Y-%m-%d' formaat.</span>\n"
+"                        <span class=\"o_form_label\">'time': De altijd aanwezige tijdmodule.</span>"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields.selection,name:dyn_terms_and_conditions.selection__term_term__mode__end
+msgid "After report"
+msgstr "Na het document"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields.selection,name:dyn_terms_and_conditions.selection__term_term__mode__begin
+msgid "Before report"
+msgstr "Voor document"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields.selection,name:dyn_terms_and_conditions.selection__term_term__fontcolor__(0,0,0)
+msgid "Black"
+msgstr "Zwart"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields.selection,name:dyn_terms_and_conditions.selection__term_term__fontcolor__(0,0,255)
+msgid "Blue"
+msgstr "Blauw"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model,name:dyn_terms_and_conditions.model_res_company
+msgid "Companies"
+msgstr "Bedrijven"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_rule__company_id
+#: model_terms:ir.ui.view,arch_db:dyn_terms_and_conditions.term_rule_search_view
+msgid "Company"
+msgstr "Bedrijf"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_rule__condition
+msgid "Condition"
+msgstr "Voorwaarde"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model,name:dyn_terms_and_conditions.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_rule__create_uid
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_term__create_uid
+msgid "Created by"
+msgstr "Aangemaakt door"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_rule__create_date
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_term__create_date
+msgid "Created on"
+msgstr "Aangemaakt op"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_res_partner__date_terms_signed
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_res_users__date_terms_signed
+msgid "Date Terms Signed"
+msgstr "Voorwaarden ondertekend op"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,help:dyn_terms_and_conditions.field_res_partner__date_terms_signed
+#: model:ir.model.fields,help:dyn_terms_and_conditions.field_res_users__date_terms_signed
+msgid "Date on witch the sales conditions/terms are signed"
+msgstr "De datum van ondertekening van de algemene voorwaarden"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_rule__display_name
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_term__display_name
+msgid "Display Name"
+msgstr "Schermnaam"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields.selection,name:dyn_terms_and_conditions.selection__term_term__mode__duplex
+msgid "Every other page"
+msgstr "Elke andere pagina"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_term__font
+msgid "Font"
+msgstr "Lettertype"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_term__fontcolor
+msgid "Font color"
+msgstr "Letterkleur"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_term__fontsize
+msgid "Fontsize"
+msgstr "Lettertypegrootte"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields.selection,name:dyn_terms_and_conditions.selection__term_term__font__freemono_ttf
+msgid "FreeMono"
+msgstr ""
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields.selection,name:dyn_terms_and_conditions.selection__term_term__font__freemonobold_ttf
+msgid "FreeMonoBold"
+msgstr ""
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields.selection,name:dyn_terms_and_conditions.selection__term_term__font__freemonoboldoblique_ttf
+msgid "FreeMonoBoldOblique"
+msgstr ""
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields.selection,name:dyn_terms_and_conditions.selection__term_term__font__freemonooblique_ttf
+msgid "FreeMonoOblique"
+msgstr ""
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields.selection,name:dyn_terms_and_conditions.selection__term_term__font__freesans_ttf
+msgid "FreeSans"
+msgstr ""
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields.selection,name:dyn_terms_and_conditions.selection__term_term__font__freesansbold_ttf
+msgid "FreeSansBold"
+msgstr ""
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields.selection,name:dyn_terms_and_conditions.selection__term_term__font__freesansboldoblique_ttf
+msgid "FreeSansBoldOblique"
+msgstr ""
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields.selection,name:dyn_terms_and_conditions.selection__term_term__font__freesansoblique_ttf
+msgid "FreeSansOblique"
+msgstr ""
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields.selection,name:dyn_terms_and_conditions.selection__term_term__font__freeserif_ttf
+msgid "FreeSerif"
+msgstr ""
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields.selection,name:dyn_terms_and_conditions.selection__term_term__font__freeserifbold_ttf
+msgid "FreeSerifBold"
+msgstr ""
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields.selection,name:dyn_terms_and_conditions.selection__term_term__font__freeserifbolditalic_ttf
+msgid "FreeSerifBoldItalic"
+msgstr ""
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields.selection,name:dyn_terms_and_conditions.selection__term_term__font__freeserifitalic_ttf
+msgid "FreeSerifItalic"
+msgstr ""
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields.selection,name:dyn_terms_and_conditions.selection__term_term__fontcolor__(0,255,0)
+msgid "Green"
+msgstr "Groen"
+
+#. module: dyn_terms_and_conditions
+#: model_terms:ir.ui.view,arch_db:dyn_terms_and_conditions.term_rule_search_view
+#: model_terms:ir.ui.view,arch_db:dyn_terms_and_conditions.term_search_view
+msgid "Group By..."
+msgstr "Groepeer op..."
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_term__img_height
+msgid "Height"
+msgstr "Hoogte"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_rule__id
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_term__id
+msgid "ID"
+msgstr ""
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,help:dyn_terms_and_conditions.field_res_partner__print_terms
+#: model:ir.model.fields,help:dyn_terms_and_conditions.field_res_users__print_terms
+msgid "If true the sales conditions/terms will be printed on the documents"
+msgstr ""
+"Als dit veld is aangevinkt, worden de algemene voorwaarden afgedrukt op de "
+"documenten"
+
+#. module: dyn_terms_and_conditions
+#. odoo-python
+#: code:addons/dyn_terms_and_conditions/models/term.py:0
+#, python-format
+msgid "Incorrect condition specified: {}"
+msgstr "Onjuiste voorwaarde opgegeven: {}"
+
+#. module: dyn_terms_and_conditions
+#: model_terms:ir.ui.view,arch_db:dyn_terms_and_conditions.term_search_view
+msgid "Insertion Mode"
+msgstr "Invoegmethode"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_term__mode
+msgid "Insertion mode"
+msgstr "Invoegmethode"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_rule__write_uid
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_term__write_uid
+msgid "Last Updated by"
+msgstr "Laatst bijgewerkt door"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_rule__write_date
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_term__write_date
+msgid "Last Updated on"
+msgstr "Laatst bijgewerkt op"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,help:dyn_terms_and_conditions.field_ir_actions_report__term_rule_ids
+msgid "List of possible terms to be added."
+msgstr "Lijst van mogelijk toegevoegde documenten."
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,help:dyn_terms_and_conditions.field_res_company__term_rule_ids
+msgid "List of terms for this company."
+msgstr "Lijst van documenten voor dit bedrijf."
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_term__name
+msgid "Name"
+msgstr "Naam"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_term__pdf
+msgid "PDF File"
+msgstr "PDF-bestand"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_term__img_posx
+msgid "Pos X"
+msgstr ""
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_term__img_posy
+msgid "Pos Y"
+msgstr ""
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_res_partner__print_terms
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_res_users__print_terms
+msgid "Print Terms"
+msgstr "Voorwaarden afdrukken"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields.selection,name:dyn_terms_and_conditions.selection__term_term__fontcolor__(255,0,0)
+msgid "Red"
+msgstr "Rood"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_rule__report_id
+#: model_terms:ir.ui.view,arch_db:dyn_terms_and_conditions.term_rule_search_view
+msgid "Report"
+msgstr "Rapport"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model,name:dyn_terms_and_conditions.model_ir_actions_report
+msgid "Report Action"
+msgstr "Rapport actie"
+
+#. module: dyn_terms_and_conditions
+#: model_terms:ir.ui.view,arch_db:dyn_terms_and_conditions.term_form_views
+msgid "Reports"
+msgstr "Rapporten"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model,name:dyn_terms_and_conditions.model_term_rule
+msgid "Rules to define where the linked term is to be used."
+msgstr "Deze regels bepalen welke documenten worden afgedrukt."
+
+#. module: dyn_terms_and_conditions
+#: model_terms:ir.ui.view,arch_db:dyn_terms_and_conditions.term_search_view
+msgid "Search terms"
+msgstr "Zoek termen"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_rule__sequence
+msgid "Sequence"
+msgstr "Reeks"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_rule__report_name
+msgid "Template Name"
+msgstr ""
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_rule__term_id
+#: model_terms:ir.ui.view,arch_db:dyn_terms_and_conditions.term_form_views
+#: model_terms:ir.ui.view,arch_db:dyn_terms_and_conditions.term_rule_search_view
+msgid "Term"
+msgstr "Voorwaarde"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_ir_actions_report__term_rule_ids
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_res_company__term_rule_ids
+msgid "Term Rule"
+msgstr "Voorwaardenregel"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.actions.act_window,name:dyn_terms_and_conditions.action_term_rule
+#: model:ir.ui.menu,name:dyn_terms_and_conditions.menu_term_rule_view
+#: model_terms:ir.ui.view,arch_db:dyn_terms_and_conditions.term_rule_search_view
+msgid "Term rules"
+msgstr "Voorwaardenregels"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.actions.act_window,name:dyn_terms_and_conditions.action_term
+#: model:ir.ui.menu,name:dyn_terms_and_conditions.menu_terms
+#: model:ir.ui.menu,name:dyn_terms_and_conditions.menu_terms_view
+msgid "Terms"
+msgstr "Voorwaarden"
+
+#. module: dyn_terms_and_conditions
+#: model_terms:ir.ui.view,arch_db:dyn_terms_and_conditions.term_rule_form_view
+msgid "Terms and Conditions rules"
+msgstr "Regels algemene voorwaarden"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model,name:dyn_terms_and_conditions.model_term_term
+#: model_terms:ir.ui.view,arch_db:dyn_terms_and_conditions.view_partner_form
+msgid "Terms and conditions"
+msgstr "Algemene voorwaarden"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_term__text
+msgid "Text"
+msgstr "Tekst"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields.selection,name:dyn_terms_and_conditions.selection__term_term__mode__txttoimg
+msgid "Text to Image"
+msgstr "Tekst naar afbeelding"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,help:dyn_terms_and_conditions.field_term_term__pdf
+msgid "The PDF file to attach to the report"
+msgstr "Het PDF-bestand om samen te voegen"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_term__term_rule_ids
+msgid "Uses"
+msgstr "Gebruiken"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,field_description:dyn_terms_and_conditions.field_term_term__img_width
+msgid "Width"
+msgstr "Breedte"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,help:dyn_terms_and_conditions.field_term_rule__condition
+msgid "condition on when to print the therm"
+msgstr ""
+"voorwaarde die aangeeft wanneer de algemene voorwaarden moeten worden "
+"afgedrukt"
+
+#. module: dyn_terms_and_conditions
+#: model:ir.model.fields,help:dyn_terms_and_conditions.field_term_term__term_rule_ids
+msgid "reports where the term is used"
+msgstr "Rapporen waar de voorwaarde gebruikt wordt"

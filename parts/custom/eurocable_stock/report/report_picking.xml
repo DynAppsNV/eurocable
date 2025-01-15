@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="report_report_picking_inherit_stock"
+        inherit_id="stock.report_picking"
+        priority="99"
+    >
+        <div name="div_outgoing_address" position="before">
+            <t
+                t-set="customer"
+                t-value="o.sale_id.partner_shipping_id or o.purchase_id.partner_id or o.move_ids and o.move_ids[0].partner_id"
+            />
+        </div>
+        <xpath expr="//div[@name='div_outgoing_address']/div" position="attributes">
+            <attribute name="t-if" remove="o.should_print_delivery_address()" add="customer" />
+        </xpath>
+        <xpath expr="//div[@name='div_outgoing_address']/div/span/strong" position="replace">
+            <strong t-if="o.picking_type_id.code == 'outgoing'">Delivery Address:</strong>
+            <strong t-else="">Vendor Address:</strong>
+        </xpath>
+        <xpath expr="//div[@name='div_outgoing_address']/div/div" position="replace">
+            <div class="mt-1 mb-1" t-out="customer.name" />
+            <div
+                t-if="o.picking_type_id.code == 'outgoing'"
+                t-out="customer"
+                t-options="{'widget': 'contact', 'fields': ['address'], 'no_marker': True}"
+            />
+            <div
+                t-else=""
+                t-out="customer"
+                t-options="{'widget': 'contact', 'fields': ['address', 'phone', 'vat'], 'no_marker': True, 'phone_icons': True}"
+            />
+        </xpath>
+        <xpath expr="//div[@name='div_incoming_address']/div[@t-if]" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//div[@name='div_incoming_address']/div[@t-elif][1]" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//div[@name='div_incoming_address']/div[@t-elif][2]" position="attributes">
+            <attribute
+                name="t-elif"
+                remove="o.partner_id != o.partner_id.commercial_partner_id"
+                separator=" and "
+            />
+        </xpath>
+        <xpath expr="//div[@name='partner_header']/div" position="attributes">
+            <attribute name="t-options">
+                {"widget": "contact", "fields": ["address", "name", "vat"], "no_marker": True}
+            </attribute>
+        </xpath>
+        <xpath expr="//div[div[@name='div_outgoing_address']]" position="after">
+            <div class="row mt-4">
+                <div class="col-6">
+                    <h1 t-if="o.picking_type_id.code == 'incoming'" t-field="o.name" class="mt0" />
+                </div>
+                <div class="col-5 offset-1">
+                    <h1 t-if="o.picking_type_id.code == 'outgoing'" t-field="o.name" class="mt0" />
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('page')]/h1" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <div name="div_origin" position="before">
+            <div
+                t-if="o.picking_type_id.code == 'outgoing' and o.sale_id"
+                class="col-auto"
+                name="div_cust_ref"
+            >
+                <strong>Your reference:</strong>
+                <p>
+                    <span t-field="o.sale_id.client_order_ref" />
+                    <br t-if="o.sale_id.client_order_ref" />
+                    <span t-field="o.sale_id.partner_id.name" />
+                </p>
+            </div>
+        </div>
+        <xpath expr="//div[@name='div_origin']/p" position="attributes">
+            <attribute name="t-else">''</attribute>
+        </xpath>
+        <xpath expr="//div[@name='div_origin']/p" position="before">
+            <t t-set="sale_orders" t-value="o.purchase_id._get_sale_orders()" />
+            <p
+                t-if="sale_orders"
+                t-out="o.origin + ' / ' + ' / '.join(sale_orders.mapped('name'))"
+            />
+        </xpath>
+        <div name="div_sched_date" position="attributes">
+            <attribute
+                name="t-if"
+                add="o.picking_type_id.code == 'outgoing' and not o.purchase_id.order_line.sale_order_id"
+                separator=" and "
+            />
+        </div>
+        <div name="div_sched_date" position="after">
+            <div t-if="o.date_done" class="col-auto" name="div_date_done">
+                <strong>Delivery Date:</strong>
+                <p t-field="o.date_done" t-options="{'widget': 'date'}" />
+            </div>
+            <div t-if="o.user_id" class="col-auto" name="div_contact">
+                <strong>Contact Person:</strong>
+                <p t-field="o.user_id" />
+            </div>
+            <div
+                t-if="o.picking_type_id.code == 'outgoing' and o.sale_id.incoterm"
+                class="col-auto"
+                name="div_incoterm"
+            >
+                <strong>Incoterm:</strong>
+                <p t-field="o.sale_id.incoterm.code" />
+            </div>
+            <t
+                t-set="total_weight"
+                t-value="sum(ml.move_id.total_weight for ml in o.move_line_ids_without_package)"
+            />
+            <div t-if="total_weight" class="col-auto" name="div_total_weight">
+                <strong>Total Weight:</strong>
+                <p>
+                    <span t-out="total_weight" />
+                    <span t-out="o.weight_uom_name" />
+                </p>
+            </div>
+        </div>
+        <div name="div_state" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </div>
+        <xpath expr="//div[@name='div_sched_date']/p" position="attributes">
+            <attribute name="t-options">{"widget": "date"}</attribute>
+        </xpath>
+        <xpath expr="//th[@name='th_product']/strong" position="replace">
+            <strong>Description</strong>
+        </xpath>
+        <th name="th_product" position="after">
+            <th name="th_serial_number" position="move" />
+        </th>
+        <th name="th_from" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </th>
+        <th name="th_to" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </th>
+        <th name="th_barcode" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </th>
+        <xpath expr="//tr[th[@name='th_product']]" position="inside">
+            <th name="th_total_weight" class="text-center">
+                <strong>Product Total Weight</strong>
+            </th>
+        </xpath>
+        <xpath expr="//td[span[@t-field='ml.product_id.display_name']]" position="replace">
+            <td>
+                <span t-field="ml.description_picking" />
+            </td>
+            <td t-if="has_serial_number" position="move" />
+        </xpath>
+        <xpath expr="//td[t[span[@t-field='ml.package_id']]]" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//td[div[t[span[@t-field='ml.result_package_id']]]]" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <td t-if="has_barcode" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </td>
+        <xpath expr="//tr[td[span[@t-field='ml.quantity']]]" position="inside">
+            <td class="text-center">
+                <span t-field="ml.move_id.total_weight" />
+                <span t-field="ml.product_id.weight_uom_name" />
+            </td>
+        </xpath>
+        <p t-field="o.note" position="before">
+            <t t-set="customer" t-value="o.purchase_id._get_sale_orders().partner_id[:1]" />
+            <div
+                name="mto_customer"
+                t-if="o.picking_type_id.code == 'incoming' and customer"
+                class="mt-4"
+            >
+                <strong>Customer:</strong>
+                <p t-field="customer.name" />
+            </div>
+        </p>
+    </template>
+    <template
+        id="report_report_picking_inherit_stock_delivery"
+        inherit_id="stock_delivery.report_shipping2"
+    >
+        <xpath expr="//div[p[@t-field='o.carrier_id']]" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//div[span[@t-field='o.weight']]" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+    </template>
+</odoo>

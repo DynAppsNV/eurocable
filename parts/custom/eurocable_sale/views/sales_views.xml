@@ -1,0 +1,126 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="view_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.view.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <field name="team_id" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="payment_term_id" position="after">
+                <field name="weight_total" invisible="1" />
+            </field>
+            <xpath expr="//form/header" position="inside">
+                <button
+                    name="print_certificate"
+                    string="Print Certificate"
+                    type="object"
+                    invisible="state != 'sale'"
+                />
+                <button
+                    name="send_certificate"
+                    string="Send Certificate"
+                    type="object"
+                    invisible="state != 'sale'"
+                />
+            </xpath>
+            <xpath expr="//sheet/notebook/page[@name='order_lines']" position="after">
+                <page name="Certificates" string="Certificates">
+                    <field
+                        name="attachment_certification_ids"
+                        domain="[('is_certificate', '=', True)]"
+                        widget="many2many_binary"
+                    />
+                </page>
+            </xpath>
+
+            <xpath expr="//group[@name='sale_reporting']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath
+                expr="//field[@name='order_line']//tree//field[@name='sequence']"
+                position="after"
+            >
+                <!-- readonly="not id" is a trick to prevent autofocusing this field when adding a new line,
+                and to allow the field to be calculated before being editable -->
+                <field name="xx_number" readonly="not id" optional="show" />
+            </xpath>
+            <xpath
+                expr="//field[@name='order_line']//tree//field[@name='product_uom']"
+                position="before"
+            >
+                <field name="weight" optional="show" />
+                <field name="weight_total" optional="show" />
+                <field name="document_type" optional="show" />
+                <field name="certificate_notes" optional="show" />
+                <field name="has_certificate" optional="show" />
+            </xpath>
+
+            <xpath
+                expr="//field[@name='order_line']//tree//field[@name='product_id']"
+                position="attributes"
+            >
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath
+                expr="//field[@name='order_line']//tree//field[@name='product_uom_qty']"
+                position="attributes"
+            >
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath
+                expr="//field[@name='order_line']//tree//field[@name='price_unit']"
+                position="attributes"
+            >
+                <attribute name="optional">hide</attribute>
+            </xpath>
+
+            <xpath expr="//notebook[last()]" position="inside">
+                <page name="transfer_notes" string="Delivery Notes">
+                    <group>
+                        <group string="Picking Document">
+                            <field name="picking" />
+                            <field name="picking_op_notes" />
+                        </group>
+                        <group string="Delivery Document">
+                            <field name="delivery" />
+                            <field name="delivery_notes" />
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
+            <xpath
+                expr="//sheet/notebook/page[@name='order_lines']/field[@name='order_line']/tree/field[@name='product_id']"
+                position="attributes"
+            >
+                <attribute name="options">{'no_create': True, 'no_edit': True}</attribute>
+            </xpath>
+            <xpath expr="//control/button[@name='action_add_from_catalog']" position="before">
+                <button
+                    name="action_add_fixed_sale_phrase"
+                    string="Add Fixed Phrases"
+                    type="object"
+                    class="px-4 btn-link"
+                    context="{'order_id': parent.id}"
+                />
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="sale_order_tree" model="ir.ui.view">
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_tree" />
+        <field name="arch" type="xml">
+            <field name="client_order_ref" position="attributes">
+                <attribute name="column_invisible">1</attribute>
+            </field>
+            <field name="name" position="after">
+                <field name="client_order_ref" optional="show" />
+            </field>
+        </field>
+    </record>
+
+</odoo>

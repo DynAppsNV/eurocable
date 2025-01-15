@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record id="process_ftp_connections" model="ir.cron">
+        <field name="name">Process FTP Connections</field>
+        <field name="active" eval="True" />
+        <field name="interval_number">10</field>
+        <field name="interval_type">minutes</field>
+        <field name="numbercall">-1</field>
+        <field name="model_id" ref="model_xx_ftp_connection" />
+        <field name="state">code</field>
+        <field name="code">model.process_ftp_connections()</field>
+    </record>
+    <record id="process_ftp_files" model="ir.cron">
+        <field name="name">Process FTP Files</field>
+        <field name="active" eval="True" />
+        <field name="interval_number">10</field>
+        <field name="interval_type">minutes</field>
+        <field name="numbercall">-1</field>
+        <field name="model_id" ref="model_xx_ftp_file_handler" />
+        <field name="state">code</field>
+        <field name="code">model.process_ftp_files()</field>
+    </record>
+</odoo>

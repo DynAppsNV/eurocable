@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_term_term","Read access for all users on term.term","dyn_terms_and_conditions.model_term_term","",1,0,0,0
+"access_term_rule","Read access for all users on term.rule","dyn_terms_and_conditions.model_term_rule","",1,0,0,0
+"access_term_term_admin","Admin access on term.term","dyn_terms_and_conditions.model_term_term","base.group_system",1,1,1,1
+"access_term_rule_admin","Admin access on term.rule","dyn_terms_and_conditions.model_term_rule","base.group_system",1,1,1,1
