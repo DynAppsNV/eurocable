@@ -21,6 +21,11 @@ msgid "<strong>Customer:</strong><br/>"
 msgstr "<strong>Client:</strong><br/>"
 
 #. module: eurocable_mrp
+#: model_terms:ir.ui.view,arch_db:eurocable_mrp.report_mrporder
+msgid "<strong>Salesperson:</strong><br/>"
+msgstr "<strong>Vendeur:</strong><br/>"
+
+#. module: eurocable_mrp
 #: model:ir.model,name:eurocable_mrp.model_mrp_bom
 msgid "Bill of Material"
 msgstr "Nomenclature"
