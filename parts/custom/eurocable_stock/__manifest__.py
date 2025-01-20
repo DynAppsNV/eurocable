@@ -1,6 +1,6 @@
 {
     "name": "Eurocable Stock",
-    "version": "17.0.0.1.8",
+    "version": "17.0.0.1.9",
     "author": "dynapps",
     "category": "Stcok",
     "license": "LGPL-3",
