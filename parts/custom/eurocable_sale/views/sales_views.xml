@@ -5,6 +5,18 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form" />
         <field name="arch" type="xml">
+            <sheet position="before">
+                <div
+                    class="alert alert-warning oe_edit_only"
+                    role="alert"
+                    name="warning_client_order_ref"
+                    invisible="not xx_same_client_order_ref_id"
+                >
+                    A sale order with the same customer reference already exists (<field
+                        name="xx_same_client_order_ref_id"
+                    />).
+                </div>
+            </sheet>
             <field name="team_id" position="attributes">
                 <attribute name="invisible">1</attribute>
             </field>
@@ -52,6 +64,7 @@
             >
                 <field name="weight" optional="show" />
                 <field name="weight_total" optional="show" />
+                <field name="xx_hs_code" optional="show" />
                 <field name="document_type" optional="show" />
                 <field name="certificate_notes" optional="show" />
                 <field name="has_certificate" optional="show" />

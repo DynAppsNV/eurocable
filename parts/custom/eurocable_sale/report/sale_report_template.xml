@@ -98,7 +98,7 @@
                 <span t-field="line.product_id.weight_uom_name" />
             </td>
             <td name="td_code" class="text-right">
-                <span t-field="line.product_id.hs_code" />
+                <span t-field="line.xx_hs_code" />
             </td>
         </td>
         <xpath expr="//div[@id='total']//t[@t-set='tax_totals']" position="after">
