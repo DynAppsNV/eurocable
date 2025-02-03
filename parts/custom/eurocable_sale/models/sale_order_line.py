@@ -9,6 +9,7 @@ class SaleOrderLine(models.Model):
     certificate_notes = fields.Text()
     sequence = fields.Integer(inverse="_inverse_sequence")
     xx_number = fields.Integer(string="Number")
+    xx_hs_code = fields.Char(related="product_id.hs_code")
 
     def _inverse_sequence(self):
         self.xx_number = 0

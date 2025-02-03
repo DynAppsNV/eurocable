@@ -35,6 +35,13 @@ class SaleOrder(models.Model):
         "of transfer.",
     )
 
+    xx_same_client_order_ref_id = fields.Many2one(
+        comodel_name="sale.order",
+        string="Same Customer Reference",
+        compute="_compute_xx_same_client_order_ref_id",
+        compute_sudo=True,
+    )
+
     @api.depends("order_line")
     def _compute_total_weight(self):
         for order in self:
@@ -54,6 +61,18 @@ class SaleOrder(models.Model):
         for order in self.order_line:
             total_discount += (order.price_unit * order.product_uom_qty) * (order.discount / 100)
         self.total_discount = round(total_discount, 2)
+
+    @api.depends("client_order_ref", "company_id")
+    def _compute_xx_same_client_order_ref_id(self):
+        for order in self:
+            client_order_ref = order.client_order_ref
+            domain = [
+                ("client_order_ref", "=", client_order_ref),
+                ("id", "!=", order._origin.id),  # use _origin to deal with onchange()
+            ]
+            if company_id := order.company_id.id:
+                domain += [("company_id", "in", (False, company_id))]
+            order.xx_same_client_order_ref_id = client_order_ref and self.search(domain, limit=1)
 
     def action_confirm(self):
         show_warning = self._context.get("show_warning", False)
