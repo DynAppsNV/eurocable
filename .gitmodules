@@ -1,4 +1,0 @@
-[submodule "submodules/oca/l10n-belgium"]
-	path = submodules/oca/l10n-belgium
-	url = git@gitlab.dynapps.be:oca/l10n-belgium.git
-	branch = 17.0-20240331

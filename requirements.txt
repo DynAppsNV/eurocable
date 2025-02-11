@@ -1,9 +1,0 @@
-# Do NOT update manually; changes here will be overwritten by Copier
-phonenumbers==8.13.23
-python-magic==0.4.27
-odoo_upgrade @ git+https://github.com/odoo/upgrade-util@master
-
-# Add project dependencies here
-Avalara
-stripe
-astor==0.8.1
