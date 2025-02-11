@@ -40,8 +40,8 @@
                                 ^FO130,600^A0,^FH_^FD<t
                             t-raw="move_line.move_id.sale_line_id.get_description_sale_zpl()"
                         />^FS
-                                ^BCN,80,Y,N,N
-                                ^FO420,1450^FD<t
+                                ^BY3^BCN,100,Y,N,N
+                                ^FO380,1450^FD<t
                             t-out="move_line.move_id.sale_line_id.order_id.name + str(move_line.move_id.sale_line_id.xx_number)"
                         />^FS
                             </t>
