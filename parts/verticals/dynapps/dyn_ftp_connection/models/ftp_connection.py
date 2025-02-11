@@ -140,9 +140,10 @@ class FtpConnection(models.Model):
         ftp_connection.close()
         # FTP Client uses transport, this needs to be closed
         # because otherwise the thread never stops
-        transport = ftp_connection.sock.transport
-        if transport:
-            transport.close()
+        if ftp_connection.sock:
+            transport = ftp_connection.sock.transport
+            if transport:
+                transport.close()
 
     def _test_connection_hook(self, ftp_connection):
         pass
