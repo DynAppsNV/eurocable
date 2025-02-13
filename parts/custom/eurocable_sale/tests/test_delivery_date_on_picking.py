@@ -1,6 +1,6 @@
 from datetime import timedelta
 
-from odoo import fields
+from odoo import Command, fields
 from odoo.tests import tagged
 
 from odoo.addons.sale.tests.common import TestSaleCommon
@@ -22,16 +22,14 @@ class TestDeliveryDateOnPicking(TestSaleCommon, ValuationReconciliationTestCommo
                 "partner_invoice_id": self.partner_a.id,
                 "partner_shipping_id": self.partner_a.id,
                 "order_line": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "name": p.name,
                             "product_id": p.id,
                             "product_uom_qty": 2,
                             "product_uom": p.uom_id.id,
                             "price_unit": p.list_price,
-                        },
+                        }
                     )
                     for p in (
                         self.company_data["product_order_no"],
