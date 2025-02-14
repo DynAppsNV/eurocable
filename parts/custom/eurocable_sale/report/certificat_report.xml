@@ -125,7 +125,7 @@
                                     Description of the material
                                 </td>
                                 <td style="border: 1px solid black;">
-                                    <t t-esc="order.name" />
+                                    <span t-field="order.name" />
                                 </td>
                             </tr>
                             <tr>
@@ -137,6 +137,7 @@
                                     Unity
                                 </td>
                                 <td style="border: 1px solid black;">
+                                    <t t-esc="order.product_uom_qty" />
                                     <t t-esc="order.product_uom.name" />
                                 </td>
                             </tr>
@@ -157,7 +158,7 @@
                                 src="eurocable_sale/static/img/sign.png"
                                 style="max-height: 4cm; max-width: 4cm;"
                             /><br />
-                        <t t-esc="order.order_id.user_id.name" /><br />
+                        <span>Paul Silles</span><br />
                         <p style="display: inline-block"><t t-esc="docs.company_id.city" />,
                             <t
                                     t-esc="order.order_id.date_order"
