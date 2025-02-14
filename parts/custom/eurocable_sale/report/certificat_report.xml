@@ -125,7 +125,7 @@
                                     Description of the material
                                 </td>
                                 <td style="border: 1px solid black;">
-                                    <t t-field="order.name" />
+                                    <span t-field="order.name" />
                                 </td>
                             </tr>
                             <tr>
