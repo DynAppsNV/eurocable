@@ -1,6 +1,7 @@
-from odoo.tests import TransactionCase
+from odoo.tests import TransactionCase, tagged
 
 
+@tagged("post_install", "-at_install")
 class TestDuplicateClientOrderRef(TransactionCase):
     @classmethod
     def setUpClass(cls):
