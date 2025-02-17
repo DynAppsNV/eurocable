@@ -37,3 +37,9 @@ class StockPicking(models.Model):
             "res_id": wizard.id,
         }
         return action
+
+    def button_validate(self):
+        res = super().button_validate()
+        for rec in self.filtered(lambda pick: pick.scheduled_date):
+            rec.write({"date_done": rec.scheduled_date})
+        return res
