@@ -1,7 +1,8 @@
 from odoo import Command
-from odoo.tests import TransactionCase
+from odoo.tests import TransactionCase, tagged
 
 
+@tagged("post_install", "-at_install")
 class TestLineNumbers(TransactionCase):
     @classmethod
     def setUpClass(cls):

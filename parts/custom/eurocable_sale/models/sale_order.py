@@ -88,7 +88,15 @@ class SaleOrder(models.Model):
                     "show_warning": True,
                 },
             }
-        return super().action_confirm()
+        res = super().action_confirm()
+        for rec in self.filtered(lambda so: so.commitment_date):
+            rec.picking_ids.write(
+                {
+                    "date_done": rec.commitment_date,
+                    "scheduled_date": rec.commitment_date,
+                }
+            )
+        return res
 
     def print_certificate(self):
         self.ensure_one()
