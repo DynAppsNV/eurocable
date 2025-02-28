@@ -22,7 +22,9 @@ class MrpProduction(models.Model):
             for line in sale_order.order_line:
                 line._compute_weight()
 
-    @api.depends("procurement_group_id.mrp_production_ids.move_dest_ids.group_id.sale_id")
+    @api.depends(
+        "procurement_group_id.mrp_production_ids.move_dest_ids.group_id.sale_id.partner_id"
+    )
     def _compute_customers(self):
         for rec in self:
             partners = rec.mapped(
