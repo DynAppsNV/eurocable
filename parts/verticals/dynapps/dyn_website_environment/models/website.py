@@ -9,9 +9,20 @@ class Website(models.Model):
     _inherit = ["website", "server.env.mixin"]
     _server_env_section_name_field = "code"
 
-    code = fields.Char()
-    domain = fields.Char(search="_search_website_domain")
-    name = fields.Char(search="_search_website_name")
+    code = fields.Char(
+        string="Dyncloud Code",
+        help="Technical code used as mapping to enforce and maintain certain website settings from within Dyncloud"
+    )
+    domain = fields.Char(
+        search="_search_website_domain",
+        help="This field is being managed by Dyncloud and cannot be overwritten"
+             " manually when the Dyncloud Code field is set"
+    )
+    name = fields.Char(
+        search="_search_website_name",
+        help="This field is being managed by Dyncloud and cannot be overwritten"
+             " manually when the Dyncloud Code field is set"
+    )
 
     @api.model
     def _search_website_domain(self, oper, value):
