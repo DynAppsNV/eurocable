@@ -6,7 +6,9 @@
 Dynapps Website configuration with server_environment
 =====================================================
 
-This module allows to configure website settings using the server_environment mechanism: you can then have different settings for the production and the test environment.
+This module allows to configure website settings using the server_environment mechanism:
+you can then have different settings for the production and the test environment.
+These settings will be forced and maintained from within Dyncloud when the Dyncloud code is filled in.
 
 Installation
 ============
@@ -41,8 +43,8 @@ In the configuration file of each environment, you may first use the
 section `[website]` to configure the default values for each website.
 
 Then for each website, you can define additional values or override the
-default values with a section named `[website.code]` where "code" is the code of
-the website.
+default values with a section named `[website.code]` where "code" is the Dyncloud
+code of the website.
 
 Example of config file ::
 
