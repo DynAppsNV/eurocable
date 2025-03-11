@@ -51,3 +51,13 @@ class TestDeliveryDateOnPicking(TestSaleCommon, ValuationReconciliationTestCommo
         picking = self.so.picking_ids[0]
         self.assertEqual(picking.date_done, self.so_commitment_datetime)
         self.assertEqual(picking.scheduled_date, self.so_commitment_datetime)
+
+    def test_02_delivery_date_on_picking_cancelled(self):
+        self.so.action_confirm()
+        self.so._action_cancel()
+        self.so.action_draft()
+        self.so.action_confirm()  # No error
+        self.assertEqual(len(self.so.picking_ids), 2)
+        picking = self.so.picking_ids.filtered(lambda pick: pick.state != "cancel")
+        self.assertEqual(picking.date_done, self.so_commitment_datetime)
+        self.assertEqual(picking.scheduled_date, self.so_commitment_datetime)

@@ -90,7 +90,7 @@ class SaleOrder(models.Model):
             }
         res = super().action_confirm()
         for rec in self.filtered(lambda so: so.commitment_date):
-            rec.picking_ids.write(
+            rec.picking_ids.filtered(lambda pick: pick.state not in ["done", "cancel"]).write(
                 {
                     "date_done": rec.commitment_date,
                     "scheduled_date": rec.commitment_date,
