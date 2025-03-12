@@ -9,12 +9,11 @@ def pre_init_hook(env):
                 "domain": "http://localhost:8069",
             }
         )
-        env.cr.execute(
-            "SELECT * FROM website where name = 'My Custom Website'"
-        )
+        env.cr.execute("SELECT * FROM website where name = 'My Custom Website'")
         website = env.cr.dictfetchone()
         assert website
         assert website["domain"] == "http://localhost:8069"
+
 
 def post_init_hook(env):
     # Migrate Outgoing Mail Server data
@@ -26,4 +25,3 @@ def post_init_hook(env):
         for field_name, _options in env["website"]._server_env_fields.items():
             if field_name in row:
                 website[field_name] = row[field_name]
-
