@@ -29,7 +29,7 @@
             />
             <div class="col-3" t-if="sale_orders">
                 <strong>Customer:</strong><br />
-                <span t-out="' / '.join(sale_orders.partner_id.mapped('name'))" /><br />
+                <span t-out="' / '.join(o.xx_customer_ids.mapped('name'))" /><br />
                 <span
                     t-out="' / '.join(sale_orders.filtered('client_order_ref').mapped('client_order_ref'))"
                 />
