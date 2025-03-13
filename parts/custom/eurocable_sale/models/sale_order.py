@@ -152,3 +152,15 @@ class SaleOrder(models.Model):
             "target": "new",
             "context": ctx,
         }
+
+    def _get_purchase_orders(self):
+        procurement_groups = self.env["procurement.group"].search(
+            [("sale_id", "=", self.id), ("id", "!=", self.procurement_group_id.id)]
+        )
+        return (
+            super()._get_purchase_orders()
+            | self.procurement_group_id.stock_move_ids.created_purchase_line_ids.order_id
+            | self.procurement_group_id.stock_move_ids.move_orig_ids.purchase_line_id.order_id
+            | procurement_groups.stock_move_ids.created_purchase_line_ids.order_id
+            | procurement_groups.stock_move_ids.move_orig_ids.purchase_line_id.order_id
+        )
