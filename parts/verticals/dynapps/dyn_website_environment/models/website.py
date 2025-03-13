@@ -11,17 +11,18 @@ class Website(models.Model):
 
     code = fields.Char(
         string="Dyncloud Code",
-        help="Technical code used as mapping to enforce and maintain certain website settings from within Dyncloud"
+        help="Technical code used as mapping to enforce and maintain certain website "
+        "settings from within Dyncloud",
     )
     domain = fields.Char(
         search="_search_website_domain",
         help="This field is being managed by Dyncloud and cannot be overwritten"
-             " manually when the Dyncloud Code field is set"
+        " manually when the Dyncloud Code field is set",
     )
     name = fields.Char(
         search="_search_website_name",
         help="This field is being managed by Dyncloud and cannot be overwritten"
-             " manually when the Dyncloud Code field is set"
+        " manually when the Dyncloud Code field is set",
     )
 
     @api.model
