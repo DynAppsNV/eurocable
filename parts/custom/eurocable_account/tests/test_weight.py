@@ -1,6 +1,5 @@
 from odoo import Command
 from odoo.tests.common import TransactionCase, tagged
-from odoo.tools import float_compare
 
 
 @tagged("post_install", "-at_install")
@@ -10,7 +9,6 @@ class TestWeight(TransactionCase):
         self.product_purchase = self.env["product.product"].create(
             {
                 "name": "Purchase Test Product",
-                # "categ_id": self.env.ref("product.product_category_all").id,
                 "purchase_method": "purchase",
                 "weight": 10,
             }
@@ -18,7 +16,6 @@ class TestWeight(TransactionCase):
         self.product_sale = self.env["product.product"].create(
             {
                 "name": "Sale Test Product",
-                # "categ_id": self.env.ref("product.product_category_all").id,
                 "invoice_policy": "order",
                 "weight": 20,
             }
@@ -41,15 +38,10 @@ class TestWeight(TransactionCase):
         so.with_context(show_warning=True).action_confirm()
         so._create_invoices()
         self.assertTrue(so.invoice_ids)
-        self.assertEqual(
-            float_compare(
-                so.invoice_ids.line_ids.filtered(
-                    lambda li: li.product_id == self.product_sale
-                ).weight,
-                20,
-                precision_digits=3,
-            ),
-            0,
+        self.assertAlmostEqual(
+            so.invoice_ids.line_ids.filtered(lambda li: li.product_id == self.product_sale).weight,
+            20,
+            places=3,
         )
 
     def test_02_weight_on_lot(self):
@@ -69,13 +61,10 @@ class TestWeight(TransactionCase):
         po.button_confirm()
         po.action_create_invoice()
         self.assertTrue(po.invoice_ids)
-        self.assertEqual(
-            float_compare(
-                po.invoice_ids.line_ids.filtered(
-                    lambda li: li.product_id == self.product_purchase
-                ).weight,
-                10,
-                precision_digits=3,
-            ),
-            0,
+        self.assertAlmostEqual(
+            po.invoice_ids.line_ids.filtered(
+                lambda li: li.product_id == self.product_purchase
+            ).weight,
+            10,
+            places=3,
         )
