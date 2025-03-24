@@ -9,6 +9,7 @@
         "security/ir.model.access.csv",
         "views/account_fiscal_position.xml",
         "views/account_move_line_view.xml",
+        "views/purchase_order_views.xml",
         "views/report_invoice.xml",
     ],
     "installable": True,
