@@ -6,11 +6,11 @@ class AccountMoveLine(models.Model):
 
     weight = fields.Float(compute="_compute_weight", store=True, readonly=False)
 
-    @api.depends("sale_line_ids.weight", "purchase_line_id.product_id.weight")
+    @api.depends("sale_line_ids.weight", "purchase_line_id.xx_weight")
     def _compute_weight(self):
         for move in self:
             move.weight = 0
             if move.sale_line_ids:
                 move.weight = move.sale_line_ids.weight
             elif move.purchase_line_id and move.purchase_line_id.product_id:
-                move.weight = move.purchase_line_id.product_id.weight
+                move.weight = move.purchase_line_id.xx_weight
