@@ -22,7 +22,7 @@ class IntrastatReportCustomHandler(models.AbstractModel):
             options, column_group_key, expanded_line_options, offset, limit, order_by, query_params
         )
         # change query
-        for block in filter(lambda b: isinstance(b, SQL), query["select"].seq):
+        for block in filter(lambda b: isinstance(b, SQL), query.seq):
             block._wrapped = re.sub(
                 r"(?<=COALESCE\()(prod\.weight)",
                 "account_move_line.weight::numeric",
