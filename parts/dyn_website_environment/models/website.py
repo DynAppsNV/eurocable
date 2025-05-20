@@ -10,19 +10,19 @@ class Website(models.Model):
     _server_env_section_name_field = "code"
 
     code = fields.Char(
-        string="Dyncloud Code",
-        help="Technical code used as mapping to enforce and maintain certain website "
-        "settings from within Dyncloud",
+        string="Environment settings identifier",
+        help="Technical identifier used as mapping to enforce and maintain "
+        "certain website settings from the server environment config",
     )
     domain = fields.Char(
         search="_search_website_domain",
-        help="This field is being managed by Dyncloud and cannot be overwritten"
-        " manually when the Dyncloud Code field is set",
+        help="This field is being managed by server environment config and cannot be overwritten"
+        " manually when the environment settings identifier field is set",
     )
     name = fields.Char(
         search="_search_website_name",
-        help="This field is being managed by Dyncloud and cannot be overwritten"
-        " manually when the Dyncloud Code field is set",
+        help="This field is being managed by server environment settings and cannot be overwritten"
+        " manually when the environment settings identifier field is set",
     )
 
     @api.model
