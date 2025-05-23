@@ -10,3 +10,8 @@ class StockMove(models.Model):
     def _compute_weight(self):
         for rec in self:
             rec.xx_weight = rec.product_id.weight * rec.product_uom_qty
+
+    def _prepare_procurement_values(self):
+        res = super()._prepare_procurement_values()
+        res["sale_line_id"] = self.sale_line_id.id
+        return res

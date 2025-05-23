@@ -31,4 +31,5 @@ class StockRule(models.Model):
         mo_values["xx_product_description_variants"] = values.get(
             "product_description_variants"
         ).strip()
+        mo_values["xx_sale_line_id"] = values.get("sale_line_id")
         return mo_values
