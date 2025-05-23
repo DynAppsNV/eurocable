@@ -12,19 +12,17 @@ class SaleOrderLine(models.Model):
         "product_id.bom_ids",
         "order_id.mrp_production_ids",
         "order_id.mrp_production_ids.product_id",
+        "order_id.mrp_production_ids.xx_sale_line_id",
     )
     def _compute_weight(self):
         for rec in self:
             weight = 0
             if rec.product_id:
-                if rec.product_id.bom_ids:
-                    # Loop instead of .filtered() to get rid of pre-commit error
-                    # B023 Function definition does not bind loop variable `rec`
-                    production = self.env["mrp.production"]
-                    for mo in rec.order_id.mrp_production_ids:
-                        if mo.product_id == rec.product_id:
-                            production |= mo
-                    weight = production.xx_weight if len(production) == 1 else rec.product_id.weight
+                production = rec.order_id.mrp_production_ids.filtered(
+                    lambda x: x.xx_sale_line_id.id == rec.id  # noqa: B023
+                )
+                if production:
+                    weight = production.xx_weight
                 else:
                     weight = rec.product_id.weight
             rec.weight = weight
