@@ -9,6 +9,7 @@ class MrpProduction(models.Model):
     xx_customer_ids = fields.Many2many(
         comodel_name="res.partner", compute="_compute_customers", store=True
     )
+    xx_sale_line_id = fields.Many2one(string="Sale Line", comodel_name="sale.order.line")
 
     @api.depends("move_raw_ids.xx_weight", "origin")
     def _compute_total_weight(self):
