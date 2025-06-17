@@ -1,5 +1,21 @@
 from odoo import api, fields, models
 
+class SaleOrder(models.Model):
+    _inherit = 'sale.order'
+
+    xx_debug_weight = fields.Float(compute="_compute_debug_weight", store=True, tracking=True)
+
+    @api.depends("order_line.weight")
+    def _compute_debug_weight(self):
+        for order in self:
+            order.xx_debug_weight = 0
+            if order.order_line:
+                order.write({"xx_debug_weight": order.order_line[0].weight})
+
+    def write(self, values):
+        if "xx_debug_weight" in values:
+            self.message_post(body=f"Debug: Weight changed - {values['xx_debug_weight']}")
+        super().write(values)
 
 class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
