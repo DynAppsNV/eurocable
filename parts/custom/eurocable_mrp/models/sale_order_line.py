@@ -13,8 +13,9 @@ class SaleOrder(models.Model):
                 order.write({"xx_debug_weight": order.order_line[0].weight})
 
     def write(self, values):
-        if "xx_debug_weight" in values:
-            self.message_post(body=f"Debug: Weight changed - {values['xx_debug_weight']}")
+        for order in self:
+            if "xx_debug_weight" in values and order.xx_debug_weight:
+                order.message_post(body=f"Debug: Weight changed - {values['xx_debug_weight']}")
         super().write(values)
 
 class SaleOrderLine(models.Model):
