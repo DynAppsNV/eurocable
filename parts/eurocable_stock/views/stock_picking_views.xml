@@ -35,6 +35,9 @@
                 <attribute name="invisible">1</attribute>
             </button>
 
+            <field name="backorder_id" position="after">
+                <field name="xx_one_time_delivery_address" groups="base.group_no_one" />
+            </field>
         </field>
     </record>
 

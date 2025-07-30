@@ -17,5 +17,6 @@
         "views/stock_picking_label_layout_views.xml",
         "report/stock_report_views.xml",
         "report/all_report.xml",
+        "views/sale_order_views.xml",
     ],
 }
