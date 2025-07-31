@@ -5,6 +5,7 @@ class StockPicking(models.Model):
     _inherit = "stock.picking"
 
     weight_move = fields.Float(compute="_compute_total_weight", default=0.0)
+    xx_one_time_delivery_address = fields.Text(string="One Time Delivery Address")
 
     @api.depends("move_ids_without_package")
     def _compute_total_weight(self):

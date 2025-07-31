@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="view_order_form">
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_shipping_id']" position="after">
+                <field name="xx_use_one_time_delivery_address" />
+                <field
+                    name="xx_one_time_delivery_address"
+                    invisible="not xx_use_one_time_delivery_address"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
