@@ -12,6 +12,18 @@
             <attribute name="t-options">
                 {"widget": "contact", "fields": ["address"], "no_marker": True}
             </attribute>
+            <attribute name="t-if">not o.xx_one_time_delivery_address</attribute>
+        </xpath>
+        <xpath
+            expr="//div[@name='div_outgoing_address']/div[@name='outgoing_delivery_address']/div"
+            position="after"
+        >
+            <div
+                t-else=""
+                t-esc="o.xx_one_time_delivery_address"
+                style="white-space:pre;"
+                class="lh-sm"
+            />
         </xpath>
         <xpath
             expr="//div[@name='div_outgoing_address']/div[@name='outgoing_delivery_address']/div"

@@ -29,3 +29,10 @@ class StockMove(models.Model):
             if move.sale_line_id:
                 move.description_picking = move.sale_line_id.name
         return moves
+
+    def _get_new_picking_values(self):
+        res = super()._get_new_picking_values()
+        orders = self.mapped("sale_line_id.order_id")
+        if len(orders) == 1 and orders.xx_use_one_time_delivery_address:
+            res.update({"xx_one_time_delivery_address": orders.xx_one_time_delivery_address})
+        return res
