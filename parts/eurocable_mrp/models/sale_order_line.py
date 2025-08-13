@@ -21,6 +21,8 @@ class SaleOrderLine(models.Model):
                 production = rec.order_id.mrp_production_ids.filtered(
                     lambda x: x.xx_sale_line_id.id == rec.id  # noqa: B023
                 )
+                if len(production) > 1:
+                    production = production.sorted("create_date", reverse=True)[0]
                 if production:
                     weight = production.xx_weight
                 else:
