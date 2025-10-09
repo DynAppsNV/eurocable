@@ -6,10 +6,10 @@ from odoo.http import Response
 
 
 class DynappsAnalyticController(http.Controller):
-    @http.route("/.dynapps/analytics", auth="user")
+    @http.route("/.dynapps/analytics", type="http", auth="user", csrf=False)
     def main(self, **kwargs):
-        if not self.env.user.has_group("base.group_system"):
+        if not http.request.env.user.has_group("base.group_system"):
             raise AccessError(_("Access denied"))
-        env = http.request.env(user=SUPERUSER_ID).with_context(lang="en_US")
-        data = env["xx.dynapps.analytics"].prepare_analytic_data()
+        env = http.request.env(user=SUPERUSER_ID)
+        data = env["xx.dynapps.analytics"].with_context(lang="en_US").prepare_analytic_data()
         return Response(json.dumps(data), headers={"Content-Type": "application/json"})
