@@ -16,10 +16,6 @@
         <t t-call="web.html_container">
             <t t-call="web.external_layout">
                 <t t-foreach="docs" t-as="order">
-                    <t
-                        t-set="order"
-                        t-value="order.with_context(lang=order.order_id.partner_id.lang)"
-                    />
                     <div class="page">
                         <div class="aoe_structure" />
                         <table width="100%" style="font-size: 14px;margin-bottom:10px;">
