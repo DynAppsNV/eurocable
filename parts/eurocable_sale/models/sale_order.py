@@ -103,13 +103,16 @@ class SaleOrder(models.Model):
         report = self.env["ir.actions.report"]
         attachments = []
         attachment_obj = self.env["ir.attachment"]
+        partner_lang = self.partner_id.lang
 
         certif_template = self.env.ref("eurocable_sale.report_certification")
 
         for line in self.order_line:
             if line.product_id and not line.has_certificate:
                 # Create certificates for each order line and make has_certificate True
-                pdf_file, dummy = report._render_qweb_pdf(certif_template, line.ids)
+                pdf_file, dummy = report.with_context(lang=partner_lang)._render_qweb_pdf(
+                    certif_template, line.ids
+                )
                 attachment = attachment_obj.create(
                     {
                         "name": "Certificate_" + line.product_id.name,

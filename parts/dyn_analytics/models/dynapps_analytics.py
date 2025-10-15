@@ -1,9 +1,14 @@
 import json
+import logging
+from ast import literal_eval
+from urllib.parse import urljoin
 
 import requests
 
 from odoo import fields, models, service
+from odoo.tools import date_utils, str2bool
 
+_logger = logging.getLogger(__name__)
 DATA_SCHEMA_VERSION = "1.0"
 
 
@@ -16,18 +21,22 @@ class DynappsAnalytics(models.TransientModel):
 
     def _compute_json_data(self):
         for rec in self:
-            rec.formatted_json_data = json.dumps(self.prepare_analytic_data(), indent=4)
+            rec.formatted_json_data = json.dumps(
+                self.prepare_analytic_data(), indent=4, default=date_utils.json_default
+            )
 
     def _cron_publish_analytics(self):
         endpoint = self.env["ir.config_parameter"].get_param("dynapps_analytic_endpoint")
-        data = self.prepare_analytic_data()
-        requests.post(endpoint, json=data, timeout=60)
+        if endpoint and str2bool(endpoint, default=True):
+            data = self.prepare_analytic_data()
+            requests.post(endpoint, json=data, timeout=60)
 
     def prepare_analytic_data(self):
         self_lang = self.with_context(lang="en_US")
         get_param = self_lang.env["ir.config_parameter"].get_param
         all_modules = self_lang.env["ir.module.module"].search([])
         version_info = service.common.exp_version()
+        endpoint = self.env["ir.config_parameter"].sudo().get_param("dynapps_analytic_endpoint")
         data = {
             "data_schema_version": DATA_SCHEMA_VERSION,
             "create_timestamp": fields.Datetime.now().isoformat(),
@@ -54,6 +63,50 @@ class DynappsAnalytics(models.TransientModel):
                 "category": module.category_id.name,
             }
             data["modules"][module.name] = module_data
+        if literal_eval(
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("dynapps_analytic_fetch_details", "False")
+        ):
+            try:
+                data_to_fetch = requests.post(
+                    urljoin(endpoint + "/", "get_data_to_fetch"),
+                    headers={"Content-Type": "application/json", "Accept": "application/json"},
+                    json={
+                        "database_uuid": get_param("database.uuid", None),
+                        "odoo_version": version_info.get("server_serie"),
+                    },
+                    timeout=60,
+                )
+                data_to_fetch.raise_for_status()
+                if data_to_fetch.json()["result"]:
+                    data["detailed_statistics"] = {}
+                    for module, analytic_data in data_to_fetch.json()["result"].items():
+                        if (
+                            module in data["modules"]
+                            and data["modules"][module]["state"] == "installed"
+                        ):
+                            for rec in analytic_data:
+                                try:
+                                    with self.env.cr.savepoint():
+                                        self.env.cr.execute(rec["query"])
+                                        data["detailed_statistics"].update(
+                                            {
+                                                rec["report_as"]: json.loads(
+                                                    json.dumps(
+                                                        self.env.cr.dictfetchall(),
+                                                        default=date_utils.json_default,
+                                                    )
+                                                )
+                                            }
+                                        )
+                                except Exception as e:
+                                    data["detailed_statistics"][rec["report_as"]] = str(e)
+            except Exception as e:
+                _logger.exception(e)
+            self.env["ir.config_parameter"].sudo().set_param(
+                "dynapps_analytic_fetch_details", "False"
+            )
         return data
 
     def action_open_view(self):
