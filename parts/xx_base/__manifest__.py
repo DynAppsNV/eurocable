@@ -15,6 +15,7 @@
         "dyn_analytics",
         "dyn_block_uninstall",
         "dyn_healthcheck",
+        "kg_hide_menu",
         "mail",
         "mrp",
         "purchase",
