@@ -58,5 +58,12 @@ class TestReportMrpOrderDescription(TransactionCase):
         so = form.save()
         so.action_confirm()
         self.assertEqual(so.mrp_production_count, 1)
+        self.assertEqual(
+            len(
+                so.xx_procurement_group_ids.stock_move_ids.created_production_id.procurement_group_id.mrp_production_ids
+            ),
+            1,
+        )
+        self.assertEqual(len(so.xx_procurement_group_ids.mrp_production_ids), 0)
         mo = self.env["mrp.production"].browse(so.action_view_mrp_production()["res_id"])
         self.assertTrue(mo.xx_product_description_variants.endswith(self.custom_text))
