@@ -7,3 +7,4 @@ odoo_upgrade @ git+https://github.com/odoo/upgrade-util@master
 Avalara
 stripe
 astor==0.8.1
+setuptools==80.10.2
