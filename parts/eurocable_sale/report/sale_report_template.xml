@@ -129,12 +129,4 @@
             </p>
         </xpath>
     </template>
-    <template
-        id="report_order_inherit_incoterm_replace"
-        inherit_id="sale_stock.report_saleorder_document_inherit_sale_stock"
-    >
-        <div t-if="doc.incoterm" position="attributes">
-            <attribute name="t-if">False</attribute>
-        </div>
-    </template>
 </odoo>
