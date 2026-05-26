@@ -127,6 +127,10 @@
                     <span t-out="o.weight_uom_name" />
                 </p>
             </div>
+            <div t-if="o.sale_id.user_id" class="col-auto" name="div_salesperson">
+                <strong>Salesperson:</strong>
+                <p t-field="o.sale_id.user_id" />
+            </div>
         </div>
         <div name="div_state" position="attributes">
             <attribute name="t-if">False</attribute>
