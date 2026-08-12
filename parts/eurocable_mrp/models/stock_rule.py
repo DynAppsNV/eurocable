@@ -32,5 +32,4 @@ class StockRule(models.Model):
             "product_description_variants"
         ).strip()
         mo_values["xx_sale_line_id"] = values.get("sale_line_id")
-        mo_values["user_id"] = self.env.user.id
         return mo_values

@@ -34,3 +34,9 @@ class MrpProduction(models.Model):
             rec.xx_customer_ids = partners.browse(
                 [p.id if p.name else p.parent_id.id for p in partners]
             )
+
+    def action_confirm(self):
+        res = super().action_confirm()
+        for record in self:
+            record.user_id = self.env.user.id
+        return res
