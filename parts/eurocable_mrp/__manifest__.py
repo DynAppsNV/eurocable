@@ -1,6 +1,6 @@
 {
     "name": "Eurocable MRP",
-    "version": "17.0.0.2.0",
+    "version": "17.0.0.2.1",
     "author": "dynapps",
     "category": "Mrp",
     "license": "LGPL-3",
