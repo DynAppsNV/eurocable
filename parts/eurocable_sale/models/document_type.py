@@ -7,3 +7,7 @@ class DocumentType(models.Model):
 
     name = fields.Char(required=True)
     text = fields.Html(translate=True)
+    company_id = fields.Many2one(
+        "res.company",
+        help="Leave empty to share this certification with all companies.",
+    )

@@ -4,12 +4,14 @@ from ast import literal_eval
 from urllib.parse import urljoin
 
 import requests
+import sqlparse
 
 from odoo import fields, models, service
-from odoo.tools import date_utils, str2bool
+from odoo.tools import cloc, date_utils, str2bool
 
 _logger = logging.getLogger(__name__)
-DATA_SCHEMA_VERSION = "1.0"
+DATA_SCHEMA_VERSION = "4.0"
+ALLOWED_QUERY_TYPES = ["SELECT"]
 
 
 class DynappsAnalytics(models.TransientModel):
@@ -51,7 +53,16 @@ class DynappsAnalytics(models.TransientModel):
             "web_base_url": get_param("web.base.url", None),
             "modules": {},
         }
+
+        # Count lines of code like standard Odoo _get_verbose_maintenance().
+        c = cloc.Cloc()
+        c.count_env(self.env)
+
         for module in all_modules:
+            cloc_files = c.modules.get(module.name, {})
+            cloc_code = sum(count[0] for count in cloc_files.values())  # Code lines
+            cloc_total = sum(count[1] for count in cloc_files.values())  # All lines
+
             module_data = {
                 "state": module.state,
                 "author": module.author if module.author is not False else None,
@@ -61,6 +72,8 @@ class DynappsAnalytics(models.TransientModel):
                 "shortdesc": module.shortdesc if module.shortdesc is not False else None,
                 "website": module.website if module.website is not False else None,
                 "category": module.category_id.name,
+                "cloc_code": cloc_code,
+                "cloc_total": cloc_total,
             }
             data["modules"][module.name] = module_data
         if literal_eval(
@@ -87,6 +100,18 @@ class DynappsAnalytics(models.TransientModel):
                             and data["modules"][module]["state"] == "installed"
                         ):
                             for rec in analytic_data:
+                                parsed_query = sqlparse.parse(rec["query"])
+
+                                # Ensure the query is not a destructive statement
+                                if (
+                                    parsed_query
+                                    and parsed_query[0].get_type() not in ALLOWED_QUERY_TYPES
+                                ):
+                                    data["detailed_statistics"][
+                                        rec["report_as"]
+                                    ] = "Skipped because of bad query type"
+                                    continue
+
                                 try:
                                     with self.env.cr.savepoint():
                                         self.env.cr.execute(rec["query"])
