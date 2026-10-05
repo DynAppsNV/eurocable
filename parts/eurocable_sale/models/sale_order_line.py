@@ -1,15 +1,21 @@
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
 
-    document_type = fields.Many2one(related="product_id.document_type_id")
+    document_type = fields.Many2one("document.type", compute="_compute_document_type")
     has_certificate = fields.Boolean(default=False)
     certificate_notes = fields.Text()
     sequence = fields.Integer(inverse="_inverse_sequence")
     xx_number = fields.Integer(string="Number")
     xx_hs_code = fields.Char(related="product_id.hs_code")
+
+    @api.depends("product_id", "company_id")
+    def _compute_document_type(self):
+        # The document type depends on the company, so follow the order's company
+        for line in self:
+            line.document_type = line.product_id.with_company(line.company_id).document_type_id
 
     def _inverse_sequence(self):
         self.xx_number = 0

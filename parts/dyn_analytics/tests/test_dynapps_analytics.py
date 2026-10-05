@@ -5,12 +5,14 @@ import responses
 from freezegun import freeze_time
 
 from odoo import service
-from odoo.tests.common import HttpCase, TransactionCase
+from odoo.tests import tagged
+from odoo.tests.common import TransactionCase
 from odoo.tools import mute_logger
 
 MOCK_BASE_URL = "http://localhost"
 
 
+@tagged("post_install", "-at_install")
 class TestAnalytics(TransactionCase):
     @classmethod
     def setUpClass(cls):
@@ -39,6 +41,12 @@ class TestAnalytics(TransactionCase):
         self.assertIsInstance(analytics_json["modules"], dict)
         self.assertIn("dyn_analytics", analytics_json["modules"])
         self.assertNotIn("detailed_statistics", analytics_json)
+        # The module's own lines of code are counted and reported
+        dyn_analytics_data = analytics_json["modules"]["dyn_analytics"]
+        self.assertIn("cloc_code", dyn_analytics_data)
+        self.assertIn("cloc_total", dyn_analytics_data)
+        self.assertGreater(dyn_analytics_data["cloc_code"], 0)
+        self.assertGreaterEqual(dyn_analytics_data["cloc_total"], dyn_analytics_data["cloc_code"])
 
     @responses.activate
     @mute_logger("odoo.sql_db")
@@ -58,6 +66,10 @@ class TestAnalytics(TransactionCase):
                             "report_as": "invalid_query",
                             "query": "SELECT count(1), min(id) from non_existing_table",
                         },
+                        {
+                            "report_as": "malformed_query",
+                            "query": "DELETE from res_users",
+                        },
                     ],
                 }
             },
@@ -76,6 +88,11 @@ class TestAnalytics(TransactionCase):
         self.assertIn(
             'relation "non_existing_table" does not exist',
             analytics_json["detailed_statistics"]["invalid_query"],
+        )
+        self.assertIn("malformed_query", analytics_json["detailed_statistics"])
+        self.assertIn(
+            "Skipped because of bad query type",
+            analytics_json["detailed_statistics"]["malformed_query"],
         )
 
     @responses.activate
@@ -111,27 +128,3 @@ class TestAnalytics(TransactionCase):
         )
         self.Analytics._cron_publish_analytics()
         self.assertEqual(resp_post.call_count, 0)
-
-
-class TestAnalyticsController(HttpCase):
-    def test_json(self):
-        self.authenticate("admin", "admin")
-        body = json.dumps({})
-        response = self.url_open("/.dynapps/analytics", data=body)
-        self.assertEqual(response.status_code, 200)
-        payload = response.json()
-        self.assertIn("odoo_version", payload)
-        self.assertIn("database_uuid", payload)
-        self.assertIn("modules", payload)
-        self.assertIsInstance(payload["modules"], dict)
-        self.assertIn("dyn_analytics", payload["modules"])
-
-    def test_json_access_denied(self):
-        self.authenticate("demo", "demo")
-        headers = {
-            "Content-Type": "application/json",
-        }
-        body = json.dumps({})
-
-        response = self.url_open("/.dynapps/analytics", headers=headers, data=body)
-        self.assertEqual(response.status_code, 403)

@@ -7,6 +7,11 @@ Eurocable Sale
 ==============
 
 - This module contains the historical data for this project
+- Certificates work per company: certifications can be limited to a company,
+  the document type on a product is set per company, and the certificate logo,
+  stamp and signatory are configured on the company (Certificates tab).
+  Without direct printing, Print Certificate downloads one PDF with all
+  certificates of the order.
 
 # Credits
 

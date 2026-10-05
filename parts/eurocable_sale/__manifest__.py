@@ -1,12 +1,13 @@
 {
     "name": "Eurocable Sale",
-    "version": "17.0.0.1.7",
+    "version": "17.0.0.1.8",
     "author": "dynapps",
     "category": "Sale",
     "license": "LGPL-3",
     "depends": ["xx_base", "eurocable_mrp"],
     "data": [
         "security/ir.model.access.csv",
+        "security/document_type_security.xml",
         "wizard/add_fixed_sale_phrase.xml",
         "wizard/sales_wizard_views.xml",
         "wizard/sale_make_invoice_advance_views.xml",
@@ -15,6 +16,7 @@
         "views/partner_views.xml",
         "views/product_template_view.xml",
         "views/document_type.xml",
+        "views/res_company_views.xml",
         "views/menus.xml",
         "data/template_certificate.xml",
         "report/certificat_report.xml",

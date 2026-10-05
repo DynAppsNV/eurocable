@@ -9,7 +9,10 @@
                 expr="//page[@name='general_information']/group/group/field[@name='company_id']"
                 position="after"
             >
-                <field name="document_type_id" />
+                <field
+                    name="document_type_id"
+                    domain="[('company_id', 'in', [False, current_company_id])]"
+                />
            </xpath>
         </field>
     </record>
