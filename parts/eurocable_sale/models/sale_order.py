@@ -16,7 +16,9 @@ class SaleOrder(models.Model):
         readonly=False,
     )
     attachment_certification_ids = fields.Many2many(
-        comodel_name="ir.attachment", domain="[('is_certificate', '=', True)]"
+        comodel_name="ir.attachment",
+        domain="[('is_certificate', '=', True)]",
+        copy=False,
     )
     weight_total = fields.Float(default=0.0, compute="_compute_total_weight", store=True)
 

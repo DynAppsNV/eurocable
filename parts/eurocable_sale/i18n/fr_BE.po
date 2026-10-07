@@ -1041,3 +1041,9 @@ msgstr "Cachet ou signature imprimé en bas du certificat. Laissez vide pour uti
 #: model:ir.model.fields,help:eurocable_sale.field_res_company__xx_certificate_signatory
 msgid "Name printed under the stamp on the certificate. Leave empty to use the default Eurocable signatory."
 msgstr "Nom imprimé sous le cachet du certificat. Laissez vide pour utiliser le signataire Eurocable par défaut."
+
+#. module: eurocable_sale
+#: code:addons/eurocable_sale/controllers/main.py:0
+#, python-format
+msgid "There are no certificates for this order."
+msgstr "Il n'y a aucun certificat pour cette commande."

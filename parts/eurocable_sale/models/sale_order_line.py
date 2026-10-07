@@ -5,7 +5,7 @@ class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
 
     document_type = fields.Many2one("document.type", compute="_compute_document_type")
-    has_certificate = fields.Boolean(default=False)
+    has_certificate = fields.Boolean(default=False, copy=False)
     certificate_notes = fields.Text()
     sequence = fields.Integer(inverse="_inverse_sequence")
     xx_number = fields.Integer(string="Number")

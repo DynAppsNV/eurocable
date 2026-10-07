@@ -1120,3 +1120,9 @@ msgstr "Stempel of handtekening onderaan het certificaat. Laat leeg om de standa
 #: model:ir.model.fields,help:eurocable_sale.field_res_company__xx_certificate_signatory
 msgid "Name printed under the stamp on the certificate. Leave empty to use the default Eurocable signatory."
 msgstr "Naam onder de stempel op het certificaat. Laat leeg om de standaard Eurocable-ondertekenaar te gebruiken."
+
+#. module: eurocable_sale
+#: code:addons/eurocable_sale/controllers/main.py:0
+#, python-format
+msgid "There are no certificates for this order."
+msgstr "Er zijn geen certificaten voor dit order."
