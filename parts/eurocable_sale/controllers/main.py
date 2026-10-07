@@ -1,4 +1,4 @@
-from odoo import http
+from odoo import _, http
 from odoo.http import content_disposition, request
 
 
@@ -16,7 +16,11 @@ class CertificateController(http.Controller):
         order.check_access_rule("read")
         pdf = order._get_certificate_bundle_pdf()
         if not pdf:
-            raise request.not_found()
+            return request.make_response(
+                _("There are no certificates for this order."),
+                headers=[("Content-Type", "text/plain; charset=utf-8")],
+                status=404,
+            )
         return request.make_response(
             pdf,
             headers=[

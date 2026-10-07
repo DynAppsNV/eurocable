@@ -110,6 +110,17 @@ class TestCertificate(TransactionCase):
         self.assertIsNone(order_dpc.print_certificate())
         self.assertTrue(order_dpc.order_line.has_certificate)
 
+    def test_duplicate_order_gets_own_certificates(self):
+        """A copied order starts without certificates and creates its own."""
+        order = self._create_confirmed_order(self.company_cj)
+        order.print_certificate()
+        copy = order.copy()
+        self.assertFalse(copy.attachment_certification_ids)
+        self.assertFalse(copy.order_line.has_certificate)
+        copy.print_certificate()
+        self.assertTrue(copy.order_line.has_certificate)
+        self.assertEqual(copy._get_certificate_attachments().mapped("res_id"), [copy.id])
+
     def test_certificate_bundle_contains_earlier_certificates(self):
         """The bundle holds every certificate of the order, also those of earlier prints."""
         order = self._create_confirmed_order(self.company_cj)
