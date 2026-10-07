@@ -1,6 +1,7 @@
 import base64
 
 from odoo import _, api, fields, models
+from odoo.tools.pdf import merge_pdf
 
 
 class SaleOrder(models.Model):
@@ -15,7 +16,9 @@ class SaleOrder(models.Model):
         readonly=False,
     )
     attachment_certification_ids = fields.Many2many(
-        comodel_name="ir.attachment", domain="[('is_certificate', '=', True)]"
+        comodel_name="ir.attachment",
+        domain="[('is_certificate', '=', True)]",
+        copy=False,
     )
     weight_total = fields.Float(default=0.0, compute="_compute_total_weight", store=True)
 
@@ -100,7 +103,18 @@ class SaleOrder(models.Model):
 
     def print_certificate(self):
         self.ensure_one()
-        report = self.env["ir.actions.report"]
+        self._create_certificates()
+        if self._is_certificate_direct_print_enabled():
+            return None
+        return {
+            "type": "ir.actions.act_url",
+            "url": f"/eurocable_sale/certificates/{self.id}",
+            "target": "self",
+        }
+
+    def _create_certificates(self):
+        self.ensure_one()
+        report = self.env["ir.actions.report"].with_company(self.company_id)
         attachments = []
         attachment_obj = self.env["ir.attachment"]
         partner_lang = self.partner_id.lang
@@ -129,12 +143,35 @@ class SaleOrder(models.Model):
         if attachments:
             self.attachment_certification_ids = [(6, 0, attachments)]
 
+    def _is_certificate_direct_print_enabled(self):
+        self.ensure_one()
+        return self.company_id.printnode_enabled and self.env.user.printnode_enabled
+
+    def _get_certificate_attachments(self):
+        self.ensure_one()
+        # Search instead of using attachment_certification_ids, which only
+        # holds the certificates of the last print
+        return self.env["ir.attachment"].search(
+            [
+                ("res_model", "=", "sale.order"),
+                ("res_id", "=", self.id),
+                ("is_certificate", "=", True),
+            ],
+            order="id",
+        )
+
+    def _get_certificate_bundle_pdf(self):
+        self.ensure_one()
+        if not (attachments := self._get_certificate_attachments()):
+            return False
+        return merge_pdf([base64.b64decode(attachment.datas) for attachment in attachments])
+
     def send_certificate(self):
         self.ensure_one()
 
         template = self.env.ref("sale.email_template_edi_sale", False)
 
-        self.print_certificate()
+        self._create_certificates()
 
         compose_form = self.env.ref("mail.email_compose_message_wizard_form", False)
         ctx = dict(

@@ -8,3 +8,4 @@ Avalara
 stripe
 astor==0.8.1
 setuptools==80.10.2
+sqlparse==0.5.3

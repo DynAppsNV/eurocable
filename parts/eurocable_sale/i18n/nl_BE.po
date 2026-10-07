@@ -339,6 +339,7 @@ msgid "Certificate Notes"
 msgstr "Certificaatnotities"
 
 #. module: eurocable_sale
+#: model_terms:ir.ui.view,arch_db:eurocable_sale.view_company_form_inherit
 #: model_terms:ir.ui.view,arch_db:eurocable_sale.view_order_form_inherit
 msgid "Certificates"
 msgstr "Certificaten"
@@ -1079,3 +1080,49 @@ msgstr ""
 #: model:ir.model,name:eurocable_sale.model_sales_wizard
 msgid "sales wizard"
 msgstr ""
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_document_type__company_id
+msgid "Company"
+msgstr "Bedrijf"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,help:eurocable_sale.field_document_type__company_id
+msgid "Leave empty to share this certification with all companies."
+msgstr "Laat leeg om deze certificering met alle bedrijven te delen."
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_res_company__xx_certificate_logo
+msgid "Certificate Logo"
+msgstr "Logo certificaat"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_res_company__xx_certificate_stamp
+msgid "Certificate Stamp"
+msgstr "Stempel certificaat"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,field_description:eurocable_sale.field_res_company__xx_certificate_signatory
+msgid "Certificate Signatory"
+msgstr "Ondertekenaar certificaat"
+
+#. module: eurocable_sale
+#: model:ir.model.fields,help:eurocable_sale.field_res_company__xx_certificate_logo
+msgid "Logo printed on top of the certificate. Leave empty to use the default Eurocable logo."
+msgstr "Logo bovenaan het certificaat. Laat leeg om het standaard Eurocable-logo te gebruiken."
+
+#. module: eurocable_sale
+#: model:ir.model.fields,help:eurocable_sale.field_res_company__xx_certificate_stamp
+msgid "Stamp or signature printed at the bottom of the certificate. Leave empty to use the default Eurocable stamp."
+msgstr "Stempel of handtekening onderaan het certificaat. Laat leeg om de standaard Eurocable-stempel te gebruiken."
+
+#. module: eurocable_sale
+#: model:ir.model.fields,help:eurocable_sale.field_res_company__xx_certificate_signatory
+msgid "Name printed under the stamp on the certificate. Leave empty to use the default Eurocable signatory."
+msgstr "Naam onder de stempel op het certificaat. Laat leeg om de standaard Eurocable-ondertekenaar te gebruiken."
+
+#. module: eurocable_sale
+#: code:addons/eurocable_sale/controllers/main.py:0
+#, python-format
+msgid "There are no certificates for this order."
+msgstr "Er zijn geen certificaten voor dit order."

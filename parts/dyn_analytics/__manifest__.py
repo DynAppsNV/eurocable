@@ -1,6 +1,6 @@
 {
     "name": "Odoo Analytics | Dynapps",
-    "version": "17.0.1.0.1",
+    "version": "17.0.1.0.2",
     "author": "dynapps",
     "license": "AGPL-3",
     "website": "https://www.dynapps.eu",
@@ -12,7 +12,10 @@
         "security/ir.model.access.csv",
         "views/analytic.xml",
     ],
+    "external_dependencies": {
+        "python": ["sqlparse"],
+    },
     "installable": True,
-    "autoinstall": True,
+    "auto_install": True,
     "post_init_hook": "post_init_hook",
 }

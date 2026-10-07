@@ -6,6 +6,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name" />
+                <field name="company_id" optional="show" groups="base.group_multi_company" />
             </tree>
         </field>
     </record>
@@ -18,6 +19,11 @@
                 <sheet>
                     <group>
                         <field name="name" />
+                        <field
+                            name="company_id"
+                            groups="base.group_multi_company"
+                            options="{'no_create': True}"
+                        />
                         <field name="text" />
                     </group>
                 </sheet>

@@ -22,6 +22,13 @@
                             <tr>
                                 <td width="50%">
                                     <img
+                                        t-if="order.company_id.xx_certificate_logo"
+                                        t-att-src="image_data_uri(order.company_id.xx_certificate_logo)"
+                                        alt="Logo"
+                                        style="max-height: 2cm; max-width: 10cm;"
+                                    />
+                                    <img
+                                        t-else=""
                                         src="eurocable_sale/static/img/logo.png"
                                         alt="Logo"
                                         style="max-height: 2cm; max-width: 10cm;"
@@ -155,10 +162,20 @@
                         </table>
                         <span style="font-size: 9px">
                         <img
+                                t-if="order.company_id.xx_certificate_stamp"
+                                t-att-src="image_data_uri(order.company_id.xx_certificate_stamp)"
+                                style="max-height: 4cm; max-width: 4cm;"
+                            />
+                        <img
+                                t-else=""
                                 src="eurocable_sale/static/img/sign.png"
                                 style="max-height: 4cm; max-width: 4cm;"
                             /><br />
-                        <span>Paul Silles</span><br />
+                        <span
+                                t-if="order.company_id.xx_certificate_signatory"
+                                t-esc="order.company_id.xx_certificate_signatory"
+                            />
+                        <span t-else="">Paul Silles</span><br />
                         <p style="display: inline-block"><t t-esc="docs.company_id.city" />,
                             <t
                                     t-esc="order.order_id.date_order"
